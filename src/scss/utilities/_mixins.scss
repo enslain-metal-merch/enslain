@@ -1,0 +1,203 @@
+@use 'variables' as *;
+@use 'functions' as *;
+
+// spacing
+  @mixin margins($position, $amount, $last-of) {
+    margin-#{$position}: $amount;
+
+    &:last-#{$last-of} {
+      margin-#{$position}: 0;
+    }
+  }
+
+// containers
+  // break a 100vw child element out of its parent element.
+    @mixin prison-break {
+      margin: auto calc(50% - 50vw);
+    }
+    // this is for one with an 'extra space' parameter to account for any additional rems and pixels
+    // @mixin prison-break ($extra-space) {
+    //   margin: auto calc(50% - 50vw$extra-space);
+    // }
+
+// backgrounds
+  @mixin glass($red, $green, $blue, $opacity, $saturation, $blur) {
+    background: rgba($red, $green, $blue, $opacity);
+    backdrop-filter: saturate($saturation) blur(#{$blur})px;
+  }
+  
+// positioning
+  @mixin flex-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+// animations
+  // rotating carets and chevrons in nav dropdowns
+    // right -> down
+    @mixin right-down($animation-name, $duration, $timing-function) {
+      animation: $animation-name $duration $timing-function forwards;
+
+      @keyframes #{$animation-name} {
+        from {
+          transform: rotate(0deg);
+        }
+      
+        to {
+          transform: rotate(90deg);
+        }
+      }
+    }
+
+    // down -> right
+    @mixin down-right($animation-name, $duration, $timing-function) {
+      animation: $animation-name $duration $timing-function forwards;
+
+      @keyframes #{$animation-name} {
+        from {
+          transform: rotate(90deg);
+        }
+      
+        to {
+          transform: rotate(0deg);
+        }
+      }
+    }
+
+// shapes
+  // circles
+    @mixin full-circle {
+      border-radius: 100%;
+    }
+
+    // half circles
+
+      @mixin half-circle--top {
+        border-radius: 50%;
+        clip-path: polygon(0 0, 100% 0%, 100% 50%, 0 50%);
+      }
+
+      @mixin half-circle--bottom {
+        border-radius: 50%;
+        clip-path: polygon(0 50%, 100% 50%, 100% 100%, 0 100%);
+      }
+
+      @mixin half-circle--left {
+        border-radius: 50%;
+        clip-path: polygon(0 0, 50% 0, 50% 100%, 0 100%);
+      }
+
+      @mixin half-circle--right {
+        border-radius: 50%;
+        clip-path: polygon(50% 0, 100% 0, 100% 100%, 50% 100%);
+      }
+
+    // quarter circles
+
+      @mixin quarter-circle--top-left {
+        border-radius: 50%;
+        clip-path: polygon(0 0, 50% 0%, 50% 50%, 0 50%);
+      }
+
+      @mixin quarter-circle--top-right {
+        border-radius: 50%;
+        clip-path: polygon(0 0, 50% 0%, 50% 50%, 0 50%);
+      }
+
+      @mixin quarter-circle--bottom-left {
+        border-radius: 50%;
+        clip-path: polygon(0 0, 0 50%, 100% 50%, 50% 50%);
+      }
+
+      @mixin quarter-circle--bottom-right {
+        border-radius: 50%;
+        clip-path: polygon(50% 50%, 100% 50%, 100% 100%, 50% 100%);
+      }
+    
+
+
+
+// grid
+  @mixin fluid-grid($min, $max) {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax($min, $max));
+    grid-auto-flow: row dense;
+    align-items: start;
+  }
+
+  @mixin two-col {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @mixin three-col {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  @mixin four-col {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+// gradients
+  // transitions on gradients
+    // this just declares all of the positions, indexes and opacities. you still need to add the starting background color into the top ruleset and the gradient into the :before ruleset
+    @mixin gradient-transition-hover-opacity($transition){
+      position: relative;
+      z-index: 1;
+      
+      &::before {
+        position: absolute;
+        content: "";
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        z-index: -1;
+        opacity: 0;
+        transition: $transition;
+      }
+
+      &:hover,
+      &:focus {
+        &::before {
+          opacity: 1;
+        }
+      }
+    }
+      
+
+  // linear gradients for text
+    @mixin text-gradient ($colors) {
+      background: -webkit-linear-gradient($colors);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+// toggle icon bars
+  // bars
+    @mixin toggle-icon-bars($width, $height, $color, $margins, $border-radius) {
+      width: $width;
+      height: $height;
+      background-color: $color;
+      margin-bottom: $margins;
+      border-radius: $border-radius;
+
+      &:last-of-type {
+        margin-bottom: 0;
+      }
+    }
+
+// testing
+  @mixin test-border($px, $color) {
+    border: #{$px}px solid $color;
+  }
+
+// content dividing lines
+  @mixin dividing-line($thickness, $width) {
+    height: $thickness;
+    width: $width;
+  }
+    
+// project specific mixins 
+
+
