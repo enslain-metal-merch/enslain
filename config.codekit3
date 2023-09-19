@@ -657,18 +657,6 @@
       "pg" : 0,
       "sct" : 0
     },
-    "\/src\/scss\/style.css" : {
-      "aP" : 1,
-      "bl" : 0,
-      "ci" : 0,
-      "co" : 0,
-      "ft" : 16,
-      "ma" : 0,
-      "oA" : 0,
-      "oAP" : "\/src\/scss\/style-min.css",
-      "oF" : 0,
-      "pg" : 0
-    },
     "\/src\/scss\/style.scss" : {
       "aP" : 0,
       "bl" : 0,
@@ -678,8 +666,8 @@
       "ft" : 4,
       "ma" : 0,
       "oA" : 0,
-      "oAP" : "\/src\/scss\/style.css",
-      "oF" : 0,
+      "oAP" : "\/public\/assets\/style.css",
+      "oF" : 2,
       "oS" : 0,
       "pg" : 0,
       "sct" : 0

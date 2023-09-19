@@ -1,0 +1,50 @@
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+body {
+  font-size: 16px;
+}
+
+h1 {
+  font-size: 2em;
+}
+
+h2 {
+  font-size: 1.5em;
+}
+
+h3 {
+  font-size: 1.17em;
+}
+
+h5 {
+  font-size: 0.83em;
+}
+
+h6 {
+  font-size: 0.67em;
+}
+
+a {
+  color: inherit;
+}
+
+:root {
+  --font-family--primary: "Finlandica", sans-serif;
+  --font-family--secondary: "Voltaire", sans-serif;
+}
+
+p {
+  font-family: var(--font-family--primary);
+}
