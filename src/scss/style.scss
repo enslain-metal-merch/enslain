@@ -4,3 +4,7 @@
 @use 'flair';
 @use 'layouts';
 @use 'typography/typography';
+
+.wrapper {
+  @include wrapperDimensions(90%, 1300px);
+}

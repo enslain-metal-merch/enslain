@@ -67,3 +67,9 @@ h2 {
 h3 {
   font-family: var(--font-family--secondary);
 }
+
+.wrapper {
+  width: 90%;
+  max-width: 1300px;
+  margin: auto;
+}
