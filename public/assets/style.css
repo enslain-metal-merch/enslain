@@ -45,6 +45,16 @@ a {
   --font-family--secondary: "Voltaire", sans-serif;
 }
 
+.grid {
+  display: grid;
+}
+@media (min-width: 768px) {
+  .grid--two-col {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+  }
+}
+
 p,
 a,
 button {
@@ -70,6 +80,6 @@ h3 {
 
 .wrapper {
   width: 90%;
-  max-width: 1300px;
+  max-width: 1200px;
   margin: auto;
 }

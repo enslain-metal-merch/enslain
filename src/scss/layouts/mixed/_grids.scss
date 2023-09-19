@@ -1,1 +1,12 @@
 @use '../../utilities' as *;
+
+.grid {
+  display: grid;
+
+  &--two-col {
+    @include media-query(tablet) {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 2rem;
+    }
+  }
+}

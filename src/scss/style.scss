@@ -6,5 +6,5 @@
 @use 'typography/typography';
 
 .wrapper {
-  @include wrapperDimensions(90%, 1300px);
+  @include wrapperDimensions(90%, 1200px);
 }
