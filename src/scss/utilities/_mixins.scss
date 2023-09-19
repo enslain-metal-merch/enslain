@@ -1,6 +1,13 @@
 @use 'variables' as *;
 @use 'functions' as *;
 
+// breakpoints
+  @mixin media-query($bp-var) {
+    @media (min-width: map-get($breakpoints, $bp-var)) {
+      @content;
+    }
+  }
+  
 // spacing
   @mixin margins($position, $amount, $last-of) {
     margin-#{$position}: $amount;
