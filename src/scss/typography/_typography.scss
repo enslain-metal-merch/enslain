@@ -10,3 +10,9 @@ p {
   line-height: mapGet($primary, line-height);
   font-size: mapGet($primary, size);
 }
+
+@each $selector, $element in mapGet($headings) {
+  #{$selector} {
+    font-family: mapGet($element, family);
+  }
+}

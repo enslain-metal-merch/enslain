@@ -8,3 +8,17 @@ $primary: (
   line-height: 1.6,
   size: 1.15rem
 );
+
+$headings: (
+  h1: (
+    family: (var(--font-family--secondary)),
+  ),
+    
+  h2: (
+    family: (var(--font-family--secondary)),
+  ),
+    
+  h3: (
+    family: (var(--font-family--secondary)),
+  ),
+);
