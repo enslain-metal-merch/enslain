@@ -1,1 +1,12 @@
-@use '../utilities' as *;
+@use '../utilities/index' as *;
+
+p,
+a,
+button {
+  font-family: mapGet($primary, family);
+}
+
+p {
+  line-height: mapGet($primary, line-height);
+  font-size: mapGet($primary, size);
+}

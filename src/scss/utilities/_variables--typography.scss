@@ -2,3 +2,9 @@
   --font-family--primary: 'Finlandica', sans-serif;
   --font-family--secondary: 'Voltaire', sans-serif;
 }
+
+$primary: (
+  family: (var(--font-family--primary)),
+  line-height: 1.6,
+  size: 1.15rem
+);

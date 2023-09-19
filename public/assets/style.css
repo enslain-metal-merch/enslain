@@ -45,6 +45,13 @@ a {
   --font-family--secondary: "Voltaire", sans-serif;
 }
 
-p {
+p,
+a,
+button {
   font-family: var(--font-family--primary);
+}
+
+p {
+  line-height: 1.6;
+  font-size: 1.15rem;
 }
