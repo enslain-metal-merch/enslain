@@ -87,14 +87,6 @@
       "q" : 100,
       "rq" : 75
     },
-    "\/public\/assets\/img\/content\/merch selling pics-20230913T114809Z-001.zip" : {
-      "cB" : 0,
-      "ft" : 8192,
-      "hM" : 0,
-      "oA" : 0,
-      "oAP" : "\/public\/assets\/img\/content\/merch selling pics-20230913T114809Z-001.zip",
-      "oF" : 0
-    },
     "\/public\/assets\/img\/content\/metal capital - merch crew.jpg" : {
       "ft" : 16384,
       "iS" : 809203,
@@ -216,12 +208,52 @@
       "sC" : 3,
       "tS" : 0
     },
+    "\/src\/kit\/about.kit" : {
+      "cB" : 0,
+      "ft" : 2048,
+      "hM" : 0,
+      "oA" : 0,
+      "oAP" : "\/public\/about\/index.html",
+      "oF" : 2
+    },
+    "\/src\/kit\/contact.kit" : {
+      "cB" : 0,
+      "ft" : 2048,
+      "hM" : 0,
+      "oA" : 0,
+      "oAP" : "\/public\/contact\/index.html",
+      "oF" : 2
+    },
+    "\/src\/kit\/gigs.kit" : {
+      "cB" : 0,
+      "ft" : 2048,
+      "hM" : 0,
+      "oA" : 0,
+      "oAP" : "\/public\/gigs\/index.html",
+      "oF" : 2
+    },
+    "\/src\/kit\/hire-us.kit" : {
+      "cB" : 0,
+      "ft" : 2048,
+      "hM" : 0,
+      "oA" : 0,
+      "oAP" : "\/public\/hire-us\/hire-us.html",
+      "oF" : 2
+    },
     "\/src\/kit\/index.kit" : {
       "cB" : 0,
       "ft" : 2048,
       "hM" : 0,
       "oA" : 0,
       "oAP" : "\/public\/index.html",
+      "oF" : 2
+    },
+    "\/src\/kit\/join-us.kit" : {
+      "cB" : 0,
+      "ft" : 2048,
+      "hM" : 0,
+      "oA" : 0,
+      "oAP" : "\/public\/join-us\/index.html",
       "oF" : 2
     },
     "\/src\/kit\/partials\/_footer.kit" : {
