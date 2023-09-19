@@ -237,7 +237,7 @@
       "ft" : 2048,
       "hM" : 0,
       "oA" : 0,
-      "oAP" : "\/public\/hire-us\/hire-us.html",
+      "oAP" : "\/public\/hire-us\/index.html",
       "oF" : 2
     },
     "\/src\/kit\/index.kit" : {
@@ -2642,7 +2642,7 @@
     "webpPresets" : {
 
     },
-    "websiteRelativeRoot" : "public"
+    "websiteRelativeRoot" : "public\/"
   },
   "settingsFileVersion" : "3"
 }
