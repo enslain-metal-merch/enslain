@@ -54,6 +54,11 @@ a {
     gap: 2rem;
   }
 }
+@media (min-width: 1024px) {
+  .grid--two-col {
+    gap: 3rem;
+  }
+}
 
 p,
 a,
