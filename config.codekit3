@@ -9,6 +9,14 @@
   ],
   "creatorBuild" : "34518",
   "files" : {
+    "\/public\/about\/index.html" : {
+      "cB" : 0,
+      "ft" : 8192,
+      "hM" : 0,
+      "oA" : 0,
+      "oAP" : "\/public\/about\/index.html",
+      "oF" : 0
+    },
     "\/public\/assets\/img\/content\/240404990_4213828275353626_4451465258467397046_n.jpg" : {
       "ft" : 16384,
       "iS" : 448299,
@@ -134,12 +142,44 @@
       "oF" : 0,
       "pg" : 0
     },
+    "\/public\/contact\/index.html" : {
+      "cB" : 0,
+      "ft" : 8192,
+      "hM" : 0,
+      "oA" : 0,
+      "oAP" : "\/public\/contact\/index.html",
+      "oF" : 0
+    },
+    "\/public\/events\/index.html" : {
+      "cB" : 0,
+      "ft" : 8192,
+      "hM" : 0,
+      "oA" : 0,
+      "oAP" : "\/public\/events\/index.html",
+      "oF" : 0
+    },
     "\/public\/index.html" : {
       "cB" : 0,
       "ft" : 8192,
       "hM" : 0,
       "oA" : 0,
       "oAP" : "\/public\/index.html",
+      "oF" : 0
+    },
+    "\/public\/services\/index.html" : {
+      "cB" : 0,
+      "ft" : 8192,
+      "hM" : 0,
+      "oA" : 0,
+      "oAP" : "\/public\/services\/index.html",
+      "oF" : 0
+    },
+    "\/public\/volunteers\/index.html" : {
+      "cB" : 0,
+      "ft" : 8192,
+      "hM" : 0,
+      "oA" : 0,
+      "oAP" : "\/public\/volunteers\/index.html",
       "oF" : 0
     },
     "\/src\/js\/chrissy-theme.js" : {
@@ -224,20 +264,12 @@
       "oAP" : "\/public\/contact\/index.html",
       "oF" : 2
     },
-    "\/src\/kit\/gigs.kit" : {
+    "\/src\/kit\/events.kit" : {
       "cB" : 0,
       "ft" : 2048,
       "hM" : 0,
       "oA" : 0,
-      "oAP" : "\/public\/gigs\/index.html",
-      "oF" : 2
-    },
-    "\/src\/kit\/hire-us.kit" : {
-      "cB" : 0,
-      "ft" : 2048,
-      "hM" : 0,
-      "oA" : 0,
-      "oAP" : "\/public\/hire-us\/index.html",
+      "oAP" : "\/public\/events\/index.html",
       "oF" : 2
     },
     "\/src\/kit\/index.kit" : {
@@ -246,14 +278,6 @@
       "hM" : 0,
       "oA" : 0,
       "oAP" : "\/public\/index.html",
-      "oF" : 2
-    },
-    "\/src\/kit\/join-us.kit" : {
-      "cB" : 0,
-      "ft" : 2048,
-      "hM" : 0,
-      "oA" : 0,
-      "oAP" : "\/public\/join-us\/index.html",
       "oF" : 2
     },
     "\/src\/kit\/partials\/_footer.kit" : {
@@ -271,6 +295,22 @@
       "oA" : 1,
       "oAP" : "\/src\/kit\/partials\/_header.html",
       "oF" : 0
+    },
+    "\/src\/kit\/services.kit" : {
+      "cB" : 0,
+      "ft" : 2048,
+      "hM" : 0,
+      "oA" : 0,
+      "oAP" : "\/public\/services\/index.html",
+      "oF" : 2
+    },
+    "\/src\/kit\/volunteers.kit" : {
+      "cB" : 0,
+      "ft" : 2048,
+      "hM" : 0,
+      "oA" : 0,
+      "oAP" : "\/public\/volunteers\/index.html",
+      "oF" : 2
     },
     "\/src\/scss\/base\/_index.scss" : {
       "aP" : 0,
