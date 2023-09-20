@@ -35,7 +35,7 @@ p {
   }
 
   &__nav-toggle {
-
+    color: mapGet($body, text);
   }
 
   &__primary-nav {

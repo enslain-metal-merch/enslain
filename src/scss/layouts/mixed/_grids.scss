@@ -35,6 +35,8 @@
   }
 
   &__nav-toggle {
+    grid-column: 4 / -1;
+    justify-self: end;
   }
 
   &__primary-nav {

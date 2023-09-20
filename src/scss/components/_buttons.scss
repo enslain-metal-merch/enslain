@@ -1,5 +1,19 @@
 @use '../utilities' as *;
 
+.header {
+
+  &__nav-toggle {
+    width: fit-content;
+    background-color: transparent;
+    border: none;
+  }
+
+  &__nav-toggle-bar {
+    @include toggle-icon-bars(30px, 2px, mapGet($body, text), 8px, 0);
+    display: block;
+  }
+}
+
 .button {
   border: none;
   border-radius: 0;

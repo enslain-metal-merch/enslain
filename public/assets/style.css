@@ -84,6 +84,23 @@ a {
   --font-family--secondary: "Voltaire", sans-serif;
 }
 
+.header__nav-toggle {
+  width: fit-content;
+  background-color: transparent;
+  border: none;
+}
+.header__nav-toggle-bar {
+  width: 30px;
+  height: 2px;
+  background-color: var(--body-text);
+  margin-bottom: 8px;
+  border-radius: 0;
+  display: block;
+}
+.header__nav-toggle-bar:last-of-type {
+  margin-bottom: 0;
+}
+
 .button {
   border: none;
   border-radius: 0;
@@ -139,6 +156,10 @@ a {
 .header__logo {
   grid-column: 1/4;
 }
+.header__nav-toggle {
+  grid-column: 4/-1;
+  justify-self: end;
+}
 .header__primary-nav {
   display: none;
 }
@@ -172,6 +193,9 @@ h3 {
 
 .header ul {
   list-style: none;
+}
+.header__nav-toggle {
+  color: var(--body-text);
 }
 .button.header__color-theme-toggle {
   font-size: 1rem;
