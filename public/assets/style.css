@@ -41,6 +41,13 @@ a {
 }
 
 :root {
+  --neutral-hs: 0, 0%;
+  --brand-color-hue: 212;
+  --brand-color-saturation: 96%;
+  --brand-color-hs: var(--brand-color-hue), var(--brand-color-saturation);
+}
+
+:root {
   --font-family--primary: "Finlandica", sans-serif;
   --font-family--secondary: "Voltaire", sans-serif;
 }
