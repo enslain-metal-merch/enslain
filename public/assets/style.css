@@ -56,6 +56,7 @@ a {
   --body-text: hsl(var(--brand-color-hs), 95%);
   --body-background: hsl(var(--brand-color-hs), 10%);
   --background-gradient: value;
+  --nav-dropdown-background: hsl(var(--brand-color-hs), 15%);
   --button-text: hsl(var(--brand-color-hs), 65%);
   --button-border: hsl(var(--brand-color-hs), 65%);
   --button-background: value;
@@ -70,6 +71,7 @@ a {
   --body-text: hsl(var(--brand-color-hs), 5%);
   --body-background: hsl(var(--brand-color-hs), 90%);
   --background-gradient: value;
+  --nav-dropdown-background: hsl(var(--brand-color-hs), 80%);
   --button-text: hsl(var(--brand-color-hs), 35%);
   --button-border: hsl(var(--brand-color-hs), 35%);
   --button-background: value;
@@ -112,6 +114,7 @@ a {
 
 .header {
   padding: 1rem 0;
+  position: relative;
 }
 .header__secondary-nav {
   width: 100%;
@@ -130,11 +133,30 @@ a {
 .header__nav-toggle {
   height: fit-content;
 }
-.header__primary-nav {
-  display: none;
+@media (min-width: 768px) {
+  .header__nav-toggle {
+    display: none;
+  }
 }
-.header__primary-menu {
-  display: none;
+.header__primary-nav {
+  background-color: var(--nav-dropdown-background);
+  width: 100%;
+  right: 0;
+  position: absolute;
+  top: 100%;
+}
+@media (min-width: 768px) {
+  .header__primary-nav {
+    display: block;
+    background-color: transparent;
+    position: static;
+  }
+}
+@media (min-width: 768px) {
+  .header__primary-menu {
+    display: flex;
+    gap: 1.5rem;
+  }
 }
 
 .grid {
@@ -159,6 +181,11 @@ a {
   grid-row: 1/2;
   grid-column: 1/3;
 }
+@media (min-width: 768px) {
+  .header__secondary-nav {
+    grid-column: 1/2;
+  }
+}
 .header__logo {
   grid-column: 1/4;
   grid-row: 2/3;
@@ -169,8 +196,11 @@ a {
   justify-self: end;
   align-self: end;
 }
-.header__primary-nav {
-  display: none;
+@media (min-width: 768px) {
+  .header__primary-nav {
+    grid-column: 1/-1;
+    grid-row: 3/4;
+  }
 }
 
 body {
@@ -206,6 +236,20 @@ h3 {
 .header__nav-toggle {
   color: var(--body-text);
 }
+.header__primary-menu a:link {
+  display: block;
+  font-size: 1.5rem;
+  padding: 1rem;
+  text-decoration: none;
+  font-family: var(--font-family--secondary);
+}
+@media (min-width: 768px) {
+  .header__primary-menu a:link {
+    font-size: 1.75rem;
+    padding: 0;
+  }
+}
+
 .button.header__color-theme-toggle {
   font-size: 0.85rem;
 }

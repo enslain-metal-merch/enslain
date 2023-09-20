@@ -23,6 +23,14 @@ $headings: (
   ),
 );
 
+$header-typography: (
+  primary-menu-items: (
+    family: var(--font-family--secondary),
+    size--medium: 1.5rem,
+    size--large: 1.75rem,
+  ),
+);
+
 $button-typography: (
   size--xs: 0.85rem,
   size--small: 1rem,

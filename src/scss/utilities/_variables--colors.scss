@@ -10,6 +10,7 @@
   --body-text: hsl(var(--brand-color-hs), 95%);
   --body-background: hsl(var(--brand-color-hs), 10%);
   --background-gradient: value;
+  --nav-dropdown-background: hsl(var(--brand-color-hs), 15%);
   --button-text: hsl(var(--brand-color-hs), 65%);
   --button-border: hsl(var(--brand-color-hs), 65%);
   --button-background: value;
@@ -24,6 +25,7 @@
   --body-text: hsl(var(--brand-color-hs), 5%);
   --body-background: hsl(var(--brand-color-hs), 90%);
   --background-gradient: value;
+  --nav-dropdown-background: hsl(var(--brand-color-hs), 80%);
   --button-text: hsl(var(--brand-color-hs), 35%);
   --button-border: hsl(var(--brand-color-hs), 35%);
   --button-background: value;
@@ -36,6 +38,12 @@
 $body: (
   text: var(--body-text),
   background: var(--body-background),
+);
+
+$header-colors: (
+  primary-nav: (
+    background--mobile: var(--nav-dropdown-background)
+  ),
 );
 
 $buttons: (

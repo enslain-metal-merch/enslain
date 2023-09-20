@@ -32,14 +32,28 @@ p {
 
   &__logo {
     &-img {}
+    // display: none;
   }
 
   &__nav-toggle {
     color: mapGet($body, text);
   }
 
-  &__primary-nav {
-    
+  &__primary-menu {
+    a {
+      &:link {
+        display: block;
+        font-size: 1.5rem;
+        padding: 1rem;
+        text-decoration: none;
+        font-family: mapGet($header-typography, primary-menu-items, family);
+
+        @include media-query(tablet) {
+          font-size: mapGet($header-typography,primary-menu-items, size--large);
+          padding: 0;
+        }
+      }
+    }
   }
 }
 
