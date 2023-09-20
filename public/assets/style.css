@@ -153,6 +153,9 @@ a {
     position: static;
   }
 }
+.header__primary-nav.open {
+  display: block;
+}
 @media (min-width: 768px) {
   .header__primary-menu {
     display: flex;

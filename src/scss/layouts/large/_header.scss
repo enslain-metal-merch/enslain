@@ -43,6 +43,10 @@
       background-color: transparent;
       position: static;
     }
+
+    &.open {
+      display: block;
+    }
   }
 
   &__primary-menu {
