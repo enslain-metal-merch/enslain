@@ -41,6 +41,10 @@ a {
 }
 
 :root {
+  --theme-change-transition: all 200ms ease-in-out;
+}
+
+:root {
   --neutral-hs: 0, 0%;
   --brand-color-hue: 212;
   --brand-color-saturation: 96%;
@@ -49,7 +53,7 @@ a {
 
 :root,
 :root[data-color-theme=dark] {
-  --body-text: value;
+  --body-text: red;
   --body-background: value;
   --background-gradient: value;
   --button-text: value;
@@ -62,7 +66,7 @@ a {
 
 :root,
 :root[data-color-theme=light] {
-  --body-text: value;
+  --body-text: blue;
   --body-background: value;
   --background-gradient: value;
   --button-text: value;

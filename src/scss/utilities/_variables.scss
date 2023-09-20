@@ -1,3 +1,7 @@
+:root {
+  --theme-change-transition: all 200ms ease-in-out;
+}
+
 $breakpoints: (
   tablet: 768px,
   desktop: 1024px

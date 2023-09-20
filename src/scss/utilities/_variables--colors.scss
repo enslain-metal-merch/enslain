@@ -7,7 +7,7 @@
 
 :root,
 :root[data-color-theme="dark"] {
-  --body-text: value;
+  --body-text: red;
   --body-background: value;
   --background-gradient: value;
   --button-text: value;
@@ -20,7 +20,7 @@
 
 :root,
 :root[data-color-theme="light"] {
-  --body-text: value;
+  --body-text: blue;
   --body-background: value;
   --background-gradient: value;
   --button-text: value;
@@ -30,3 +30,7 @@
   --theme-switcher-icon--dark-mode: value;
   --footer-text: value;
 }
+
+$test: (
+  test: var(--body-text),
+);
