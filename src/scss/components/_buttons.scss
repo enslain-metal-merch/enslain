@@ -1,1 +1,10 @@
 @use '../utilities' as *;
+
+.button {
+  border: none;
+  border-radius: 0;
+  color: mapGet($buttons, text);
+  background-color: transparent;
+  border: 1px solid mapGet($buttons, border);
+  padding: 0.15rem 0.25rem;
+}

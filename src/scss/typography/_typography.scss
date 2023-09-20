@@ -25,7 +25,7 @@ p {
   ul {
     list-style: none;
   }
-  
+
   &__secondary-nav {
 
   }
@@ -40,5 +40,11 @@ p {
 
   &__primary-nav {
     
+  }
+}
+
+.button {
+  &.header__color-theme-toggle {
+    font-size: mapGet($button-typography, size--small);
   }
 }

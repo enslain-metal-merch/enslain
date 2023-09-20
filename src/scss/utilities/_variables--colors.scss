@@ -10,7 +10,8 @@
   --body-text: hsl(var(--brand-color-hs), 95%);
   --body-background: hsl(var(--brand-color-hs), 10%);
   --background-gradient: value;
-  --button-text: value;
+  --button-text: hsl(var(--brand-color-hs), 65%);
+  --button-border: hsl(var(--brand-color-hs), 65%);
   --button-background: value;
   --social-media-icons: value;
   --theme-switcher-icon--light-mode: value;
@@ -23,7 +24,8 @@
   --body-text: hsl(var(--brand-color-hs), 5%);
   --body-background: hsl(var(--brand-color-hs), 90%);
   --background-gradient: value;
-  --button-text: value;
+  --button-text: hsl(var(--brand-color-hs), 35%);
+  --button-border: hsl(var(--brand-color-hs), 35%);
   --button-background: value;
   --social-media-icons: value;
   --theme-switcher-icon--light-mode: value;
@@ -37,7 +39,7 @@ $body: (
 );
 
 $buttons: (
-  text: value,
-  border: value,
+  text: var(--button-text),
+  border: var(--button-border),
   background: value,
 );
