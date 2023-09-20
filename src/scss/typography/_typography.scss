@@ -1,5 +1,9 @@
 @use '../utilities/index' as *;
 
+body {
+  color: mapGet($body, text);
+}
+
 p,
 a,
 button {

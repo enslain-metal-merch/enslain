@@ -5,6 +5,10 @@
 @use 'layouts';
 @use 'typography/typography';
 
+body {
+  background-color: mapGet($body, background);
+}
+
 .wrapper {
   @include wrapperDimensions(90%, 1200px);
 }
