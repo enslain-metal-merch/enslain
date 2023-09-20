@@ -121,6 +121,7 @@ a {
   gap: 1.5rem;
 }
 .header__logo {
+  max-width: 500px;
   grid-column: 1/-1;
 }
 .header__logo-img {
