@@ -206,7 +206,12 @@ h3 {
   color: var(--body-text);
 }
 .button.header__color-theme-toggle {
-  font-size: 1rem;
+  font-size: 0.85rem;
+}
+@media (min-width: 375px) {
+  .button.header__color-theme-toggle {
+    font-size: 1rem;
+  }
 }
 
 body {

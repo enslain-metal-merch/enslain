@@ -45,6 +45,10 @@ p {
 
 .button {
   &.header__color-theme-toggle {
-    font-size: mapGet($button-typography, size--small);
+    font-size: mapGet($button-typography, size--xs);
+    
+    @include media-query(mobile) {
+      font-size: mapGet($button-typography, size--small);
+    }
   }
 }
