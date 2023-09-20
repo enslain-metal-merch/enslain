@@ -7,10 +7,26 @@
 
 :root,
 :root[data-color-theme="dark"] {
-  
+  --body-text: value;
+  --body-background: value;
+  --background-gradient: value;
+  --button-text: value;
+  --button-background: value;
+  --social-media-icons: value;
+  --theme-switcher-icon--light-mode: value;
+  --theme-switcher-icon--dark-mode: value;
+  --footer-text: value;
 }
 
 :root,
 :root[data-color-theme="light"] {
-  
+  --body-text: value;
+  --body-background: value;
+  --background-gradient: value;
+  --button-text: value;
+  --button-background: value;
+  --social-media-icons: value;
+  --theme-switcher-icon--light-mode: value;
+  --theme-switcher-icon--dark-mode: value;
+  --footer-text: value;
 }
