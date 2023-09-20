@@ -13,4 +13,31 @@
       gap: 3rem;
     }
   }
+
+  &--header {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+    align-items: center;
+    > * {
+      // @include test-border(3, lime);
+    }
+  }
+}
+
+// grid tracks
+.header {
+  &__secondary-nav {
+    grid-column: 1 / -1;
+  }
+
+  &__logo {
+    grid-column: 1 / 4;
+  }
+
+  &__nav-toggle {
+  }
+
+  &__primary-nav {
+    display: none;
+  }
 }

@@ -20,3 +20,25 @@ p {
     font-family: mapGet($element, family);
   }
 }
+
+.header {
+  ul {
+    list-style: none;
+  }
+  
+  &__secondary-nav {
+
+  }
+
+  &__logo {
+    &-img {}
+  }
+
+  &__nav-toggle {
+
+  }
+
+  &__primary-nav {
+    
+  }
+}

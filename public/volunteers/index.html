@@ -13,7 +13,16 @@
 <body>
 <header class="header">
   <div class="wrapper">
-    <div class="header__content">
+    <div class="header__content grid grid--header">
+      <nav class="header__secondary-nav">
+        <ul class="header__secondary-menu">
+          <li class="header__secondary-menu-item"><button class="header__color-theme-toggle header__color-theme-toggle--light"
+              data-color-theme-value="light">Light theme</button></li>
+          <li class="header__secondary-menu-item"><button class="header__color-theme-toggle header__color-theme-toggle--dark"
+              data-color-theme-value="dark">Dark theme</button></li>
+          <!-- <li class="header__secondary-menu-item"><button class="header__chrissy-mode-toggle">Chrissy mode</button></li> -->
+        </ul>
+      </nav>
       <div class="header__logo">
         <svg class="header__logo-img" viewBox="0 0 521 292" fill="#000000">
           <path
@@ -64,15 +73,8 @@
         </svg>
       </div>
       <button class="header__nav-toggle">
-        Toggle Nav
+        Menu
       </button>
-      <nav class="header__secondary-nav">
-        <ul class="header__secondary-menu">
-          <li class="header__secondary-menu-item"><button class="header__color-theme-toggle header__color-theme-toggle--light" data-color-theme-value="light">Light theme</button></li>
-          <li class="header__secondary-menu-item"><button class="header__color-theme-toggle header__color-theme-toggle--dark" data-color-theme-value="dark">Dark theme</button></li>
-          <!-- <li class="header__secondary-menu-item"><button class="header__chrissy-mode-toggle">Chrissy mode</button></li> -->
-        </ul>
-      </nav>
       <nav class="header__primary-nav">
         <ul class="header__primary-menu">
           <li class="header__primary-menu-item"><a href="/">Home</a></li>

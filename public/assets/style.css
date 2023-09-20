@@ -82,6 +82,27 @@ a {
   --font-family--secondary: "Voltaire", sans-serif;
 }
 
+.header {
+  padding: 1rem 0;
+}
+.header__secondary-menu {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+}
+.header__logo {
+  max-width: 300px;
+}
+.header__logo-img {
+  fill: var(--body-text);
+}
+.header__nav-toggle {
+  height: fit-content;
+}
+.header__primary-nav {
+  display: none;
+}
+
 .grid {
   display: grid;
 }
@@ -95,6 +116,20 @@ a {
   .grid--two-col {
     gap: 3rem;
   }
+}
+.grid--header {
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2rem;
+  align-items: center;
+}
+.header__secondary-nav {
+  grid-column: 1/-1;
+}
+.header__logo {
+  grid-column: 1/4;
+}
+.header__primary-nav {
+  display: none;
 }
 
 body {
@@ -124,6 +159,9 @@ h3 {
   font-family: var(--font-family--secondary);
 }
 
+.header ul {
+  list-style: none;
+}
 body {
   background-color: var(--body-background);
 }

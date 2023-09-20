@@ -1,1 +1,31 @@
 @use '../../utilities' as *;
+
+.header {
+  padding: 1rem 0;
+  
+  &__secondary-nav {
+
+  }
+  
+  &__secondary-menu {
+    display: flex;
+    justify-content: flex-end;
+    gap: 1rem;
+  }
+  
+  &__logo {
+    max-width: 300px;
+
+    &-img {
+      fill: mapGet($body, text);
+    }
+  }
+
+  &__nav-toggle {
+    height: fit-content;
+  }
+
+  &__primary-nav {
+    display: none;
+  }
+}
