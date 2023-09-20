@@ -175,7 +175,7 @@ a {
 }
 .grid--header {
   grid-template-columns: repeat(3, 1fr);
-  gap: 2rem;
+  gap: 1rem;
 }
 .header__secondary-nav {
   grid-row: 1/2;
