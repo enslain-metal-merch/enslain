@@ -139,6 +139,7 @@ a {
   }
 }
 .header__primary-nav {
+  display: none;
   background-color: var(--nav-dropdown-background);
   width: 100%;
   right: 0;
@@ -267,4 +268,13 @@ body {
   width: 90%;
   max-width: 1200px;
   margin: auto;
+}
+
+.main {
+  padding: 2rem 0;
+}
+@media (min-width: 768px) {
+  .main {
+    padding: 5rem 0;
+  }
 }

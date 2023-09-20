@@ -12,3 +12,11 @@ body {
 .wrapper {
   @include wrapperDimensions(90%, 1200px);
 }
+
+.main {
+  padding: 2rem 0;
+
+  @include media-query(tablet) {
+    padding: 5rem 0;
+  }
+}
