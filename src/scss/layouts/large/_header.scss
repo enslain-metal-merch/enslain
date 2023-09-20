@@ -4,17 +4,17 @@
   padding: 1rem 0;
 
   &__secondary-nav {
-
+    width: 100%;
   }
   
   &__secondary-menu {
     display: flex;
-    justify-content: flex-end;
     gap: 1.5rem;
   }
   
   &__logo {
-    max-width: 300px;
+    // max-width: 300px;
+    grid-column: 1 / -1;
 
     &-img {
       fill: mapGet($body, text);
@@ -26,6 +26,10 @@
   }
 
   &__primary-nav {
+    display: none;
+  }
+
+  &__primary-menu {
     display: none;
   }
 }
