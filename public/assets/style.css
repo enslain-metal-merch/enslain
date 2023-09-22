@@ -267,6 +267,9 @@ h3 {
   }
 }
 
+.card {
+  list-style: none;
+}
 .button.header__color-theme-toggle {
   font-size: 0.85rem;
 }
