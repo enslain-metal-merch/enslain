@@ -28,3 +28,19 @@ body {
 .subsection {
   @include margins(bottom, 3rem, child);
 }
+
+.event {
+  display: flex;
+  flex-flow: column;
+  gap: 0.25rem;
+
+  @include media-query(desktop) {
+    flex-flow: row;
+    align-items: flex-end;
+    gap: 1rem;
+  }
+}
+
+.event-list {
+  padding: 1.5rem 0;
+}

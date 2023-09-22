@@ -2,6 +2,7 @@
 
 body {
   color: mapGet($body, text);
+  font-family: mapGet($primary, family);
 }
 
 p,
@@ -84,9 +85,18 @@ p {
   }
 }
 
+.event {
+  @include margins(bottom, 1.5rem, of-type);
+
+  &__name {
+    line-height: 1;
+    font-size: 1.5rem;
+  }
+}
+
 .button {
   text-decoration: none;
-  
+
   &.header__color-theme-toggle {
     font-size: mapGet($button-typography, size--xs);
     
