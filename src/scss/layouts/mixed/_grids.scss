@@ -22,6 +22,11 @@
       // @include test-border(3, lime);
     }
   }
+
+  &--flexible {
+    grid-template-columns: repeat(auto-fill, minmax(288px, 1fr));
+    gap: 2rem;
+  }
 }
 
 // grid tracks

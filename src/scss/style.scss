@@ -24,3 +24,7 @@ body {
 .section {
   @include margins(bottom, 3rem, of-type);
 }
+
+.subsection {
+  @include margins(bottom, 3rem, child);
+}
