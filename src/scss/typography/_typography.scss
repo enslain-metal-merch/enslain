@@ -85,6 +85,8 @@ p {
 }
 
 .button {
+  text-decoration: none;
+  
   &.header__color-theme-toggle {
     font-size: mapGet($button-typography, size--xs);
     

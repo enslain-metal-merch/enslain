@@ -301,6 +301,9 @@ h3 {
   margin-bottom: 1rem;
 }
 
+.button {
+  text-decoration: none;
+}
 .button.header__color-theme-toggle {
   font-size: 0.85rem;
 }
