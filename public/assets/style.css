@@ -237,16 +237,46 @@ p {
 
 h1 {
   font-family: var(--font-family--secondary);
+  font-size: 2.5rem;
+  margin-bottom: 0.75rem;
+}
+@media (min-width: 768px) {
+  h1 {
+    font-size: 3rem;
+  }
+}
+@media (min-width: 1024px) {
+  h1 {
+    font-size: 4rem;
+  }
 }
 
 h2 {
   font-family: var(--font-family--secondary);
+  font-size: 1.75rem;
+  margin-bottom: 0.5rem;
+}
+@media (min-width: 768px) {
+  h2 {
+    font-size: 2.25rem;
+  }
+}
+@media (min-width: 1024px) {
+  h2 {
+    font-size: 2.5rem;
+  }
 }
 
 h3 {
   font-family: var(--font-family--secondary);
+  font-size: 1.5rem;
+  margin-bottom: 0.25rem;
 }
-
+@media (min-width: 768px) {
+  h3 {
+    font-size: 1.75rem;
+  }
+}
 .header ul {
   list-style: none;
 }

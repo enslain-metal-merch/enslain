@@ -12,14 +12,25 @@ $primary: (
 $headings: (
   h1: (
     family: (var(--font-family--secondary)),
+    size--small: 2.5rem,
+    size--medium: 3rem,
+    size--large: 4rem,
+    margin: 0.75rem,
   ),
     
   h2: (
     family: (var(--font-family--secondary)),
+    size--small: 1.75rem,
+    size--medium: 2.25rem,
+    size--large: 2.5rem,
+    margin: 0.5rem
   ),
     
   h3: (
     family: (var(--font-family--secondary)),
+    size--small: 1.5rem,
+    size--medium: 1.75rem,
+    margin: 0.25rem
   ),
 );
 

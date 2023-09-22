@@ -22,6 +22,16 @@ p {
 @each $selector, $element in mapGet($headings) {
   #{$selector} {
     font-family: mapGet($element, family);
+    font-size: mapGet($element, size--small);
+    margin-bottom: mapGet($element, margin);
+    
+    @include media-query(tablet) {
+      font-size: mapGet($element, size--medium);
+    }
+    
+    @include media-query(desktop) {
+      font-size: mapGet($element, size--large);
+    }
   }
 }
 
