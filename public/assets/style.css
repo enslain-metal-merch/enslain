@@ -297,6 +297,10 @@ h3 {
 .card {
   list-style: none;
 }
+.card--service p {
+  margin-bottom: 1rem;
+}
+
 .button.header__color-theme-toggle {
   font-size: 0.85rem;
 }
