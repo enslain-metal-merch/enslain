@@ -15,7 +15,7 @@ p {
   font-size: mapGet($primary, size);
 
   .text-container & {
-    @include margins(bottom, 1.5rem, of-type);
+    margin-bottom: 1.5rem;
   }
 }
 

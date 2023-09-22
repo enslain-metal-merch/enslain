@@ -231,9 +231,6 @@ p {
 .text-container p {
   margin-bottom: 1.5rem;
 }
-.text-container p:last-of-type {
-  margin-bottom: 0;
-}
 
 h1 {
   font-family: var(--font-family--secondary);
