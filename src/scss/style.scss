@@ -20,3 +20,7 @@ body {
     padding: 5rem 0;
   }
 }
+
+.section {
+  @include margins(bottom, 3rem, of-type);
+}

@@ -166,10 +166,12 @@ a {
 .grid {
   display: grid;
 }
+.grid--two-col {
+  gap: 2rem;
+}
 @media (min-width: 768px) {
   .grid--two-col {
     grid-template-columns: repeat(2, 1fr);
-    gap: 2rem;
   }
 }
 @media (min-width: 1024px) {
@@ -280,4 +282,11 @@ body {
   .main {
     padding: 5rem 0;
   }
+}
+
+.section {
+  margin-bottom: 3rem;
+}
+.section:last-of-type {
+  margin-bottom: 0;
 }
