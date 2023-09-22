@@ -13,6 +13,10 @@ button {
 p {
   line-height: mapGet($primary, line-height);
   font-size: mapGet($primary, size);
+
+  .text-container & {
+    @include margins(bottom, 1.5rem, of-type);
+  }
 }
 
 @each $selector, $element in mapGet($headings) {
