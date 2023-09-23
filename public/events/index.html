@@ -13,20 +13,22 @@
 <body>
 <header class="header">
   <div class="wrapper">
-    <div class="header__content grid grid--header">
-      <nav class="header__secondary-nav">
-        <ul class="header__secondary-menu">
-          <li class="header__secondary-menu-item"><button class="button header__color-theme-toggle header__color-theme-toggle--light"
-              data-color-theme-value="light">Light theme</button></li>
-          <li class="header__secondary-menu-item"><button class="button header__color-theme-toggle header__color-theme-toggle--dark"
-              data-color-theme-value="dark">Dark theme</button></li>
-        </ul>
-      </nav>
+    <div class="header__content">
       <button class="header__nav-toggle js-nav-toggle-button" aria-label="Open site navigation">
         <span class="header__nav-toggle-bar header__nav-toggle-bar--top"></span>
         <span class="header__nav-toggle-bar header__nav-toggle-bar--center"></span>
         <span class="header__nav-toggle-bar header__nav-toggle-bar--bottom"></span>
       </button>
+      <nav class="header__primary-nav js-toggle-primary-nav">
+        <ul class="header__primary-menu">
+          <li class="header__primary-menu-item"><a href="/">Home</a></li>
+          <li class="header__primary-menu-item"><a href="/events/">Events</a></li>
+          <li class="header__primary-menu-item"><a href="/services/">Services</a></li>
+          <li class="header__primary-menu-item"><a href="/about/">About</a></li>
+          <li class="header__primary-menu-item"><a href="/volunteers/">Volunteers</a></li>
+          <li class="header__primary-menu-item"><a href="/contact/">Contact</a></li>
+        </ul>
+      </nav>
       <div class="header__logo">
         <svg class="header__logo-img" viewBox="0 0 521 292" fill="#000000">
           <path
@@ -76,16 +78,7 @@
             d="M363.51 111.92C363.64 109.59 362.48 107.22 360.86 106.4C361.79 110.65 362.04 114.76 358.9 118.36C361.52 117 363.33 115.02 363.51 111.92Z" />
         </svg>
       </div>
-      <nav class="header__primary-nav js-toggle-primary-nav">
-        <ul class="header__primary-menu">
-          <li class="header__primary-menu-item"><a href="/">Home</a></li>
-          <li class="header__primary-menu-item"><a href="/events/">Events</a></li>
-          <li class="header__primary-menu-item"><a href="/services/">Services</a></li>
-          <li class="header__primary-menu-item"><a href="/about/">About</a></li>
-          <li class="header__primary-menu-item"><a href="/volunteers/">Volunteers</a></li>
-          <li class="header__primary-menu-item"><a href="/contact/">Contact</a></li>
-        </ul>
-      </nav>
+
     </div>
   </div>
 </header>
@@ -242,7 +235,16 @@
   </div>
 </main>
 <footer class="footer">
-  
+  <nav class="header__secondary-nav">
+    <ul class="header__secondary-menu">
+      <li class="header__secondary-menu-item"><button
+          class="button header__color-theme-toggle header__color-theme-toggle--light" data-color-theme-value="light">Light
+          theme</button></li>
+      <li class="header__secondary-menu-item"><button
+          class="button header__color-theme-toggle header__color-theme-toggle--dark" data-color-theme-value="dark">Dark
+          theme</button></li>
+    </ul>
+  </nav>
 </footer>
 <script src="/assets/script-min.js"></script>
 </body>

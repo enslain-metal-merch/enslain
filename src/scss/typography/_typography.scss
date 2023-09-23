@@ -37,6 +37,9 @@ p {
 }
 
 .header {
+  
+
+
   ul {
     list-style: none;
   }
@@ -48,6 +51,10 @@ p {
   &__logo {
     &-img {}
     // display: none;
+  }
+
+  &__top {
+    // text-align: right;
   }
 
   &__nav-toggle {
