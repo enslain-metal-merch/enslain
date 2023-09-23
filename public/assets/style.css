@@ -142,6 +142,7 @@ a {
   gap: 1.5rem;
 }
 .header__logo {
+  display: block;
   width: 80%;
   max-width: 500px;
 }
