@@ -246,6 +246,12 @@ p {
   margin-bottom: 1.5rem;
 }
 
+ul {
+  line-height: 1.6;
+  font-size: 1.15rem;
+  list-style-position: inside;
+}
+
 h1 {
   font-family: var(--font-family--secondary);
   font-size: 2.5rem;

@@ -14,10 +14,16 @@ button {
 p {
   line-height: mapGet($primary, line-height);
   font-size: mapGet($primary, size);
-
+  
   .text-container & {
     margin-bottom: 1.5rem;
   }
+}
+
+ul {
+  line-height: mapGet($primary, line-height);
+  font-size: mapGet($primary, size);
+  list-style-position: inside;
 }
 
 @each $selector, $element in mapGet($headings) {
@@ -87,7 +93,7 @@ p {
 
 .event {
   @include margins(bottom, 1.5rem, of-type);
-
+  
   &__name {
     line-height: 1;
     font-size: 1.5rem;
