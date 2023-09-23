@@ -37,15 +37,8 @@ p {
 }
 
 .header {
-  
-
-
   ul {
     list-style: none;
-  }
-
-  &__secondary-nav {
-
   }
 
   &__logo {
@@ -110,5 +103,15 @@ p {
     @include media-query(mobile) {
       font-size: mapGet($button-typography, size--small);
     }
+  }
+}
+
+.footer {
+
+  &__logo {
+    fill: mapGet($body, text);
+  }
+  &__secondary-menu {
+    list-style: none;
   }
 }

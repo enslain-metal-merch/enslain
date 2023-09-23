@@ -112,6 +112,28 @@ a {
   padding: 0.15rem 0.25rem;
 }
 
+.footer {
+  padding: 1rem;
+}
+@media (min-width: 768px) {
+  .footer {
+    padding: 2rem;
+  }
+}
+.footer__logo {
+  display: block;
+  width: 100%;
+  max-width: 300px;
+  margin-bottom: 2rem;
+}
+.footer__logo-img {
+  fill: var(--body-text);
+}
+.footer__secondary-menu {
+  display: flex;
+  gap: 1.5rem;
+}
+
 .header {
   padding: 1rem 0;
   position: relative;
@@ -136,10 +158,6 @@ a {
 }
 .header__secondary-nav {
   width: 100%;
-}
-.header__secondary-menu {
-  display: flex;
-  gap: 1.5rem;
 }
 .header__logo {
   display: block;
@@ -318,6 +336,13 @@ h3 {
   .button.header__color-theme-toggle {
     font-size: 1rem;
   }
+}
+
+.footer__logo {
+  fill: var(--body-text);
+}
+.footer__secondary-menu {
+  list-style: none;
 }
 
 body {

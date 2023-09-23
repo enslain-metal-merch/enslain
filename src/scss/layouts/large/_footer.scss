@@ -1,1 +1,25 @@
 @use '../../utilities' as *;
+
+.footer {
+  padding: 1rem;
+
+  @include media-query(tablet) {
+    padding: 2rem;
+  }
+  
+  &__logo {
+    display: block;
+    width: 100%;
+    max-width: 300px;
+    margin-bottom: 2rem;
+
+    &-img {
+      fill: mapGet($body, text);
+    }
+  }
+
+  &__secondary-menu {
+    display: flex;
+    gap: 1.5rem;
+  }
+}
