@@ -39,8 +39,18 @@ body {
     align-items: flex-end;
     gap: 1rem;
   }
+
+  .index__event-list & {
+    display: flex;
+    flex-flow: column;
+    align-items: start;
+  }
 }
 
 .event-list {
   padding: 1.5rem 0;
+}
+
+.index__event-list {
+  padding: 1rem 0;
 }
