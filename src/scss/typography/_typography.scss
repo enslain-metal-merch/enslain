@@ -93,9 +93,9 @@ ul {
 
 .event {
   @include margins(bottom, 1.5rem, of-type);
+  line-height: 1;
   
   &__name {
-    line-height: 1;
     font-size: 1.5rem;
   }
 }
