@@ -225,6 +225,19 @@
       "q" : 100,
       "rq" : 75
     },
+    "\/public\/assets\/img\/content\/yle-img--resized-2.jpg" : {
+      "ft" : 16384,
+      "iS" : 121845,
+      "jF" : 0,
+      "oA" : 0,
+      "oAP" : "\/public\/assets\/img\/content\/yle-img--resized-2.jpg",
+      "oF" : 0,
+      "oIPL" : 0,
+      "opt" : 0,
+      "ou" : "lpckwebp-none",
+      "q" : 100,
+      "rq" : 75
+    },
     "\/public\/assets\/img\/content\/yle-img--resized.jpg" : {
       "ft" : 16384,
       "iS" : 119481,
