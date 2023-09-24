@@ -65,8 +65,8 @@ a {
     hsl(var(--brand-color-hs), 5%),
     hsl(var(--brand-color-hue), 5%, 5%) ;
   --nav-dropdown-background: hsl(var(--brand-color-hs), 15%);
-  --button-text: hsl(var(--brand-color-hs), 65%);
-  --button-border: hsl(var(--brand-color-hs), 65%);
+  --button-text: hsl(var(--brand-color-hs), 90%);
+  --button-border: hsl(var(--brand-color-hs), 90%);
   --color-theme-button-text: hsl(var(--brand-color-hs), 65%);
   --color-theme-button-border: hsl(var(--brand-color-hs), 65%);
   --button-background: value;
@@ -91,8 +91,8 @@ a {
     hsl(var(--brand-color-hs), 90%),
     hsl(var(--brand-color-hue), 50%, 20%) ;
   --nav-dropdown-background: hsl(var(--brand-color-hs), 80%);
-  --button-text: hsl(var(--brand-color-hs), 35%);
-  --button-border: hsl(var(--brand-color-hs), 35%);
+  --button-text: hsl(var(--brand-color-hs), 20%);
+  --button-border: hsl(var(--brand-color-hs), 20%);
   --color-theme-button-text: hsl(var(--brand-color-hs), 90%);
   --color-theme-button-border: hsl(var(--brand-color-hs), 90%);
   --button-background: value;
