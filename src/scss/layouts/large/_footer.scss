@@ -1,7 +1,7 @@
 @use '../../utilities' as *;
 
 .footer {
-  padding: 2rem 0 2rem;
+  padding: 2rem 0;
 
   @include media-query(tablet) {
     padding: 2rem 0 3rem;
@@ -11,7 +11,7 @@
     display: block;
     width: 100%;
     max-width: 300px;
-    margin-bottom: 2rem;
+    margin-bottom: 1rem;
 
     &-img {
       fill: mapGet($footer-colors, text);

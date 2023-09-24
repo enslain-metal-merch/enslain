@@ -86,8 +86,6 @@ a {
     hsl(var(--brand-color-hs), 90%),
     hsl(var(--brand-color-hs), 85%),
     hsl(var(--brand-color-hs), 80%),
-    hsl(var(--brand-color-hs), 80%),
-    hsl(var(--brand-color-hs), 80%),
     hsl(var(--brand-color-hs), 90%),
     hsl(var(--brand-color-hue), 50%, 20%) ;
   --nav-dropdown-background: hsl(var(--brand-color-hs), 80%);
@@ -139,7 +137,7 @@ a {
 }
 
 .footer {
-  padding: 2rem 0 2rem;
+  padding: 2rem 0;
 }
 @media (min-width: 768px) {
   .footer {
@@ -150,7 +148,7 @@ a {
   display: block;
   width: 100%;
   max-width: 300px;
-  margin-bottom: 2rem;
+  margin-bottom: 1rem;
 }
 .footer__logo-img {
   fill: var(--footer-text);
