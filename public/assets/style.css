@@ -54,31 +54,52 @@ a {
 :root,
 :root[data-color-theme=dark] {
   --body-text: hsl(var(--brand-color-hs), 95%);
-  --body-background: hsl(var(--brand-color-hs), 10%);
-  --background-gradient: value;
+  --background: hsl(var(--brand-color-hue), 5%, 5%);
+  --background-gradient:
+    hsl(var(--brand-color-hs), 5%),
+    hsl(var(--brand-color-hs), 10%),
+    hsl(var(--brand-color-hs), 20%),
+    hsl(var(--brand-color-hs), 30%),
+    hsl(var(--brand-color-hs), 20%),
+    hsl(var(--brand-color-hs), 10%),
+    hsl(var(--brand-color-hs), 5%),
+    hsl(var(--brand-color-hue), 5%, 5%) ;
   --nav-dropdown-background: hsl(var(--brand-color-hs), 15%);
   --button-text: hsl(var(--brand-color-hs), 65%);
   --button-border: hsl(var(--brand-color-hs), 65%);
+  --color-theme-button-text: hsl(var(--brand-color-hs), 65%);
+  --color-theme-button-border: hsl(var(--brand-color-hs), 65%);
   --button-background: value;
   --social-media-icons: value;
   --theme-switcher-icon--light-mode: value;
   --theme-switcher-icon--dark-mode: value;
-  --footer-text: value;
+  --footer-text: hsl(var(--brand-color-hs), 80%);
 }
 
 :root,
 :root[data-color-theme=light] {
   --body-text: hsl(var(--brand-color-hs), 5%);
-  --body-background: hsl(var(--brand-color-hs), 90%);
-  --background-gradient: value;
+  --background: hsl(var(--brand-color-hue), 50%, 20%);
+  --background-gradient:
+    hsl(var(--neutral-hs), 100%),
+    hsl(var(--brand-color-hs), 90%),
+    hsl(var(--brand-color-hs), 90%),
+    hsl(var(--brand-color-hs), 85%),
+    hsl(var(--brand-color-hs), 80%),
+    hsl(var(--brand-color-hs), 80%),
+    hsl(var(--brand-color-hs), 80%),
+    hsl(var(--brand-color-hs), 90%),
+    hsl(var(--brand-color-hue), 50%, 20%) ;
   --nav-dropdown-background: hsl(var(--brand-color-hs), 80%);
   --button-text: hsl(var(--brand-color-hs), 35%);
   --button-border: hsl(var(--brand-color-hs), 35%);
+  --color-theme-button-text: hsl(var(--brand-color-hs), 90%);
+  --color-theme-button-border: hsl(var(--brand-color-hs), 90%);
   --button-background: value;
   --social-media-icons: value;
   --theme-switcher-icon--light-mode: value;
   --theme-switcher-icon--dark-mode: value;
-  --footer-text: value;
+  --footer-text: hsl(var(--brand-color-hs), 98%);
 }
 
 :root {
@@ -112,6 +133,11 @@ a {
   padding: 0.15rem 0.25rem;
 }
 
+.color-theme-button {
+  color: var(--color-theme-button-text);
+  border: 1px solid var(--color-theme-button-border);
+}
+
 .footer {
   padding: 1rem;
 }
@@ -127,7 +153,7 @@ a {
   margin-bottom: 2rem;
 }
 .footer__logo-img {
-  fill: var(--body-text);
+  fill: var(--footer-text);
 }
 .footer__secondary-menu {
   display: flex;
@@ -344,15 +370,13 @@ h3 {
   }
 }
 
-.footer__logo {
-  fill: var(--body-text);
-}
 .footer__secondary-menu {
   list-style: none;
 }
 
 body {
-  background-color: var(--body-background);
+  background-color: var(--background);
+  background-image: linear-gradient(var(--background-gradient));
 }
 
 .wrapper {

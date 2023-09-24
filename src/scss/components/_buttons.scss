@@ -22,3 +22,8 @@
   border: 1px solid mapGet($buttons, border);
   padding: 0.15rem 0.25rem;
 }
+
+.color-theme-button {
+  color: mapGet($buttons, color-theme-buttons, text);
+  border: 1px solid mapGet($buttons, color-theme-buttons, border);
+}

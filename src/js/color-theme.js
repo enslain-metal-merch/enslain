@@ -2,9 +2,9 @@ const colorTheme = {
   storedTheme: localStorage.getItem('theme'),
   transitionValue: "var(--theme-change-transition)", 
   elements: {
-    toggleButtons: document.querySelectorAll('.color-theme-toggle'),
-    toggleButtonLight: document.querySelector('.color-theme-toggle--light'),
-    toggleButtonDark: document.querySelector('.color-theme-toggle--dark'),
+    toggleButtons: document.querySelectorAll('.color-theme-button'),
+    toggleButtonLight: document.querySelector('.color-theme-button--light'),
+    toggleButtonDark: document.querySelector('.color-theme-button--dark'),
     body: document.querySelector('body')
   }
 };

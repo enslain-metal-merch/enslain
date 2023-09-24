@@ -113,10 +113,6 @@ ul {
 }
 
 .footer {
-
-  &__logo {
-    fill: mapGet($body, text);
-  }
   &__secondary-menu {
     list-style: none;
   }
