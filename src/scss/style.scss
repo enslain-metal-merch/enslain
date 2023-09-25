@@ -12,18 +12,27 @@ body {
 
 .wrapper {
   @include wrapperDimensions(90%, 1200px);
+  position: relative;
 }
 
 .main {
   padding: 2rem 0;
 
   @include media-query(tablet) {
-    padding: 5rem 0;
   }
 }
 
 .section {
-  @include margins(bottom, 3rem, of-type);
+  padding: 3rem 0;
+
+  @include media-query(tablet) {
+    padding: 5rem 0;
+    // @include test-border(3, magenta);
+  }
+}
+
+hr {
+  color: mapGet($body, dividers);
 }
 
 .subsection {

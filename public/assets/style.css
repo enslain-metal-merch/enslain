@@ -64,6 +64,7 @@ a {
     hsl(var(--brand-color-hs), 10%),
     hsl(var(--brand-color-hs), 5%),
     hsl(var(--brand-color-hue), 5%, 5%) ;
+  --section-divider: hsl(var(--brand-color-hs), 50%, 50%);
   --nav-dropdown-background: hsl(var(--brand-color-hs), 15%);
   --button-text: hsl(var(--brand-color-hs), 90%);
   --button-border: hsl(var(--brand-color-hs), 90%);
@@ -88,6 +89,7 @@ a {
     hsl(var(--brand-color-hs), 80%),
     hsl(var(--brand-color-hs), 90%),
     hsl(var(--brand-color-hue), 50%, 20%) ;
+  --section-divider: hsla(var(--brand-color-hs), 60%, 50%);
   --nav-dropdown-background: hsl(var(--brand-color-hs), 80%);
   --button-text: hsl(var(--brand-color-hs), 20%);
   --button-border: hsl(var(--brand-color-hs), 20%);
@@ -228,9 +230,6 @@ a {
 
 .grid {
   display: grid;
-}
-.grid--two-col {
-  gap: 2rem;
 }
 @media (min-width: 768px) {
   .grid--two-col {
@@ -382,22 +381,23 @@ body {
   width: 90%;
   max-width: 1200px;
   margin: auto;
+  position: relative;
 }
 
 .main {
   padding: 2rem 0;
 }
+.section {
+  padding: 3rem 0;
+}
 @media (min-width: 768px) {
-  .main {
+  .section {
     padding: 5rem 0;
   }
 }
 
-.section {
-  margin-bottom: 3rem;
-}
-.section:last-of-type {
-  margin-bottom: 0;
+hr {
+  color: var(--section-divider);
 }
 
 .subsection {

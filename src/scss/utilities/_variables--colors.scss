@@ -19,6 +19,7 @@
     hsl(var(--brand-color-hs), 5%),
     hsl(var(--brand-color-hue), 5%, 5%)
   ;
+  --section-divider: hsl(var(--brand-color-hs), 50%, 50%);
   --nav-dropdown-background: hsl(var(--brand-color-hs), 15%);
   --button-text: hsl(var(--brand-color-hs), 90%);
   --button-border: hsl(var(--brand-color-hs), 90%);
@@ -44,6 +45,7 @@
     hsl(var(--brand-color-hs), 90%),
     hsl(var(--brand-color-hue), 50%, 20%)
   ;
+  --section-divider: hsla(var(--brand-color-hs), 60%, 50%);
   --nav-dropdown-background: hsl(var(--brand-color-hs), 80%);
   --button-text: hsl(var(--brand-color-hs), 20%);
   --button-border: hsl(var(--brand-color-hs), 20%);
@@ -60,6 +62,7 @@ $body: (
   text: var(--body-text),
   background: var(--background),
   background-gradient: var(--background-gradient),
+  dividers: var(--section-divider)
 );
 
 $header-colors: (
