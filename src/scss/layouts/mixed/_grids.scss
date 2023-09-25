@@ -4,9 +4,9 @@
   display: grid;
 
   &--two-col {
-    gap: 2rem;
     
     @include media-query(tablet) {
+      gap: 2rem;
       grid-template-columns: repeat(2, 1fr);
     }
 
