@@ -345,7 +345,7 @@ h2 {
 h3 {
   font-family: var(--font-family--secondary);
   font-size: 1.5rem;
-  margin-bottom: 0.25rem;
+  margin-bottom: 0.5rem;
 }
 @media (min-width: 768px) {
   h3 {
