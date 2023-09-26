@@ -12,7 +12,6 @@ body {
 
 .wrapper {
   @include wrapperDimensions(90%, 1200px);
-  position: relative;
 }
 
 .main {
