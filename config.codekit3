@@ -95,6 +95,19 @@
       "q" : 100,
       "rq" : 75
     },
+    "\/public\/assets\/img\/content\/enslain-hero.jpg" : {
+      "ft" : 16384,
+      "iS" : 184579,
+      "jF" : 0,
+      "oA" : 0,
+      "oAP" : "\/public\/assets\/img\/content\/enslain-hero.jpg",
+      "oF" : 0,
+      "oIPL" : 0,
+      "opt" : 0,
+      "ou" : "lpckwebp-none",
+      "q" : 100,
+      "rq" : 75
+    },
     "\/public\/assets\/img\/content\/enslain-index--resized.jpg" : {
       "ft" : 16384,
       "iS" : 99113,
