@@ -21,6 +21,22 @@
   background-color: transparent;
   border: 1px solid mapGet($buttons, border);
   padding: 0.15rem 0.25rem;
+  font-size: 1rem;
+
+  &--scroll-to-top {
+    width: fit-content;
+    @include media-query(tablet) {
+      // margin-left: auto;
+    }
+  }
+  
+  &--chrissy-mode {
+    display: none;
+
+    @include media-query(tablet) {
+      display: block;
+    }
+  }
 }
 
 .color-theme-button {

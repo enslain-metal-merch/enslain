@@ -18,8 +18,34 @@
     }
   }
 
+  &__secondary-nav {
+    @include media-query(tablet) {
+      // margin-bottom: 1rem;
+    }
+  }
+
   &__secondary-menu {
     display: flex;
     gap: 1.5rem;
+    align-items: center;
+
+    @include media-query(tablet) {
+    }
+
+    &-item {
+      &--chrissy-mode {
+        display: none;
+
+        @include media-query(tablet) {
+          display: block;
+        }
+      }
+    }
+  }
+
+  &__button-group {
+    @include media-query(tablet) {
+      display: block;
+    }
   }
 }
