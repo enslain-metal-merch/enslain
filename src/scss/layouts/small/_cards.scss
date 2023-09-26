@@ -3,4 +3,8 @@
 .card {
   background-color: hsla(0, 0%, 13%, 20%);
   padding: 1rem;
+
+  &__img {
+    margin-bottom: 1rem;
+  }
 }

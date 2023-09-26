@@ -255,6 +255,9 @@ a {
   background-color: hsla(0, 0%, 13%, 0.2);
   padding: 1rem;
 }
+.card__img {
+  margin-bottom: 1rem;
+}
 
 body {
   color: var(--body-text);
