@@ -93,7 +93,12 @@ ul {
 
 .event {
   @include margins(bottom, 1.5rem, of-type);
-  line-height: 1;
+  line-height: 1.2;
+
+  @include media-query(tablet) {
+    line-height: 1;
+    @include margins(bottom, 1.25rem, of-type);
+  }
   
   &__name {
     font-size: 1.5rem;

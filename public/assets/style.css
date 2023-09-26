@@ -381,10 +381,19 @@ h3 {
 
 .event {
   margin-bottom: 1.5rem;
-  line-height: 1;
+  line-height: 1.2;
 }
 .event:last-of-type {
   margin-bottom: 0;
+}
+@media (min-width: 768px) {
+  .event {
+    line-height: 1;
+    margin-bottom: 1.25rem;
+  }
+  .event:last-of-type {
+    margin-bottom: 0;
+  }
 }
 .event__name {
   font-size: 1.5rem;
