@@ -369,6 +369,17 @@
       "sC" : 3,
       "tS" : 0
     },
+    "\/src\/js\/scroll-to-top.js" : {
+      "bF" : 0,
+      "ft" : 64,
+      "ma" : 0,
+      "mi" : 1,
+      "oA" : 1,
+      "oAP" : "\/src\/js\/scroll-to-top-min.js",
+      "oF" : 0,
+      "sC" : 3,
+      "tS" : 0
+    },
     "\/src\/js\/toggle-bars-min.js" : {
       "bF" : 0,
       "ft" : 64,
