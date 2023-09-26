@@ -1,1 +1,6 @@
 @use '../../utilities' as *;
+
+.card {
+  background-color: hsla(0, 0%, 13%, 20%);
+  padding: 1rem;
+}
