@@ -442,6 +442,9 @@ body {
   max-width: 1200px;
   margin: auto;
 }
+.wrapper--narrow {
+  max-width: 800px;
+}
 
 .main {
   padding: 2rem 0;
@@ -470,13 +473,6 @@ hr {
   display: flex;
   flex-flow: column;
   gap: 0.25rem;
-}
-@media (min-width: 1024px) {
-  .event {
-    flex-flow: row;
-    align-items: flex-end;
-    gap: 1rem;
-  }
 }
 .index__event-list .event {
   display: flex;

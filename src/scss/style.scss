@@ -12,6 +12,10 @@ body {
 
 .wrapper {
   @include wrapperDimensions(90%, 1200px);
+  
+  &--narrow {
+    max-width: 800px;
+  }
 }
 
 .main {
@@ -44,9 +48,9 @@ hr {
   gap: 0.25rem;
 
   @include media-query(desktop) {
-    flex-flow: row;
-    align-items: flex-end;
-    gap: 1rem;
+    // flex-flow: row;
+    // align-items: flex-end;
+    // gap: 1rem;
   }
 
   .index__event-list & {
