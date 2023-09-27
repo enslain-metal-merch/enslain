@@ -25,9 +25,7 @@
 
   &--scroll-to-top {
     width: fit-content;
-    @include media-query(tablet) {
-      // margin-left: auto;
-    }
+
   }
   
   &--chrissy-mode {
@@ -41,5 +39,6 @@
 
 .color-theme-button {
   color: mapGet($buttons, color-theme-buttons, text);
-  border: 1px solid mapGet($buttons, color-theme-buttons, border);
+  // border: 1px solid mapGet($buttons, color-theme-buttons, border);
+  background-color: mapGet($buttons, background);
 }
