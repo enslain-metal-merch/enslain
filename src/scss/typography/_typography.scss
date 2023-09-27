@@ -110,6 +110,10 @@ ul {
   &__name {
     font-size: 1.5rem;
   }
+
+  .index__event-list & {
+    margin-bottom: 2rem;
+  }
 }
 
 .button {

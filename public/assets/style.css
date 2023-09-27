@@ -421,6 +421,9 @@ h3 {
 .event__name {
   font-size: 1.5rem;
 }
+.index__event-list .event {
+  margin-bottom: 2rem;
+}
 
 .button {
   text-decoration: none;
