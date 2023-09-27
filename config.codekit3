@@ -82,6 +82,19 @@
       "q" : 100,
       "rq" : 75
     },
+    "\/public\/assets\/img\/content\/chrissy-with-kalmah.jpeg" : {
+      "ft" : 16384,
+      "iS" : 339007,
+      "jF" : 0,
+      "oA" : 0,
+      "oAP" : "\/public\/assets\/img\/content\/chrissy-with-kalmah.jpg",
+      "oF" : 0,
+      "oIPL" : 0,
+      "opt" : 0,
+      "ou" : "lpckwebp-none",
+      "q" : 100,
+      "rq" : 75
+    },
     "\/public\/assets\/img\/content\/chrissy.jpg" : {
       "ft" : 16384,
       "iS" : 79583,
@@ -231,6 +244,19 @@
       "jF" : 0,
       "oA" : 0,
       "oAP" : "\/public\/assets\/img\/content\/steelfest-2023.jpg",
+      "oF" : 0,
+      "oIPL" : 0,
+      "opt" : 0,
+      "ou" : "lpckwebp-none",
+      "q" : 100,
+      "rq" : 75
+    },
+    "\/public\/assets\/img\/content\/turku.jpeg" : {
+      "ft" : 16384,
+      "iS" : 242056,
+      "jF" : 0,
+      "oA" : 0,
+      "oAP" : "\/public\/assets\/img\/content\/turku.jpg",
       "oF" : 0,
       "oIPL" : 0,
       "opt" : 0,
@@ -533,7 +559,7 @@
       "hM" : 0,
       "oA" : 1,
       "oAP" : "\/src\/kit\/partials\/events\/index-events.html",
-      "oF" : 1
+      "oF" : 0
     },
     "\/src\/kit\/services.kit" : {
       "cB" : 0,
