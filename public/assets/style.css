@@ -298,6 +298,9 @@ a {
 .card__img {
   margin-bottom: 1rem;
 }
+.card__img-container {
+  margin-bottom: 1rem;
+}
 
 body {
   color: var(--body-text);
