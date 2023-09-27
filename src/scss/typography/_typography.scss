@@ -86,6 +86,7 @@ ul {
 
 .card {
   list-style: none;
+  color: mapGet($card-colors, services, text);
 
   &--crew {
   }

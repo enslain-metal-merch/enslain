@@ -1,7 +1,11 @@
 @use '../../utilities' as *;
 
 .card {
-  background-color: hsla(0, 0%, 13%, 20%);
+  // background-color: hsla(212, 96%, 80%, 100%);
+  // background-color: hsla(212, 96%, 80%, 20%);
+  background-color: mapGet($card-colors, services, background);
+  // color: hsl(212, 96%, 98%);
+  color: hsl(212, 96%, 10%);
   padding: 1rem;
 
   &__img {

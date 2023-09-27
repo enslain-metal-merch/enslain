@@ -66,6 +66,9 @@ a {
     hsl(var(--brand-color-hue), 5%, 5%) ;
   --section-divider: hsl(var(--brand-color-hs), 50%, 50%);
   --nav-dropdown-background: hsl(var(--brand-color-hs), 15%);
+  --card-background--services: hsla(212, 96%, 15%, 100%);
+  --card-text--services: hsl(212, 96%, 98%);
+  --card-background--crew: hsla(212, 96%, 70%, 100%);
   --button-text: hsl(var(--brand-color-hs), 90%);
   --button-border: hsl(var(--brand-color-hs), 90%);
   --color-theme-button-text: hsl(var(--brand-color-hs), 30%);
@@ -92,6 +95,9 @@ a {
     hsl(var(--brand-color-hue), 50%, 20%) ;
   --section-divider: hsla(var(--brand-color-hs), 60%, 50%);
   --nav-dropdown-background: hsl(var(--brand-color-hs), 80%);
+  --card-background--services: hsl(212, 96%, 90%);
+  --card-text--services: hsl(212, 96%, 10%);
+  --card-background--crew: hsl(212, 96%, 90%);
   --button-text: hsl(var(--brand-color-hs), 20%);
   --button-border: hsl(var(--brand-color-hs), 20%);
   --color-theme-button-text: hsl(var(--brand-color-hs), 90%);
@@ -149,7 +155,7 @@ a {
 
 .color-theme-button {
   color: var(--color-theme-button-text);
-  border: 1px solid var(--color-theme-button-border);
+  background-color: var(--button-background);
 }
 
 .footer {
@@ -285,7 +291,8 @@ a {
 }
 
 .card {
-  background-color: hsla(0, 0%, 13%, 0.2);
+  background-color: var(--card-background--services);
+  color: hsl(212, 96%, 10%);
   padding: 1rem;
 }
 .card__img {
@@ -386,6 +393,7 @@ h3 {
 
 .card {
   list-style: none;
+  color: var(--card-text--services);
 }
 .card--service p {
   margin-bottom: 1rem;
