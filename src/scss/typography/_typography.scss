@@ -18,6 +18,12 @@ p {
   .text-container & {
     margin-bottom: 1.5rem;
   }
+
+  .footer & {
+    text-align: center;
+    margin-bottom: 1.5rem;
+    color: mapGet($footer-colors, text);
+  }
 }
 
 ul {

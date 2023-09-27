@@ -6,21 +6,18 @@
   @include media-query(tablet) {
     padding: 2rem 0 3rem;
   }
+
+  &__content {
+  }
   
   &__logo {
     display: block;
     width: 100%;
     max-width: 300px;
-    margin-bottom: 1rem;
+    margin: 0 auto 1.5rem;
 
     &-img {
-      fill: mapGet($footer-colors, text);
-    }
-  }
-
-  &__secondary-nav {
-    @include media-query(tablet) {
-      // margin-bottom: 1rem;
+      fill: mapGet($footer-colors, logo);
     }
   }
 
@@ -28,6 +25,7 @@
     display: flex;
     gap: 1.5rem;
     align-items: center;
+    justify-content: center;
 
     @include media-query(tablet) {
     }
@@ -46,6 +44,13 @@
   &__button-group {
     @include media-query(tablet) {
       display: block;
+    }
+  }
+
+  .button {
+    &--scroll-to-top {
+      margin-left: auto;
+      margin-bottom: 1.5rem;
     }
   }
 }

@@ -25,11 +25,12 @@
   --button-border: hsl(var(--brand-color-hs), 90%);
   --color-theme-button-text: hsl(var(--brand-color-hs), 65%);
   --color-theme-button-border: hsl(var(--brand-color-hs), 65%);
-  --button-background: value;
+  --button-background: hsl(var(--brand-color-hs), 90%);
   --social-media-icons: value;
   --theme-switcher-icon--light-mode: value;
   --theme-switcher-icon--dark-mode: value;
-  --footer-text: hsl(var(--brand-color-hs), 80%);
+  --footer-logo: hsl(var(--brand-color-hs), 80%);
+  --footer-text: hsl(var(--brand-color-hs), 70%);
 }
 
 :root,
@@ -51,11 +52,12 @@
   --button-border: hsl(var(--brand-color-hs), 20%);
   --color-theme-button-text: hsl(var(--brand-color-hs), 90%);
   --color-theme-button-border: hsl(var(--brand-color-hs), 90%);
-  --button-background: value;
+  --button-background: hsl(var(--brand-color-hs), 20%);
   --social-media-icons: value;
   --theme-switcher-icon--light-mode: value;
   --theme-switcher-icon--dark-mode: value;
-  --footer-text: hsl(var(--brand-color-hs), 98%);
+  --footer-logo: hsl(var(--brand-color-hs), 100%);
+  --footer-text: hsl(var(--brand-color-hs), 90%);
 }
 
 $body: (
@@ -72,6 +74,7 @@ $header-colors: (
 );
 
 $footer-colors: (
+  logo: var(--footer-logo),
   text: var(--footer-text),
 );
 
