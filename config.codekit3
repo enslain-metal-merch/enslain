@@ -314,12 +314,35 @@
       "ou" : "lpckwebp-default",
       "rq" : 75
     },
-    "\/public\/assets\/img\/theme\/background--dark.jpg" : {
+    "\/public\/assets\/img\/theme\/enslain-logo-vector.svg" : {
+      "ft" : 2097152,
+      "miP" : 0,
+      "oA" : 2,
+      "oAP" : "\/public\/assets\/img\/theme\/enslain-logo-vector.svg",
+      "oF" : 0,
+      "opt" : 0,
+      "plM" : 52780316221407,
+      "prP" : 0
+    },
+    "\/public\/assets\/img\/theme\/header-logo-background--dark.jpg" : {
+      "ft" : 16384,
+      "iS" : 551819,
+      "jF" : 0,
+      "oA" : 0,
+      "oAP" : "\/public\/assets\/img\/theme\/header-logo-background--dark.jpg",
+      "oF" : 0,
+      "oIPL" : 0,
+      "opt" : 0,
+      "ou" : "lpckwebp-none",
+      "q" : 100,
+      "rq" : 75
+    },
+    "\/public\/assets\/img\/theme\/header-logo-background--light.jpg" : {
       "ft" : 16384,
       "iS" : 808792,
       "jF" : 0,
       "oA" : 0,
-      "oAP" : "\/public\/assets\/img\/theme\/background--dark.jpg",
+      "oAP" : "\/public\/assets\/img\/theme\/header-logo-background--light.jpg",
       "oF" : 0,
       "oIPL" : 0,
       "opt" : 0,

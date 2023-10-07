@@ -24,13 +24,23 @@
     width: 100%;
   }
   
+  
   &__logo {
     display: block;
     width: 80%;
     max-width: 500px;
-
-    &-img {
-      fill: mapGet($body, text);
+    height: min-content;
+    
+    img {
+      max-width: 500px;
+      -webkit-mask-image: url("/assets/img/theme/enslain-logo-vector.svg");
+      -webkit-mask-size: contain;
+      -webkit-mask-repeat: no-repeat;
+      -webkit-mask-position: center;
+      mask-image: url("/assets/img/theme/enslain-logo-vector.svg");
+      mask-size: contain;
+      mask-repeat: no-repeat;
+      mask-position: center;
     }
   }
 

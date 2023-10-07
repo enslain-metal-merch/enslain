@@ -228,9 +228,18 @@ a {
   display: block;
   width: 80%;
   max-width: 500px;
+  height: min-content;
 }
-.header__logo-img {
-  fill: var(--body-text);
+.header__logo img {
+  max-width: 500px;
+  -webkit-mask-image: url("/assets/img/theme/enslain-logo-vector.svg");
+  -webkit-mask-size: contain;
+  -webkit-mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+  mask-image: url("/assets/img/theme/enslain-logo-vector.svg");
+  mask-size: contain;
+  mask-repeat: no-repeat;
+  mask-position: center;
 }
 .header__nav-toggle {
   height: fit-content;

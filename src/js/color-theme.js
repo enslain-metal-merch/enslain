@@ -5,7 +5,12 @@ const colorTheme = {
     toggleButtons: document.querySelectorAll('.color-theme-button'),
     toggleButtonLight: document.querySelector('.color-theme-button--light'),
     toggleButtonDark: document.querySelector('.color-theme-button--dark'),
-    body: document.querySelector('body')
+    body: document.querySelector('body'),
+    headerLogoImg: document.querySelector('.header__logo-img')
+  },
+  logoImages: {
+    headerDark: '/assets/img/theme/header-logo-background--dark.jpg',
+    headerLight: '/assets/img/theme/header-logo-background--light.jpg'
   }
 };
 
@@ -29,9 +34,11 @@ const colorTheme = {
     if (theme === 'light') {
       colorTheme.elements.toggleButtonLight.classList.add('hidden');
       colorTheme.elements.toggleButtonDark.classList.remove('hidden');
+      colorTheme.elements.headerLogoImg.src = colorTheme.logoImages.headerLight;
     } else {
       colorTheme.elements.toggleButtonDark.classList.add('hidden');
       colorTheme.elements.toggleButtonLight.classList.remove('hidden');
+      colorTheme.elements.headerLogoImg.src = colorTheme.logoImages.headerDark;
     }
   }
 
