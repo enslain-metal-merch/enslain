@@ -2,7 +2,6 @@
 
 .header {
   padding: 1rem 0;
-  position: relative;
 
   @include media-query(tablet) {
     padding: 2rem 0 1rem;

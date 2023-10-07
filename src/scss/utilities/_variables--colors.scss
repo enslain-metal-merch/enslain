@@ -19,7 +19,7 @@
     hsl(var(--brand-color-hs), 5%),
     hsl(var(--brand-color-hue), 5%, 5%)
   ;
-  --section-divider: hsl(var(--brand-color-hs), 50%, 50%);
+  --section-background: hsla(var(--neutral-hs), 0%, 50%);
   --nav-dropdown-background: hsl(var(--brand-color-hs), 15%);
   --card-background--services: hsla(212, 96%, 15%, 100%);
   --card-text--services: hsl(212, 96%, 98%);
@@ -49,6 +49,7 @@
     hsl(var(--brand-color-hs), 90%),
     hsl(var(--brand-color-hue), 50%, 20%)
   ;
+  --section-background: hsla(var(--neutral-hs), 100%, 50%);
   --section-divider: hsla(var(--brand-color-hs), 60%, 50%);
   --nav-dropdown-background: hsl(var(--brand-color-hs), 80%);
   --card-background--services: hsl(212, 96%, 90%);
@@ -77,6 +78,10 @@ $header-colors: (
   primary-nav: (
     background--mobile: var(--nav-dropdown-background)
   ),
+);
+
+$section-colors: (
+  background: var(--section-background),
 );
 
 $footer-colors: (

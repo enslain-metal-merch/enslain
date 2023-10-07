@@ -18,10 +18,28 @@ body {
   }
 }
 
-.main {
-  padding: 2rem 0;
+.clip-path-layer {
+  padding: 3rem 0;
+  margin: 3rem 0;
+  background-color: mapGet($section-colors, background);
 
-  @include media-query(tablet) {
+  position: relative;
+  &:nth-of-type(odd) {
+    clip-path: polygon(
+      0 5%,
+      100% 0,
+      100% 95%,
+      0% 100%
+    );
+  }
+  
+  &:nth-of-type(even) {
+    clip-path: polygon(
+      0 0%,
+      100% 5%,
+      100% 100%,
+      0% 95%
+    );
   }
 }
 
@@ -32,10 +50,6 @@ body {
     padding: 5rem 0;
     // @include test-border(3, magenta);
   }
-}
-
-hr {
-  color: mapGet($body, dividers);
 }
 
 .subsection {

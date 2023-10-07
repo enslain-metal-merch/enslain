@@ -314,6 +314,19 @@
       "ou" : "lpckwebp-default",
       "rq" : 75
     },
+    "\/public\/assets\/img\/theme\/background--dark.jpg" : {
+      "ft" : 16384,
+      "iS" : 808792,
+      "jF" : 0,
+      "oA" : 0,
+      "oAP" : "\/public\/assets\/img\/theme\/background--dark.jpg",
+      "oF" : 0,
+      "oIPL" : 0,
+      "opt" : 0,
+      "ou" : "lpckwebp-none",
+      "q" : 100,
+      "rq" : 75
+    },
     "\/public\/assets\/script-min.js" : {
       "bF" : 0,
       "ft" : 64,
