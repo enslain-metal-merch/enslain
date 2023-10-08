@@ -13,7 +13,16 @@ button {
 
 p {
   line-height: mapGet($primary, line-height);
-  font-size: mapGet($primary, size);
+  font-size: mapGet($primary, size--small);
+  
+  @include media-query(desktop) {
+    font-size: mapGet($primary, size--large);
+  }
+
+  @supports (font-size: mapGet($primary, size--clamp)) {
+    font-size: mapGet($primary, size--clamp);
+  }
+
   
   .text-container & {
     margin-bottom: 1.5rem;

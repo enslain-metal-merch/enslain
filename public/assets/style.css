@@ -410,6 +410,16 @@ p {
   line-height: 1.6;
   font-size: 1.15rem;
 }
+@media (min-width: 1024px) {
+  p {
+    font-size: 1.25rem;
+  }
+}
+@supports (font-size: clamp(1.15rem, 2vw, 1.35rem)) {
+  p {
+    font-size: clamp(1.15rem, 2vw, 1.35rem);
+  }
+}
 .text-container p {
   margin-bottom: 1.5rem;
 }
@@ -421,7 +431,6 @@ p {
 
 ul {
   line-height: 1.6;
-  font-size: 1.15rem;
   list-style-position: inside;
 }
 

@@ -6,7 +6,9 @@
 $primary: (
   family: (var(--font-family--primary)),
   line-height: 1.6,
-  size: 1.15rem
+  size--small: 1.15rem,
+  size--large: 1.25rem,
+  size--clamp: clamp(1.15rem, 2vw, 1.35rem)
 );
 
 $headings: (
