@@ -19,9 +19,13 @@ body {
 }
 
 .clip-path-layer {
-  padding: 3rem 0;
+  padding: 7rem 0;
   margin: 3rem 0;
   background-color: mapGet($section-colors, background);
+
+  @include media-query(tablet) {
+    padding: 4rem 0;
+  }
 
   position: relative;
   &:nth-of-type(odd) {
@@ -30,7 +34,7 @@ body {
       100% 0,
       100% 95%,
       0% 100%
-    );
+    ); 
   }
   
   &:nth-of-type(even) {
