@@ -1,7 +1,7 @@
 @use '../../utilities' as *;
 
 .footer {
-  padding: 2rem 0;
+  padding: 2rem 0 4rem;
 
   @include media-query(tablet) {
     padding: 2rem 0 3rem;
@@ -49,8 +49,8 @@
 
   .button {
     &--scroll-to-top {
-      margin-left: auto;
-      margin-bottom: 1.5rem;
+      // margin-left: auto;
+      // margin-bottom: 1.5rem;
     }
   }
 }

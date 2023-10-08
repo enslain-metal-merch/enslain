@@ -3,6 +3,29 @@
   --brand-color-hue: 212;
   --brand-color-saturation: 96%;
   --brand-color-hs: var(--brand-color-hue), var(--brand-color-saturation);
+  --accent--red: hsl(0, 100%, 50%);
+  --accent--red-hue: 0;
+  --accent--torch-red: hsl(340, 100%, 50%);
+  --accent--orange: hsl(27, 100%, 50%);
+  --accent--yellow: hsl(59, 100%, 50%);
+  --gradient--fire: 
+    var(--accent--red),
+    var(--accent--orange),
+    var(--accent--yellow),
+    var(--accent--yellow),
+    var(--accent--orange),
+    var(--accent--red)
+  ;
+  --gradient--reds: 
+    var(--accent--torch-red),
+    var(--accent--red),
+    hsl(var(--accent--red-hue), 86%, 44%),
+    hsl(var(--accent--red-hue), 86%, 44%),
+    var(--accent--red),
+    var(--accent--torch-red);
+  ;
+  --gradient--aurora-borealis: value;
+  --gradient--forest: value;
 }
 
 :root,
@@ -25,10 +48,13 @@
   --card-text--services: hsl(212, 96%, 98%);
   --card-background--crew: hsla(212, 96%, 70%, 100%);
   --button-text: hsl(var(--brand-color-hs), 90%);
+  --button-text--active: hsl(var(--neutral-hs), 0%);
   --button-border: hsl(var(--brand-color-hs), 90%);
+  --button-hover: var(--gradient--fire);
   --color-theme-button-text: hsl(var(--brand-color-hs), 30%);
   --color-theme-button-border: hsl(var(--brand-color-hs), 65%);
-  --button-background: hsl(var(--brand-color-hs), 90%);
+  --button-background: hsl(var(--brand-color-hs), 20%);
+  --button-background--hover: hsl(var(--brand-color-hs), 40%);
   --social-media-icons: value;
   --theme-switcher-icon--light-mode: value;
   --theme-switcher-icon--dark-mode: value;
@@ -56,10 +82,13 @@
   --card-text--services: hsl(212, 96%, 10%);
   --card-background--crew: hsl(212, 96%, 90%);
   --button-text: hsl(var(--brand-color-hs), 20%);
+  --button-text--active: hsl(var(--neutral-hs), 100%);
   --button-border: hsl(var(--brand-color-hs), 20%);
+  --button-hover: var(--gradient--reds);
   --color-theme-button-text: hsl(var(--brand-color-hs), 90%);
   --color-theme-button-border: hsl(var(--brand-color-hs), 90%);
-  --button-background: hsl(var(--brand-color-hs), 20%);
+  --button-background: hsl(var(--brand-color-hs), 90%);
+  --button-background--hover: hsl(var(--brand-color-hs), 98%);
   --social-media-icons: value;
   --theme-switcher-icon--light-mode: value;
   --theme-switcher-icon--dark-mode: value;
@@ -67,7 +96,7 @@
   --footer-text: hsl(var(--brand-color-hs), 90%);
 }
 
-$body: (
+$body-colors: (
   text: var(--body-text),
   background: var(--background),
   background-gradient: var(--background-gradient),
@@ -96,10 +125,13 @@ $card-colors: (
   ),
 );
 
-$buttons: (
+$button-colors: (
   text: var(--button-text),
+  text--active: var(--button-text--active),
   border: var(--button-border),
   background: var(--button-background),
+  background--hover: var(--button-background--hover),
+  hover: var(--button-hover),
 
   color-theme-buttons: (
     text: var(--color-theme-button-text),

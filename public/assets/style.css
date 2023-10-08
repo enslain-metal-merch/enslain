@@ -49,6 +49,27 @@ a {
   --brand-color-hue: 212;
   --brand-color-saturation: 96%;
   --brand-color-hs: var(--brand-color-hue), var(--brand-color-saturation);
+  --accent--red: hsl(0, 100%, 50%);
+  --accent--red-hue: 0;
+  --accent--torch-red: hsl(340, 100%, 50%);
+  --accent--orange: hsl(27, 100%, 50%);
+  --accent--yellow: hsl(59, 100%, 50%);
+  --gradient--fire:
+    var(--accent--red),
+    var(--accent--orange),
+    var(--accent--yellow),
+    var(--accent--yellow),
+    var(--accent--orange),
+    var(--accent--red) ;
+  --gradient--reds:
+    var(--accent--torch-red),
+    var(--accent--red),
+    hsl(var(--accent--red-hue), 86%, 44%),
+    hsl(var(--accent--red-hue), 86%, 44%),
+    var(--accent--red),
+    var(--accent--torch-red);
+  --gradient--aurora-borealis: value;
+  --gradient--forest: value;
 }
 
 :root,
@@ -70,10 +91,13 @@ a {
   --card-text--services: hsl(212, 96%, 98%);
   --card-background--crew: hsla(212, 96%, 70%, 100%);
   --button-text: hsl(var(--brand-color-hs), 90%);
+  --button-text--active: hsl(var(--neutral-hs), 0%);
   --button-border: hsl(var(--brand-color-hs), 90%);
+  --button-hover: var(--gradient--fire);
   --color-theme-button-text: hsl(var(--brand-color-hs), 30%);
   --color-theme-button-border: hsl(var(--brand-color-hs), 65%);
-  --button-background: hsl(var(--brand-color-hs), 90%);
+  --button-background: hsl(var(--brand-color-hs), 20%);
+  --button-background--hover: hsl(var(--brand-color-hs), 40%);
   --social-media-icons: value;
   --theme-switcher-icon--light-mode: value;
   --theme-switcher-icon--dark-mode: value;
@@ -100,10 +124,13 @@ a {
   --card-text--services: hsl(212, 96%, 10%);
   --card-background--crew: hsl(212, 96%, 90%);
   --button-text: hsl(var(--brand-color-hs), 20%);
+  --button-text--active: hsl(var(--neutral-hs), 100%);
   --button-border: hsl(var(--brand-color-hs), 20%);
+  --button-hover: var(--gradient--reds);
   --color-theme-button-text: hsl(var(--brand-color-hs), 90%);
   --color-theme-button-border: hsl(var(--brand-color-hs), 90%);
-  --button-background: hsl(var(--brand-color-hs), 20%);
+  --button-background: hsl(var(--brand-color-hs), 90%);
+  --button-background--hover: hsl(var(--brand-color-hs), 98%);
   --social-media-icons: value;
   --theme-switcher-icon--light-mode: value;
   --theme-switcher-icon--dark-mode: value;
@@ -135,32 +162,94 @@ a {
 
 .button {
   border: none;
+  position: relative;
   border-radius: 0;
+  z-index: 0;
   color: var(--button-text);
-  background-color: transparent;
+  background-color: var(--button-background);
+  border: none;
   border: 1px solid var(--button-border);
   padding: 0.15rem 0.25rem;
   font-size: 1rem;
+  transition: all 250ms ease-in-out;
+}
+.button:hover {
+  background-color: var(--button-background--hover);
+}
+@media (min-width: 1024px) {
+  .button:before {
+    content: "";
+    background: linear-gradient(45deg, var(--button-hover));
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    background-size: 400%;
+    z-index: -1;
+    filter: blur(5px);
+    width: calc(100% + 6px);
+    height: calc(100% + 6px);
+    animation: buttonGlow 20s linear infinite;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+  }
+}
+@media (min-width: 1024px) {
+  .button:active {
+    color: var(--button-text--active);
+  }
+}
+@media (min-width: 1024px) {
+  .button:active::after {
+    background-color: transparent;
+  }
+}
+@media (min-width: 1024px) {
+  .button:hover, .button:focus-visible {
+    border: none;
+  }
+  .button:hover::before, .button:focus-visible::before {
+    opacity: 1;
+    z-index: -1;
+  }
+}
+@media (min-width: 1024px) {
+  .button::after {
+    z-index: -1;
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: var(--button-background);
+    left: 0;
+    top: 0;
+  }
 }
 .button--scroll-to-top {
-  width: fit-content;
+  padding: 0.25rem 0.8rem;
+  position: fixed;
+  bottom: 0.5rem;
+  right: 1rem;
 }
-.button--chrissy-mode {
-  display: none;
-}
-@media (min-width: 768px) {
-  .button--chrissy-mode {
-    display: block;
+@media (min-width: 1024px) {
+  .button--scroll-to-top {
+    right: 3rem;
+    bottom: 3rem;
   }
 }
 
-.color-theme-button {
-  color: var(--color-theme-button-text);
-  background-color: var(--button-background);
+@keyframes buttonGlow {
+  0% {
+    background-position: 0 0;
+  }
+  50% {
+    background-position: 400% 0;
+  }
+  100% {
+    background-position: 0 0;
+  }
 }
-
 .footer {
-  padding: 2rem 0;
+  padding: 2rem 0 4rem;
 }
 @media (min-width: 768px) {
   .footer {
@@ -195,11 +284,6 @@ a {
     display: block;
   }
 }
-.footer .button--scroll-to-top {
-  margin-left: auto;
-  margin-bottom: 1.5rem;
-}
-
 .header {
   padding: 1rem 0;
 }

@@ -6,8 +6,8 @@
 @use 'typography/typography';
 
 body {
-  background-color: mapGet($body, background);
-  background-image: linear-gradient(mapGet($body, background-gradient));
+  background-color: mapGet($body-colors, background);
+  background-image: linear-gradient(mapGet($body-colors, background-gradient));
 }
 
 .wrapper {

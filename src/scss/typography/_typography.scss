@@ -1,7 +1,7 @@
 @use '../utilities/index' as *;
 
 body {
-  color: mapGet($body, text);
+  color: mapGet($body-colors, text);
   font-family: mapGet($primary, family);
 }
 
@@ -63,7 +63,7 @@ ul {
   }
 
   &__nav-toggle {
-    color: mapGet($body, text);
+    color: mapGet($body-colors, text);
   }
 
   &__primary-menu {

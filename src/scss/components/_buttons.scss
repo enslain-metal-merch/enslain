@@ -9,36 +9,116 @@
   }
 
   &__nav-toggle-bar {
-    @include toggle-icon-bars(30px, 2px, mapGet($body, text), 8px, 0);
+    @include toggle-icon-bars(30px, 2px, mapGet($body-colors, text), 8px, 0);
     display: block;
   }
 }
 
 .button {
   border: none;
+  position: relative;
   border-radius: 0;
-  color: mapGet($buttons, text);
-  background-color: transparent;
-  border: 1px solid mapGet($buttons, border);
+  z-index: 0;
+  color: mapGet($button-colors, text);
+  background-color: mapGet($button-colors, background);
+  border: none;
+  border: 1px solid mapGet($button-colors, border);
   padding: 0.15rem 0.25rem;
   font-size: 1rem;
+  transition: all 250ms ease-in-out;
 
-  &--scroll-to-top {
-    width: fit-content;
-
+  &:hover {
+    background-color: mapGet($button-colors, background--hover);
   }
-  
-  &--chrissy-mode {
-    display: none;
 
-    @include media-query(tablet) {
-      display: block;
+  &:before {
+    @include media-query(desktop) {
+      content: '';
+      background: linear-gradient(45deg, mapGet($button-colors, hover));
+      position: absolute;
+      top: -2px;
+      left: -2px;
+      background-size: 400%;
+      z-index: -1;
+      filter: blur(5px);
+      width: calc(100% + 6px);
+      height: calc(100% + 6px);
+      animation: buttonGlow 20s linear infinite;
+      opacity: 0;
+      transition: opacity .3s ease-in-out;
     }
   }
+  
+  &:active {
+    @include media-query(desktop) {
+      color: mapGet($button-colors, text--active);
+    }
+  }
+
+  &:active {
+    &::after {
+      @include media-query(desktop) {
+        background-color: transparent;
+      }
+    }
+  }
+  
+  &:hover,
+  &:focus-visible {
+    @include media-query(desktop) {
+      border: none;
+  
+      &::before {
+        opacity: 1;
+        z-index: -1;
+      }
+    }
+  }
+
+  &::after {
+    @include media-query(desktop) {
+      z-index: -1;
+      content: '';
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background-color: mapGet($button-colors, background);
+      left: 0;
+      top: 0;
+    }
+  }
+
+  &--scroll-to-top {
+    padding: 0.25rem 0.8rem;
+    position: fixed;
+    bottom: 0.5rem;
+    right: 1rem;
+
+    @include media-query(desktop) {
+      right: 3rem;
+      bottom: 3rem;
+    }
+  }
+  
+  // &--chrissy-mode {
+  //   display: none;
+
+  //   @include media-query(tablet) {
+  //     display: block;
+  //   }
+  // }
 }
 
-.color-theme-button {
-  color: mapGet($buttons, color-theme-buttons, text);
-  // border: 1px solid mapGet($buttons, color-theme-buttons, border);
-  background-color: mapGet($buttons, background);
+@keyframes buttonGlow {
+  0% {
+    background-position: 0 0;
+  }
+
+  50% {
+    background-position: 400% 0;
+  }
+
+  100% {
+    background-position: 0 0;
+  }
 }
