@@ -44,9 +44,8 @@
   ;
   --section-background: hsla(var(--neutral-hs), 0%, 50%);
   --nav-dropdown-background: hsl(var(--brand-color-hs), 15%);
-  --card-background--services: hsla(212, 96%, 15%, 100%);
-  --card-text--services: hsl(212, 96%, 98%);
-  --card-background--crew: hsla(212, 96%, 70%, 100%);
+  --card-background: hsl(212, 96%, 5%);
+  --card-box-shadow: hsl(var(--brand-color-hs), 50%);
   --button-text: hsl(var(--brand-color-hs), 90%);
   --button-text--active: hsl(var(--neutral-hs), 0%);
   --button-border: hsl(var(--brand-color-hs), 90%);
@@ -78,9 +77,8 @@
   --section-background: hsla(var(--neutral-hs), 100%, 50%);
   --section-divider: hsla(var(--brand-color-hs), 60%, 50%);
   --nav-dropdown-background: hsl(var(--brand-color-hs), 80%);
-  --card-background--services: hsl(212, 96%, 90%);
-  --card-text--services: hsl(212, 96%, 10%);
-  --card-background--crew: hsl(212, 96%, 90%);
+  --card-background: hsl(212, 96%, 98%);
+  --card-box-shadow: hsl(var(--brand-color-hs), 20%);
   --button-text: hsl(var(--brand-color-hs), 20%);
   --button-text--active: hsl(var(--neutral-hs), 100%);
   --button-border: hsl(var(--brand-color-hs), 20%);
@@ -119,8 +117,10 @@ $footer-colors: (
 );
 
 $card-colors: (
+  background: var(--card-background),
+  box-shadow: var(--card-box-shadow),
   services: (
-    background: var(--card-background--services),
+    background: var(--card-background),
     text: var(--card-text--services)
   ),
 );

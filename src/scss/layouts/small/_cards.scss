@@ -1,8 +1,8 @@
 @use '../../utilities' as *;
 
 .card {
-  background-color: mapGet($card-colors, services, background);
-  color: hsl(212, 96%, 10%);
+  background-color: mapGet($card-colors, background);
+  box-shadow: 2px 2px 5px mapGet($card-colors, box-shadow);
   padding: 1rem;
 
   &__img {
