@@ -42,6 +42,7 @@
 :root,
 :root[data-color-theme="dark"] {
   --body-text: hsl(var(--brand-color-hs), 95%);
+  --headings: hsl(var(--brand-color-hs), 70%);
   --link--hover: var(--gradient--aurora-borealis);
   --background: hsl(var(--brand-color-hue), 5%, 5%);
   --background-gradient: 
@@ -76,6 +77,7 @@
 :root,
 :root[data-color-theme="light"] {
   --body-text: hsl(var(--brand-color-hs), 5%);
+  --headings: hsl(var(--brand-color-hs), 40%);
   --link--hover: var(--gradient--blues);
   --background: hsl(var(--brand-color-hue), 50%, 20%);
   --background-gradient: 
@@ -109,6 +111,7 @@
 
 $body-colors: (
   text: var(--body-text),
+  headings: var(--headings),
   links--hover: var(--link--hover),
   background: var(--background),
   background-gradient: var(--background-gradient),

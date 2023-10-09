@@ -77,6 +77,8 @@ a {
     font-family: mapGet($element, family);
     font-size: mapGet($element, size--small);
     margin-bottom: mapGet($element, margin);
+    line-height: mapGet($element, line-height);
+    color: mapGet($body-colors, headings);
     
     @include media-query(tablet) {
       font-size: mapGet($element, size--medium);
@@ -84,6 +86,10 @@ a {
     
     @include media-query(desktop) {
       font-size: mapGet($element, size--large);
+    }
+
+    @supports (font-size: mapGet($element, size--clamp)) {
+      font-size: mapGet($element, size--clamp);
     }
   }
 }

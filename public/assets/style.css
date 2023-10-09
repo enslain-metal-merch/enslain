@@ -84,6 +84,7 @@ a {
 :root,
 :root[data-color-theme=dark] {
   --body-text: hsl(var(--brand-color-hs), 95%);
+  --headings: hsl(var(--brand-color-hs), 70%);
   --link--hover: var(--gradient--aurora-borealis);
   --background: hsl(var(--brand-color-hue), 5%, 5%);
   --background-gradient:
@@ -117,6 +118,7 @@ a {
 :root,
 :root[data-color-theme=light] {
   --body-text: hsl(var(--brand-color-hs), 5%);
+  --headings: hsl(var(--brand-color-hs), 40%);
   --link--hover: var(--gradient--blues);
   --background: hsl(var(--brand-color-hue), 50%, 20%);
   --background-gradient:
@@ -520,33 +522,47 @@ a:not(.button):hover, a:not(.button):focus-visible {
 }
 h1 {
   font-family: var(--font-family--secondary);
-  font-size: 2.5rem;
-  margin-bottom: 0.75rem;
+  font-size: 3.5rem;
+  margin-bottom: 1.5rem;
+  line-height: 1.1;
+  color: var(--headings);
 }
 @media (min-width: 768px) {
   h1 {
-    font-size: 3rem;
+    font-size: 4rem;
   }
 }
 @media (min-width: 1024px) {
   h1 {
-    font-size: 4rem;
+    font-size: 5rem;
+  }
+}
+@supports (font-size: clamp(3.5rem, 10vw, 5rem)) {
+  h1 {
+    font-size: clamp(3.5rem, 10vw, 5rem);
   }
 }
 
 h2 {
   font-family: var(--font-family--secondary);
-  font-size: 1.75rem;
-  margin-bottom: 0.5rem;
+  font-size: 2.5rem;
+  margin-bottom: 1.5rem;
+  line-height: 1.1;
+  color: var(--headings);
 }
 @media (min-width: 768px) {
   h2 {
-    font-size: 2.25rem;
+    font-size: 3rem;
   }
 }
 @media (min-width: 1024px) {
   h2 {
-    font-size: 2.5rem;
+    font-size: 3.75rem;
+  }
+}
+@supports (font-size: clamp(2.5rem, 10vw, 3.75rem)) {
+  h2 {
+    font-size: clamp(2.5rem, 10vw, 3.75rem);
   }
 }
 
@@ -554,12 +570,25 @@ h3 {
   font-family: var(--font-family--secondary);
   font-size: 1.5rem;
   margin-bottom: 0.5rem;
+  line-height: 1.1;
+  color: var(--headings);
 }
 @media (min-width: 768px) {
   h3 {
-    font-size: 1.75rem;
+    font-size: 2rem;
   }
 }
+@media (min-width: 1024px) {
+  h3 {
+    font-size: 2.5rem;
+  }
+}
+@supports (font-size: clamp(1.5rem, 10vw, 2.5rem)) {
+  h3 {
+    font-size: clamp(1.5rem, 10vw, 2.5rem);
+  }
+}
+
 .header ul {
   list-style: none;
 }

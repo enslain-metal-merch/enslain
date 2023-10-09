@@ -14,24 +14,31 @@ $primary: (
 $headings: (
   h1: (
     family: (var(--font-family--secondary)),
-    size--small: 2.5rem,
-    size--medium: 3rem,
-    size--large: 4rem,
-    margin: 0.75rem,
+    size--small: 3.5rem,
+    size--medium: 4rem,
+    size--large: 5rem,
+    size--clamp: clamp(3.5rem, 10vw, 5rem),
+    margin: 1.5rem,
+    line-height: 1.1
   ),
     
   h2: (
     family: (var(--font-family--secondary)),
-    size--small: 1.75rem,
-    size--medium: 2.25rem,
-    size--large: 2.5rem,
-    margin: 0.5rem
+    size--small: 2.5rem,
+    size--medium: 3rem,
+    size--large: 3.75rem,
+    size--clamp: clamp(2.5rem, 10vw, 3.75rem),
+    margin: 1.5rem,
+    line-height: 1.1
   ),
     
   h3: (
     family: (var(--font-family--secondary)),
     size--small: 1.5rem,
-    size--medium: 1.75rem,
+    size--medium: 2rem,
+    size--large: 2.5rem,
+    size--clamp: clamp(1.5rem, 10vw, 2.5rem),
+    line-height: 1.1,
     margin: 0.5rem
   ),
 );
