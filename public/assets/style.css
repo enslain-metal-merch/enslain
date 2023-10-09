@@ -498,6 +498,7 @@ li {
 .footer a,
 .footer li {
   text-align: center;
+  font-size: 1.15rem;
 }
 .footer p:not(.button),
 .footer a:not(.button),
