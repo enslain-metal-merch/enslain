@@ -82,6 +82,19 @@
       "q" : 100,
       "rq" : 75
     },
+    "\/public\/assets\/img\/content\/chrissy-with-kalmah--resized.jpg" : {
+      "ft" : 16384,
+      "iS" : 461616,
+      "jF" : 0,
+      "oA" : 0,
+      "oAP" : "\/public\/assets\/img\/content\/chrissy-with-kalmah--resized.jpg",
+      "oF" : 0,
+      "oIPL" : 0,
+      "opt" : 1,
+      "ou" : "lpckwebp-none",
+      "q" : 100,
+      "rq" : 75
+    },
     "\/public\/assets\/img\/content\/chrissy-with-kalmah.jpeg" : {
       "ft" : 16384,
       "iS" : 339007,
@@ -326,7 +339,7 @@
     },
     "\/public\/assets\/img\/theme\/header-logo-background--dark.jpg" : {
       "ft" : 16384,
-      "iS" : 551819,
+      "iS" : 89603,
       "jF" : 0,
       "oA" : 0,
       "oAP" : "\/public\/assets\/img\/theme\/header-logo-background--dark.jpg",
@@ -339,7 +352,7 @@
     },
     "\/public\/assets\/img\/theme\/header-logo-background--light.jpg" : {
       "ft" : 16384,
-      "iS" : 808792,
+      "iS" : 44317,
       "jF" : 0,
       "oA" : 0,
       "oAP" : "\/public\/assets\/img\/theme\/header-logo-background--light.jpg",
