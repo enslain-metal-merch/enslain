@@ -337,12 +337,12 @@
       "plM" : 52780316221407,
       "prP" : 0
     },
-    "\/public\/assets\/img\/theme\/header-logo-background--dark-2.jpg" : {
+    "\/public\/assets\/img\/theme\/header-logo-background--dark--old.jpg" : {
       "ft" : 16384,
-      "iS" : 156805,
+      "iS" : 89603,
       "jF" : 0,
       "oA" : 0,
-      "oAP" : "\/public\/assets\/img\/theme\/header-logo-background--dark-2.jpg",
+      "oAP" : "\/public\/assets\/img\/theme\/header-logo-background--dark--old.jpg",
       "oF" : 0,
       "oIPL" : 0,
       "opt" : 0,
@@ -352,7 +352,7 @@
     },
     "\/public\/assets\/img\/theme\/header-logo-background--dark.jpg" : {
       "ft" : 16384,
-      "iS" : 89603,
+      "iS" : 156805,
       "jF" : 0,
       "oA" : 0,
       "oAP" : "\/public\/assets\/img\/theme\/header-logo-background--dark.jpg",
