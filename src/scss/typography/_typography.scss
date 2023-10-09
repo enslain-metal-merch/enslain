@@ -168,6 +168,11 @@ a {
     line-height: 1;
     list-style: none;
   }
+
+  i {
+    color: mapGet($icon-colors, contact-icons);
+    margin-right: 0.75rem;
+  }
 }
 
 .button {

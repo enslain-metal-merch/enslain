@@ -67,6 +67,7 @@
   --color-theme-button-border: hsl(var(--brand-color-hs), 65%);
   --button-background: hsl(var(--brand-color-hs), 20%);
   --button-background--hover: hsl(var(--brand-color-hs), 40%);
+  --contact-icons: hsl(var(--brand-color-hs), 60%);
   --social-media-icons: value;
   --theme-switcher-icon--light-mode: value;
   --theme-switcher-icon--dark-mode: value;
@@ -102,6 +103,7 @@
   --color-theme-button-border: hsl(var(--brand-color-hs), 90%);
   --button-background: hsl(var(--brand-color-hs), 90%);
   --button-background--hover: hsl(var(--brand-color-hs), 98%);
+  --contact-icons: hsl(var(--brand-color-hs), 50%);
   --social-media-icons: value;
   --theme-switcher-icon--light-mode: value;
   --theme-switcher-icon--dark-mode: value;
@@ -154,4 +156,8 @@ $button-colors: (
     text: var(--color-theme-button-text),
     border: var(--color-theme-button-border),
   )
+);
+
+$icon-colors: (
+  contact-icons: var(--contact-icons),
 );
