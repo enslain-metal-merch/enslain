@@ -85,6 +85,7 @@ a {
 :root[data-color-theme=dark] {
   --body-text: hsl(var(--brand-color-hs), 95%);
   --headings: hsl(var(--brand-color-hs), 70%);
+  --link: hsl(var(--brand-color-hs), 80%);
   --link--hover: var(--gradient--aurora-borealis);
   --background: hsl(var(--brand-color-hue), 5%, 5%);
   --background-gradient:
@@ -108,6 +109,7 @@ a {
   --color-theme-button-border: hsl(var(--brand-color-hs), 65%);
   --button-background: hsl(var(--brand-color-hs), 20%);
   --button-background--hover: hsl(var(--brand-color-hs), 40%);
+  --contact-icons: hsl(var(--brand-color-hs), 60%);
   --social-media-icons: value;
   --theme-switcher-icon--light-mode: value;
   --theme-switcher-icon--dark-mode: value;
@@ -119,6 +121,7 @@ a {
 :root[data-color-theme=light] {
   --body-text: hsl(var(--brand-color-hs), 5%);
   --headings: hsl(var(--brand-color-hs), 40%);
+  --link: hsl(var(--brand-color-hs), 25%);
   --link--hover: var(--gradient--blues);
   --background: hsl(var(--brand-color-hue), 50%, 20%);
   --background-gradient:
@@ -142,6 +145,7 @@ a {
   --color-theme-button-border: hsl(var(--brand-color-hs), 90%);
   --button-background: hsl(var(--brand-color-hs), 90%);
   --button-background--hover: hsl(var(--brand-color-hs), 98%);
+  --contact-icons: hsl(var(--brand-color-hs), 50%);
   --social-media-icons: value;
   --theme-switcher-icon--light-mode: value;
   --theme-switcher-icon--dark-mode: value;
@@ -507,6 +511,9 @@ ul {
   list-style-position: inside;
 }
 
+a {
+  color: var(--link);
+}
 a:not(.button):hover, a:not(.button):focus-visible {
   text-decoration: none;
   transition: all 250ms ease-in-out;
@@ -589,9 +596,9 @@ h3 {
     font-size: 2.5rem;
   }
 }
-@supports (font-size: clamp(1.5rem, 10vw, 2.5rem)) {
+@supports (font-size: clamp(1.5rem, 7vw, 2.5rem)) {
   h3 {
-    font-size: clamp(1.5rem, 10vw, 2.5rem);
+    font-size: clamp(1.5rem, 7vw, 2.5rem);
   }
 }
 
@@ -599,6 +606,9 @@ h3 {
   list-style: none;
 }
 .header__nav-toggle {
+  color: var(--body-text);
+}
+.header__primary-menu a {
   color: var(--body-text);
 }
 .header__primary-menu a:link {
@@ -650,11 +660,16 @@ h3 {
   line-height: 1;
   list-style: none;
 }
+.contact-methods i {
+  color: var(--contact-icons);
+  margin-right: 0.75rem;
+}
 
 .button {
   text-decoration: none;
   color: var(--button-text);
 }
+.button a {
   color: var(--button-text);
 }
 .footer li {
