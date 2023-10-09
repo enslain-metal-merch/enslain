@@ -466,32 +466,38 @@ button {
 }
 
 p,
-a {
+a,
+li {
   line-height: 1.6;
   font-size: 1.15rem;
 }
 @media (min-width: 1024px) {
   p,
-  a {
+  a,
+  li {
     font-size: 1.25rem;
   }
 }
 @supports (font-size: clamp(1.15rem, 2vw, 1.35rem)) {
   p,
-  a {
+  a,
+  li {
     font-size: clamp(1.15rem, 2vw, 1.35rem);
   }
 }
 .text-container p,
-.text-container a {
+.text-container a,
+.text-container li {
   margin-bottom: 1.5rem;
 }
 .footer p,
-.footer a {
+.footer a,
+.footer li {
   text-align: center;
 }
 .footer p:not(.button),
-.footer a:not(.button) {
+.footer a:not(.button),
+.footer li:not(.button) {
   margin-bottom: 1.5rem;
   color: var(--footer-text);
 }
@@ -640,6 +646,11 @@ h3 {
   margin-bottom: 2rem;
 }
 
+.contact-methods li {
+  line-height: 1;
+  list-style: none;
+}
+
 .button {
   text-decoration: none;
   color: var(--button-text);
@@ -720,4 +731,24 @@ body {
 
 .index__event-list {
   padding: 1rem 0;
+}
+
+.img-msg-to-chrissy {
+  height: fit-content;
+  position: relative;
+  margin-bottom: 0;
+}
+.img-msg-to-chrissy img {
+  margin-bottom: 0;
+}
+.img-msg-to-chrissy .overlay {
+  position: absolute;
+  top: 0;
+  height: 100%;
+  padding: 2rem;
+  background-color: hsla(0, 0%, 0%, 0.6);
+}
+.img-msg-to-chrissy .overlay p {
+  color: hsl(0, 0%, 100%);
+  font-weight: bold;
 }

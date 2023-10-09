@@ -12,7 +12,8 @@ button {
 }
 
 p,
-a {
+a,
+li {
   line-height: mapGet($primary, line-height);
   font-size: mapGet($primary, size--small);
   
@@ -159,6 +160,13 @@ a {
 
   .index__event-list & {
     margin-bottom: 2rem;
+  }
+}
+
+.contact-methods {
+  li {
+    line-height: 1;
+    list-style: none;
   }
 }
 

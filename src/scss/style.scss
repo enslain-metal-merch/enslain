@@ -89,3 +89,23 @@ body {
 .index__event-list {
   padding: 1rem 0;
 }
+
+.img-msg-to-chrissy {
+  height: fit-content;
+  position: relative;
+  margin-bottom: 0;
+  img {
+    margin-bottom: 0;
+  }
+  .overlay {
+    position: absolute;
+    top: 0;
+    height: 100%;
+    padding: 2rem;
+    background-color: hsla(0, 0%, 0%, 60%);
+    p {
+      color: hsl(0, 0%, 100%);
+      font-weight: bold;
+    }
+  }
+}

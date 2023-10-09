@@ -121,6 +121,19 @@
       "q" : 100,
       "rq" : 75
     },
+    "\/public\/assets\/img\/content\/contact-placeholder.jpg" : {
+      "ft" : 16384,
+      "iS" : 68378,
+      "jF" : 0,
+      "oA" : 0,
+      "oAP" : "\/public\/assets\/img\/content\/contact-placeholder.jpg",
+      "oF" : 0,
+      "oIPL" : 0,
+      "opt" : 0,
+      "ou" : "lpckwebp-none",
+      "q" : 100,
+      "rq" : 75
+    },
     "\/public\/assets\/img\/content\/enslain-hero.jpg" : {
       "ft" : 16384,
       "iS" : 184579,
@@ -270,6 +283,19 @@
       "jF" : 0,
       "oA" : 0,
       "oAP" : "\/public\/assets\/img\/content\/steelfest-2023.jpg",
+      "oF" : 0,
+      "oIPL" : 0,
+      "opt" : 0,
+      "ou" : "lpckwebp-none",
+      "q" : 100,
+      "rq" : 75
+    },
+    "\/public\/assets\/img\/content\/turku--resized.jpg" : {
+      "ft" : 16384,
+      "iS" : 242340,
+      "jF" : 0,
+      "oA" : 0,
+      "oAP" : "\/public\/assets\/img\/content\/turku--resized.jpg",
       "oF" : 0,
       "oIPL" : 0,
       "opt" : 0,
