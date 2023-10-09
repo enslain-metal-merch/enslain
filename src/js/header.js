@@ -1,17 +1,19 @@
 const headerElements = {
+  body: document.querySelector('body'),
   navToggleButton: document.querySelector('.js-nav-toggle-button'),
   toggleBars: document.querySelectorAll('.header__nav-toggle-bar'),
-  siteNav: document.querySelector('.js-toggle-primary-nav'),
+  siteNav: document.querySelector('.js-toggle-primary-nav')
 };
 
 function animateToggleBars() {
   headerElements.toggleBars.forEach((bar) => {
-    bar.classList.toggle('ainmate');
+    bar.classList.toggle('animate');
   })
 }
 
 function openNav() {
   headerElements.siteNav.classList.toggle('open');
+  headerElements.body.classList.toggle('nav-is-open');
   setTimeout(() => {
     headerElements.siteNav.classList.toggle('animate');
   }, 1);

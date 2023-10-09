@@ -2,6 +2,7 @@
 
 .header {
   padding: 1rem 0;
+  position: relative;
 
   @include media-query(tablet) {
     padding: 2rem 0 1rem;
@@ -11,12 +12,12 @@
     display: flex;
     justify-content: space-between;
     gap: 1rem;
-    flex-flow: column;
-    align-items: center;
-    justify-content: center;
 
     @include media-query(tablet) {
       gap: 2rem;
+      display: flex;
+      flex-flow: column;
+      align-items: center;
     }
   }
 
@@ -30,6 +31,12 @@
     width: 80%;
     max-width: 500px;
     height: min-content;
+    z-index: 2;
+    max-width: 245px;
+
+    @include media-query(tablet) {
+      max-width: 500px;
+    }
     
     img {
       max-width: 500px;
@@ -40,13 +47,13 @@
       mask-image: url("/assets/img/theme/enslain-logo-vector.svg");
       mask-size: contain;
       mask-repeat: no-repeat;
-      mask-position: center;
+      mask-position: top;
     }
   }
 
   &__nav-toggle {
     height: fit-content;
-    align-self: flex-end;
+    z-index: 3;
 
     @include media-query(tablet) {
       display: none;
@@ -55,20 +62,31 @@
 
   &__primary-nav {
     display: none;
+    opacity: 0;
+    transition: opacity 250ms ease-in-out;
     background-color: mapGet($header-colors, primary-nav, background--mobile);
     width: 100%;
-    right: 0;
     position: absolute;
+    right: 0;
     top: 100%;
+    z-index: 2;
+    height: 100vh;
+
 
     @include media-query(tablet) {
+      height: auto;
       display: block;
+      opacity: 1;
       background-color: transparent;
       position: static;
     }
 
     &.open {
       display: block;
+    }
+
+    &.animate {
+      opacity: 1;
     }
   }
 

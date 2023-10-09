@@ -19,7 +19,6 @@
   position: relative;
   border-radius: 0;
   z-index: 0;
-  color: mapGet($button-colors, text);
   background-color: mapGet($button-colors, background);
   border: none;
   border: 1px solid mapGet($button-colors, border);
@@ -91,7 +90,7 @@
   &--scroll-to-top {
     padding: 0.25rem 0.8rem;
     position: fixed;
-    bottom: 0.5rem;
+    bottom: 2rem;
     right: 1rem;
 
     @include media-query(desktop) {

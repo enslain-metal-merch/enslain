@@ -1,1 +1,53 @@
 @use '../utilities' as *;
+
+.header {
+  &__nav-toggle-bar {
+    &--top {
+        &.animate {
+          animation: shiftDown 200ms ease-out forwards;
+    
+          @keyframes shiftDown {
+            from {
+              transform: translateY(0);
+            }
+    
+            50%,
+            75% {
+              transform: translateY(10px);
+            }
+    
+            to {
+              transform: translateY(10px) rotateZ(45deg);
+            }
+          }
+        }
+      }
+    
+      &--center {
+        &.animate {
+          opacity: 0;
+        }
+      }
+    
+      &--bottom {
+        &.animate {
+          animation: shiftUp 200ms ease-out forwards;
+    
+          @keyframes shiftUp {
+            from {
+              transform: translateY(0);
+            }
+    
+            50%,
+            75% {
+              transform: translateY(-10px);
+            }
+    
+            to {
+              transform: translateY(-10px) rotateZ(-45deg);
+            }
+          }
+        }
+      }
+  }
+}

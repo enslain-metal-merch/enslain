@@ -3,34 +3,46 @@
   --brand-color-hue: 212;
   --brand-color-saturation: 96%;
   --brand-color-hs: var(--brand-color-hue), var(--brand-color-saturation);
-  --accent--red: hsl(0, 100%, 50%);
-  --accent--red-hue: 0;
-  --accent--torch-red: hsl(340, 100%, 50%);
-  --accent--orange: hsl(27, 100%, 50%);
-  --accent--yellow: hsl(59, 100%, 50%);
+  --red: hsl(0, 100%, 50%);
+  --red-hue: 0;
+  --torch-red: hsl(340, 100%, 50%);
+  --orange: hsl(27, 100%, 50%);
+  --yellow: hsl(59, 100%, 50%);
   --gradient--fire: 
-    var(--accent--red),
-    var(--accent--orange),
-    var(--accent--yellow),
-    var(--accent--yellow),
-    var(--accent--orange),
-    var(--accent--red)
+    var(--red),
+    var(--orange),
+    var(--yellow),
+    var(--yellow),
+    var(--orange),
+    var(--red)
   ;
   --gradient--reds: 
-    var(--accent--torch-red),
-    var(--accent--red),
-    hsl(var(--accent--red-hue), 86%, 44%),
-    hsl(var(--accent--red-hue), 86%, 44%),
-    var(--accent--red),
-    var(--accent--torch-red);
+    var(--torch-red),
+    var(--red),
+    hsl(var(--red-hue), 86%, 44%),
+    hsl(var(--red-hue), 86%, 44%),
+    var(--red),
+    var(--torch-red);
   ;
-  --gradient--aurora-borealis: value;
-  --gradient--forest: value;
+  --gradient--aurora-borealis:
+    hsl(var(--brand-color-hs), 80%), 
+    hsl(var(--brand-color-hs), 60%), 
+    hsl(180, 100%, 50%),
+    hsl(180, 100%, 40%),
+    hsl(302, 59%, 65%)
+    ;
+    --gradient--blues:
+    hsl(var(--brand-color-hs), 30%),  
+    hsl(var(--brand-color-hs), 40%),  
+    hsl(var(--brand-color-hs), 50%),  
+    hsl(var(--brand-color-hs), 30%) 
+  ;
 }
 
 :root,
 :root[data-color-theme="dark"] {
   --body-text: hsl(var(--brand-color-hs), 95%);
+  --link--hover: var(--gradient--aurora-borealis);
   --background: hsl(var(--brand-color-hue), 5%, 5%);
   --background-gradient: 
     hsl(var(--brand-color-hs), 5%),
@@ -40,10 +52,10 @@
     hsl(var(--brand-color-hs), 20%),
     hsl(var(--brand-color-hs), 10%),
     hsl(var(--brand-color-hs), 5%),
-    hsl(var(--brand-color-hue), 5%, 5%)
+    hsl(var(--brand-color-hs), 3%)
   ;
   --section-background: hsla(var(--neutral-hs), 0%, 50%);
-  --nav-dropdown-background: hsl(var(--brand-color-hs), 15%);
+  --nav-dropdown-background: hsl(var(--brand-color-hs), 6%);
   --card-background: hsl(212, 96%, 5%);
   --card-box-shadow: hsl(var(--brand-color-hs), 50%);
   --button-text: hsl(var(--brand-color-hs), 90%);
@@ -64,6 +76,7 @@
 :root,
 :root[data-color-theme="light"] {
   --body-text: hsl(var(--brand-color-hs), 5%);
+  --link--hover: var(--gradient--blues);
   --background: hsl(var(--brand-color-hue), 50%, 20%);
   --background-gradient: 
     hsl(var(--neutral-hs), 100%),
@@ -76,7 +89,7 @@
   ;
   --section-background: hsla(var(--neutral-hs), 100%, 50%);
   --section-divider: hsla(var(--brand-color-hs), 60%, 50%);
-  --nav-dropdown-background: hsl(var(--brand-color-hs), 80%);
+  --nav-dropdown-background: hsl(var(--brand-color-hs), 98%);
   --card-background: hsl(212, 96%, 98%);
   --card-box-shadow: hsl(var(--brand-color-hs), 20%);
   --button-text: hsl(var(--brand-color-hs), 20%);
@@ -96,6 +109,7 @@
 
 $body-colors: (
   text: var(--body-text),
+  links--hover: var(--link--hover),
   background: var(--background),
   background-gradient: var(--background-gradient),
   dividers: var(--section-divider)

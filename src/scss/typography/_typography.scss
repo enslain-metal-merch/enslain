@@ -11,7 +11,8 @@ button {
   font-family: mapGet($primary, family);
 }
 
-p {
+p,
+a {
   line-height: mapGet($primary, line-height);
   font-size: mapGet($primary, size--small);
   
@@ -30,8 +31,11 @@ p {
 
   .footer & {
     text-align: center;
-    margin-bottom: 1.5rem;
-    color: mapGet($footer-colors, text);
+    
+    &:not(.button) {
+      margin-bottom: 1.5rem;
+      color: mapGet($footer-colors, text);
+    }
   }
 }
 
@@ -39,6 +43,33 @@ ul {
   line-height: mapGet($primary, line-height);
   font-size: mapGet($primary, size);
   list-style-position: inside;
+}
+
+a {
+  &:not(.button) {
+    &:hover,
+    &:focus-visible {
+      text-decoration: none;
+      transition: all 250ms ease-in-out;
+      background: linear-gradient(130deg, mapGet($body-colors, links--hover));
+
+      background-clip: text;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-size: 500% auto;
+      animation: textShine 5s ease-in-out infinite alternate;
+    }
+  }
+}
+
+@keyframes textShine {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  100% {
+    background-position: 100% 50%;
+  }
 }
 
 @each $selector, $element in mapGet($headings) {
@@ -80,7 +111,7 @@ ul {
       &:link {
         display: block;
         font-size: 1.5rem;
-        padding: 1rem;
+        padding: 0.75rem 1.5rem;
         text-decoration: none;
         font-family: mapGet($header-typography, primary-menu-items, family);
 
@@ -127,7 +158,12 @@ ul {
 
 .button {
   text-decoration: none;
-
+  color: mapGet($button-colors, text);
+  
+  a {
+    color: mapGet($button-colors, text);
+  }
+  
   &.color-theme-toggle {
     // font-size: mapGet($button-typography, size--xs);
     

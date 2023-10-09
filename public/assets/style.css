@@ -49,32 +49,42 @@ a {
   --brand-color-hue: 212;
   --brand-color-saturation: 96%;
   --brand-color-hs: var(--brand-color-hue), var(--brand-color-saturation);
-  --accent--red: hsl(0, 100%, 50%);
-  --accent--red-hue: 0;
-  --accent--torch-red: hsl(340, 100%, 50%);
-  --accent--orange: hsl(27, 100%, 50%);
-  --accent--yellow: hsl(59, 100%, 50%);
+  --red: hsl(0, 100%, 50%);
+  --red-hue: 0;
+  --torch-red: hsl(340, 100%, 50%);
+  --orange: hsl(27, 100%, 50%);
+  --yellow: hsl(59, 100%, 50%);
   --gradient--fire:
-    var(--accent--red),
-    var(--accent--orange),
-    var(--accent--yellow),
-    var(--accent--yellow),
-    var(--accent--orange),
-    var(--accent--red) ;
+    var(--red),
+    var(--orange),
+    var(--yellow),
+    var(--yellow),
+    var(--orange),
+    var(--red) ;
   --gradient--reds:
-    var(--accent--torch-red),
-    var(--accent--red),
-    hsl(var(--accent--red-hue), 86%, 44%),
-    hsl(var(--accent--red-hue), 86%, 44%),
-    var(--accent--red),
-    var(--accent--torch-red);
-  --gradient--aurora-borealis: value;
-  --gradient--forest: value;
+    var(--torch-red),
+    var(--red),
+    hsl(var(--red-hue), 86%, 44%),
+    hsl(var(--red-hue), 86%, 44%),
+    var(--red),
+    var(--torch-red);
+  --gradient--aurora-borealis:
+    hsl(var(--brand-color-hs), 80%),
+    hsl(var(--brand-color-hs), 60%),
+    hsl(180, 100%, 50%),
+    hsl(180, 100%, 40%),
+    hsl(302, 59%, 65%) ;
+  --gradient--blues:
+  hsl(var(--brand-color-hs), 30%),
+  hsl(var(--brand-color-hs), 40%),
+  hsl(var(--brand-color-hs), 50%),
+  hsl(var(--brand-color-hs), 30%) ;
 }
 
 :root,
 :root[data-color-theme=dark] {
   --body-text: hsl(var(--brand-color-hs), 95%);
+  --link--hover: var(--gradient--aurora-borealis);
   --background: hsl(var(--brand-color-hue), 5%, 5%);
   --background-gradient:
     hsl(var(--brand-color-hs), 5%),
@@ -84,9 +94,9 @@ a {
     hsl(var(--brand-color-hs), 20%),
     hsl(var(--brand-color-hs), 10%),
     hsl(var(--brand-color-hs), 5%),
-    hsl(var(--brand-color-hue), 5%, 5%) ;
+    hsl(var(--brand-color-hs), 3%) ;
   --section-background: hsla(var(--neutral-hs), 0%, 50%);
-  --nav-dropdown-background: hsl(var(--brand-color-hs), 15%);
+  --nav-dropdown-background: hsl(var(--brand-color-hs), 6%);
   --card-background: hsl(212, 96%, 5%);
   --card-box-shadow: hsl(var(--brand-color-hs), 50%);
   --button-text: hsl(var(--brand-color-hs), 90%);
@@ -107,6 +117,7 @@ a {
 :root,
 :root[data-color-theme=light] {
   --body-text: hsl(var(--brand-color-hs), 5%);
+  --link--hover: var(--gradient--blues);
   --background: hsl(var(--brand-color-hue), 50%, 20%);
   --background-gradient:
     hsl(var(--neutral-hs), 100%),
@@ -118,7 +129,7 @@ a {
     hsl(var(--brand-color-hue), 50%, 20%) ;
   --section-background: hsla(var(--neutral-hs), 100%, 50%);
   --section-divider: hsla(var(--brand-color-hs), 60%, 50%);
-  --nav-dropdown-background: hsl(var(--brand-color-hs), 80%);
+  --nav-dropdown-background: hsl(var(--brand-color-hs), 98%);
   --card-background: hsl(212, 96%, 98%);
   --card-box-shadow: hsl(var(--brand-color-hs), 20%);
   --button-text: hsl(var(--brand-color-hs), 20%);
@@ -163,7 +174,6 @@ a {
   position: relative;
   border-radius: 0;
   z-index: 0;
-  color: var(--button-text);
   background-color: var(--button-background);
   border: none;
   border: 1px solid var(--button-border);
@@ -225,7 +235,7 @@ a {
 .button--scroll-to-top {
   padding: 0.25rem 0.8rem;
   position: fixed;
-  bottom: 0.5rem;
+  bottom: 2rem;
   right: 1rem;
 }
 @media (min-width: 1024px) {
@@ -246,6 +256,38 @@ a {
     background-position: 0 0;
   }
 }
+.header__nav-toggle-bar--top.animate {
+  animation: shiftDown 200ms ease-out forwards;
+}
+@keyframes shiftDown {
+  from {
+    transform: translateY(0);
+  }
+  50%, 75% {
+    transform: translateY(10px);
+  }
+  to {
+    transform: translateY(10px) rotateZ(45deg);
+  }
+}
+.header__nav-toggle-bar--center.animate {
+  opacity: 0;
+}
+.header__nav-toggle-bar--bottom.animate {
+  animation: shiftUp 200ms ease-out forwards;
+}
+@keyframes shiftUp {
+  from {
+    transform: translateY(0);
+  }
+  50%, 75% {
+    transform: translateY(-10px);
+  }
+  to {
+    transform: translateY(-10px) rotateZ(-45deg);
+  }
+}
+
 .footer {
   padding: 2rem 0 4rem;
 }
@@ -284,6 +326,7 @@ a {
 }
 .header {
   padding: 1rem 0;
+  position: relative;
 }
 @media (min-width: 768px) {
   .header {
@@ -294,13 +337,13 @@ a {
   display: flex;
   justify-content: space-between;
   gap: 1rem;
-  flex-flow: column;
-  align-items: center;
-  justify-content: center;
 }
 @media (min-width: 768px) {
   .header__content {
     gap: 2rem;
+    display: flex;
+    flex-flow: column;
+    align-items: center;
   }
 }
 .header__secondary-nav {
@@ -311,6 +354,13 @@ a {
   width: 80%;
   max-width: 500px;
   height: min-content;
+  z-index: 2;
+  max-width: 245px;
+}
+@media (min-width: 768px) {
+  .header__logo {
+    max-width: 500px;
+  }
 }
 .header__logo img {
   max-width: 500px;
@@ -321,11 +371,11 @@ a {
   mask-image: url("/assets/img/theme/enslain-logo-vector.svg");
   mask-size: contain;
   mask-repeat: no-repeat;
-  mask-position: center;
+  mask-position: top;
 }
 .header__nav-toggle {
   height: fit-content;
-  align-self: flex-end;
+  z-index: 3;
 }
 @media (min-width: 768px) {
   .header__nav-toggle {
@@ -334,21 +384,30 @@ a {
 }
 .header__primary-nav {
   display: none;
+  opacity: 0;
+  transition: opacity 250ms ease-in-out;
   background-color: var(--nav-dropdown-background);
   width: 100%;
-  right: 0;
   position: absolute;
+  right: 0;
   top: 100%;
+  z-index: 2;
+  height: 100vh;
 }
 @media (min-width: 768px) {
   .header__primary-nav {
+    height: auto;
     display: block;
+    opacity: 1;
     background-color: transparent;
     position: static;
   }
 }
 .header__primary-nav.open {
   display: block;
+}
+.header__primary-nav.animate {
+  opacity: 1;
 }
 @media (min-width: 768px) {
   .header__primary-menu {
@@ -404,25 +463,33 @@ button {
   font-family: var(--font-family--primary);
 }
 
-p {
+p,
+a {
   line-height: 1.6;
   font-size: 1.15rem;
 }
 @media (min-width: 1024px) {
-  p {
+  p,
+  a {
     font-size: 1.25rem;
   }
 }
 @supports (font-size: clamp(1.15rem, 2vw, 1.35rem)) {
-  p {
+  p,
+  a {
     font-size: clamp(1.15rem, 2vw, 1.35rem);
   }
 }
-.text-container p {
+.text-container p,
+.text-container a {
   margin-bottom: 1.5rem;
 }
-.footer p {
+.footer p,
+.footer a {
   text-align: center;
+}
+.footer p:not(.button),
+.footer a:not(.button) {
   margin-bottom: 1.5rem;
   color: var(--footer-text);
 }
@@ -432,6 +499,25 @@ ul {
   list-style-position: inside;
 }
 
+a:not(.button):hover, a:not(.button):focus-visible {
+  text-decoration: none;
+  transition: all 250ms ease-in-out;
+  background: linear-gradient(130deg, var(--link--hover));
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-size: 500% auto;
+  animation: textShine 5s ease-in-out infinite alternate;
+}
+
+@keyframes textShine {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 100% 50%;
+  }
+}
 h1 {
   font-family: var(--font-family--secondary);
   font-size: 2.5rem;
@@ -483,7 +569,7 @@ h3 {
 .header__primary-menu a:link {
   display: block;
   font-size: 1.5rem;
-  padding: 1rem;
+  padding: 0.75rem 1.5rem;
   text-decoration: none;
   font-family: var(--font-family--secondary);
 }
@@ -527,6 +613,10 @@ h3 {
 
 .button {
   text-decoration: none;
+  color: var(--button-text);
+}
+.button a {
+  color: var(--button-text);
 }
 .footer li {
   list-style: none;
@@ -535,6 +625,10 @@ h3 {
 body {
   background-color: var(--background);
   background-image: linear-gradient(var(--background-gradient));
+}
+
+.nav-is-open {
+  overflow: hidden;
 }
 
 .wrapper {
