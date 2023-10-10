@@ -761,9 +761,8 @@ body {
   top: 0;
   height: 100%;
   padding: 2rem;
-  background-color: hsla(0, 0%, 0%, 0.6);
+  background-color: hsla(0, 0%, 0%, 0.8);
 }
 .img-msg-to-chrissy .overlay p {
   color: hsl(0, 0%, 100%);
-  font-weight: bold;
 }
