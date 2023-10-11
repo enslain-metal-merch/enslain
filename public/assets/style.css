@@ -755,8 +755,18 @@ body {
   position: absolute;
   top: 0;
   height: 100%;
-  padding: 2rem;
+  padding: 0.5rem;
   background-color: hsla(0, 0%, 0%, 0.8);
+}
+@media (min-width: 768px) {
+  .img-msg-to-chrissy .overlay {
+    padding: 2rem;
+  }
+}
+@supports (padding: clamp(0.5rem, 4vw, 2rem)) {
+  .img-msg-to-chrissy .overlay {
+    padding: clamp(0.5rem, 4vw, 2rem);
+  }
 }
 .img-msg-to-chrissy .overlay p {
   color: hsl(0, 0%, 100%);

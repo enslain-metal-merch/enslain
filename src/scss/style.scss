@@ -116,7 +116,16 @@ body {
     position: absolute;
     top: 0;
     height: 100%;
-    padding: 2rem;
+    padding: 0.5rem;
+
+    @include media-query(tablet) {
+      padding: 2rem;
+    }
+
+    @supports (padding: clamp(0.5rem, 4vw, 2rem)) {
+      padding: clamp(0.5rem, 4vw, 2rem);
+    }
+
     background-color: hsla(0, 0%, 0%, 80%);
     p {
       color: hsl(0, 0%, 100%);
