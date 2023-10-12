@@ -131,10 +131,10 @@ a {
   --background-gradient:
     hsl(var(--neutral-hs), 100%),
     hsl(var(--brand-color-hs), 90%),
-    hsl(var(--brand-color-hs), 90%),
     hsl(var(--brand-color-hs), 85%),
     hsl(var(--brand-color-hs), 80%),
     hsl(var(--brand-color-hs), 90%),
+    hsl(var(--brand-color-hs), 85%),
     hsl(var(--brand-color-hue), 50%, 20%) ;
   --section-background: hsla(var(--neutral-hs), 100%, 50%);
   --section-divider: hsla(var(--brand-color-hs), 60%, 50%);
