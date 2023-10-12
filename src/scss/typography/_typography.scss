@@ -98,10 +98,6 @@ a {
   }
 }
 
-[aria-current="page"] {
-  
-}
-
 .boss-name {
   font-size: mapGet($headings, h1, size--small);
 
@@ -152,6 +148,10 @@ a {
           padding: 0;
         }
       }
+    }
+
+    [aria-current="page"] {
+      color: mapGet($body-colors, aria-current-page);
     }
   }
 }

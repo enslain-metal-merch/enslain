@@ -87,6 +87,7 @@ a {
   --headings: hsl(var(--brand-color-hs), 70%);
   --link: hsl(var(--brand-color-hs), 80%);
   --link--hover: var(--gradient--aurora-borealis);
+  --aria-current-page: hsl(var(--brand-color-hs), 60%);
   --background: hsl(var(--brand-color-hue), 5%, 5%);
   --background-gradient:
     hsl(var(--brand-color-hs), 5%),
@@ -125,6 +126,7 @@ a {
   --headings: hsl(var(--brand-color-hs), 40%);
   --link: hsl(var(--brand-color-hs), 25%);
   --link--hover: var(--gradient--blues);
+  --aria-current-page: hsl(var(--brand-color-hs), 50%);
   --background: hsl(var(--brand-color-hue), 50%, 20%);
   --background-gradient:
     hsl(var(--neutral-hs), 100%),
@@ -657,6 +659,9 @@ h3 {
     font-size: 1.75rem;
     padding: 0;
   }
+}
+.header__primary-menu [aria-current=page] {
+  color: var(--aria-current-page);
 }
 
 .card {
