@@ -110,6 +110,8 @@ a {
   --button-background: hsl(var(--brand-color-hs), 20%);
   --button-background--hover: hsl(var(--brand-color-hs), 40%);
   --contact-icons: hsl(var(--brand-color-hs), 60%);
+  --event-name-text: hsl(var(--brand-color-hs), 60%);
+  --event-divider: hsla(var(--brand-color-hs), 60%, 50%);
   --social-media-icons: value;
   --theme-switcher-icon--light-mode: value;
   --theme-switcher-icon--dark-mode: value;
@@ -146,6 +148,8 @@ a {
   --button-background: hsl(var(--brand-color-hs), 90%);
   --button-background--hover: hsl(var(--brand-color-hs), 98%);
   --contact-icons: hsl(var(--brand-color-hs), 50%);
+  --event-name-text: hsl(var(--brand-color-hs), 30%);
+  --event-divider: hsla(var(--brand-color-hs), 30%, 50%);
   --social-media-icons: value;
   --theme-switcher-icon--light-mode: value;
   --theme-switcher-icon--dark-mode: value;
@@ -659,12 +663,11 @@ h3 {
 .event__detail--highlight {
   font-size: 1.75rem;
   line-height: 1.2;
-  color: hsl(212, 100%, 50%);
+  color: var(--event-name-text);
 }
 .event hr {
   margin: 1rem 0 1.75rem;
-  color: hsl(212, 96%, 50%);
-  opacity: 0.5;
+  color: var(--event-divider);
 }
 
 .contact-methods li {

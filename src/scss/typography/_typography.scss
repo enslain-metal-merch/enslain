@@ -187,14 +187,13 @@ a {
     &--highlight {
       font-size: 1.75rem;
       line-height: 1.2;
-      // color: mapGet($colors, hue/shade, shade);
+      color: mapGet($event-colors, event-name-text);
     }
   }
   
   hr {
     margin: 1rem 0 1.75rem;
-    color: hsl(212, 96%, 50%);
-    opacity: 0.5;
+    color: mapGet($event-colors, divider);
   }
 }
 
