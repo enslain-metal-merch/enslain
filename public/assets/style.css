@@ -690,6 +690,11 @@ h3 {
   line-height: 1.2;
   color: var(--event-name-text);
 }
+.event__detail--highlight a {
+  font-size: inherit;
+  line-height: inherit;
+  color: inherit;
+}
 .event hr {
   margin: 1rem 0 1.75rem;
   color: var(--event-divider);
