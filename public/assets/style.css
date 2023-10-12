@@ -695,6 +695,10 @@ h3 {
   color: var(--event-divider);
 }
 
+.volunteer-perks li {
+  line-height: 1;
+}
+
 .contact-methods li {
   line-height: 1;
   list-style: none;
