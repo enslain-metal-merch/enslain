@@ -98,6 +98,10 @@ a {
   }
 }
 
+[aria-current="page"] {
+  
+}
+
 .boss-name {
   font-size: mapGet($headings, h1, size--small);
 
