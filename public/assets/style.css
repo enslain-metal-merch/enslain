@@ -427,9 +427,10 @@ a {
   }
 }
 
-.grid {
+[class*=grid] {
   display: grid;
 }
+
 @media (min-width: 768px) {
   .grid--two-col {
     gap: 2rem;

@@ -1,8 +1,14 @@
 @use '../../utilities' as *;
 
-.grid {
+%grid {
   display: grid;
+}
 
+[class*="grid"] {
+  @extend %grid;
+}
+
+.grid {
   &--two-col {
     @include media-query(tablet) {
       gap: 2rem;
