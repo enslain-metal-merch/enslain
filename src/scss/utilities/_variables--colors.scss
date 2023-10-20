@@ -77,6 +77,10 @@
   --theme-switcher-icon--dark-mode: value;
   --footer-logo: hsl(var(--brand-color-hs), 80%);
   --footer-text: hsl(var(--brand-color-hs), 70%);
+  --input-group-border: hsl(var(--brand-color-hs), 70%);
+  --input-background--active: hsl(var(--brand-color-hs), 70%);
+  --input-text: hsl(var(--brand-color-hs), 70%);
+  --input-text--active: hsl(var(--brand-color-hs), 1%);
 }
 
 :root,
@@ -117,6 +121,10 @@
   --theme-switcher-icon--dark-mode: value;
   --footer-logo: hsl(var(--brand-color-hs), 100%);
   --footer-text: hsl(var(--brand-color-hs), 90%);
+  --input-group-border: hsl(var(--brand-color-hs), 90%);
+  --input-background--active: hsl(var(--brand-color-hs), 90%);
+  --input-text: hsl(var(--brand-color-hs), 90%);
+  --input-text--active: hsl(var(--brand-color-hs), 20%);
 }
 
 $body-colors: (
@@ -175,4 +183,11 @@ $icon-colors: (
 $event-colors: (
   event-name-text: var(--event-name-text),
   divider: var(--event-divider)
+);
+
+$input-colors: (
+  group-border: var(--input-group-border),
+  input-background--active: var(--input-background--active),
+  input-text: var(--input-text),
+  input-text--active: var(--input-text--active),
 );

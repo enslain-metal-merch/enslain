@@ -118,6 +118,10 @@ a {
   --theme-switcher-icon--dark-mode: value;
   --footer-logo: hsl(var(--brand-color-hs), 80%);
   --footer-text: hsl(var(--brand-color-hs), 70%);
+  --input-group-border: hsl(var(--brand-color-hs), 70%);
+  --input-background--active: hsl(var(--brand-color-hs), 70%);
+  --input-text: hsl(var(--brand-color-hs), 70%);
+  --input-text--active: hsl(var(--brand-color-hs), 1%);
 }
 
 :root,
@@ -157,6 +161,10 @@ a {
   --theme-switcher-icon--dark-mode: value;
   --footer-logo: hsl(var(--brand-color-hs), 100%);
   --footer-text: hsl(var(--brand-color-hs), 90%);
+  --input-group-border: hsl(var(--brand-color-hs), 90%);
+  --input-background--active: hsl(var(--brand-color-hs), 90%);
+  --input-text: hsl(var(--brand-color-hs), 90%);
+  --input-text--active: hsl(var(--brand-color-hs), 20%);
 }
 
 :root {
@@ -308,11 +316,13 @@ a {
     padding: 2rem 0 3rem;
   }
 }
+.footer__content {
+  max-width: 400px;
+  margin: auto;
+}
 .footer__logo {
   display: block;
   width: 100%;
-  max-width: 300px;
-  margin: 0 auto 1.5rem;
 }
 .footer__logo-img {
   fill: var(--footer-logo);
@@ -472,6 +482,22 @@ a {
   margin-bottom: 1rem;
 }
 
+.color-theme__input-group {
+  border: 1px solid var(--input-group-border);
+  display: flex;
+  width: max-content;
+  margin: 0 auto 1rem;
+}
+.color-theme__label {
+  padding: 0.25rem 0.5rem;
+}
+.color-theme__label:not(:last-of-type) {
+  border-right: 1px solid var(--input-group-border);
+}
+.color-theme__input:checked + .color-theme__label {
+  background-color: var(--input-background--active);
+}
+
 body {
   color: var(--body-text);
   font-family: var(--font-family--primary);
@@ -517,7 +543,6 @@ li {
 .footer p:not(.button),
 .footer a:not(.button),
 .footer li:not(.button) {
-  margin-bottom: 1.5rem;
   color: var(--footer-text);
 }
 
@@ -720,6 +745,21 @@ h3 {
 }
 .footer li {
   list-style: none;
+}
+
+.site-options p {
+  line-height: 1;
+  margin-bottom: 0;
+}
+
+.color-theme p {
+  margin-bottom: 0.5rem;
+}
+.color-theme__label {
+  color: var(--input-text);
+}
+.color-theme__input:checked + .color-theme__label {
+  color: var(--input-text--active);
 }
 
 body {

@@ -1,1 +1,25 @@
 @use '../../utilities' as *;
+
+.color-theme {
+  &__input-group {
+    border: 1px solid mapGet($input-colors, group-border);
+    display: flex;
+    width: max-content;
+    margin: 0 auto 1rem;
+  }
+  
+  &__input {
+  }
+  
+  &__label {
+    padding: 0.25rem 0.5rem;
+
+    &:not(:last-of-type) {
+      border-right: 1px solid mapGet($input-colors, group-border);
+    }
+  }
+
+  &__input:checked + .color-theme__label {
+    background-color: mapGet($input-colors, input-background--active);
+  }
+}

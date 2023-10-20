@@ -8,13 +8,13 @@
   }
 
   &__content {
+    max-width: 400px;
+    margin: auto;
   }
   
   &__logo {
     display: block;
     width: 100%;
-    max-width: 300px;
-    margin: 0 auto 1.5rem;
 
     &-img {
       fill: mapGet($footer-colors, logo);

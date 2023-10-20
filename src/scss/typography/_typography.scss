@@ -35,7 +35,7 @@ li {
     font-size: mapGet($footer-typography, size);
     
     &:not(.button) {
-      margin-bottom: 1.5rem;
+      // margin-bottom: 1.5rem;
       color: mapGet($footer-colors, text);
     }
   }
@@ -261,5 +261,27 @@ a {
 .footer {
   li {
     list-style: none;
+  }
+}
+
+.site-options {
+
+  p {
+    line-height: 1;
+    margin-bottom: 0;
+  }
+}
+
+.color-theme {
+
+  p {
+    margin-bottom: 0.5rem;
+  }
+  &__label {
+    color: mapGet($input-colors, input-text);
+  }
+
+  &__input:checked+.color-theme__label {
+    color: mapGet($input-colors, input-text--active);
   }
 }
