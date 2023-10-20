@@ -490,6 +490,8 @@ a {
 }
 .color-theme__label {
   padding: 0.25rem 0.5rem;
+  transition: all 150ms ease-in-out;
+  cursor: pointer;
 }
 .color-theme__label:not(:last-of-type) {
   border-right: 1px solid var(--input-group-border);
