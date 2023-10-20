@@ -133,3 +133,7 @@ body {
     }
   }
 }
+
+.visually-hidden {
+  @include visually-hidden;
+}
