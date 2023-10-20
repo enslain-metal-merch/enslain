@@ -65,6 +65,7 @@ body {
 
   &--events {
     margin-bottom: 0;
+    @include test-border(3, red);
     // background-color: hsl(0, 0%, 0%);
     // border: 1px solid hsl(212, 96%, 50%);
     // padding: 1rem;

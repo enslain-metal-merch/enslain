@@ -451,6 +451,7 @@ a {
 .grid--flexible {
   grid-template-columns: repeat(auto-fill, minmax(288px, 1fr));
   gap: 2rem;
+  align-items: start;
 }
 .grid--events {
   gap: 3rem;
@@ -466,9 +467,6 @@ a {
   background-color: var(--card-background);
   box-shadow: 2px 2px 5px var(--card-box-shadow);
   padding: 1rem;
-}
-.card__img {
-  margin-bottom: 1rem;
 }
 .card__img-container {
   margin-bottom: 1rem;
@@ -777,6 +775,7 @@ body {
 }
 .subsection--events {
   margin-bottom: 0;
+  border: 3px solid red;
 }
 
 .index__event-list {
