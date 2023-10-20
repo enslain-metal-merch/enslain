@@ -51,13 +51,24 @@
             d="M363.51 111.92C363.64 109.59 362.48 107.22 360.86 106.4C361.79 110.65 362.04 114.76 358.9 118.36C361.52 117 363.33 115.02 363.51 111.92Z" />
           </svg>
         </a>
+
+      <div class="site-options">
+        <div class="color-theme">
+          <p>Chose a color theme:</p>
+          <div class="color-theme__input-group">
+            <input class="color-theme__input visually-hidden" value="system" type="radio" name="theme-option" data-color-theme-value="system"
+              id="system-theme">
+            <label class="color-theme__label" for="system-theme">System</label>
+            <input class="color-theme__input visually-hidden" value="light" type="radio" name="theme-option" data-color-theme-value="light"
+              id="light-theme">
+            <label class="color-theme__label" for="light-theme">Light</label>
+            <input class="color-theme__input visually-hidden" value="dark" type="radio" name="theme-option" data-color-theme-value="dark"
+              id="dark-theme">
+            <label class="color-theme__label" for="dark-theme">Dark</label>
+          </div>
+        </div>
+      </div>
       <p>Website built and maintained by <a href="https://www.nadya.fi/">Nadya Häkkinen</a></p>
-      <nav class="footer__secondary-nav">
-        <ul class="footer__secondary-menu">
-          <li class="footer__secondary-menu-item"><button class="button color-theme-button color-theme-button--light" data-color-theme-value="light" aria-label="toggle light color theme">Light theme</button></li>
-          <li class="footer__secondary-menu-item"><button class="button color-theme-button color-theme-button--dark" data-color-theme-value="dark" aria-label="toggle dark color theme">Dark theme</button></li>
-        </ul>
-      </nav>
     </div>
   </div>
 </footer>
