@@ -265,10 +265,8 @@ a {
 }
 
 .site-options {
-
   &__legend {
     margin-bottom: 0.5rem;
-    display: block;
     width: 100%;
     text-align: center;
     color: mapGet($footer-colors, text);
@@ -276,21 +274,10 @@ a {
 
   &__label {
     color: mapGet($input-colors, input-text);
-    
+    text-align: center;
   }
 
   &__input:checked + .site-options__label {
     color: mapGet($input-colors, input-text--active);
   }
-}
-
-.color-theme {
-
-  p {
-    margin-bottom: 0.5rem;
-  }
-  &__label {
-  }
-
-
 }
