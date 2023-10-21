@@ -482,21 +482,24 @@ a {
   margin-bottom: 1rem;
 }
 
-.color-theme__input-group {
+.site-options__fieldset {
+  border: none;
+}
+.site-options__input-group {
   border: 1px solid var(--input-group-border);
   display: flex;
   width: max-content;
   margin: 0 auto 1rem;
 }
-.color-theme__label {
+.site-options__label {
   padding: 0.25rem 0.5rem;
   transition: all 150ms ease-in-out;
   cursor: pointer;
 }
-.color-theme__label:not(:last-of-type) {
+.site-options__label:not(:last-of-type) {
   border-right: 1px solid var(--input-group-border);
 }
-.color-theme__input:checked + .color-theme__label {
+.site-options__input:checked + .site-options__label {
   background-color: var(--input-background--active);
 }
 
@@ -749,21 +752,23 @@ h3 {
   list-style: none;
 }
 
-.site-options p {
-  line-height: 1;
-  margin-bottom: 0;
+.site-options__legend {
+  margin-bottom: 0.5rem;
+  display: block;
+  width: 100%;
+  text-align: center;
+  color: var(--footer-text);
+}
+.site-options__label {
+  color: var(--input-text);
+}
+.site-options__input:checked + .site-options__label {
+  color: var(--input-text--active);
 }
 
 .color-theme p {
   margin-bottom: 0.5rem;
 }
-.color-theme__label {
-  color: var(--input-text);
-}
-.color-theme__input:checked + .color-theme__label {
-  color: var(--input-text--active);
-}
-
 body {
   background-color: var(--background);
   background-image: linear-gradient(var(--background-gradient));

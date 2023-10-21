@@ -266,9 +266,21 @@ a {
 
 .site-options {
 
-  p {
-    line-height: 1;
-    margin-bottom: 0;
+  &__legend {
+    margin-bottom: 0.5rem;
+    display: block;
+    width: 100%;
+    text-align: center;
+    color: mapGet($footer-colors, text);
+  }
+
+  &__label {
+    color: mapGet($input-colors, input-text);
+    
+  }
+
+  &__input:checked + .site-options__label {
+    color: mapGet($input-colors, input-text--active);
   }
 }
 
@@ -278,10 +290,7 @@ a {
     margin-bottom: 0.5rem;
   }
   &__label {
-    color: mapGet($input-colors, input-text);
   }
 
-  &__input:checked+.color-theme__label {
-    color: mapGet($input-colors, input-text--active);
-  }
+
 }
