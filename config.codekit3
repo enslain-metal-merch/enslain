@@ -441,6 +441,14 @@
       "oAP" : "\/public\/events\/index.html",
       "oF" : 0
     },
+    "\/public\/events\/past-events\/index.html" : {
+      "cB" : 0,
+      "ft" : 8192,
+      "hM" : 0,
+      "oA" : 0,
+      "oAP" : "\/public\/events\/past-events\/index.html",
+      "oF" : 0
+    },
     "\/public\/index.html" : {
       "cB" : 0,
       "ft" : 8192,
@@ -669,6 +677,14 @@
       "oA" : 0,
       "oAP" : "\/src\/kit\/partials\/events\/index-events.html",
       "oF" : 0
+    },
+    "\/src\/kit\/past-events.kit" : {
+      "cB" : 0,
+      "ft" : 2048,
+      "hM" : 0,
+      "oA" : 0,
+      "oAP" : "\/public\/events\/past-events\/index.html",
+      "oF" : 2
     },
     "\/src\/kit\/services.kit" : {
       "cB" : 0,
