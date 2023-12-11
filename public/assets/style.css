@@ -473,6 +473,10 @@ a {
   }
 }
 
+[data-reader-mode=chrissy] .grid--two-col {
+  display: block;
+}
+
 .card {
   background-color: var(--card-background);
   box-shadow: 2px 2px 5px var(--card-box-shadow);
@@ -726,11 +730,10 @@ h3 {
   margin-bottom: 1rem;
 }
 
-.text-container {
-  border: 3px solid magenta;
-}
-.grid--two-col .text-container {
-  border: 3px solid red;
+@media (min-width: 768px) {
+  [data-reader-mode=chrissy] .text-container p {
+    text-align: justify;
+  }
 }
 
 .event {
@@ -859,6 +862,15 @@ body {
 }
 .subsection--events {
   margin-bottom: 0;
+}
+
+.hide--mobile {
+  display: none;
+}
+@media (min-width: 768px) {
+  .hide--mobile {
+    display: block;
+  }
 }
 
 .index__event-list {
