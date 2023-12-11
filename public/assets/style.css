@@ -726,6 +726,13 @@ h3 {
   margin-bottom: 1rem;
 }
 
+.text-container {
+  border: 3px solid magenta;
+}
+.grid--two-col .text-container {
+  border: 3px solid red;
+}
+
 .event {
   list-style: none;
 }
