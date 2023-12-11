@@ -218,8 +218,17 @@ a {
   }
   
   hr {
-    margin: 1rem 0 1.75rem;
-    color: mapGet($event-colors, divider);
+    margin: 1rem auto 1.75rem;
+    border-color: mapGet($event-colors, divider);
+  }
+}
+
+.past-event-list {
+  list-style: none;
+
+  hr {
+    border-color: mapGet($event-colors, divider);
+    margin: 0.25rem 0;
   }
 }
 
