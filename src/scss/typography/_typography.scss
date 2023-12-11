@@ -200,20 +200,20 @@ a {
     display: block;
     margin-bottom: 0.25rem;
 
-    &--small {
-      font-size: 1.15rem;
-    }
-    
-    &--highlight {
+    &--large {
       font-size: 1.75rem;
       line-height: 1.2;
       color: mapGet($event-colors, event-name-text);
-
+  
       a {
         font-size: inherit;
         line-height: inherit;
         color: inherit;
       }
+    }
+
+    &--small {
+      font-size: 1.15rem;
     }
   }
   

@@ -733,18 +733,18 @@ h3 {
   display: block;
   margin-bottom: 0.25rem;
 }
-.event__detail--small {
-  font-size: 1.15rem;
-}
-.event__detail--highlight {
+.event__detail--large {
   font-size: 1.75rem;
   line-height: 1.2;
   color: var(--event-name-text);
 }
-.event__detail--highlight a {
+.event__detail--large a {
   font-size: inherit;
   line-height: inherit;
   color: inherit;
+}
+.event__detail--small {
+  font-size: 1.15rem;
 }
 .event hr {
   margin: 1rem auto 1.75rem;
