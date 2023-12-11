@@ -85,6 +85,16 @@ body {
   }
 }
 
+.hide {
+  &--mobile {
+    display: none;
+    
+    @include media-query(tablet) {
+      display: block;
+    }
+  }
+}
+
 // .event {
 //   display: flex;
 //   flex-flow: column;
