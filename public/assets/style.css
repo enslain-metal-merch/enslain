@@ -812,7 +812,9 @@ body {
   margin: auto;
 }
 .wrapper--narrow {
+  width: 90%;
   max-width: 800px;
+  margin: auto;
 }
 
 .clip-path-layer {

@@ -18,7 +18,9 @@ body {
   @include wrapperDimensions(90%, 1200px);
   
   &--narrow {
+    width: 90%;
     max-width: 800px;
+    margin: auto;
   }
 }
 
@@ -71,6 +73,10 @@ body {
   }
 }
 
+.event-list {
+  // @include test-border(3, red);
+}
+
 .event {
   // padding: 1rem;
 
@@ -109,6 +115,7 @@ body {
   height: fit-content;
   position: relative;
   margin-bottom: 0;
+
   img {
     margin-bottom: 0;
   }
