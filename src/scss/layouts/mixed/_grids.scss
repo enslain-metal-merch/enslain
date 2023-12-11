@@ -49,3 +49,11 @@
 }
 
 // grid tracks
+
+[data-reader-mode='chrissy'] {
+  .grid {
+    &--two-col {
+      display: block;
+    }
+  }
+}
