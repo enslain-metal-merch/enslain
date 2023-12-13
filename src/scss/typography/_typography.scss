@@ -160,7 +160,9 @@ a {
   list-style: none;
   color: mapGet($card-colors, services, text);
 
-  &--crew {
+  p,
+  a {
+    font-size: mapGet($card-typography, size);
   }
 
   &--service {

@@ -723,6 +723,10 @@ h3 {
   list-style: none;
   color: var(--card-text--services);
 }
+.card p,
+.card a {
+  font-size: 1.15rem;
+}
 .card--service p {
   margin-bottom: 1rem;
 }
