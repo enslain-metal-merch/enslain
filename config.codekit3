@@ -17,6 +17,19 @@
       "oAP" : "\/public\/about\/index.html",
       "oF" : 0
     },
+    "\/public\/assets\/img\/content\/about-imgs\/placeholder-salla.jpg" : {
+      "ft" : 16384,
+      "iS" : 122307,
+      "jF" : 0,
+      "oA" : 0,
+      "oAP" : "\/public\/assets\/img\/content\/about-imgs\/placeholder-salla.jpg",
+      "oF" : 0,
+      "oIPL" : 0,
+      "opt" : 0,
+      "ou" : "lpckwebp-none",
+      "q" : 100,
+      "rq" : 75
+    },
     "\/public\/assets\/img\/content\/about-imgs\/serena.jpg" : {
       "ft" : 16384,
       "iS" : 53788,
