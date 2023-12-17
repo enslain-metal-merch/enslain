@@ -1,5 +1,4 @@
 const colorTheme = {
-  storedTheme: localStorage.getItem('theme'),
   transitionValue: "var(--theme-change-transition)", 
   elements: {
     themeOptionSystem: document.getElementById('system-theme'),
@@ -16,75 +15,56 @@ const colorTheme = {
 
 (function () {
   const getPreferredTheme = () => {
-    if (colorTheme.storedTheme) return colorTheme.storedTheme;
-    return window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark'
+    // Defaults to light
+    if (localStorage.getItem('theme')) return localStorage.getItem('theme');
+    return window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
   }
 
-  const setTheme = function (theme) {
-    if (theme === 'auto' && window.matchMedia('(prefers-color-scheme: dark)').matches) {
-      document.documentElement.setAttribute('data-color-theme', 'dark')
-    } else {
-      document.documentElement.setAttribute('data-color-theme', theme)
-    }
-  }
+  const setTheme = () => {
+    const theme = getPreferredTheme();
+    document.documentElement.setAttribute('data-color-theme', theme);
 
-  setTheme(getPreferredTheme())
-
-  const showActiveTheme = () => {
-    const theme = localStorage.getItem('theme');
     if (theme === 'light') {
-      colorTheme.elements.themeOptionLight.checked = true;
       colorTheme.elements.headerLogoImg.src = colorTheme.logoImages.headerLight;
     } else if (theme === 'dark') {
-      colorTheme.elements.themeOptionDark.checked = true;
       colorTheme.elements.headerLogoImg.src = colorTheme.logoImages.headerDark;
     }
-    else {
-      colorTheme.elements.themeOptionSystem.checked = true;
-      colorTheme.elements.headerLogoImg.src = colorTheme.logoImages.headerDark;
-    }
-  }
-  /*
-  const showActiveTheme = theme => {
-    if (theme === 'light') {
-      colorTheme.elements.themeOptionLight.checked = true;
-    } else if (theme === 'dark') {
-      colorTheme.elements.themeOptionDark.checked = true;
-    }
-    else {
-      colorTheme.elements.themeOptionSystem.checked = true;
-    }
-  }
-  */
 
-  window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', () => {
-    if (colorTheme.storedTheme !== 'light' || colorTheme.storedTheme !== 'dark') {
-      setTheme(getPreferredTheme())
+    showActiveTheme();
+    // console.log('Set theme: ' + theme);
+  }
+
+  const showActiveTheme = () => {
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme === 'light') {
+      colorTheme.elements.themeOptionLight.checked = true;
+    } else if (savedTheme === 'dark') {
+      colorTheme.elements.themeOptionDark.checked = true;
+    } else {
+      colorTheme.elements.themeOptionSystem.checked = true;
     }
-  })
+  }
+
+  window.matchMedia('(prefers-color-scheme: light)').addEventListener('change', () => {
+    setTheme();
+  });
 
   window.addEventListener('DOMContentLoaded', () => {
-    showActiveTheme();
-    // showActiveTheme(getPreferredTheme());
-    
-    document.querySelectorAll('[data-color-theme-value]')
-      .forEach(input => {
-        input.addEventListener('click', () => {
-          const theme = input.getAttribute('data-color-theme-value');
+    setTheme();
 
-          if (theme === 'system') {
-            localStorage.removeItem('theme');
-            setTheme(getPreferredTheme());
-          } else {
-            localStorage.setItem('theme', theme);
-            setTheme(theme);
-            showActiveTheme();
-            // showActiveTheme(theme);
-          }
+    document.querySelectorAll('[data-color-theme-value]').forEach(input => {
+      input.addEventListener('click', () => {
+        const selectedTheme = input.getAttribute('data-color-theme-value');
 
+        if (selectedTheme === 'system') {
+          localStorage.removeItem('theme');
+        } else {
+          localStorage.setItem('theme', selectedTheme);
+        }
 
-          colorTheme.elements.body.style.transition = colorTheme.transitionValue;
-        });
+        setTheme();
+        colorTheme.elements.body.style.transition = colorTheme.transitionValue;
       });
-  })  
+    });
+  });
 })();
