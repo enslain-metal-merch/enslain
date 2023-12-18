@@ -25,7 +25,8 @@ body {
 }
 
 .clip-path-layer {
-  padding: 7rem 0;
+  position: relative;
+  padding: 5rem 0;
   margin: 3rem 0;
   background-color: mapGet($section-colors, background);
 
@@ -33,22 +34,21 @@ body {
     padding: 4rem 0;
   }
 
-  position: relative;
   &:nth-of-type(odd) {
     clip-path: polygon(
-      0 5%,
+      0 2%,
       100% 0,
-      100% 95%,
+      100% 98%,
       0% 100%
-    ); 
+    );
   }
   
   &:nth-of-type(even) {
     clip-path: polygon(
       0 0%,
-      100% 5%,
+      100% 2%,
       100% 100%,
-      0% 95%
+      0% 98%
     );
   }
 }

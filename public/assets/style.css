@@ -832,10 +832,10 @@ body {
 }
 
 .clip-path-layer {
-  padding: 7rem 0;
+  position: relative;
+  padding: 5rem 0;
   margin: 3rem 0;
   background-color: var(--section-background);
-  position: relative;
 }
 @media (min-width: 768px) {
   .clip-path-layer {
@@ -843,10 +843,10 @@ body {
   }
 }
 .clip-path-layer:nth-of-type(odd) {
-  clip-path: polygon(0 5%, 100% 0, 100% 95%, 0% 100%);
+  clip-path: polygon(0 2%, 100% 0, 100% 98%, 0% 100%);
 }
 .clip-path-layer:nth-of-type(even) {
-  clip-path: polygon(0 0%, 100% 5%, 100% 100%, 0% 95%);
+  clip-path: polygon(0 0%, 100% 2%, 100% 100%, 0% 98%);
 }
 
 .section {
