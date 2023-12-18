@@ -722,8 +722,8 @@
       "ft" : 2048,
       "hM" : 0,
       "oA" : 0,
-      "oAP" : "\/src\/kit\/past-events.html",
-      "oF" : 0
+      "oAP" : "\/public\/events\/past-events\/index.html",
+      "oF" : 2
     },
     "\/src\/kit\/services.kit" : {
       "cB" : 0,
