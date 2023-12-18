@@ -463,6 +463,11 @@ a {
   gap: 2rem;
   align-items: start;
 }
+@media (min-width: 768px) {
+  .grid--flexible {
+    gap: 3rem;
+  }
+}
 .grid--events {
   gap: 3rem;
 }
