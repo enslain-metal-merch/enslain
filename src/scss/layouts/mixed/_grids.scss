@@ -18,17 +18,9 @@
     @include media-query(desktop) {
       gap: 3rem;
     }
-  }
 
-  &--header {
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1rem;
-
-    @include media-query(tablet) {
-      // align-items: center;
-    }
-    > * {
-      // @include test-border(3, lime);
+    [data-reader-mode='chrissy'] & {
+      display: block;
     }
   }
 
@@ -39,25 +31,6 @@
 
     @include media-query(tablet) {
       gap: 3rem;
-    }
-  }
-
-  &--events {
-    gap: 3rem;
-
-    @include media-query(desktop) {
-      @include two-col;
-      align-items: start;
-    }
-  }
-}
-
-// grid tracks
-
-[data-reader-mode='chrissy'] {
-  .grid {
-    &--two-col {
-      display: block;
     }
   }
 }

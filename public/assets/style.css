@@ -592,9 +592,8 @@ body {
     gap: 3rem;
   }
 }
-.grid--header {
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1rem;
+[data-reader-mode=chrissy] .grid--two-col {
+  display: block;
 }
 .grid--flexible {
   grid-template-columns: repeat(auto-fill, minmax(288px, 1fr));
@@ -605,19 +604,6 @@ body {
   .grid--flexible {
     gap: 3rem;
   }
-}
-.grid--events {
-  gap: 3rem;
-}
-@media (min-width: 1024px) {
-  .grid--events {
-    grid-template-columns: repeat(2, 1fr);
-    align-items: start;
-  }
-}
-
-[data-reader-mode=chrissy] .grid--two-col {
-  display: block;
 }
 
 .card {
