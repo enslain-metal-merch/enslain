@@ -5,15 +5,6 @@
 @use 'layouts';
 @use 'typography/typography';
 
-body {
-  background-color: mapGet($body-colors, background);
-  background-image: linear-gradient(mapGet($body-colors, background-gradient));
-}
-
-.nav-is-open {
-  overflow: hidden;
-}
-
 .wrapper {
   @include wrapperDimensions(90%, 1200px);
   
@@ -70,18 +61,6 @@ body {
     // background-color: hsl(0, 0%, 0%);
     // border: 1px solid hsl(212, 96%, 50%);
     // padding: 1rem;
-  }
-}
-
-.event-list {
-  // @include test-border(3, red);
-}
-
-.event {
-  // padding: 1rem;
-
-  &:nth-of-type(odd) {
-    // background-color: hsla(0, 0%, 0%, 30%);
   }
 }
 

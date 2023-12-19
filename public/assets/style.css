@@ -311,6 +311,15 @@ a {
   }
 }
 
+body {
+  background-color: var(--background);
+  background-image: linear-gradient(var(--background-gradient));
+}
+
+.nav-is-open {
+  overflow: hidden;
+}
+
 .header {
   padding: 1rem 0;
   position: relative;
@@ -831,15 +840,6 @@ h3 {
 }
 .site-options__input:checked + .site-options__label {
   color: var(--input-text--active);
-}
-
-body {
-  background-color: var(--background);
-  background-image: linear-gradient(var(--background-gradient));
-}
-
-.nav-is-open {
-  overflow: hidden;
 }
 
 .wrapper {
