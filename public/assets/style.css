@@ -516,25 +516,7 @@ body {
 .footer__logo-img {
   fill: var(--footer-logo);
 }
-.footer__secondary-menu {
-  display: flex;
-  gap: 1.5rem;
-  align-items: center;
-  justify-content: center;
-}
-.footer__secondary-menu-item--chrissy-mode {
-  display: none;
-}
-@media (min-width: 768px) {
-  .footer__secondary-menu-item--chrissy-mode {
-    display: block;
-  }
-}
-@media (min-width: 768px) {
-  .footer__button-group {
-    display: block;
-  }
-}
+
 .wrapper {
   width: 90%;
   max-width: 1200px;
