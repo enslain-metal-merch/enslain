@@ -1,1 +1,11 @@
 @use '../../utilities' as *;
+
+.wrapper {
+  @include wrapperDimensions(90%, 1200px);
+
+  &--narrow {
+    width: 90%;
+    max-width: 800px;
+    margin: auto;
+  }
+}

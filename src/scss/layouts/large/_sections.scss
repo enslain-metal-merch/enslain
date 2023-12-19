@@ -1,1 +1,21 @@
 @use '../../utilities' as *;
+
+.section {
+  padding: 3rem 0;
+
+  @include media-query(tablet) {
+    padding: 5rem 0;
+    // @include test-border(3, magenta);
+  }
+}
+
+.subsection {
+  @include margins(bottom, 3rem, child);
+
+  &--events {
+    margin-bottom: 0;
+    // background-color: hsl(0, 0%, 0%);
+    // border: 1px solid hsl(212, 96%, 50%);
+    // padding: 1rem;
+  }
+}

@@ -1,1 +1,26 @@
 @use '../utilities' as *;
+
+.clip-path-layer {
+  position: relative;
+  padding: 5rem 0;
+  margin: 3rem 0;
+  background-color: mapGet($section-colors, background);
+
+  @include media-query(tablet) {
+    padding: 4rem 0;
+  }
+
+  &:nth-of-type(odd) {
+    clip-path: polygon(0 2%,
+      100% 0,
+      100% 98%,
+      0% 100%);
+  }
+
+  &:nth-of-type(even) {
+    clip-path: polygon(0 0%,
+      100% 2%,
+      100% 100%,
+      0% 98%);
+  }
+}
