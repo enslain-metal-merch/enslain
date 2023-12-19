@@ -8,8 +8,14 @@
   }
   
   &__fieldset {
+    position: relative;
     border: none;
     margin: 0 auto;
+    padding: 0 1rem;
+
+    &:focus-within {
+      outline: 3px solid mapGet($site-options, fieldset-border--focus);
+    }
 
     @include media-query(tablet) {
       margin: 0;

@@ -123,6 +123,7 @@ a {
   --input-background--active: hsl(var(--brand-color-hs), 70%);
   --input-text: hsl(var(--brand-color-hs), 70%);
   --input-text--active: hsl(var(--brand-color-hs), 1%);
+  --site-options-focus: hsl(var(--brand-color-hs), 60%);
 }
 
 :root,
@@ -167,6 +168,7 @@ a {
   --input-background--active: hsl(var(--brand-color-hs), 90%);
   --input-text: hsl(var(--brand-color-hs), 90%);
   --input-text--active: hsl(var(--brand-color-hs), 20%);
+  --site-options-focus: hsl(var(--brand-color-hs), 95%);
 }
 
 :root {
@@ -502,8 +504,13 @@ a {
   }
 }
 .site-options__fieldset {
+  position: relative;
   border: none;
   margin: 0 auto;
+  padding: 0 1rem;
+}
+.site-options__fieldset:focus-within {
+  outline: 3px solid var(--site-options-focus);
 }
 @media (min-width: 768px) {
   .site-options__fieldset {

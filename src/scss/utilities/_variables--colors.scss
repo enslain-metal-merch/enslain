@@ -82,6 +82,7 @@
   --input-background--active: hsl(var(--brand-color-hs), 70%);
   --input-text: hsl(var(--brand-color-hs), 70%);
   --input-text--active: hsl(var(--brand-color-hs), 1%);
+  --site-options-focus: hsl(var(--brand-color-hs), 60%);
 }
 
 :root,
@@ -127,6 +128,7 @@
   --input-background--active: hsl(var(--brand-color-hs), 90%);
   --input-text: hsl(var(--brand-color-hs), 90%);
   --input-text--active: hsl(var(--brand-color-hs), 20%);
+  --site-options-focus: hsl(var(--brand-color-hs), 95%);
 }
 
 $body-colors: (
@@ -193,4 +195,8 @@ $input-colors: (
   input-background--active: var(--input-background--active),
   input-text: var(--input-text),
   input-text--active: var(--input-text--active),
+);
+
+$site-options: (
+  fieldset-border--focus: var(--site-options-focus),
 );
