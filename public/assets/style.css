@@ -168,6 +168,10 @@ a {
 :root {
   --font-family--primary: "Finlandica", sans-serif;
   --font-family--secondary: "Voltaire", sans-serif;
+  --primary-line-height: 1.6;
+  --small-text: 1.15rem;
+  --heading-line-height: 1.1;
+  --heading-margin: 1.5rem;
 }
 
 .hide--mobile {
@@ -617,8 +621,8 @@ a,
 li,
 button,
 .button {
-  line-height: 1.6;
-  font-size: 1.15rem;
+  line-height: var(--primary-line-height);
+  font-size: var(--small-text);
 }
 @media (min-width: 1024px) {
   p,
@@ -626,16 +630,16 @@ button,
   li,
   button,
   .button {
-    font-size: 1.25rem;
+    font-size: 1.35rem;
   }
 }
-@supports (font-size: clamp(1.15rem, 2vw, 1.35rem)) {
+@supports (font-size: clamp(var(--small-text), 2vw, 1.35rem)) {
   p,
   a,
   li,
   button,
   .button {
-    font-size: clamp(1.15rem, 2vw, 1.35rem);
+    font-size: clamp(var(--small-text), 2vw, 1.35rem);
   }
 }
 .text-container p,
@@ -651,7 +655,7 @@ button,
 .footer button,
 .footer .button {
   text-align: center;
-  font-size: 1.15rem;
+  font-size: var(--small-text);
 }
 .footer p:not(.button),
 .footer a:not(.button),
@@ -662,7 +666,7 @@ button,
 }
 
 ul {
-  line-height: 1.6;
+  line-height: var(--primary-line-height);
   list-style-position: inside;
 }
 
@@ -691,8 +695,8 @@ a:not(.button):hover, a:not(.button):focus-visible {
 h1 {
   font-family: var(--font-family--secondary);
   font-size: 3.5rem;
-  margin-bottom: 1.5rem;
-  line-height: 1.1;
+  margin-bottom: var(--heading-margin);
+  line-height: var(--heading-line-height);
   color: var(--headings);
 }
 @media (min-width: 768px) {
@@ -714,8 +718,8 @@ h1 {
 h2 {
   font-family: var(--font-family--secondary);
   font-size: 2.5rem;
-  margin-bottom: 1.5rem;
-  line-height: 1.1;
+  margin-bottom: var(--heading-margin);
+  line-height: var(--heading-line-height);
   color: var(--headings);
 }
 @media (min-width: 768px) {
@@ -737,8 +741,8 @@ h2 {
 h3 {
   font-family: var(--font-family--secondary);
   font-size: 1.5rem;
-  margin-bottom: 1.5rem;
-  line-height: 1.1;
+  margin-bottom: var(--heading-margin);
+  line-height: var(--heading-line-height);
   color: var(--headings);
 }
 @media (min-width: 768px) {
@@ -807,7 +811,7 @@ h3 {
 }
 .card p,
 .card a {
-  font-size: 1.15rem;
+  font-size: var(--small-text);
 }
 .card h3 {
   margin-bottom: 1rem;

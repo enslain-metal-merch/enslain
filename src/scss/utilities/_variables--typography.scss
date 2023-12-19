@@ -1,14 +1,23 @@
 :root {
-  --font-family--primary: 'Finlandica', sans-serif;
-  --font-family--secondary: 'Voltaire', sans-serif;
+  // font families
+    --font-family--primary: 'Finlandica', sans-serif;
+    --font-family--secondary: 'Voltaire', sans-serif;
+
+  // primary
+    --primary-line-height: 1.6;
+    --small-text: 1.15rem;
+    
+  // headings
+    --heading-line-height: 1.1;
+    --heading-margin: 1.5rem;
 }
 
 $primary: (
   family: (var(--font-family--primary)),
-  line-height: 1.6,
-  size--small: 1.15rem,
-  size--large: 1.25rem,
-  size--clamp: clamp(1.15rem, 2vw, 1.35rem)
+  size--small: var(--small-text),
+  size--large: 1.35rem,
+  size--clamp: clamp(var(--small-text), 2vw, 1.35rem),
+  line-height: var(--primary-line-height),
 );
 
 $headings: (
@@ -18,8 +27,8 @@ $headings: (
     size--medium: 4rem,
     size--large: 5rem,
     size--clamp: clamp(3.5rem, 10vw, 5rem),
-    margin: 1.5rem,
-    line-height: 1.1
+    line-height: var(--heading-line-height),
+    margin: var(--heading-margin)
   ),
     
   h2: (
@@ -28,8 +37,8 @@ $headings: (
     size--medium: 3rem,
     size--large: 3.75rem,
     size--clamp: clamp(2.5rem, 10vw, 3.75rem),
-    margin: 1.5rem,
-    line-height: 1.1
+    line-height: var(--heading-line-height),
+    margin: var(--heading-margin)
   ),
     
   h3: (
@@ -38,8 +47,8 @@ $headings: (
     size--medium: 2rem,
     size--large: 2.5rem,
     size--clamp: clamp(1.5rem, 7vw, 2.5rem),
-    line-height: 1.1,
-    margin: 1.5rem
+    line-height: var(--heading-line-height),
+    margin: var(--heading-margin)
   ),
 );
 
@@ -52,14 +61,9 @@ $header-typography: (
 );
 
 $card-typography: (
-  size: 1.15rem,
-);
-
-$button-typography: (
-  // size--xs: 0.85rem,
-  // size--small: 1rem,
+  size: var(--small-text),
 );
 
 $footer-typography: (
-  size: 1.15rem,
+  size: var(--small-text),
 );
