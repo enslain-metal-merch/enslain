@@ -410,9 +410,6 @@ body {
     align-items: center;
   }
 }
-.header__secondary-nav {
-  width: 100%;
-}
 .header__logo {
   display: block;
   width: 80%;
