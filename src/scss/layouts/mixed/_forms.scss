@@ -1,1 +1,56 @@
 @use '../../utilities' as *;
+.site-options {
+  margin: auto;
+
+  @include media-query(tablet) {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__fieldset {
+    position: relative;
+    border: none;
+    margin: 0 auto;
+    padding: 0 1rem;
+
+    &:focus-within {
+      outline: 3px solid mapGet($site-options, fieldset-border--focus);
+    }
+
+    @include media-query(tablet) {
+      margin: 0;
+      display: flex;
+      justify-content: center;
+    }
+  }
+
+  &__legend {
+    @include media-query(tablet) {}
+  }
+
+  &__input-group {
+    border: 1px solid mapGet($input-colors, group-border);
+    display: flex;
+    width: max-content;
+    margin: 0 auto 1rem;
+
+    @include media-query(tablet) {
+      width: 100%;
+    }
+  }
+
+  &__label {
+    padding: 0.25rem 0.5rem;
+    transition: all 150ms ease-in-out;
+    cursor: pointer;
+    width: 100%;
+
+    &:not(:last-of-type) {
+      border-right: 1px solid mapGet($input-colors, group-border);
+    }
+  }
+
+  &__input:checked+.site-options__label {
+    background-color: mapGet($input-colors, input-background--active);
+  }
+}
