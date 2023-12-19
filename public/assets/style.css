@@ -148,7 +148,7 @@ a {
   --card-box-shadow: hsl(var(--brand-color-hs), 20%);
   --button-text: hsl(var(--neutral-hs), 100%);
   --button-text--hover: hsl(var(--brand-color-hs), 10%);
-  --button-text--active: hsl(var(--neutral-hs), 100%);
+  --button-text--active: hsl(var(--neutral-hs), 0%);
   --button-border: hsl(var(--brand-color-hs), 20%);
   --button-hover: var(--gradient--aurora-borealis);
   --color-theme-button-text: hsl(var(--brand-color-hs), 90%);
