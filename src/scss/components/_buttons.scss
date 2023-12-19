@@ -21,13 +21,17 @@
   z-index: 0;
   background-color: mapGet($button-colors, background);
   border: none;
-  border: 1px solid mapGet($button-colors, border);
-  padding: 0.15rem 0.25rem;
+  padding: 0.5rem;
   font-size: 1rem;
   transition: all 250ms ease-in-out;
 
-  &:hover {
-    background-color: mapGet($button-colors, background--hover);
+  &:hover,
+  &:focus-visible {
+    color: mapGet($button-colors, text--hover);
+    
+    &::after {
+      background-color: mapGet($button-colors, background--hover);
+    }
   }
 
   &:before {
@@ -35,13 +39,13 @@
       content: '';
       background: linear-gradient(45deg, mapGet($button-colors, hover));
       position: absolute;
-      top: -2px;
-      left: -2px;
+      top: -5px;
+      left: -5px;
       background-size: 400%;
       z-index: -1;
       filter: blur(5px);
-      width: calc(100% + 6px);
-      height: calc(100% + 6px);
+      width: calc(100% + 10px);
+      height: calc(100% + 10px);
       animation: buttonGlow 20s linear infinite;
       opacity: 0;
       transition: opacity .3s ease-in-out;
@@ -65,8 +69,6 @@
   &:hover,
   &:focus-visible {
     @include media-query(desktop) {
-      border: none;
-  
       &::before {
         opacity: 1;
         z-index: -1;

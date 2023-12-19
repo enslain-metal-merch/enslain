@@ -61,14 +61,15 @@
   --nav-dropdown-background: hsl(var(--brand-color-hs), 6%);
   --card-background: hsl(212, 96%, 5%);
   --card-box-shadow: hsl(var(--brand-color-hs), 50%);
-  --button-text: hsl(var(--brand-color-hs), 90%);
+  --button-text: hsl(var(--brand-color-hs), 95%);
+  --button-text--hover: hsl(var(--brand-color-hs), 10%);
   --button-text--active: hsl(var(--neutral-hs), 0%);
   --button-border: hsl(var(--brand-color-hs), 90%);
   --button-hover: var(--gradient--fire);
   --color-theme-button-text: hsl(var(--brand-color-hs), 30%);
   --color-theme-button-border: hsl(var(--brand-color-hs), 65%);
-  --button-background: hsl(var(--brand-color-hs), 20%);
-  --button-background--hover: hsl(var(--brand-color-hs), 40%);
+  --button-background: hsl(var(--brand-color-hs), 40%);
+  --button-background--hover: hsla(var(--brand-color-hs), 90%, 90%);
   --contact-icons: hsl(var(--brand-color-hs), 60%);
   --event-name-text: hsl(var(--brand-color-hs), 60%);
   --event-divider: hsla(var(--brand-color-hs), 60%, 50%);
@@ -105,14 +106,15 @@
   --nav-dropdown-background: hsl(var(--brand-color-hs), 98%);
   --card-background: hsl(212, 96%, 98%);
   --card-box-shadow: hsl(var(--brand-color-hs), 20%);
-  --button-text: hsl(var(--brand-color-hs), 20%);
+  --button-text: hsl(var(--neutral-hs), 100%);
+  --button-text--hover: hsl(var(--brand-color-hs), 10%);
   --button-text--active: hsl(var(--neutral-hs), 100%);
   --button-border: hsl(var(--brand-color-hs), 20%);
   --button-hover: var(--gradient--reds);
   --color-theme-button-text: hsl(var(--brand-color-hs), 90%);
   --color-theme-button-border: hsl(var(--brand-color-hs), 90%);
-  --button-background: hsl(var(--brand-color-hs), 90%);
-  --button-background--hover: hsl(var(--brand-color-hs), 98%);
+  --button-background: hsl(var(--brand-color-hs), 40%);
+  --button-background--hover: hsla(var(--brand-color-hs), 98%, 90%);
   --contact-icons: hsl(var(--brand-color-hs), 50%);
   --event-name-text: hsl(var(--brand-color-hs), 30%);
   --event-divider: hsla(var(--brand-color-hs), 30%, 50%);
@@ -164,6 +166,7 @@ $card-colors: (
 
 $button-colors: (
   text: var(--button-text),
+  text--hover: var(--button-text--hover),
   text--active: var(--button-text--active),
   border: var(--button-border),
   background: var(--button-background),
