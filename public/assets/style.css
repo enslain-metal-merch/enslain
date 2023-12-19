@@ -612,22 +612,17 @@ body {
 
 p,
 a,
-button {
-  font-family: var(--font-family--primary);
-}
-
-p,
-a,
-li,
+ul,
 button,
 .button {
+  font-family: var(--font-family--primary);
   line-height: var(--primary-line-height);
   font-size: var(--small-text);
 }
 @media (min-width: 1024px) {
   p,
   a,
-  li,
+  ul,
   button,
   .button {
     font-size: 1.35rem;
@@ -636,7 +631,7 @@ button,
 @supports (font-size: clamp(var(--small-text), 2vw, 1.35rem)) {
   p,
   a,
-  li,
+  ul,
   button,
   .button {
     font-size: clamp(var(--small-text), 2vw, 1.35rem);
@@ -644,30 +639,18 @@ button,
 }
 .text-container p,
 .text-container a,
-.text-container li,
+.text-container ul,
 .text-container button,
 .text-container .button {
   margin-bottom: 1.5rem;
 }
 .footer p,
 .footer a,
-.footer li,
+.footer ul,
 .footer button,
 .footer .button {
   text-align: center;
   font-size: var(--small-text);
-}
-.footer p:not(.button),
-.footer a:not(.button),
-.footer li:not(.button),
-.footer button:not(.button),
-.footer .button:not(.button) {
-  color: var(--footer-text);
-}
-
-ul {
-  line-height: var(--primary-line-height);
-  list-style-position: inside;
 }
 
 a {
@@ -682,6 +665,10 @@ a:not(.button):hover, a:not(.button):focus-visible {
   -webkit-text-fill-color: transparent;
   background-size: 500% auto;
   animation: textShine 5s ease-in-out infinite alternate;
+}
+
+ul {
+  list-style-position: inside;
 }
 
 @keyframes textShine {
@@ -761,22 +748,9 @@ h3 {
   }
 }
 
-.boss-name {
-  font-size: 3.5rem;
-}
 @media (min-width: 768px) {
-  .boss-name {
-    font-size: 4rem;
-  }
-}
-@media (min-width: 1024px) {
-  .boss-name {
-    font-size: 5rem;
-  }
-}
-@supports (font-size: clamp(3.5rem, 10vw, 5rem)) {
-  .boss-name {
-    font-size: clamp(3.5rem, 10vw, 5rem);
+  [data-reader-mode=chrissy] .text-container p {
+    text-align: justify;
   }
 }
 
@@ -820,9 +794,16 @@ h3 {
   margin-bottom: 1rem;
 }
 
-@media (min-width: 768px) {
-  [data-reader-mode=chrissy] .text-container p {
-    text-align: justify;
+.button {
+  text-decoration: none;
+  color: var(--button-text);
+}
+.button:hover, .button:focus-visible {
+  color: var(--button-text--hover);
+}
+@media (min-width: 1024px) {
+  .button:active {
+    color: var(--button-text--active);
   }
 }
 
@@ -859,8 +840,23 @@ h3 {
   margin: 0.25rem 0;
 }
 
-.volunteer-perks li {
-  line-height: 1;
+.boss-name {
+  font-size: 3.5rem;
+}
+@media (min-width: 768px) {
+  .boss-name {
+    font-size: 4rem;
+  }
+}
+@media (min-width: 1024px) {
+  .boss-name {
+    font-size: 5rem;
+  }
+}
+@supports (font-size: clamp(3.5rem, 10vw, 5rem)) {
+  .boss-name {
+    font-size: clamp(3.5rem, 10vw, 5rem);
+  }
 }
 
 .contact-methods li {
@@ -870,23 +866,6 @@ h3 {
 .contact-methods i {
   color: var(--contact-icons);
   margin-right: 0.75rem;
-}
-
-.button {
-  text-decoration: none;
-  color: var(--button-text);
-}
-.button:hover, .button:focus-visible {
-  color: var(--button-text--hover);
-}
-@media (min-width: 1024px) {
-  .button:active {
-    color: var(--button-text--active);
-  }
-}
-
-.footer li {
-  list-style: none;
 }
 
 .site-options__legend {
@@ -901,4 +880,11 @@ h3 {
 }
 .site-options__input:checked + .site-options__label {
   color: var(--label--active);
+}
+
+.footer {
+  color: var(--footer-text);
+}
+.footer a {
+  color: inherit;
 }

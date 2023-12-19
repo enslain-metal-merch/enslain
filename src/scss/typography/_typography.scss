@@ -7,27 +7,21 @@ body {
 
 p,
 a,
-button {
-  font-family: mapGet($primary, family);
-}
-
-p,
-a,
-li,
+ul,
 button,
 .button {
+  font-family: mapGet($primary, family);
   line-height: mapGet($primary, line-height);
   font-size: mapGet($primary, size--small);
-  
+
   @include media-query(desktop) {
     font-size: mapGet($primary, size--large);
   }
-
+  
   @supports (font-size: mapGet($primary, size--clamp)) {
     font-size: mapGet($primary, size--clamp);
   }
 
-  
   .text-container & {
     margin-bottom: 1.5rem;
   }
@@ -35,23 +29,14 @@ button,
   .footer & {
     text-align: center;
     font-size: mapGet($footer-typography, size);
-    
-    &:not(.button) {
-      color: mapGet($footer-colors, text);
-    }
   }
-}
-
-ul {
-  line-height: mapGet($primary, line-height);
-  font-size: mapGet($primary, size);
-  list-style-position: inside;
 }
 
 a {
   color: mapGet($body-colors, links);
 
   &:not(.button) {
+
     &:hover,
     &:focus-visible {
       text-decoration: none;
@@ -64,6 +49,10 @@ a {
       animation: textShine 5s ease-in-out infinite alternate;
     }
   }
+}
+
+ul {
+  list-style-position: inside;
 }
 
 @keyframes textShine {
@@ -98,19 +87,13 @@ a {
   }
 }
 
-.boss-name {
-  font-size: mapGet($headings, h1, size--small);
-
-  @include media-query(tablet) {
-    font-size: mapGet($headings, h1, size--medium);
-  }
-
-  @include media-query(desktop) {
-    font-size: mapGet($headings, h1, size--large);
-  }
-
-  @supports (font-size: mapGet($headings, h1, size--clamp)) {
-    font-size: mapGet($headings, h1, size--clamp);
+[data-reader-mode='chrissy'] {
+  .text-container {
+    p {
+      @include media-query(tablet) {
+        text-align: justify;
+      }
+    }
   }
 }
 
@@ -135,7 +118,7 @@ a {
         font-family: mapGet($header-typography, primary-menu-items, family);
 
         @include media-query(tablet) {
-          font-size: mapGet($header-typography,primary-menu-items, size--large);
+          font-size: mapGet($header-typography, primary-menu-items, size--large);
           padding: 0;
         }
       }
@@ -166,12 +149,18 @@ a {
   }
 }
 
-[data-reader-mode='chrissy'] {
-  .text-container {
-    p {
-      @include media-query(tablet) {
-        text-align: justify;
-      }
+.button {
+  text-decoration: none;
+  color: mapGet($button-colors, text);
+
+  &:hover,
+  &:focus-visible {
+    color: mapGet($button-colors, text--hover);
+  }
+
+  &:active {
+    @include media-query(desktop) {
+      color: mapGet($button-colors, text--active);
     }
   }
 }
@@ -215,9 +204,19 @@ a {
   }
 }
 
-.volunteer-perks {
-  li {
-    line-height: 1;
+.boss-name {
+  font-size: mapGet($headings, h1, size--small);
+
+  @include media-query(tablet) {
+    font-size: mapGet($headings, h1, size--medium);
+  }
+
+  @include media-query(desktop) {
+    font-size: mapGet($headings, h1, size--large);
+  }
+
+  @supports (font-size: mapGet($headings, h1, size--clamp)) {
+    font-size: mapGet($headings, h1, size--clamp);
   }
 }
 
@@ -230,28 +229,6 @@ a {
   i {
     color: mapGet($icon-colors, contact-icons);
     margin-right: 0.75rem;
-  }
-}
-
-.button {
-  text-decoration: none;
-  color: mapGet($button-colors, text);
-
-  &:hover,
-  &:focus-visible {
-    color: mapGet($button-colors, text--hover);
-  }
-
-  &:active {
-    @include media-query(desktop) {
-      color: mapGet($button-colors, text--active);
-    }
-  }
-}
-
-.footer {
-  li {
-    list-style: none;
   }
 }
 
@@ -270,5 +247,13 @@ a {
 
   &__input:checked + .site-options__label {
     color: mapGet($form-colors, label--active);
+  }
+}
+
+.footer {
+  color: mapGet($footer-colors, text);
+
+  a {
+    color: inherit;
   }
 }
