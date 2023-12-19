@@ -86,8 +86,8 @@
 
   // forms
     // labels
-    --label-text: hsl(var(--brand-color-hs), 70%);
-    --label-text--active: hsl(var(--brand-color-hs), 1%);
+    --label: hsl(var(--brand-color-hs), 70%);
+    --label--active: hsl(var(--brand-color-hs), 1%);
 
     // inputs
       --input-background--active: hsl(var(--brand-color-hs), 70%);
@@ -156,8 +156,8 @@
 
   // forms
     // labels
-      --label-text: hsl(var(--brand-color-hs), 90%);
-      --label-text--active: hsl(var(--brand-color-hs), 20%);
+      --label: hsl(var(--brand-color-hs), 90%);
+      --label--active: hsl(var(--brand-color-hs), 20%);
     
     // inputs
       --input-background--active: hsl(var(--brand-color-hs), 90%);
@@ -228,7 +228,7 @@ $button-colors: (
   border: var(--button-border),
   background: var(--button-background),
   background--hover: var(--button-background--hover),
-  hover: var(--button-gradient-hover),
+  gradient-hover: var(--button-gradient-hover),
 );
 
 $icon-colors: (
@@ -244,6 +244,6 @@ $form-colors: (
   fieldset-outline--focus: var(--site-options-focus),
   input-group-border: var(--input-group-border),
   input-background--active: var(--input-background--active),
-  label-text: var(--label-text),
-  label-text--active: var(--label-text--active),
+  label: var(--label),
+  label--active: var(--label--active),
 );

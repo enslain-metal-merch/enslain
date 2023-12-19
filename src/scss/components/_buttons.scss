@@ -50,7 +50,7 @@
   &:before {
     @include media-query(desktop) {
       content: '';
-      background: linear-gradient(45deg, mapGet($button-colors, hover));
+      background: linear-gradient(45deg, mapGet($button-colors, gradient-hover));
       position: absolute;
       top: -5px;
       left: -5px;

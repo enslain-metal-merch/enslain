@@ -107,8 +107,8 @@ a {
   --section-background: hsla(var(--neutral-hs), 0%, 50%);
   --footer-logo: hsl(var(--brand-color-hs), 80%);
   --footer-text: hsl(var(--brand-color-hs), 70%);
-  --label-text: hsl(var(--brand-color-hs), 70%);
-  --label-text--active: hsl(var(--brand-color-hs), 1%);
+  --label: hsl(var(--brand-color-hs), 70%);
+  --label--active: hsl(var(--brand-color-hs), 1%);
   --input-background--active: hsl(var(--brand-color-hs), 70%);
   --input-group-border: hsl(var(--brand-color-hs), 70%);
   --site-options-focus: hsl(var(--brand-color-hs), 60%);
@@ -147,8 +147,8 @@ a {
   --section-background: hsla(var(--neutral-hs), 100%, 50%);
   --footer-logo: hsl(var(--brand-color-hs), 100%);
   --footer-text: hsl(var(--brand-color-hs), 90%);
-  --label-text: hsl(var(--brand-color-hs), 90%);
-  --label-text--active: hsl(var(--brand-color-hs), 20%);
+  --label: hsl(var(--brand-color-hs), 90%);
+  --label--active: hsl(var(--brand-color-hs), 20%);
   --input-background--active: hsl(var(--brand-color-hs), 90%);
   --input-group-border: hsl(var(--brand-color-hs), 90%);
   --site-options-focus: hsl(var(--brand-color-hs), 95%);
@@ -892,9 +892,9 @@ h3 {
   color: var(--footer-text);
 }
 .site-options__label {
-  color: var(--label-text);
+  color: var(--label);
   text-align: center;
 }
 .site-options__input:checked + .site-options__label {
-  color: var(--label-text--active);
+  color: var(--label--active);
 }
