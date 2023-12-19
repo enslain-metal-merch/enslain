@@ -117,9 +117,6 @@
   // icons
     --contact-icons: hsl(var(--brand-color-hs), 60%);
     --social-media-icons: value;
-
-  --color-theme-button-text: hsl(var(--brand-color-hs), 30%);
-  --color-theme-button-border: hsl(var(--brand-color-hs), 65%);
 }
 
 :root,
@@ -180,7 +177,7 @@
 
     // gradient hover effect
       --button-gradient-hover: var(--gradient--aurora-borealis);
-      
+
   // cards
     --card-background: hsl(212, 96%, 98%);
     --card-box-shadow: hsl(var(--brand-color-hs), 20%);
@@ -188,12 +185,6 @@
   // icons
     --contact-icons: hsl(var(--brand-color-hs), 50%);
     --social-media-icons: value;
-
-  --section-divider: hsla(var(--brand-color-hs), 60%, 50%);
-  --color-theme-button-text: hsl(var(--brand-color-hs), 90%);
-  --color-theme-button-border: hsl(var(--brand-color-hs), 90%);
-  --theme-switcher-icon--light-mode: value;
-  --theme-switcher-icon--dark-mode: value;
 }
 
 $body-colors: (
@@ -204,7 +195,6 @@ $body-colors: (
   aria-current-page: var(--aria-current-page),
   background: var(--plain-background),
   background-gradient: var(--gradient-background),
-  dividers: var(--section-divider)
 );
 
 $header-colors: (
@@ -225,10 +215,6 @@ $footer-colors: (
 $card-colors: (
   background: var(--card-background),
   box-shadow: var(--card-box-shadow),
-  services: (
-    background: var(--card-background),
-    text: var(--card-text--services)
-  ),
 );
 
 $button-colors: (
@@ -239,11 +225,6 @@ $button-colors: (
   background: var(--button-background),
   background--hover: var(--button-background--hover),
   hover: var(--button-gradient-hover),
-
-  color-theme-buttons: (
-    text: var(--color-theme-button-text),
-    border: var(--color-theme-button-border),
-  )
 );
 
 $icon-colors: (

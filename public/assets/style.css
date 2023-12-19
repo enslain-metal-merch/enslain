@@ -123,8 +123,6 @@ a {
   --card-box-shadow: hsl(var(--brand-color-hs), 50%);
   --contact-icons: hsl(var(--brand-color-hs), 60%);
   --social-media-icons: value;
-  --color-theme-button-text: hsl(var(--brand-color-hs), 30%);
-  --color-theme-button-border: hsl(var(--brand-color-hs), 65%);
 }
 
 :root,
@@ -165,11 +163,6 @@ a {
   --card-box-shadow: hsl(var(--brand-color-hs), 20%);
   --contact-icons: hsl(var(--brand-color-hs), 50%);
   --social-media-icons: value;
-  --section-divider: hsla(var(--brand-color-hs), 60%, 50%);
-  --color-theme-button-text: hsl(var(--brand-color-hs), 90%);
-  --color-theme-button-border: hsl(var(--brand-color-hs), 90%);
-  --theme-switcher-icon--light-mode: value;
-  --theme-switcher-icon--dark-mode: value;
 }
 
 :root {
@@ -819,7 +812,6 @@ h3 {
 
 .card {
   list-style: none;
-  color: var(--card-text--services);
 }
 .card p,
 .card a {
