@@ -243,6 +243,17 @@ a {
   margin-bottom: 0;
 }
 
+@keyframes buttonGlow {
+  0% {
+    background-position: 0 0;
+  }
+  50% {
+    background-position: 400% 0;
+  }
+  100% {
+    background-position: 0 0;
+  }
+}
 .button {
   border: none;
   position: relative;
@@ -318,17 +329,6 @@ a {
   }
 }
 
-@keyframes buttonGlow {
-  0% {
-    background-position: 0 0;
-  }
-  50% {
-    background-position: 400% 0;
-  }
-  100% {
-    background-position: 0 0;
-  }
-}
 .header__nav-toggle-bar--top.animate {
   animation: shiftDown 200ms ease-out forwards;
 }
