@@ -549,38 +549,50 @@ button {
 
 p,
 a,
-li {
+li,
+button,
+.button {
   line-height: 1.6;
   font-size: 1.15rem;
 }
 @media (min-width: 1024px) {
   p,
   a,
-  li {
+  li,
+  button,
+  .button {
     font-size: 1.25rem;
   }
 }
 @supports (font-size: clamp(1.15rem, 2vw, 1.35rem)) {
   p,
   a,
-  li {
+  li,
+  button,
+  .button {
     font-size: clamp(1.15rem, 2vw, 1.35rem);
   }
 }
 .text-container p,
 .text-container a,
-.text-container li {
+.text-container li,
+.text-container button,
+.text-container .button {
   margin-bottom: 1.5rem;
 }
 .footer p,
 .footer a,
-.footer li {
+.footer li,
+.footer button,
+.footer .button {
   text-align: center;
   font-size: 1.15rem;
 }
 .footer p:not(.button),
 .footer a:not(.button),
-.footer li:not(.button) {
+.footer li:not(.button),
+.footer button:not(.button),
+.footer .button:not(.button) {
   color: var(--footer-text);
 }
 
@@ -794,9 +806,6 @@ h3 {
 
 .button {
   text-decoration: none;
-  color: var(--button-text);
-}
-.button a {
   color: var(--button-text);
 }
 .footer li {

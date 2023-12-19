@@ -13,7 +13,9 @@ button {
 
 p,
 a,
-li {
+li,
+button,
+.button {
   line-height: mapGet($primary, line-height);
   font-size: mapGet($primary, size--small);
   
@@ -265,10 +267,6 @@ a {
 .button {
   text-decoration: none;
   color: mapGet($button-colors, text);
-  
-  a {
-    color: mapGet($button-colors, text);
-  }
   
   &.color-theme-toggle {
     // font-size: mapGet($button-typography, size--xs);
