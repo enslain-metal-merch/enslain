@@ -52,94 +52,148 @@
 
 :root,
 :root[data-color-theme="dark"] {
-  --body-text: hsl(var(--brand-color-hs), 95%);
-  --headings: hsl(var(--brand-color-hs), 70%);
-  --link: hsl(var(--brand-color-hs), 80%);
-  --link--hover: var(--gradient--aurora-borealis);
-  --aria-current-page: hsl(var(--brand-color-hs), 60%);
-  --background: hsl(var(--brand-color-hue), 5%, 5%);
-  --background-gradient: 
-    hsl(var(--brand-color-hs), 5%),
-    hsl(var(--brand-color-hs), 10%),
-    hsl(var(--brand-color-hs), 20%),
-    hsl(var(--brand-color-hs), 30%),
-    hsl(var(--brand-color-hs), 20%),
-    hsl(var(--brand-color-hs), 10%),
-    hsl(var(--brand-color-hs), 5%),
-    hsl(var(--brand-color-hs), 3%)
-  ;
-  --section-background: hsla(var(--neutral-hs), 0%, 50%);
-  --nav-dropdown-background: hsl(var(--brand-color-hs), 6%);
-  --card-background: hsl(212, 96%, 5%);
-  --card-box-shadow: hsl(var(--brand-color-hs), 50%);
-  --button-text: hsl(var(--brand-color-hs), 95%);
-  --button-text--hover: hsl(var(--brand-color-hs), 10%);
-  --button-text--active: hsl(var(--neutral-hs), 0%);
-  --button-border: hsl(var(--brand-color-hs), 90%);
-  --button-hover: var(--gradient--fire);
+  // general typography
+    --body-text: hsl(var(--brand-color-hs), 95%);
+    --headings: hsl(var(--brand-color-hs), 70%);
+    --link: hsl(var(--brand-color-hs), 80%);
+    --link--hover: var(--gradient--aurora-borealis);
+    --event-name-text: hsl(var(--brand-color-hs), 60%);
+    --event-divider: hsla(var(--brand-color-hs), 60%, 50%);
+
+  // body
+    --plain-background: hsl(var(--brand-color-hue), 5%, 5%);
+    --gradient-background:
+      hsl(var(--brand-color-hs), 5%),
+      hsl(var(--brand-color-hs), 10%),
+      hsl(var(--brand-color-hs), 20%),
+      hsl(var(--brand-color-hs), 30%),
+      hsl(var(--brand-color-hs), 20%),
+      hsl(var(--brand-color-hs), 10%),
+      hsl(var(--brand-color-hs), 5%),
+      hsl(var(--brand-color-hs), 3%)
+    ;
+
+  // header
+    --aria-current-page: hsl(var(--brand-color-hs), 60%);
+    --nav-dropdown-background: hsl(var(--brand-color-hs), 6%);
+
+  // sections
+    --section-background: hsla(var(--neutral-hs), 0%, 50%);
+
+  // footer
+    --footer-logo: hsl(var(--brand-color-hs), 80%);
+    --footer-text: hsl(var(--brand-color-hs), 70%);
+
+  // forms
+    // inputs
+      --input-text: hsl(var(--brand-color-hs), 70%);
+      --input-text--active: hsl(var(--brand-color-hs), 1%);
+      --input-background--active: hsl(var(--brand-color-hs), 70%);
+
+    // borders
+      --input-group-border: hsl(var(--brand-color-hs), 70%);
+      --site-options-focus: hsl(var(--brand-color-hs), 60%);
+
+  // buttons
+    // backgrounds
+      --button-background: hsl(var(--brand-color-hs), 40%);
+      --button-background--hover: hsla(var(--brand-color-hs), 90%, 90%);
+
+    // text
+      --button-text: hsl(var(--brand-color-hs), 95%);
+      --button-text--hover: hsl(var(--brand-color-hs), 10%);
+      --button-text--active: hsl(var(--neutral-hs), 0%);
+    
+    // border
+      --button-border: hsl(var(--brand-color-hs), 90%);
+      
+    // gradient hover effect
+      --button-gradient-hover: var(--gradient--fire);
+
+  // cards
+    --card-background: hsl(212, 96%, 5%);
+    --card-box-shadow: hsl(var(--brand-color-hs), 50%);
+
+  // icons
+    --contact-icons: hsl(var(--brand-color-hs), 60%);
+    --social-media-icons: value;
+
   --color-theme-button-text: hsl(var(--brand-color-hs), 30%);
   --color-theme-button-border: hsl(var(--brand-color-hs), 65%);
-  --button-background: hsl(var(--brand-color-hs), 40%);
-  --button-background--hover: hsla(var(--brand-color-hs), 90%, 90%);
-  --contact-icons: hsl(var(--brand-color-hs), 60%);
-  --event-name-text: hsl(var(--brand-color-hs), 60%);
-  --event-divider: hsla(var(--brand-color-hs), 60%, 50%);
-  --social-media-icons: value;
-  --theme-switcher-icon--light-mode: value;
-  --theme-switcher-icon--dark-mode: value;
-  --footer-logo: hsl(var(--brand-color-hs), 80%);
-  --footer-text: hsl(var(--brand-color-hs), 70%);
-  --input-group-border: hsl(var(--brand-color-hs), 70%);
-  --input-background--active: hsl(var(--brand-color-hs), 70%);
-  --input-text: hsl(var(--brand-color-hs), 70%);
-  --input-text--active: hsl(var(--brand-color-hs), 1%);
-  --site-options-focus: hsl(var(--brand-color-hs), 60%);
 }
 
 :root,
 :root[data-color-theme="light"] {
-  --body-text: hsl(var(--brand-color-hs), 5%);
-  --headings: hsl(var(--brand-color-hs), 40%);
-  --link: hsl(var(--brand-color-hs), 25%);
-  --link--hover: var(--gradient--blues);
-  --aria-current-page: hsl(var(--brand-color-hs), 50%);
-  --background: hsl(var(--brand-color-hue), 50%, 20%);
-  --background-gradient: 
-    hsl(var(--neutral-hs), 100%),
-    hsl(var(--brand-color-hs), 90%),
-    hsl(var(--brand-color-hs), 85%),
-    hsl(var(--brand-color-hs), 80%),
-    hsl(var(--brand-color-hs), 90%),
-    hsl(var(--brand-color-hs), 85%),
-    hsl(var(--brand-color-hue), 50%, 20%)
-  ;
-  --section-background: hsla(var(--neutral-hs), 100%, 50%);
+  // general typography
+    --body-text: hsl(var(--brand-color-hs), 5%);
+    --headings: hsl(var(--brand-color-hs), 40%);
+    --link: hsl(var(--brand-color-hs), 25%);
+    --link--hover: var(--gradient--blues);
+    --event-name-text: hsl(var(--brand-color-hs), 30%);
+    --event-divider: hsla(var(--brand-color-hs), 30%, 50%);
+
+  // body
+    --plain-background: hsl(var(--brand-color-hue), 50%, 20%);
+    --gradient-background: 
+      hsl(var(--neutral-hs), 100%),
+      hsl(var(--brand-color-hs), 90%),
+      hsl(var(--brand-color-hs), 85%),
+      hsl(var(--brand-color-hs), 80%),
+      hsl(var(--brand-color-hs), 90%),
+      hsl(var(--brand-color-hs), 85%),
+      hsl(var(--brand-color-hue), 50%, 20%)
+    ;
+
+  // header
+    --aria-current-page: hsl(var(--brand-color-hs), 50%);
+    --nav-dropdown-background: hsl(var(--brand-color-hs), 98%);
+
+  // sections
+    --section-background: hsla(var(--neutral-hs), 100%, 50%);
+
+  // footer
+    --footer-logo: hsl(var(--brand-color-hs), 100%);
+    --footer-text: hsl(var(--brand-color-hs), 90%);
+
+  // forms
+    // inputs
+      --input-text: hsl(var(--brand-color-hs), 90%);
+      --input-text--active: hsl(var(--brand-color-hs), 20%);
+      --input-background--active: hsl(var(--brand-color-hs), 90%);
+      
+    // borders
+      --input-group-border: hsl(var(--brand-color-hs), 90%);
+      --site-options-focus: hsl(var(--brand-color-hs), 95%);
+
+  // buttons
+    // backgrounds
+      --button-background: hsl(var(--brand-color-hs), 40%);
+      --button-background--hover: hsla(var(--brand-color-hs), 98%, 90%);
+
+    // text
+      --button-text: hsl(var(--neutral-hs), 100%);
+      --button-text--hover: hsl(var(--brand-color-hs), 10%);
+      --button-text--active: hsl(var(--neutral-hs), 0%);
+
+    // border
+      --button-border: hsl(var(--brand-color-hs), 20%);
+
+    // gradient hover effect
+      --button-gradient-hover: var(--gradient--aurora-borealis);
+      
+  // cards
+    --card-background: hsl(212, 96%, 98%);
+    --card-box-shadow: hsl(var(--brand-color-hs), 20%);
+
+  // icons
+    --contact-icons: hsl(var(--brand-color-hs), 50%);
+    --social-media-icons: value;
+
   --section-divider: hsla(var(--brand-color-hs), 60%, 50%);
-  --nav-dropdown-background: hsl(var(--brand-color-hs), 98%);
-  --card-background: hsl(212, 96%, 98%);
-  --card-box-shadow: hsl(var(--brand-color-hs), 20%);
-  --button-text: hsl(var(--neutral-hs), 100%);
-  --button-text--hover: hsl(var(--brand-color-hs), 10%);
-  --button-text--active: hsl(var(--neutral-hs), 0%);
-  --button-border: hsl(var(--brand-color-hs), 20%);
-  --button-hover: var(--gradient--aurora-borealis);
   --color-theme-button-text: hsl(var(--brand-color-hs), 90%);
   --color-theme-button-border: hsl(var(--brand-color-hs), 90%);
-  --button-background: hsl(var(--brand-color-hs), 40%);
-  --button-background--hover: hsla(var(--brand-color-hs), 98%, 90%);
-  --contact-icons: hsl(var(--brand-color-hs), 50%);
-  --event-name-text: hsl(var(--brand-color-hs), 30%);
-  --event-divider: hsla(var(--brand-color-hs), 30%, 50%);
-  --social-media-icons: value;
   --theme-switcher-icon--light-mode: value;
   --theme-switcher-icon--dark-mode: value;
-  --footer-logo: hsl(var(--brand-color-hs), 100%);
-  --footer-text: hsl(var(--brand-color-hs), 90%);
-  --input-group-border: hsl(var(--brand-color-hs), 90%);
-  --input-background--active: hsl(var(--brand-color-hs), 90%);
-  --input-text: hsl(var(--brand-color-hs), 90%);
-  --input-text--active: hsl(var(--brand-color-hs), 20%);
-  --site-options-focus: hsl(var(--brand-color-hs), 95%);
 }
 
 $body-colors: (
@@ -148,8 +202,8 @@ $body-colors: (
   links: var(--link),
   links--hover: var(--link--hover),
   aria-current-page: var(--aria-current-page),
-  background: var(--background),
-  background-gradient: var(--background-gradient),
+  background: var(--plain-background),
+  background-gradient: var(--gradient-background),
   dividers: var(--section-divider)
 );
 
@@ -184,7 +238,7 @@ $button-colors: (
   border: var(--button-border),
   background: var(--button-background),
   background--hover: var(--button-background--hover),
-  hover: var(--button-hover),
+  hover: var(--button-gradient-hover),
 
   color-theme-buttons: (
     text: var(--color-theme-button-text),

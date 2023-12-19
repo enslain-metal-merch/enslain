@@ -90,9 +90,10 @@ a {
   --headings: hsl(var(--brand-color-hs), 70%);
   --link: hsl(var(--brand-color-hs), 80%);
   --link--hover: var(--gradient--aurora-borealis);
-  --aria-current-page: hsl(var(--brand-color-hs), 60%);
-  --background: hsl(var(--brand-color-hue), 5%, 5%);
-  --background-gradient:
+  --event-name-text: hsl(var(--brand-color-hs), 60%);
+  --event-divider: hsla(var(--brand-color-hs), 60%, 50%);
+  --plain-background: hsl(var(--brand-color-hue), 5%, 5%);
+  --gradient-background:
     hsl(var(--brand-color-hs), 5%),
     hsl(var(--brand-color-hs), 10%),
     hsl(var(--brand-color-hs), 20%),
@@ -101,32 +102,29 @@ a {
     hsl(var(--brand-color-hs), 10%),
     hsl(var(--brand-color-hs), 5%),
     hsl(var(--brand-color-hs), 3%) ;
-  --section-background: hsla(var(--neutral-hs), 0%, 50%);
+  --aria-current-page: hsl(var(--brand-color-hs), 60%);
   --nav-dropdown-background: hsl(var(--brand-color-hs), 6%);
-  --card-background: hsl(212, 96%, 5%);
-  --card-box-shadow: hsl(var(--brand-color-hs), 50%);
+  --section-background: hsla(var(--neutral-hs), 0%, 50%);
+  --footer-logo: hsl(var(--brand-color-hs), 80%);
+  --footer-text: hsl(var(--brand-color-hs), 70%);
+  --input-text: hsl(var(--brand-color-hs), 70%);
+  --input-text--active: hsl(var(--brand-color-hs), 1%);
+  --input-background--active: hsl(var(--brand-color-hs), 70%);
+  --input-group-border: hsl(var(--brand-color-hs), 70%);
+  --site-options-focus: hsl(var(--brand-color-hs), 60%);
+  --button-background: hsl(var(--brand-color-hs), 40%);
+  --button-background--hover: hsla(var(--brand-color-hs), 90%, 90%);
   --button-text: hsl(var(--brand-color-hs), 95%);
   --button-text--hover: hsl(var(--brand-color-hs), 10%);
   --button-text--active: hsl(var(--neutral-hs), 0%);
   --button-border: hsl(var(--brand-color-hs), 90%);
-  --button-hover: var(--gradient--fire);
+  --button-gradient-hover: var(--gradient--fire);
+  --card-background: hsl(212, 96%, 5%);
+  --card-box-shadow: hsl(var(--brand-color-hs), 50%);
+  --contact-icons: hsl(var(--brand-color-hs), 60%);
+  --social-media-icons: value;
   --color-theme-button-text: hsl(var(--brand-color-hs), 30%);
   --color-theme-button-border: hsl(var(--brand-color-hs), 65%);
-  --button-background: hsl(var(--brand-color-hs), 40%);
-  --button-background--hover: hsla(var(--brand-color-hs), 90%, 90%);
-  --contact-icons: hsl(var(--brand-color-hs), 60%);
-  --event-name-text: hsl(var(--brand-color-hs), 60%);
-  --event-divider: hsla(var(--brand-color-hs), 60%, 50%);
-  --social-media-icons: value;
-  --theme-switcher-icon--light-mode: value;
-  --theme-switcher-icon--dark-mode: value;
-  --footer-logo: hsl(var(--brand-color-hs), 80%);
-  --footer-text: hsl(var(--brand-color-hs), 70%);
-  --input-group-border: hsl(var(--brand-color-hs), 70%);
-  --input-background--active: hsl(var(--brand-color-hs), 70%);
-  --input-text: hsl(var(--brand-color-hs), 70%);
-  --input-text--active: hsl(var(--brand-color-hs), 1%);
-  --site-options-focus: hsl(var(--brand-color-hs), 60%);
 }
 
 :root,
@@ -135,9 +133,10 @@ a {
   --headings: hsl(var(--brand-color-hs), 40%);
   --link: hsl(var(--brand-color-hs), 25%);
   --link--hover: var(--gradient--blues);
-  --aria-current-page: hsl(var(--brand-color-hs), 50%);
-  --background: hsl(var(--brand-color-hue), 50%, 20%);
-  --background-gradient:
+  --event-name-text: hsl(var(--brand-color-hs), 30%);
+  --event-divider: hsla(var(--brand-color-hs), 30%, 50%);
+  --plain-background: hsl(var(--brand-color-hue), 50%, 20%);
+  --gradient-background:
     hsl(var(--neutral-hs), 100%),
     hsl(var(--brand-color-hs), 90%),
     hsl(var(--brand-color-hs), 85%),
@@ -145,33 +144,32 @@ a {
     hsl(var(--brand-color-hs), 90%),
     hsl(var(--brand-color-hs), 85%),
     hsl(var(--brand-color-hue), 50%, 20%) ;
-  --section-background: hsla(var(--neutral-hs), 100%, 50%);
-  --section-divider: hsla(var(--brand-color-hs), 60%, 50%);
+  --aria-current-page: hsl(var(--brand-color-hs), 50%);
   --nav-dropdown-background: hsl(var(--brand-color-hs), 98%);
-  --card-background: hsl(212, 96%, 98%);
-  --card-box-shadow: hsl(var(--brand-color-hs), 20%);
+  --section-background: hsla(var(--neutral-hs), 100%, 50%);
+  --footer-logo: hsl(var(--brand-color-hs), 100%);
+  --footer-text: hsl(var(--brand-color-hs), 90%);
+  --input-text: hsl(var(--brand-color-hs), 90%);
+  --input-text--active: hsl(var(--brand-color-hs), 20%);
+  --input-background--active: hsl(var(--brand-color-hs), 90%);
+  --input-group-border: hsl(var(--brand-color-hs), 90%);
+  --site-options-focus: hsl(var(--brand-color-hs), 95%);
+  --button-background: hsl(var(--brand-color-hs), 40%);
+  --button-background--hover: hsla(var(--brand-color-hs), 98%, 90%);
   --button-text: hsl(var(--neutral-hs), 100%);
   --button-text--hover: hsl(var(--brand-color-hs), 10%);
   --button-text--active: hsl(var(--neutral-hs), 0%);
   --button-border: hsl(var(--brand-color-hs), 20%);
-  --button-hover: var(--gradient--aurora-borealis);
+  --button-gradient-hover: var(--gradient--aurora-borealis);
+  --card-background: hsl(212, 96%, 98%);
+  --card-box-shadow: hsl(var(--brand-color-hs), 20%);
+  --contact-icons: hsl(var(--brand-color-hs), 50%);
+  --social-media-icons: value;
+  --section-divider: hsla(var(--brand-color-hs), 60%, 50%);
   --color-theme-button-text: hsl(var(--brand-color-hs), 90%);
   --color-theme-button-border: hsl(var(--brand-color-hs), 90%);
-  --button-background: hsl(var(--brand-color-hs), 40%);
-  --button-background--hover: hsla(var(--brand-color-hs), 98%, 90%);
-  --contact-icons: hsl(var(--brand-color-hs), 50%);
-  --event-name-text: hsl(var(--brand-color-hs), 30%);
-  --event-divider: hsla(var(--brand-color-hs), 30%, 50%);
-  --social-media-icons: value;
   --theme-switcher-icon--light-mode: value;
   --theme-switcher-icon--dark-mode: value;
-  --footer-logo: hsl(var(--brand-color-hs), 100%);
-  --footer-text: hsl(var(--brand-color-hs), 90%);
-  --input-group-border: hsl(var(--brand-color-hs), 90%);
-  --input-background--active: hsl(var(--brand-color-hs), 90%);
-  --input-text: hsl(var(--brand-color-hs), 90%);
-  --input-text--active: hsl(var(--brand-color-hs), 20%);
-  --site-options-focus: hsl(var(--brand-color-hs), 95%);
 }
 
 :root {
@@ -277,7 +275,7 @@ a {
 @media (min-width: 1024px) {
   .button:before {
     content: "";
-    background: linear-gradient(45deg, var(--button-hover));
+    background: linear-gradient(45deg, var(--button-gradient-hover));
     position: absolute;
     top: -5px;
     left: -5px;
@@ -383,8 +381,8 @@ a {
 }
 
 body {
-  background-color: var(--background);
-  background-image: linear-gradient(var(--background-gradient));
+  background-color: var(--plain-background);
+  background-image: linear-gradient(var(--gradient-background));
 }
 
 .nav-is-open {
