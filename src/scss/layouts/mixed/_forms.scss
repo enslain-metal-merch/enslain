@@ -14,7 +14,7 @@
     padding: 0 1rem;
 
     &:focus-within {
-      outline: 3px solid mapGet($form-colors, fieldset-outline--focus);
+      outline: 1px solid mapGet($form-colors, fieldset-outline--focus);
     }
 
     @include media-query(tablet) {

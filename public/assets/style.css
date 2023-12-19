@@ -534,7 +534,7 @@ body {
   padding: 0 1rem;
 }
 .site-options__fieldset:focus-within {
-  outline: 3px solid var(--site-options-focus);
+  outline: 1px solid var(--site-options-focus);
 }
 @media (min-width: 768px) {
   .site-options__fieldset {
