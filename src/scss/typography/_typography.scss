@@ -253,11 +253,11 @@ a {
   }
 
   &__label {
-    color: mapGet($input-colors, input-text);
+    color: mapGet($form-colors, label-text);
     text-align: center;
   }
 
   &__input:checked + .site-options__label {
-    color: mapGet($input-colors, input-text--active);
+    color: mapGet($form-colors, label-text--active);
   }
 }

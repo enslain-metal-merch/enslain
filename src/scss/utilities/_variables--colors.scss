@@ -85,9 +85,11 @@
     --footer-text: hsl(var(--brand-color-hs), 70%);
 
   // forms
+    // labels
+    --label-text: hsl(var(--brand-color-hs), 70%);
+    --label-text--active: hsl(var(--brand-color-hs), 1%);
+
     // inputs
-      --input-text: hsl(var(--brand-color-hs), 70%);
-      --input-text--active: hsl(var(--brand-color-hs), 1%);
       --input-background--active: hsl(var(--brand-color-hs), 70%);
 
     // borders
@@ -153,9 +155,11 @@
     --footer-text: hsl(var(--brand-color-hs), 90%);
 
   // forms
+    // labels
+      --label-text: hsl(var(--brand-color-hs), 90%);
+      --label-text--active: hsl(var(--brand-color-hs), 20%);
+    
     // inputs
-      --input-text: hsl(var(--brand-color-hs), 90%);
-      --input-text--active: hsl(var(--brand-color-hs), 20%);
       --input-background--active: hsl(var(--brand-color-hs), 90%);
       
     // borders
@@ -236,13 +240,10 @@ $event-colors: (
   divider: var(--event-divider)
 );
 
-$input-colors: (
-  group-border: var(--input-group-border),
+$form-colors: (
+  fieldset-outline--focus: var(--site-options-focus),
+  input-group-border: var(--input-group-border),
   input-background--active: var(--input-background--active),
-  input-text: var(--input-text),
-  input-text--active: var(--input-text--active),
-);
-
-$site-options: (
-  fieldset-border--focus: var(--site-options-focus),
+  label-text: var(--label-text),
+  label-text--active: var(--label-text--active),
 );

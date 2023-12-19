@@ -14,7 +14,7 @@
     padding: 0 1rem;
 
     &:focus-within {
-      outline: 3px solid mapGet($site-options, fieldset-border--focus);
+      outline: 3px solid mapGet($form-colors, fieldset-outline--focus);
     }
 
     @include media-query(tablet) {
@@ -29,7 +29,7 @@
   }
 
   &__input-group {
-    border: 1px solid mapGet($input-colors, group-border);
+    border: 1px solid mapGet($form-colors, input-group-border);
     display: flex;
     width: max-content;
     margin: 0 auto 1rem;
@@ -46,11 +46,11 @@
     width: 100%;
 
     &:not(:last-of-type) {
-      border-right: 1px solid mapGet($input-colors, group-border);
+      border-right: 1px solid mapGet($form-colors, input-group-border);
     }
   }
 
   &__input:checked+.site-options__label {
-    background-color: mapGet($input-colors, input-background--active);
+    background-color: mapGet($form-colors, input-background--active);
   }
 }
