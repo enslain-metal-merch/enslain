@@ -1,4 +1,5 @@
 @use '../../utilities' as *;
+
 .site-options {
   margin: auto;
 
@@ -22,10 +23,6 @@
       display: flex;
       justify-content: center;
     }
-  }
-
-  &__legend {
-    @include media-query(tablet) {}
   }
 
   &__input-group {
