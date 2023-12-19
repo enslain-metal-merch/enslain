@@ -54,6 +54,20 @@ a {
   --torch-red: hsl(340, 100%, 50%);
   --orange: hsl(27, 100%, 50%);
   --yellow: hsl(59, 100%, 50%);
+  --cyan: hsl(180, 100%, 50%);
+  --teal: hsl(180, 100%, 40%);
+  --pink: hsl(302, 59%, 65%);
+  --gradient--blues:
+    hsl(var(--brand-color-hs), 30%),
+    hsl(var(--brand-color-hs), 40%),
+    hsl(var(--brand-color-hs), 50%),
+    hsl(var(--brand-color-hs), 30%) ;
+  --gradient--aurora-borealis:
+    hsl(var(--brand-color-hs), 80%),
+    hsl(var(--brand-color-hs), 60%),
+    var(--cyan),
+    var(--teal),
+    var(--pink) ;
   --gradient--fire:
     var(--red),
     var(--orange),
@@ -68,17 +82,6 @@ a {
     hsl(var(--red-hue), 86%, 44%),
     var(--red),
     var(--torch-red);
-  --gradient--aurora-borealis:
-    hsl(var(--brand-color-hs), 80%),
-    hsl(var(--brand-color-hs), 60%),
-    hsl(180, 100%, 50%),
-    hsl(180, 100%, 40%),
-    hsl(302, 59%, 65%) ;
-  --gradient--blues:
-  hsl(var(--brand-color-hs), 30%),
-  hsl(var(--brand-color-hs), 40%),
-  hsl(var(--brand-color-hs), 50%),
-  hsl(var(--brand-color-hs), 30%) ;
 }
 
 :root,
