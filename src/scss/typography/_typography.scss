@@ -285,7 +285,7 @@ a {
 
 .site-options {
   &__legend {
-    margin-bottom: 0.5rem;
+    margin: 0.5rem 0;
     width: 100%;
     text-align: center;
     color: mapGet($footer-colors, text);
