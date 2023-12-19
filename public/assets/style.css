@@ -259,9 +259,6 @@ a {
   font-size: 1rem;
   transition: all 250ms ease-in-out;
 }
-.button:hover, .button:focus-visible {
-  color: var(--button-text--hover);
-}
 .button:hover::after, .button:focus-visible::after {
   background-color: var(--button-background--hover);
 }
@@ -280,11 +277,6 @@ a {
     animation: buttonGlow 20s linear infinite;
     opacity: 0;
     transition: opacity 0.3s ease-in-out;
-  }
-}
-@media (min-width: 1024px) {
-  .button:active {
-    color: var(--button-text--active);
   }
 }
 @media (min-width: 1024px) {
@@ -879,6 +871,14 @@ h3 {
 .button {
   text-decoration: none;
   color: var(--button-text);
+}
+.button:hover, .button:focus-visible {
+  color: var(--button-text--hover);
+}
+@media (min-width: 1024px) {
+  .button:active {
+    color: var(--button-text--active);
+  }
 }
 
 .footer li {

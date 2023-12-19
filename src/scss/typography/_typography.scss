@@ -236,6 +236,17 @@ a {
 .button {
   text-decoration: none;
   color: mapGet($button-colors, text);
+
+  &:hover,
+  &:focus-visible {
+    color: mapGet($button-colors, text--hover);
+  }
+
+  &:active {
+    @include media-query(desktop) {
+      color: mapGet($button-colors, text--active);
+    }
+  }
 }
 
 .footer {

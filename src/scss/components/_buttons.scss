@@ -39,9 +39,7 @@
   transition: all 250ms ease-in-out;
 
   &:hover,
-  &:focus-visible {
-    color: mapGet($button-colors, text--hover);
-    
+  &:focus-visible {    
     &::after {
       background-color: mapGet($button-colors, background--hover);
     }
@@ -62,12 +60,6 @@
       animation: buttonGlow 20s linear infinite;
       opacity: 0;
       transition: opacity .3s ease-in-out;
-    }
-  }
-  
-  &:active {
-    @include media-query(desktop) {
-      color: mapGet($button-colors, text--active);
     }
   }
 
