@@ -840,25 +840,6 @@ h3 {
   margin: 0.25rem 0;
 }
 
-.boss-name {
-  font-size: 3.5rem;
-}
-@media (min-width: 768px) {
-  .boss-name {
-    font-size: 4rem;
-  }
-}
-@media (min-width: 1024px) {
-  .boss-name {
-    font-size: 5rem;
-  }
-}
-@supports (font-size: clamp(3.5rem, 10vw, 5rem)) {
-  .boss-name {
-    font-size: clamp(3.5rem, 10vw, 5rem);
-  }
-}
-
 .contact-methods li {
   line-height: 1;
   list-style: none;

@@ -204,22 +204,6 @@ ul {
   }
 }
 
-.boss-name {
-  font-size: mapGet($headings, h1, size--small);
-
-  @include media-query(tablet) {
-    font-size: mapGet($headings, h1, size--medium);
-  }
-
-  @include media-query(desktop) {
-    font-size: mapGet($headings, h1, size--large);
-  }
-
-  @supports (font-size: mapGet($headings, h1, size--clamp)) {
-    font-size: mapGet($headings, h1, size--clamp);
-  }
-}
-
 .contact-methods {
   li {
     line-height: 1;
