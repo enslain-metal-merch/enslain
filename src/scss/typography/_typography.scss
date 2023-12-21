@@ -175,7 +175,6 @@ ul {
     &--large {
       font-size: 1.75rem;
       line-height: 1.2;
-      color: mapGet($event-colors, event-name-text);
   
       a {
         font-size: inherit;
@@ -187,12 +186,18 @@ ul {
     &--small {
       font-size: 1.15rem;
     }
+
+    &--accent {
+      color: mapGet($event-colors, event-name-text);
+    }
   }
   
   hr {
     margin: 1rem auto 1.75rem;
     border-color: mapGet($event-colors, divider);
   }
+
+  
 }
 
 .past-event-list {
