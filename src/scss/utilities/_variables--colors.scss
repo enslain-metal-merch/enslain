@@ -14,6 +14,7 @@
     --cyan: hsl(180, 100%, 50%);
     --teal: hsl(180, 100%, 40%);
     --pink: hsl(302, 59%, 65%);
+    --burgundy: hsl(332, 55%, 42%);
 
   // gradient schemes
     --gradient--blues:
@@ -57,7 +58,7 @@
     --headings: hsl(var(--brand-color-hs), 70%);
     --link: hsl(var(--brand-color-hs), 80%);
     --link--hover: var(--gradient--aurora-borealis);
-    --event-name-text: hsl(var(--brand-color-hs), 60%);
+    --event-name-text: var(--cyan);
     --event-divider: hsla(var(--brand-color-hs), 60%, 50%);
 
   // body
@@ -128,7 +129,7 @@
     --headings: hsl(var(--brand-color-hs), 40%);
     --link: hsl(var(--brand-color-hs), 25%);
     --link--hover: var(--gradient--blues);
-    --event-name-text: hsl(var(--brand-color-hs), 30%);
+    --event-name-text: var(--burgundy);
     --event-divider: hsla(var(--brand-color-hs), 30%, 50%);
 
   // body
