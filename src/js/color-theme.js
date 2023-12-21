@@ -17,7 +17,7 @@ const colorTheme = {
   const getPreferredTheme = () => {
     // Defaults to light
     if (localStorage.getItem('theme')) return localStorage.getItem('theme');
-    return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'light' : 'dark';
+    return window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
   }
 
   const setTheme = () => {
