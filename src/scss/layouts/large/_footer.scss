@@ -20,4 +20,18 @@
       fill: mapGet($footer-colors, logo);
     }
   }
+
+  &__contact {
+    max-width: 200px;
+    margin: 0 auto 0.5rem;
+  }
+
+  &__contact-methods {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    align-items: end;
+    gap: 2rem;
+    // @include test-border(3, red);
+  }
 }

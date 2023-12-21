@@ -507,6 +507,17 @@ body {
 .footer__logo-img {
   fill: var(--footer-logo);
 }
+.footer__contact {
+  max-width: 200px;
+  margin: 0 auto 0.5rem;
+}
+.footer__contact-methods {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  align-items: end;
+  gap: 2rem;
+}
 
 .wrapper {
   width: 90%;
@@ -871,4 +882,7 @@ h3 {
 }
 .footer a {
   color: inherit;
+}
+.footer__icon {
+  font-size: 2.5rem;
 }
