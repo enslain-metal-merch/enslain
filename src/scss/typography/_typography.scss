@@ -36,7 +36,6 @@ a {
   color: mapGet($body-colors, links);
 
   &:not(.button) {
-
     &:hover,
     &:focus-visible {
       text-decoration: none;
@@ -248,5 +247,20 @@ ul {
 
   &__icon {
     font-size: 2.5rem;
+
+    a & {
+      &:hover,
+      &:focus-visible {
+        text-decoration: none;
+        transition: all 250ms ease-in-out;
+        background: linear-gradient(130deg, mapGet($body-colors, links--hover));
+        background-clip: text;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-size: cover;
+        background-size: 500% auto;
+        animation: textShine 5s ease-in-out infinite alternate;
+      }
+    }
   }
 }

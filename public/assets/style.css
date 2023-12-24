@@ -886,3 +886,14 @@ h3 {
 .footer__icon {
   font-size: 2.5rem;
 }
+a .footer__icon:hover, a .footer__icon:focus-visible {
+  text-decoration: none;
+  transition: all 250ms ease-in-out;
+  background: linear-gradient(130deg, var(--link--hover));
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-size: cover;
+  background-size: 500% auto;
+  animation: textShine 5s ease-in-out infinite alternate;
+}
