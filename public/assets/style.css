@@ -64,11 +64,11 @@ a {
     hsl(var(--brand-color-hs), 50%),
     hsl(var(--brand-color-hs), 30%) ;
   --gradient--aurora-borealis:
-    hsl(var(--brand-color-hs), 80%),
-    hsl(var(--brand-color-hs), 60%),
     var(--cyan),
     var(--teal),
-    var(--pink) ;
+    var(--pink),
+    hsl(var(--brand-color-hs), 80%),
+    hsl(var(--brand-color-hs), 60%) ;
   --gradient--fire:
     var(--red),
     var(--orange),
