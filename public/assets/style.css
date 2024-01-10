@@ -833,6 +833,21 @@ h4 {
   }
 }
 
+.volunteer-perks {
+  padding-left: 2rem;
+  list-style: none;
+}
+.volunteer-perks li {
+  margin-bottom: 0.5rem;
+}
+.volunteer-perks li:last-of-type {
+  margin-bottom: 0;
+}
+.volunteer-perks .list__icon {
+  margin-right: 0.5rem;
+  width: 20px;
+}
+
 .event {
   list-style: none;
 }

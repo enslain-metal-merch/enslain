@@ -187,6 +187,20 @@ ul {
   }
 }
 
+.volunteer-perks {
+  padding-left: 2rem;
+  list-style: none;
+  
+  li {
+    @include margins(bottom, 0.5rem, of-type);
+  }
+
+  .list__icon {
+    margin-right: 0.5rem;
+    width: 20px;
+  }
+}
+
 .event {
   list-style: none;
 
