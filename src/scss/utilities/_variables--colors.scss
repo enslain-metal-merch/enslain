@@ -58,7 +58,6 @@
     --headings: hsl(var(--brand-color-hs), 70%);
     --link: hsl(var(--brand-color-hs), 80%);
     --link--hover: var(--gradient--aurora-borealis);
-    --event-name-text: var(--cyan);
     --event-divider: hsla(var(--brand-color-hs), 60%, 50%);
 
   // body
@@ -129,7 +128,6 @@
     --headings: hsl(var(--brand-color-hs), 40%);
     --link: hsl(var(--brand-color-hs), 25%);
     --link--hover: var(--gradient--blues);
-    --event-name-text: var(--burgundy);
     --event-divider: hsla(var(--brand-color-hs), 30%, 50%);
 
   // body
@@ -237,7 +235,6 @@ $icon-colors: (
 );
 
 $event-colors: (
-  event-name-text: var(--event-name-text),
   divider: var(--event-divider)
 );
 
