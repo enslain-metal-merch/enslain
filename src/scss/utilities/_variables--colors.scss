@@ -138,8 +138,7 @@
       hsl(var(--brand-color-hs), 85%),
       hsl(var(--brand-color-hs), 80%),
       hsl(var(--brand-color-hs), 90%),
-      hsl(var(--brand-color-hs), 85%),
-      hsl(var(--brand-color-hue), 50%, 20%)
+      hsl(var(--brand-color-hs), 85%)
     ;
 
   // header
@@ -150,20 +149,20 @@
     --section-background: hsla(var(--neutral-hs), 100%, 50%);
 
   // footer
-    --footer-logo: hsl(var(--brand-color-hs), 100%);
-    --footer-text: hsl(var(--brand-color-hs), 90%);
+    --footer-logo: hsl(var(--brand-color-hs), 15%);
+    --footer-text: hsl(var(--brand-color-hs), 15%);
 
   // forms
     // labels
-      --label: hsl(var(--brand-color-hs), 90%);
-      --label--active: hsl(var(--brand-color-hs), 20%);
+      --label: hsl(var(--brand-color-hs), 20%);
+      --label--active: hsl(var(--brand-color-hs), 90%);
     
     // inputs
-      --input-background--active: hsl(var(--brand-color-hs), 90%);
+      --input-background--active: hsl(var(--brand-color-hs), 15%);
       
     // borders
-      --input-group-border: hsl(var(--brand-color-hs), 90%);
-      --site-options-focus: hsl(var(--brand-color-hs), 95%);
+      --input-group-border: hsl(var(--brand-color-hs), 10%);
+      --site-options-focus: hsl(var(--brand-color-hs), 5%);
 
   // buttons
     // backgrounds

@@ -139,18 +139,17 @@ a {
     hsl(var(--brand-color-hs), 85%),
     hsl(var(--brand-color-hs), 80%),
     hsl(var(--brand-color-hs), 90%),
-    hsl(var(--brand-color-hs), 85%),
-    hsl(var(--brand-color-hue), 50%, 20%) ;
+    hsl(var(--brand-color-hs), 85%) ;
   --aria-current-page: hsl(var(--brand-color-hs), 50%);
   --nav-dropdown-background: hsl(var(--brand-color-hs), 98%);
   --section-background: hsla(var(--neutral-hs), 100%, 50%);
-  --footer-logo: hsl(var(--brand-color-hs), 100%);
-  --footer-text: hsl(var(--brand-color-hs), 90%);
-  --label: hsl(var(--brand-color-hs), 90%);
-  --label--active: hsl(var(--brand-color-hs), 20%);
-  --input-background--active: hsl(var(--brand-color-hs), 90%);
-  --input-group-border: hsl(var(--brand-color-hs), 90%);
-  --site-options-focus: hsl(var(--brand-color-hs), 95%);
+  --footer-logo: hsl(var(--brand-color-hs), 15%);
+  --footer-text: hsl(var(--brand-color-hs), 15%);
+  --label: hsl(var(--brand-color-hs), 20%);
+  --label--active: hsl(var(--brand-color-hs), 90%);
+  --input-background--active: hsl(var(--brand-color-hs), 15%);
+  --input-group-border: hsl(var(--brand-color-hs), 10%);
+  --site-options-focus: hsl(var(--brand-color-hs), 5%);
   --button-background: hsl(var(--brand-color-hs), 40%);
   --button-background--hover: hsla(var(--brand-color-hs), 98%, 90%);
   --button-text: hsl(var(--neutral-hs), 100%);
@@ -902,4 +901,7 @@ a .footer__icon:hover, a .footer__icon:focus-visible {
   background-size: cover;
   background-size: 500% auto;
   animation: textShine 5s ease-in-out infinite alternate;
+}
+.footer .button {
+  color: var(--button-text);
 }

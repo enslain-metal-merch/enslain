@@ -271,4 +271,8 @@ ul {
       }
     }
   }
+
+  .button {
+    color: mapGet($button-colors, text);
+  }
 }
