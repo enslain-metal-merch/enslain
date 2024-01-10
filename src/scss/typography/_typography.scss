@@ -88,6 +88,9 @@ ul {
 
 [data-reader-mode='chrissy'] {
   .text-container {
+    margin: auto;
+    max-width: 44rem;
+    
     p {
       @include media-query(tablet) {
         text-align: justify;

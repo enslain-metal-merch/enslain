@@ -760,6 +760,10 @@ h3 {
   }
 }
 
+[data-reader-mode=chrissy] .text-container {
+  margin: auto;
+  max-width: 44rem;
+}
 @media (min-width: 768px) {
   [data-reader-mode=chrissy] .text-container p {
     text-align: justify;
