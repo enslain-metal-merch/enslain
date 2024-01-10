@@ -754,6 +754,10 @@ h3 {
   }
 }
 
+h4 {
+  font-family: var(--font-family--secondary);
+  color: var(--headings);
+}
 [data-reader-mode=chrissy] .text-container {
   margin: auto;
   max-width: 44rem;
@@ -793,15 +797,24 @@ h3 {
 .card {
   list-style: none;
 }
-.card h3 {
-  margin-bottom: 1rem;
-}
 .card p,
 .card a {
   font-size: var(--small-text);
 }
+.card--service h3 {
+  margin-bottom: 1rem;
+}
 .card--service p {
   margin-bottom: 1rem;
+}
+.card--crew h3 {
+  margin-bottom: 0.25rem;
+}
+.card--crew h4 {
+  margin-bottom: 1rem;
+  font-weight: 400;
+  font-size: 1.5rem;
+  color: var(--body-text);
 }
 .card--crew p {
   margin-bottom: 0;

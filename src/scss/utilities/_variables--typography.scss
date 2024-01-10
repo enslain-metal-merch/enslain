@@ -50,6 +50,10 @@ $headings: (
     line-height: var(--heading-line-height),
     margin: var(--heading-margin)
   ),
+
+  h4: (
+    family: (var(--font-family--secondary)),
+  )
 );
 
 $header-typography: (
