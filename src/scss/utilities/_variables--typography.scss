@@ -60,6 +60,12 @@ $header-typography: (
   ),
 );
 
+$event-typography: (
+  event-name: (
+    weight: 700,
+  ),
+);
+
 $card-typography: (
   size: var(--small-text),
 );

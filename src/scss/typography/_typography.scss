@@ -90,7 +90,7 @@ ul {
   .text-container {
     margin: auto;
     max-width: 44rem;
-    
+
     p {
       @include media-query(tablet) {
         text-align: justify;
@@ -170,6 +170,15 @@ ul {
 .event {
   list-style: none;
 
+  &-name {
+    font-weight: mapGet($event-typography, event-name, weight);
+    
+    &--large {
+      font-size: 1.75rem;
+      line-height: 1.2;
+    }
+  }
+
   &__detail {
     display: block;
     margin-bottom: 0.25rem;
@@ -190,7 +199,7 @@ ul {
     }
 
     &--accent {
-      color: mapGet($event-colors, event-name-text);
+      // color: mapGet($event-colors, event-name-text);
     }
   }
   

@@ -826,6 +826,13 @@ h3 {
 .event {
   list-style: none;
 }
+.event-name {
+  font-weight: 700;
+}
+.event-name--large {
+  font-size: 1.75rem;
+  line-height: 1.2;
+}
 .event__detail {
   display: block;
   margin-bottom: 0.25rem;
@@ -841,9 +848,6 @@ h3 {
 }
 .event__detail--small {
   font-size: 1.15rem;
-}
-.event__detail--accent {
-  color: var(--event-name-text);
 }
 .event hr {
   margin: 1rem auto 1.75rem;
