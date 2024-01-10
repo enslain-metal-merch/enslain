@@ -646,13 +646,6 @@ button,
     font-size: clamp(var(--small-text), 2vw, 1.35rem);
   }
 }
-.text-container p,
-.text-container a,
-.text-container ul,
-.text-container button,
-.text-container .button {
-  margin-bottom: 1.5rem;
-}
 .footer p,
 .footer a,
 .footer ul,
@@ -660,6 +653,10 @@ button,
 .footer .button {
   text-align: center;
   font-size: var(--small-text);
+}
+
+p {
+  margin-bottom: 1.5rem;
 }
 
 a {
@@ -796,15 +793,18 @@ h3 {
 .card {
   list-style: none;
 }
+.card h3 {
+  margin-bottom: 1rem;
+}
 .card p,
 .card a {
   font-size: var(--small-text);
 }
-.card h3 {
-  margin-bottom: 1rem;
-}
 .card--service p {
   margin-bottom: 1rem;
+}
+.card--crew p {
+  margin-bottom: 0;
 }
 
 .button {
