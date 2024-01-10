@@ -759,14 +759,6 @@
       "oAP" : "\/public\/services\/index.html",
       "oF" : 2
     },
-    "\/src\/kit\/status.kit" : {
-      "cB" : 0,
-      "ft" : 2048,
-      "hM" : 0,
-      "oA" : 0,
-      "oAP" : "\/public\/status\/index.html",
-      "oF" : 2
-    },
     "\/src\/kit\/volunteers.kit" : {
       "cB" : 0,
       "ft" : 2048,
