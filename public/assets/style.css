@@ -127,7 +127,7 @@ a {
   --button-gradient-hover: var(--gradient--fire);
   --card-background: hsl(212, 96%, 5%);
   --card-box-shadow: hsl(var(--brand-color-hs), 50%);
-  --contact-icons: hsl(var(--brand-color-hs), 60%);
+  --list-icons: hsl(var(--brand-color-hs), 50%);
   --social-media-icons: value;
 }
 
@@ -165,7 +165,7 @@ a {
   --button-gradient-hover: var(--gradient--aurora-borealis);
   --card-background: hsl(212, 96%, 98%);
   --card-box-shadow: hsl(var(--brand-color-hs), 20%);
-  --contact-icons: hsl(var(--brand-color-hs), 50%);
+  --list-icons: hsl(var(--brand-color-hs), 50%);
   --social-media-icons: value;
 }
 
@@ -834,6 +834,7 @@ h4 {
   margin-bottom: 0;
 }
 .list__icon {
+  color: var(--list-icons);
   margin-right: 0.75rem;
   width: 20px;
 }
