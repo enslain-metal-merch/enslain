@@ -918,13 +918,11 @@ figcaption a {
 }
 
 .contact-methods {
-  padding: 0;
   list-style: none;
 }
 .contact-methods li {
   line-height: 1;
   list-style: none;
-  margin: 0;
 }
 .contact-methods i {
   color: var(--contact-icons);
