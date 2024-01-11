@@ -54,7 +54,12 @@ a {
 }
 
 ul {
-  list-style-position: inside;
+  list-style: inside none;
+  padding-left: 1.25rem;
+}
+
+li {
+  @include margins(bottom, 0.5rem, of-type);
 }
 
 @keyframes textShine {
@@ -105,6 +110,11 @@ ul {
 .header {
   ul {
     list-style: none;
+    padding: 0;
+  }
+
+  li {
+    margin: 0;
   }
 
   &__nav-toggle {
@@ -188,12 +198,6 @@ ul {
 }
 
 .volunteer-perks {
-  padding-left: 2rem;
-  list-style: none;
-  
-  li {
-    @include margins(bottom, 0.5rem, of-type);
-  }
 
   .list__icon {
     margin-right: 0.5rem;
@@ -203,6 +207,10 @@ ul {
 
 .event {
   list-style: none;
+
+  &-list {
+    padding: 0;
+  }
 
   &-name {
     font-weight: mapGet($event-typography, event-name, weight);
@@ -236,13 +244,12 @@ ul {
   hr {
     margin: 1rem auto 1.75rem;
     border-color: mapGet($event-colors, divider);
-  }
-
-  
+  }  
 }
 
 .past-event-list {
   list-style: none;
+  padding: 0;
 
   hr {
     border-color: mapGet($event-colors, divider);
