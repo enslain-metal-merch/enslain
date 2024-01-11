@@ -1,0 +1,16 @@
+@use '../utilities' as *;
+
+.img-container {
+  &--framed {
+    img {
+      padding: 0.25rem;
+      border: 3px solid;
+      border-image-slice: 1;
+      border-width: 3px;
+      border-image-source: linear-gradient(
+        to right,
+        mapGet($img-colors, border)
+      );
+    }
+  }
+}

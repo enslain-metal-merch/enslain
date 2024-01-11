@@ -24,6 +24,14 @@
       hsl(var(--brand-color-hs), 30%)
     ;
 
+    --gradient--blues-2: 
+      hsl(var(--brand-color-hs), 70%),
+      hsl(var(--brand-color-hs), 30%),
+      hsl(var(--brand-color-hs), 90%),
+      hsl(var(--brand-color-hs), 70%),
+      hsl(var(--brand-color-hs), 30%)
+    ;
+
     --gradient--aurora-borealis:
       var(--cyan),
       var(--teal),
@@ -243,4 +251,8 @@ $form-colors: (
   input-background--active: var(--input-background--active),
   label: var(--label),
   label--active: var(--label--active),
+);
+
+$img-colors: (
+  border: var(--gradient--blues-2),
 );
