@@ -331,4 +331,17 @@ figcaption {
   .button {
     color: mapGet($button-colors, text);
   }
+
+  &__contact {
+    p {
+      margin-bottom: 0.25rem;
+    }
+  }
+
+  &__contact-methods {
+    li {
+      margin-bottom: 0;
+    }
+  }
+
 }

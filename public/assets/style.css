@@ -520,12 +520,11 @@ body {
 }
 .footer__contact {
   max-width: 200px;
-  margin: 0 auto 0.5rem;
+  margin: 0 auto 1rem;
 }
 .footer__contact-methods {
   display: flex;
-  justify-content: center;
-  gap: 2rem;
+  justify-content: space-evenly;
 }
 
 .wrapper {
@@ -965,4 +964,10 @@ a .footer__icon:hover, a .footer__icon:focus-visible {
 }
 .footer .button {
   color: var(--button-text);
+}
+.footer__contact p {
+  margin-bottom: 0.25rem;
+}
+.footer__contact-methods li {
+  margin-bottom: 0;
 }

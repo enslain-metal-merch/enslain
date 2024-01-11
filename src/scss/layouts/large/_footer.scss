@@ -23,12 +23,11 @@
 
   &__contact {
     max-width: 200px;
-    margin: 0 auto 0.5rem;
+    margin: 0 auto 1rem;
   }
 
   &__contact-methods {
     display: flex;
-    justify-content: center;
-    gap: 2rem;
+    justify-content: space-evenly;
   }
 }
