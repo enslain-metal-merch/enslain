@@ -73,6 +73,8 @@
   
   &:hover,
   &:focus-visible {
+    background-color: mapGet($button-colors, background--hover);
+    
     @include media-query(desktop) {
       &::before {
         opacity: 1;

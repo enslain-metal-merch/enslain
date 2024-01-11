@@ -292,6 +292,9 @@ a {
     background-color: transparent;
   }
 }
+.button:hover, .button:focus-visible {
+  background-color: var(--button-background--hover);
+}
 @media (min-width: 1024px) {
   .button:hover::before, .button:focus-visible::before {
     opacity: 1;
