@@ -806,6 +806,7 @@ h4 {
 
 .card {
   list-style: none;
+  margin: 0;
 }
 .card p,
 .card a {
@@ -828,6 +829,10 @@ h4 {
 }
 .card--crew p {
   margin-bottom: 0;
+}
+
+.card-group {
+  padding: 0;
 }
 
 .button {
