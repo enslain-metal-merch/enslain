@@ -17,6 +17,32 @@
       "oAP" : "\/public\/about\/index.html",
       "oF" : 0
     },
+    "\/public\/assets\/img\/content\/about-imgs\/bear.jpg" : {
+      "ft" : 16384,
+      "iS" : 109204,
+      "jF" : 0,
+      "oA" : 0,
+      "oAP" : "\/public\/assets\/img\/content\/about-imgs\/bear.jpg",
+      "oF" : 0,
+      "oIPL" : 0,
+      "opt" : 0,
+      "ou" : "lpckwebp-none",
+      "q" : 100,
+      "rq" : 75
+    },
+    "\/public\/assets\/img\/content\/about-imgs\/katri.jpg" : {
+      "ft" : 16384,
+      "iS" : 62197,
+      "jF" : 0,
+      "oA" : 0,
+      "oAP" : "\/public\/assets\/img\/content\/about-imgs\/katri.jpg",
+      "oF" : 0,
+      "oIPL" : 0,
+      "opt" : 0,
+      "ou" : "lpckwebp-none",
+      "q" : 100,
+      "rq" : 75
+    },
     "\/public\/assets\/img\/content\/about-imgs\/mary.jpg" : {
       "ft" : 16384,
       "iS" : 62199,
@@ -43,12 +69,38 @@
       "q" : 100,
       "rq" : 75
     },
+    "\/public\/assets\/img\/content\/about-imgs\/milla.jpg" : {
+      "ft" : 16384,
+      "iS" : 46276,
+      "jF" : 0,
+      "oA" : 0,
+      "oAP" : "\/public\/assets\/img\/content\/about-imgs\/milla.jpg",
+      "oF" : 0,
+      "oIPL" : 0,
+      "opt" : 0,
+      "ou" : "lpckwebp-none",
+      "q" : 100,
+      "rq" : 75
+    },
     "\/public\/assets\/img\/content\/about-imgs\/placeholder-salla.jpg" : {
       "ft" : 16384,
       "iS" : 122307,
       "jF" : 0,
       "oA" : 0,
       "oAP" : "\/public\/assets\/img\/content\/about-imgs\/placeholder-salla.jpg",
+      "oF" : 0,
+      "oIPL" : 0,
+      "opt" : 0,
+      "ou" : "lpckwebp-none",
+      "q" : 100,
+      "rq" : 75
+    },
+    "\/public\/assets\/img\/content\/about-imgs\/sandra.jpg" : {
+      "ft" : 16384,
+      "iS" : 53534,
+      "jF" : 0,
+      "oA" : 0,
+      "oAP" : "\/public\/assets\/img\/content\/about-imgs\/sandra.jpg",
       "oF" : 0,
       "oIPL" : 0,
       "opt" : 0,
