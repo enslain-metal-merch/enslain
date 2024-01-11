@@ -56,11 +56,6 @@ a {
 
 ul {
   list-style: inside none;
-  padding-left: 1.25rem;
-}
-
-li {
-  @include margins(bottom, 0.5rem, of-type);
 }
 
 @keyframes textShine {
@@ -146,6 +141,20 @@ li {
   }
 }
 
+.list {
+  padding-left: 1.25rem;
+
+  li {
+    @include margins(bottom, 0.5rem, of-type);
+  }
+
+  &__icon {
+    // color: mapGet($icon-colors, contact-icons);
+    margin-right: 0.75rem;
+    width: 20px;
+  }
+}
+
 figcaption {
   margin-top: 0.5rem;
   
@@ -211,14 +220,6 @@ figcaption {
   }
 }
 
-.volunteer-perks {
-
-  .list__icon {
-    margin-right: 0.5rem;
-    width: 20px;
-  }
-}
-
 .event {
   list-style: none;
 
@@ -268,20 +269,6 @@ figcaption {
   hr {
     border-color: mapGet($event-colors, divider);
     margin: 0.25rem 0;
-  }
-}
-
-.contact-methods {
-  list-style: none;
-
-  li {
-    line-height: 1;
-    list-style: none;
-  }
-
-  i {
-    color: mapGet($icon-colors, contact-icons);
-    margin-right: 0.75rem;
   }
 }
 

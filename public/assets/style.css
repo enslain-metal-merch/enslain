@@ -701,14 +701,6 @@ a:not(.button):hover, a:not(.button):focus-visible {
 
 ul {
   list-style: inside none;
-  padding-left: 1.25rem;
-}
-
-li {
-  margin-bottom: 0.5rem;
-}
-li:last-of-type {
-  margin-bottom: 0;
 }
 
 @keyframes textShine {
@@ -832,6 +824,20 @@ h4 {
   color: var(--aria-current-page);
 }
 
+.list {
+  padding-left: 1.25rem;
+}
+.list li {
+  margin-bottom: 0.5rem;
+}
+.list li:last-of-type {
+  margin-bottom: 0;
+}
+.list__icon {
+  margin-right: 0.75rem;
+  width: 20px;
+}
+
 figcaption {
   margin-top: 0.5rem;
 }
@@ -883,11 +889,6 @@ figcaption a {
   }
 }
 
-.volunteer-perks .list__icon {
-  margin-right: 0.5rem;
-  width: 20px;
-}
-
 .event {
   list-style: none;
 }
@@ -929,18 +930,6 @@ figcaption a {
 .past-event-list hr {
   border-color: var(--event-divider);
   margin: 0.25rem 0;
-}
-
-.contact-methods {
-  list-style: none;
-}
-.contact-methods li {
-  line-height: 1;
-  list-style: none;
-}
-.contact-methods i {
-  color: var(--contact-icons);
-  margin-right: 0.75rem;
 }
 
 .site-options__legend {
