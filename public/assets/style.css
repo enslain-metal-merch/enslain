@@ -804,6 +804,13 @@ h4 {
   color: var(--aria-current-page);
 }
 
+figcaption {
+  margin-top: 0.5rem;
+}
+figcaption a {
+  font-size: 1rem;
+}
+
 .card {
   list-style: none;
   margin: 0;
