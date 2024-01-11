@@ -602,7 +602,18 @@ body {
     gap: 3rem;
   }
 }
-[data-reader-mode=chrissy] .grid--two-col {
+@media (min-width: 768px) {
+  .topflow .grid {
+    gap: 2rem;
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (min-width: 1024px) {
+  .topflow .grid {
+    gap: 3rem;
+  }
+}
+[data-reader-mode=chrissy] .topflow .grid {
   display: block;
 }
 .grid--flexible {

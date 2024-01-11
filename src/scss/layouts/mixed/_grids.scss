@@ -18,10 +18,21 @@
     @include media-query(desktop) {
       gap: 3rem;
     }
+  }
 
-    [data-reader-mode='chrissy'] & {
-      display: block;
-    }
+  .topflow & {
+    @include media-query(tablet) {
+        gap: 2rem;
+        grid-template-columns: repeat(2, 1fr);
+      }
+    
+      @include media-query(desktop) {
+        gap: 3rem;
+      }
+    
+      [data-reader-mode='chrissy'] & {
+        display: block;
+      }
   }
 
   &--flexible {
