@@ -277,9 +277,11 @@ figcaption {
 
 .footer {
   color: mapGet($footer-colors, text);
-
+  
   a {
-    color: inherit;
+    &:not(.button) {
+      color: inherit;
+    }
   }
 
   &__icon {

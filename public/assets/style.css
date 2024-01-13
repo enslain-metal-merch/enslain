@@ -956,7 +956,7 @@ figcaption a {
 .footer {
   color: var(--footer-text);
 }
-.footer a {
+.footer a:not(.button) {
   color: inherit;
 }
 .footer__icon {
