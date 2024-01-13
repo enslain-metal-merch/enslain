@@ -333,6 +333,9 @@ a {
   border-width: 3px;
   border-image-source: linear-gradient(to right, var(--gradient--blues-2));
 }
+.img-container--banner {
+  margin-top: 3rem;
+}
 
 .header__nav-toggle-bar--top.animate {
   animation: shiftDown 200ms ease-out forwards;
