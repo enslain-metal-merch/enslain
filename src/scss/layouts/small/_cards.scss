@@ -8,4 +8,10 @@
   &__img-container {
     margin-bottom: 1rem;
   }
+
+   p {
+    &:has(.button) {
+      margin-top: 2rem;
+    }
+   }
 }

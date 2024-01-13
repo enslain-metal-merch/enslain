@@ -638,6 +638,9 @@ body {
 .card__img-container {
   margin-bottom: 1rem;
 }
+.card p:has(.button) {
+  margin-top: 2rem;
+}
 
 body {
   color: var(--body-text);
