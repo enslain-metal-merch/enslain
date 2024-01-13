@@ -605,9 +605,11 @@ body {
     gap: 3rem;
   }
 }
+.topflow .grid {
+  gap: 1rem;
+}
 @media (min-width: 768px) {
   .topflow .grid {
-    gap: 2rem;
     grid-template-columns: repeat(2, 1fr);
   }
 }

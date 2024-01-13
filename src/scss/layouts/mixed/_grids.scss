@@ -21,8 +21,8 @@
   }
 
   .topflow & {
+    gap: 1rem;
     @include media-query(tablet) {
-        gap: 2rem;
         grid-template-columns: repeat(2, 1fr);
       }
     
