@@ -65,7 +65,8 @@
     --body-text: hsl(var(--brand-color-hs), 95%);
     --headings: hsl(var(--brand-color-hs), 70%);
     --links: hsl(var(--brand-color-hs), 80%);
-    --links--hover: var(--gradient--aurora-borealis);
+    --links--hover: hsl(var(--brand-color-hs), 70%);
+    --links--gradient-hover: var(--gradient--aurora-borealis);
     --event-divider: hsla(var(--brand-color-hs), 60%, 50%);
 
   // body
@@ -91,6 +92,7 @@
   // footer
     --footer-logo: hsl(var(--brand-color-hs), 80%);
     --footer-text: hsl(var(--brand-color-hs), 70%);
+    --footer-links--hover: hsl(var(--brand-color-hs), 60%);
 
   // forms
     // labels
@@ -137,7 +139,8 @@
     --body-text: hsl(var(--brand-color-hs), 5%);
     --headings: hsl(var(--brand-color-hs), 40%);
     --links: hsl(var(--brand-color-hs), 25%);
-    --links--hover: var(--gradient--blues);
+    --links--hover: hsl(var(--brand-color-hs), 40%);
+    --links--gradient-hover: var(--gradient--blues);
     --event-divider: hsla(var(--brand-color-hs), 30%, 50%);
 
   // body
@@ -161,6 +164,7 @@
   // footer
     --footer-logo: hsl(var(--brand-color-hs), 15%);
     --footer-text: hsl(var(--brand-color-hs), 15%);
+    --footer-links--hover: hsl(var(--brand-color-hs), 25%);
 
   // forms
     // labels
@@ -206,6 +210,7 @@ $body-colors: (
   headings: var(--headings),
   links: var(--links),
   links--hover: var(--links--hover),
+  links--gradient-hover: var(--links--gradient-hover),
   aria-current-page: var(--aria-current-page),
   background: var(--plain-background),
   background-gradient: var(--gradient-background),
@@ -224,6 +229,7 @@ $section-colors: (
 $footer-colors: ( 
   logo: var(--footer-logo),
   text: var(--footer-text),
+  links--hover: var(--footer-links--hover),
 );
 
 $card-colors: (

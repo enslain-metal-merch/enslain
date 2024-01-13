@@ -96,7 +96,8 @@ a {
   --body-text: hsl(var(--brand-color-hs), 95%);
   --headings: hsl(var(--brand-color-hs), 70%);
   --links: hsl(var(--brand-color-hs), 80%);
-  --links--hover: var(--gradient--aurora-borealis);
+  --links--hover: hsl(var(--brand-color-hs), 70%);
+  --links--gradient-hover: var(--gradient--aurora-borealis);
   --event-divider: hsla(var(--brand-color-hs), 60%, 50%);
   --plain-background: hsl(var(--brand-color-hue), 5%, 5%);
   --gradient-background:
@@ -113,6 +114,7 @@ a {
   --section-background: hsla(var(--neutral-hs), 0%, 50%);
   --footer-logo: hsl(var(--brand-color-hs), 80%);
   --footer-text: hsl(var(--brand-color-hs), 70%);
+  --footer-links--hover: hsl(var(--brand-color-hs), 60%);
   --label: hsl(var(--brand-color-hs), 70%);
   --label--active: hsl(var(--brand-color-hs), 1%);
   --input-background--active: hsl(var(--brand-color-hs), 70%);
@@ -138,7 +140,8 @@ a {
   --body-text: hsl(var(--brand-color-hs), 5%);
   --headings: hsl(var(--brand-color-hs), 40%);
   --links: hsl(var(--brand-color-hs), 25%);
-  --links--hover: var(--gradient--blues);
+  --links--hover: hsl(var(--brand-color-hs), 40%);
+  --links--gradient-hover: var(--gradient--blues);
   --event-divider: hsla(var(--brand-color-hs), 30%, 50%);
   --plain-background: hsl(var(--brand-color-hue), 50%, 20%);
   --gradient-background:
@@ -153,6 +156,7 @@ a {
   --section-background: hsla(var(--neutral-hs), 100%, 50%);
   --footer-logo: hsl(var(--brand-color-hs), 15%);
   --footer-text: hsl(var(--brand-color-hs), 15%);
+  --footer-links--hover: hsl(var(--brand-color-hs), 25%);
   --label: hsl(var(--brand-color-hs), 20%);
   --label--active: hsl(var(--brand-color-hs), 90%);
   --input-background--active: hsl(var(--brand-color-hs), 15%);
@@ -707,14 +711,19 @@ a {
   color: var(--links);
 }
 a:not(.button):hover, a:not(.button):focus-visible {
-  text-decoration: none;
-  transition: all 250ms ease-in-out;
-  background: linear-gradient(130deg, var(--links--hover));
-  background-clip: text;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-size: 500% auto;
-  animation: textShine 5s ease-in-out infinite alternate;
+  color: var(--links--hover);
+}
+@media (prefers-reduced-motion: no-preference) {
+  a:not(.button):hover, a:not(.button):focus-visible {
+    text-decoration: none;
+    transition: all 250ms ease-in-out;
+    background: linear-gradient(130deg, var(--links--gradient-hover));
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-size: 500% auto;
+    animation: textShine 5s ease-in-out infinite alternate;
+  }
 }
 
 ul {
@@ -959,19 +968,24 @@ figcaption a {
 .footer a:not(.button) {
   color: inherit;
 }
+.footer a:not(.button):hover, .footer a:not(.button):focus-visible {
+  color: var(--footer-links--hover);
+}
 .footer__icon {
   font-size: 2.5rem;
 }
-a .footer__icon:hover, a .footer__icon:focus-visible {
-  text-decoration: none;
-  transition: all 250ms ease-in-out;
-  background: linear-gradient(130deg, var(--links--hover));
-  background-clip: text;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-size: cover;
-  background-size: 500% auto;
-  animation: textShine 5s ease-in-out infinite alternate;
+@media (prefers-reduced-motion: no-preference) {
+  a .footer__icon:hover, a .footer__icon:focus-visible {
+    text-decoration: none;
+    transition: all 250ms ease-in-out;
+    background: linear-gradient(130deg, var(--links--gradient-hover));
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-size: cover;
+    background-size: 500% auto;
+    animation: textShine 5s ease-in-out infinite alternate;
+  }
 }
 .footer__contact p {
   margin-bottom: 0.25rem;
