@@ -38,7 +38,6 @@ p {
 
 a {
   color: mapGet($body-colors, links);
-  color: inherit;
 
   &:not(.button) {
     &:hover,
@@ -205,26 +204,6 @@ figcaption {
   padding: 0;
 }
 
-.button {
-  text-decoration: none;
-  color: mapGet($button-colors, text);
-
-  &:hover,
-  &:focus-visible {
-    color: mapGet($button-colors, text--hover);
-  }
-
-  &:active {
-    @include media-query(desktop) {
-      color: mapGet($button-colors, text--active);
-    }
-  }
-
-  &--scroll-to-top {
-    color: mapGet($button-colors, scroll-to-top-text);
-  }
-}
-
 .event {
   list-style: none;
 
@@ -283,6 +262,7 @@ figcaption {
     width: 100%;
     text-align: center;
     color: mapGet($footer-colors, text);
+    font-size: mapGet($form-typography, legend-size);
   }
 
   &__label {
@@ -297,6 +277,10 @@ figcaption {
 
 .footer {
   color: mapGet($footer-colors, text);
+
+  a {
+    color: inherit;
+  }
 
   &__icon {
     font-size: 2.5rem;
@@ -327,5 +311,25 @@ figcaption {
     li {
       margin-bottom: 0;
     }
+  }
+}
+
+.button {
+  text-decoration: none;
+  color: mapGet($button-colors, text);
+
+  &:hover,
+  &:focus-visible {
+    color: mapGet($button-colors, text--hover);
+  }
+
+  &:active {
+    @include media-query(desktop) {
+      color: mapGet($button-colors, text--active);
+    }
+  }
+
+  &--scroll-to-top {
+    color: mapGet($button-colors, scroll-to-top-text);
   }
 }

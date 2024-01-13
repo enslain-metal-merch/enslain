@@ -95,8 +95,8 @@ a {
 :root[data-color-theme=dark] {
   --body-text: hsl(var(--brand-color-hs), 95%);
   --headings: hsl(var(--brand-color-hs), 70%);
-  --link: hsl(var(--brand-color-hs), 80%);
-  --link--hover: var(--gradient--aurora-borealis);
+  --links: hsl(var(--brand-color-hs), 80%);
+  --links--hover: var(--gradient--aurora-borealis);
   --event-divider: hsla(var(--brand-color-hs), 60%, 50%);
   --plain-background: hsl(var(--brand-color-hue), 5%, 5%);
   --gradient-background:
@@ -137,8 +137,8 @@ a {
 :root[data-color-theme=light] {
   --body-text: hsl(var(--brand-color-hs), 5%);
   --headings: hsl(var(--brand-color-hs), 40%);
-  --link: hsl(var(--brand-color-hs), 25%);
-  --link--hover: var(--gradient--blues);
+  --links: hsl(var(--brand-color-hs), 25%);
+  --links--hover: var(--gradient--blues);
   --event-divider: hsla(var(--brand-color-hs), 30%, 50%);
   --plain-background: hsl(var(--brand-color-hue), 50%, 20%);
   --gradient-background:
@@ -704,13 +704,12 @@ p {
 }
 
 a {
-  color: var(--link);
-  color: inherit;
+  color: var(--links);
 }
 a:not(.button):hover, a:not(.button):focus-visible {
   text-decoration: none;
   transition: all 250ms ease-in-out;
-  background: linear-gradient(130deg, var(--link--hover));
+  background: linear-gradient(130deg, var(--links--hover));
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -896,22 +895,6 @@ figcaption a {
   padding: 0;
 }
 
-.button {
-  text-decoration: none;
-  color: var(--button-text);
-}
-.button:hover, .button:focus-visible {
-  color: var(--button-text--hover);
-}
-@media (min-width: 1024px) {
-  .button:active {
-    color: var(--button-text--active);
-  }
-}
-.button--scroll-to-top {
-  color: var(--scroll-to-top-text);
-}
-
 .event {
   list-style: none;
 }
@@ -960,6 +943,7 @@ figcaption a {
   width: 100%;
   text-align: center;
   color: var(--footer-text);
+  font-size: var(--small-text);
 }
 .site-options__label {
   color: var(--label);
@@ -972,13 +956,16 @@ figcaption a {
 .footer {
   color: var(--footer-text);
 }
+.footer a {
+  color: inherit;
+}
 .footer__icon {
   font-size: 2.5rem;
 }
 a .footer__icon:hover, a .footer__icon:focus-visible {
   text-decoration: none;
   transition: all 250ms ease-in-out;
-  background: linear-gradient(130deg, var(--link--hover));
+  background: linear-gradient(130deg, var(--links--hover));
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -991,4 +978,20 @@ a .footer__icon:hover, a .footer__icon:focus-visible {
 }
 .footer__contact-methods li {
   margin-bottom: 0;
+}
+
+.button {
+  text-decoration: none;
+  color: var(--button-text);
+}
+.button:hover, .button:focus-visible {
+  color: var(--button-text--hover);
+}
+@media (min-width: 1024px) {
+  .button:active {
+    color: var(--button-text--active);
+  }
+}
+.button--scroll-to-top {
+  color: var(--scroll-to-top-text);
 }

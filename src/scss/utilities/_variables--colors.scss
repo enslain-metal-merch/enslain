@@ -64,8 +64,8 @@
   // general typography
     --body-text: hsl(var(--brand-color-hs), 95%);
     --headings: hsl(var(--brand-color-hs), 70%);
-    --link: hsl(var(--brand-color-hs), 80%);
-    --link--hover: var(--gradient--aurora-borealis);
+    --links: hsl(var(--brand-color-hs), 80%);
+    --links--hover: var(--gradient--aurora-borealis);
     --event-divider: hsla(var(--brand-color-hs), 60%, 50%);
 
   // body
@@ -136,8 +136,8 @@
   // general typography
     --body-text: hsl(var(--brand-color-hs), 5%);
     --headings: hsl(var(--brand-color-hs), 40%);
-    --link: hsl(var(--brand-color-hs), 25%);
-    --link--hover: var(--gradient--blues);
+    --links: hsl(var(--brand-color-hs), 25%);
+    --links--hover: var(--gradient--blues);
     --event-divider: hsla(var(--brand-color-hs), 30%, 50%);
 
   // body
@@ -204,8 +204,8 @@
 $body-colors: (
   text: var(--body-text),
   headings: var(--headings),
-  links: var(--link),
-  links--hover: var(--link--hover),
+  links: var(--links),
+  links--hover: var(--links--hover),
   aria-current-page: var(--aria-current-page),
   background: var(--plain-background),
   background-gradient: var(--gradient-background),
