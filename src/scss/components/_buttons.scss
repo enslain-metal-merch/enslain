@@ -74,7 +74,7 @@
   &:hover,
   &:focus-visible {
     background-color: mapGet($button-colors, background--hover);
-    
+
     @include media-query(desktop) {
       &::before {
         opacity: 1;
@@ -101,6 +101,11 @@
     position: fixed;
     bottom: 2rem;
     right: 1rem;
+    
+    
+    &::after {
+      background-color: mapGet($button-colors, scroll-to-top-background);
+    }
 
     @include media-query(desktop) {
       right: 3rem;

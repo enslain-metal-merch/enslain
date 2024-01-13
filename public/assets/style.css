@@ -120,7 +120,9 @@ a {
   --site-options-focus: hsl(var(--brand-color-hs), 60%);
   --button-background: hsl(var(--brand-color-hs), 40%);
   --button-background--hover: hsla(var(--brand-color-hs), 90%, 90%);
+  --scroll-to-top-backround: hsl(var(--brand-color-hs), 70%);
   --button-text: hsl(var(--brand-color-hs), 95%);
+  --scroll-to-top-text: hsl(var(--brand-color-hs), 1%);
   --button-text--hover: hsl(var(--brand-color-hs), 10%);
   --button-text--active: hsl(var(--neutral-hs), 0%);
   --button-border: hsl(var(--brand-color-hs), 90%);
@@ -158,7 +160,9 @@ a {
   --site-options-focus: hsl(var(--brand-color-hs), 5%);
   --button-background: hsl(var(--brand-color-hs), 40%);
   --button-background--hover: hsla(var(--brand-color-hs), 98%, 90%);
+  --scroll-to-top-backround: hsl(var(--brand-color-hs), 15%);
   --button-text: hsl(var(--neutral-hs), 100%);
+  --scroll-to-top-text: hsl(var(--brand-color-hs), 90%);
   --button-text--hover: hsl(var(--brand-color-hs), 10%);
   --button-text--active: hsl(var(--neutral-hs), 0%);
   --button-border: hsl(var(--brand-color-hs), 20%);
@@ -318,6 +322,9 @@ a {
   position: fixed;
   bottom: 2rem;
   right: 1rem;
+}
+.button--scroll-to-top::after {
+  background-color: var(--scroll-to-top-backround);
 }
 @media (min-width: 1024px) {
   .button--scroll-to-top {
@@ -698,6 +705,7 @@ p {
 
 a {
   color: var(--link);
+  color: inherit;
 }
 a:not(.button):hover, a:not(.button):focus-visible {
   text-decoration: none;
@@ -900,6 +908,9 @@ figcaption a {
     color: var(--button-text--active);
   }
 }
+.button--scroll-to-top {
+  color: var(--scroll-to-top-text);
+}
 
 .event {
   list-style: none;
@@ -961,9 +972,6 @@ figcaption a {
 .footer {
   color: var(--footer-text);
 }
-.footer a {
-  color: inherit;
-}
 .footer__icon {
   font-size: 2.5rem;
 }
@@ -977,9 +985,6 @@ a .footer__icon:hover, a .footer__icon:focus-visible {
   background-size: cover;
   background-size: 500% auto;
   animation: textShine 5s ease-in-out infinite alternate;
-}
-.footer .button {
-  color: var(--button-text);
 }
 .footer__contact p {
   margin-bottom: 0.25rem;

@@ -38,6 +38,7 @@ p {
 
 a {
   color: mapGet($body-colors, links);
+  color: inherit;
 
   &:not(.button) {
     &:hover,
@@ -218,6 +219,10 @@ figcaption {
       color: mapGet($button-colors, text--active);
     }
   }
+
+  &--scroll-to-top {
+    color: mapGet($button-colors, scroll-to-top-text);
+  }
 }
 
 .event {
@@ -293,10 +298,6 @@ figcaption {
 .footer {
   color: mapGet($footer-colors, text);
 
-  a {
-    color: inherit;
-  }
-
   &__icon {
     font-size: 2.5rem;
 
@@ -316,10 +317,6 @@ figcaption {
     }
   }
 
-  .button {
-    color: mapGet($button-colors, text);
-  }
-
   &__contact {
     p {
       margin-bottom: 0.25rem;
@@ -331,5 +328,4 @@ figcaption {
       margin-bottom: 0;
     }
   }
-
 }
