@@ -16,7 +16,7 @@ $primary: (
   family: (var(--font-family--primary)),
   size--small: var(--small-text),
   size--large: 1.35rem,
-  size--clamp: clamp(var(--small-text), 2vw, 1.35rem),
+  size--clamp: clamp(var(--small-text), 2.5vw, 1.35rem),
   line-height: var(--primary-line-height),
 );
 

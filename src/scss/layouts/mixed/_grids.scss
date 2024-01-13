@@ -23,16 +23,16 @@
   .topflow & {
     gap: 1rem;
     @include media-query(tablet) {
-        grid-template-columns: repeat(2, 1fr);
-      }
+    }
     
-      @include media-query(desktop) {
-        gap: 3rem;
-      }
+    @include media-query(desktop) {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 3rem;
+    }
     
-      [data-reader-mode='chrissy'] & {
-        display: block;
-      }
+    [data-reader-mode='chrissy'] & {
+      display: block;
+    }
   }
 
   &--flexible {

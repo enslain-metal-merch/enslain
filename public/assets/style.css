@@ -535,6 +535,13 @@ body {
   max-width: 1200px;
   margin: auto;
 }
+@media (min-width: 768px) {
+  .wrapper {
+    width: 80%;
+    max-width: 1200px;
+    margin: auto;
+  }
+}
 .wrapper--narrow {
   width: 90%;
   max-width: 44rem;
@@ -608,13 +615,9 @@ body {
 .topflow .grid {
   gap: 1rem;
 }
-@media (min-width: 768px) {
-  .topflow .grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
 @media (min-width: 1024px) {
   .topflow .grid {
+    grid-template-columns: repeat(2, 1fr);
     gap: 3rem;
   }
 }
@@ -667,13 +670,13 @@ button,
     font-size: 1.35rem;
   }
 }
-@supports (font-size: clamp(var(--small-text), 2vw, 1.35rem)) {
+@supports (font-size: clamp(var(--small-text), 2.5vw, 1.35rem)) {
   p,
   a,
   ul,
   button,
   .button {
-    font-size: clamp(var(--small-text), 2vw, 1.35rem);
+    font-size: clamp(var(--small-text), 2.5vw, 1.35rem);
   }
 }
 .footer p,
