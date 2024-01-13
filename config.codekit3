@@ -30,9 +30,22 @@
       "q" : 100,
       "rq" : 75
     },
-    "\/public\/assets\/img\/content\/about-imgs\/katri.jpg" : {
+    "\/public\/assets\/img\/content\/about-imgs\/katri-v1.jpg" : {
       "ft" : 16384,
       "iS" : 62197,
+      "jF" : 0,
+      "oA" : 0,
+      "oAP" : "\/public\/assets\/img\/content\/about-imgs\/katri-v1.jpg",
+      "oF" : 0,
+      "oIPL" : 0,
+      "opt" : 0,
+      "ou" : "lpckwebp-none",
+      "q" : 100,
+      "rq" : 75
+    },
+    "\/public\/assets\/img\/content\/about-imgs\/katri.jpg" : {
+      "ft" : 16384,
+      "iS" : 122073,
       "jF" : 0,
       "oA" : 0,
       "oAP" : "\/public\/assets\/img\/content\/about-imgs\/katri.jpg",
@@ -114,6 +127,19 @@
       "jF" : 0,
       "oA" : 0,
       "oAP" : "\/public\/assets\/img\/content\/about-imgs\/serena.jpg",
+      "oF" : 0,
+      "oIPL" : 0,
+      "opt" : 0,
+      "ou" : "lpckwebp-none",
+      "q" : 100,
+      "rq" : 75
+    },
+    "\/public\/assets\/img\/content\/about-imgs\/webmaster.jpg" : {
+      "ft" : 16384,
+      "iS" : 104502,
+      "jF" : 0,
+      "oA" : 0,
+      "oAP" : "\/public\/assets\/img\/content\/about-imgs\/webmaster.jpg",
       "oF" : 0,
       "oIPL" : 0,
       "opt" : 0,
