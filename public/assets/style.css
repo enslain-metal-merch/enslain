@@ -96,7 +96,6 @@ a {
   --body-text: hsl(var(--brand-color-hs), 95%);
   --headings: hsl(var(--brand-color-hs), 70%);
   --links: hsl(var(--brand-color-hs), 80%);
-  --links--hover: hsl(var(--brand-color-hs), 70%);
   --links--gradient-hover: var(--gradient--aurora-borealis);
   --event-divider: hsla(var(--brand-color-hs), 60%, 50%);
   --plain-background: hsl(var(--brand-color-hue), 5%, 5%);
@@ -720,18 +719,18 @@ a {
   color: var(--links);
 }
 a:not(.button):hover, a:not(.button):focus-visible {
-  color: var(--links--hover);
+  text-decoration: none;
+  background: linear-gradient(130deg, var(--links--gradient-hover));
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-size: 100% auto;
 }
 @media (prefers-reduced-motion: no-preference) {
   a:not(.button):hover, a:not(.button):focus-visible {
-    text-decoration: none;
-    transition: all 250ms ease-in-out;
-    background: linear-gradient(130deg, var(--links--gradient-hover));
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-size: 500% auto;
     animation: textShine 5s ease-in-out infinite alternate;
+    transition: all 250ms ease-in-out;
+    background-size: 500% auto;
   }
 }
 
