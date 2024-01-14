@@ -28,7 +28,6 @@
     height: min-content;
     z-index: 2;
     max-width: 245px;
-    @include test-border(3, magenta);
 
     @include media-query(tablet) {
       max-width: 500px;
