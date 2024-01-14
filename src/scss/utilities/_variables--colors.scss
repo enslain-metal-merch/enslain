@@ -109,12 +109,15 @@
   // buttons
     // backgrounds
       --button-background: hsl(var(--brand-color-hs), 40%);
-      --button-background--hover: hsla(var(--brand-color-hs), 90%, 90%);
+      --button-background--solid-hover: hsl(var(--brand-color-hs), 70%);
+      --button-background--translucent-hover: hsla(var(--brand-color-hs), 90%, 90%);
       --scroll-to-top-backround: hsl(var(--brand-color-hs), 70%);
+      --scroll-to-top-backround--hover: hsl(var(--brand-color-hs), 80%);
 
     // text
       --button-text: hsl(var(--brand-color-hs), 95%);
       --scroll-to-top-text: hsl(var(--brand-color-hs), 1%);
+      --scroll-to-top-text--hover: hsl(var(--brand-color-hs), 1%);
       --button-text--hover: hsl(var(--brand-color-hs), 10%);
       --button-text--active: hsl(var(--neutral-hs), 0%);
     
@@ -181,12 +184,15 @@
   // buttons
     // backgrounds
       --button-background: hsl(var(--brand-color-hs), 40%);
-      --button-background--hover: hsla(var(--brand-color-hs), 98%, 90%);
+      --button-background--solid-hover: hsl(var(--brand-color-hs), 25%);
+      --button-background--translucent-hover: hsla(var(--brand-color-hs), 98%, 90%);
       --scroll-to-top-backround: hsl(var(--brand-color-hs), 15%);
+      --scroll-to-top-backround--hover: hsl(var(--brand-color-hs), 25%);
 
     // text
       --button-text: hsl(var(--neutral-hs), 100%);
       --scroll-to-top-text: hsl(var(--brand-color-hs), 90%);
+      --scroll-to-top-text--hover: hsl(var(--brand-color-hs), 1%);
       --button-text--hover: hsl(var(--brand-color-hs), 10%);
       --button-text--active: hsl(var(--neutral-hs), 0%);
 
@@ -240,12 +246,14 @@ $card-colors: (
 $button-colors: (
   text: var(--button-text),
   scroll-to-top-text: var(--scroll-to-top-text),
+  scroll-to-top-text--hover: var(--scroll-to-top-text--hover),
   text--hover: var(--button-text--hover),
   text--active: var(--button-text--active),
   border: var(--button-border),
   background: var(--button-background),
-  background--hover: var(--button-background--hover),
+  background--hover: var(--button-background--translucent-hover),
   scroll-to-top-background: var(--scroll-to-top-backround),
+  scroll-to-top-background--hover: var(--scroll-to-top-backround--hover),
   gradient-hover: var(--button-gradient-hover),
 );
 

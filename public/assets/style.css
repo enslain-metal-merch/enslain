@@ -121,10 +121,13 @@ a {
   --input-group-border: hsl(var(--brand-color-hs), 70%);
   --site-options-focus: hsl(var(--brand-color-hs), 60%);
   --button-background: hsl(var(--brand-color-hs), 40%);
-  --button-background--hover: hsla(var(--brand-color-hs), 90%, 90%);
+  --button-background--solid-hover: hsl(var(--brand-color-hs), 70%);
+  --button-background--translucent-hover: hsla(var(--brand-color-hs), 90%, 90%);
   --scroll-to-top-backround: hsl(var(--brand-color-hs), 70%);
+  --scroll-to-top-backround--hover: hsl(var(--brand-color-hs), 80%);
   --button-text: hsl(var(--brand-color-hs), 95%);
   --scroll-to-top-text: hsl(var(--brand-color-hs), 1%);
+  --scroll-to-top-text--hover: hsl(var(--brand-color-hs), 1%);
   --button-text--hover: hsl(var(--brand-color-hs), 10%);
   --button-text--active: hsl(var(--neutral-hs), 0%);
   --button-border: hsl(var(--brand-color-hs), 90%);
@@ -163,10 +166,13 @@ a {
   --input-group-border: hsl(var(--brand-color-hs), 10%);
   --site-options-focus: hsl(var(--brand-color-hs), 5%);
   --button-background: hsl(var(--brand-color-hs), 40%);
-  --button-background--hover: hsla(var(--brand-color-hs), 98%, 90%);
+  --button-background--solid-hover: hsl(var(--brand-color-hs), 25%);
+  --button-background--translucent-hover: hsla(var(--brand-color-hs), 98%, 90%);
   --scroll-to-top-backround: hsl(var(--brand-color-hs), 15%);
+  --scroll-to-top-backround--hover: hsl(var(--brand-color-hs), 25%);
   --button-text: hsl(var(--neutral-hs), 100%);
   --scroll-to-top-text: hsl(var(--brand-color-hs), 90%);
+  --scroll-to-top-text--hover: hsl(var(--brand-color-hs), 1%);
   --button-text--hover: hsl(var(--brand-color-hs), 10%);
   --button-text--active: hsl(var(--neutral-hs), 0%);
   --button-border: hsl(var(--brand-color-hs), 20%);
@@ -266,66 +272,69 @@ a {
 }
 .button {
   border: none;
-  position: relative;
   border-radius: 0;
-  z-index: 0;
-  background-color: var(--button-background);
-  border: none;
   padding: 0.5rem;
-  font-size: 1rem;
-  transition: all 250ms ease-in-out;
+  background-color: var(--button-background);
+  position: relative;
+  z-index: 0;
+}
+@media (prefers-reduced-motion: no-preference) {
+  .button {
+    transition: all 250ms ease-in-out;
+  }
 }
 .button:hover::after, .button:focus-visible::after {
-  background-color: var(--button-background--hover);
+  background-color: var(--button-background--translucent-hover);
 }
-@media (min-width: 1024px) {
+.button:before {
+  content: "";
+  background: linear-gradient(45deg, var(--button-gradient-hover));
+  position: absolute;
+  top: -5px;
+  left: -5px;
+  background-size: 200%;
+  z-index: -1;
+  filter: blur(5px);
+  width: calc(100% + 10px);
+  height: calc(100% + 10px);
+  opacity: 0;
+}
+@media (prefers-reduced-motion: no-preference) {
   .button:before {
-    content: "";
-    background: linear-gradient(45deg, var(--button-gradient-hover));
-    position: absolute;
-    top: -5px;
-    left: -5px;
     background-size: 400%;
-    z-index: -1;
-    filter: blur(5px);
-    width: calc(100% + 10px);
-    height: calc(100% + 10px);
-    animation: buttonGlow 20s linear infinite;
-    opacity: 0;
     transition: opacity 0.3s ease-in-out;
+    animation: buttonGlow 20s linear infinite;
   }
 }
-@media (min-width: 1024px) {
-  .button:active::after {
-    background-color: transparent;
-  }
+.button:active::after {
+  background-color: transparent;
 }
 .button:hover, .button:focus-visible {
-  background-color: var(--button-background--hover);
+  background-color: var(--button-background--translucent-hover);
 }
-@media (min-width: 1024px) {
-  .button:hover::before, .button:focus-visible::before {
-    opacity: 1;
-    z-index: -1;
-  }
+.button:hover::before, .button:focus-visible::before {
+  opacity: 1;
+  z-index: -1;
 }
-@media (min-width: 1024px) {
-  .button::after {
-    z-index: -1;
-    content: "";
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    background-color: var(--button-background);
-    left: 0;
-    top: 0;
-  }
+.button::after {
+  z-index: -1;
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: var(--button-background);
+  left: 0;
+  top: 0;
 }
 .button--scroll-to-top {
   padding: 0.25rem 0.8rem;
   position: fixed;
   bottom: 2rem;
   right: 1rem;
+  z-index: 1;
+}
+.button--scroll-to-top:hover, .button--scroll-to-top:focus-visible {
+  background-color: var(--scroll-to-top-backround--hover);
 }
 .button--scroll-to-top::after {
   background-color: var(--scroll-to-top-backround);
@@ -1000,12 +1009,14 @@ figcaption a {
 }
 .button:hover, .button:focus-visible {
   color: var(--button-text--hover);
+  font-weight: 500;
 }
-@media (min-width: 1024px) {
-  .button:active {
-    color: var(--button-text--active);
-  }
+.button:active {
+  color: var(--button-text--active);
 }
 .button--scroll-to-top {
   color: var(--scroll-to-top-text);
+}
+.button--scroll-to-top:hover, .button--scroll-to-top:focus-visible {
+  color: var(--scroll-to-top-text--hover);
 }

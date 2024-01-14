@@ -29,14 +29,15 @@
 
 .button {
   border: none;
-  position: relative;
   border-radius: 0;
-  z-index: 0;
-  background-color: mapGet($button-colors, background);
-  border: none;
   padding: 0.5rem;
-  font-size: 1rem;
-  transition: all 250ms ease-in-out;
+  background-color: mapGet($button-colors, background);
+  position: relative;
+  z-index: 0;
+
+  @media (prefers-reduced-motion: no-preference) {
+    transition: all 250ms ease-in-out;
+  }
 
   &:hover,
   &:focus-visible {    
@@ -46,28 +47,28 @@
   }
 
   &:before {
-    @include media-query(desktop) {
-      content: '';
-      background: linear-gradient(45deg, mapGet($button-colors, gradient-hover));
-      position: absolute;
-      top: -5px;
-      left: -5px;
+    content: '';
+    background: linear-gradient(45deg, mapGet($button-colors, gradient-hover));
+    position: absolute;
+    top: -5px;
+    left: -5px;
+    background-size: 200%;
+    z-index: -1;
+    filter: blur(5px);
+    width: calc(100% + 10px);
+    height: calc(100% + 10px);
+    opacity: 0;
+    
+    @media (prefers-reduced-motion: no-preference) {
       background-size: 400%;
-      z-index: -1;
-      filter: blur(5px);
-      width: calc(100% + 10px);
-      height: calc(100% + 10px);
-      animation: buttonGlow 20s linear infinite;
-      opacity: 0;
       transition: opacity .3s ease-in-out;
+      animation: buttonGlow 20s linear infinite;
     }
   }
 
   &:active {
     &::after {
-      @include media-query(desktop) {
-        background-color: transparent;
-      }
+      background-color: transparent;
     }
   }
   
@@ -75,25 +76,21 @@
   &:focus-visible {
     background-color: mapGet($button-colors, background--hover);
 
-    @include media-query(desktop) {
-      &::before {
-        opacity: 1;
-        z-index: -1;
-      }
+    &::before {
+      opacity: 1;
+      z-index: -1;
     }
   }
 
   &::after {
-    @include media-query(desktop) {
-      z-index: -1;
-      content: '';
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      background-color: mapGet($button-colors, background);
-      left: 0;
-      top: 0;
-    }
+    z-index: -1;
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: mapGet($button-colors, background);
+    left: 0;
+    top: 0;
   }
 
   &--scroll-to-top {
@@ -101,15 +98,24 @@
     position: fixed;
     bottom: 2rem;
     right: 1rem;
+    z-index: 1;
     
+    &:hover,
+    &:focus-visible {
+      background-color: mapGet($button-colors, scroll-to-top-background--hover);
+    }
     
     &::after {
       background-color: mapGet($button-colors, scroll-to-top-background);
     }
-
+    
     @include media-query(desktop) {
       right: 3rem;
       bottom: 3rem;
     }
+    
+    // &::after {
+    // }
+
   }
 }

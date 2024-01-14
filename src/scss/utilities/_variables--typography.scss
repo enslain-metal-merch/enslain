@@ -74,6 +74,10 @@ $card-typography: (
   size: var(--small-text),
 );
 
+$button-typography: (
+  weight--hover: 500,
+);
+
 $form-typography: (
   legend-size: var(--small-text),
 );
