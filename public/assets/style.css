@@ -677,6 +677,7 @@ body {
 p,
 a,
 ul,
+address,
 button,
 .button {
   font-family: var(--font-family--primary);
@@ -687,6 +688,7 @@ button,
   p,
   a,
   ul,
+  address,
   button,
   .button {
     font-size: 1.35rem;
@@ -696,6 +698,7 @@ button,
   p,
   a,
   ul,
+  address,
   button,
   .button {
     font-size: clamp(var(--small-text), 2.5vw, 1.35rem);
@@ -704,6 +707,7 @@ button,
 .footer p,
 .footer a,
 .footer ul,
+.footer address,
 .footer button,
 .footer .button {
   text-align: center;
@@ -736,6 +740,11 @@ a:not(.button):hover, a:not(.button):focus-visible {
 
 ul {
   list-style: inside none;
+}
+
+address {
+  font-style: normal;
+  margin-bottom: 1rem;
 }
 
 @keyframes textShine {

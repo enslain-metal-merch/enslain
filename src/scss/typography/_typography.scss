@@ -8,6 +8,7 @@ body {
 p,
 a,
 ul,
+address,
 button,
 .button {
   font-family: mapGet($primary, family);
@@ -60,6 +61,11 @@ a {
 
 ul {
   list-style: inside none;
+}
+
+address {
+  font-style: normal;
+  margin-bottom: 1rem;
 }
 
 @keyframes textShine {
