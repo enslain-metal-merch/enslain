@@ -4,7 +4,7 @@
   padding: 3rem 0;
 
   @include media-query(tablet) {
-    padding: 5rem 0;
+    padding: 2rem 0;
     // @include test-border(3, magenta);
   }
 }

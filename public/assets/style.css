@@ -421,7 +421,7 @@ body {
 }
 @media (min-width: 768px) {
   .header {
-    padding: 2rem 0 1rem;
+    padding: 2rem 0 0;
   }
 }
 .header__content {
@@ -444,6 +444,7 @@ body {
   height: min-content;
   z-index: 2;
   max-width: 245px;
+  border: 3px solid magenta;
 }
 @media (min-width: 768px) {
   .header__logo {
@@ -510,7 +511,7 @@ body {
 }
 @media (min-width: 768px) {
   .section {
-    padding: 5rem 0;
+    padding: 2rem 0;
   }
 }
 
