@@ -11,16 +11,34 @@
   }
 
   &:nth-of-type(odd) {
-    clip-path: polygon(0 2%,
+    clip-path: polygon(
+      0 1%,
       100% 0,
-      100% 98%,
+      100% 99%,
       0% 100%);
+      
+    @include media-query(desktop) {
+      clip-path: polygon(
+        0 2%,
+        100% 0,
+        100% 98%,
+        0% 100%);
+    }
   }
 
   &:nth-of-type(even) {
-    clip-path: polygon(0 0%,
-      100% 2%,
+    clip-path: polygon(
+      0 0%,
+      100% 1%,
       100% 100%,
-      0% 98%);
+      0% 99%);
+      
+    @include media-query(desktop) {
+      clip-path: polygon(
+        0 0%,
+        100% 2%,
+        100% 100%,
+        0% 98%);
+    }
   }
 }
