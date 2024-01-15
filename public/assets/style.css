@@ -691,6 +691,15 @@ body {
   }
 }
 
+@media (min-width: 768px) {
+  [data-reader-mode=chrissy] .float-container .img-container {
+    width: auto;
+    margin-right: 0;
+    margin-bottom: 1.5rem;
+    float: none;
+  }
+}
+
 body {
   color: var(--body-text);
   font-family: var(--font-family--primary);

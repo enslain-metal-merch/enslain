@@ -13,3 +13,16 @@
   }
 }
 
+[data-reader-mode='chrissy'] {
+  .float-container {
+    .img-container {
+      @include media-query(tablet) {
+        width: auto;
+        margin-right: 0;
+        margin-bottom: 1.5rem;
+        float: none;
+      }
+    }
+  }
+}
+
