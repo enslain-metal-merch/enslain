@@ -1189,6 +1189,21 @@
       "pg" : 0,
       "sct" : 0
     },
+    "\/src\/scss\/layouts\/small\/_floats.scss" : {
+      "aP" : 0,
+      "bl" : 0,
+      "co" : 0,
+      "dP" : 10,
+      "ec" : 1,
+      "ft" : 4,
+      "ma" : 0,
+      "oA" : 1,
+      "oAP" : "\/src\/scss\/layouts\/small\/_floats.css",
+      "oF" : 0,
+      "oS" : 0,
+      "pg" : 0,
+      "sct" : 0
+    },
     "\/src\/scss\/layouts\/small\/_index.scss" : {
       "aP" : 0,
       "bl" : 0,
