@@ -679,10 +679,12 @@ body {
   margin-top: 2rem;
 }
 
-.float-container .img-container {
-  width: 400px;
-  margin-right: 1.5rem;
-  float: left;
+@media (min-width: 768px) {
+  .float-container .img-container {
+    width: 400px;
+    margin-right: 1.5rem;
+    float: left;
+  }
 }
 
 body {
