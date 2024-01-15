@@ -679,11 +679,11 @@ body {
   margin-top: 2rem;
 }
 
-.float-container .img-container {
+.img-container--float {
   margin-bottom: 1.5rem;
 }
 @media (min-width: 768px) {
-  .float-container .img-container {
+  .img-container--float {
     width: 400px;
     margin-right: 1.5rem;
     margin-bottom: 0;
@@ -692,7 +692,7 @@ body {
 }
 
 @media (min-width: 768px) {
-  [data-reader-mode=chrissy] .float-container .img-container {
+  [data-reader-mode=chrissy] .img-container--float {
     width: auto;
     margin-right: 0;
     margin-bottom: 1.5rem;

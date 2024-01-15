@@ -1,7 +1,7 @@
 @use '../../utilities/' as *;
 
-.float-container {
-  .img-container {
+.img-container {
+  &--float {
     margin-bottom: 1.5rem;
 
     @include media-query(tablet) {
@@ -14,8 +14,8 @@
 }
 
 [data-reader-mode='chrissy'] {
-  .float-container {
-    .img-container {
+  .img-container {
+    &--float {
       @include media-query(tablet) {
         width: auto;
         margin-right: 0;
