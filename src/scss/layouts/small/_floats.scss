@@ -2,9 +2,12 @@
 
 .float-container {
   .img-container {
+    margin-bottom: 1.5rem;
+
     @include media-query(tablet) {
       width: 400px;
       margin-right: 1.5rem;
+      margin-bottom: 0;
       float: left;
     }
   }
