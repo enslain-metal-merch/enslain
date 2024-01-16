@@ -133,7 +133,6 @@ a {
   --social-media-icons: value;
 }
 
-:root,
 :root[data-color-theme=light] {
   --body-text: hsl(var(--brand-color-hs), 5%);
   --headings: hsl(var(--brand-color-hs), 40%);
