@@ -17,6 +17,19 @@
       "oAP" : "\/public\/about\/index.html",
       "oF" : 0
     },
+    "\/public\/assets\/img\/content\/about-imgs\/aaro.jpg" : {
+      "ft" : 16384,
+      "iS" : 95384,
+      "jF" : 0,
+      "oA" : 0,
+      "oAP" : "\/public\/assets\/img\/content\/about-imgs\/aaro.jpg",
+      "oF" : 0,
+      "oIPL" : 0,
+      "opt" : 0,
+      "ou" : "lpckwebp-none",
+      "q" : 100,
+      "rq" : 75
+    },
     "\/public\/assets\/img\/content\/about-imgs\/bear.jpg" : {
       "ft" : 16384,
       "iS" : 109204,
