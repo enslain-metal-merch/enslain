@@ -1,6 +1,6 @@
 :root {
   --neutral-hs: 0, 0%;
-  // brand color:
+  // brand color
     --brand-color-hue: 212;
     --brand-color-saturation: 96%;
     --brand-color-hs: var(--brand-color-hue), var(--brand-color-saturation);
@@ -57,85 +57,79 @@
       var(--red),
       var(--torch-red);
     ;
-}
+  // default dark theme colors
+    // general typography
+      --body-text: hsl(var(--brand-color-hs), 95%);
+      --headings: hsl(var(--brand-color-hs), 70%);
+      --links: hsl(var(--brand-color-hs), 80%);
+      --links--gradient-hover: var(--gradient--aurora-borealis);
+      --event-divider: hsla(var(--brand-color-hs), 60%, 50%);
+    // body
+      --plain-background: hsl(var(--brand-color-hue), 5%, 5%);
+      --gradient-background:
+        hsl(var(--brand-color-hs), 5%),
+        hsl(var(--brand-color-hs), 10%),
+        hsl(var(--brand-color-hs), 20%),
+        hsl(var(--brand-color-hs), 30%),
+        hsl(var(--brand-color-hs), 20%),
+        hsl(var(--brand-color-hs), 10%),
+        hsl(var(--brand-color-hs), 5%),
+        hsl(var(--brand-color-hs), 3%)
+      ;
+    // header
+      --aria-current-page: hsl(var(--brand-color-hs), 60%);
+      --nav-dropdown-background: hsl(var(--brand-color-hs), 6%);
 
-:root,
-:root[data-color-theme="dark"] {
-  // general typography
-    --body-text: hsl(var(--brand-color-hs), 95%);
-    --headings: hsl(var(--brand-color-hs), 70%);
-    --links: hsl(var(--brand-color-hs), 80%);
-    --links--gradient-hover: var(--gradient--aurora-borealis);
-    --event-divider: hsla(var(--brand-color-hs), 60%, 50%);
+    // sections
+      --section-background: hsla(var(--neutral-hs), 0%, 50%);
 
-  // body
-    --plain-background: hsl(var(--brand-color-hue), 5%, 5%);
-    --gradient-background:
-      hsl(var(--brand-color-hs), 5%),
-      hsl(var(--brand-color-hs), 10%),
-      hsl(var(--brand-color-hs), 20%),
-      hsl(var(--brand-color-hs), 30%),
-      hsl(var(--brand-color-hs), 20%),
-      hsl(var(--brand-color-hs), 10%),
-      hsl(var(--brand-color-hs), 5%),
-      hsl(var(--brand-color-hs), 3%)
-    ;
+    // footer
+      --footer-logo: hsl(var(--brand-color-hs), 80%);
+      --footer-text: hsl(var(--brand-color-hs), 70%);
+      --footer-links--hover: hsl(var(--brand-color-hs), 60%);
 
-  // header
-    --aria-current-page: hsl(var(--brand-color-hs), 60%);
-    --nav-dropdown-background: hsl(var(--brand-color-hs), 6%);
+    // forms
+      // labels
+      --label: hsl(var(--brand-color-hs), 70%);
+      --label--active: hsl(var(--brand-color-hs), 1%);
 
-  // sections
-    --section-background: hsla(var(--neutral-hs), 0%, 50%);
+      // inputs
+        --input-background--active: hsl(var(--brand-color-hs), 70%);
 
-  // footer
-    --footer-logo: hsl(var(--brand-color-hs), 80%);
-    --footer-text: hsl(var(--brand-color-hs), 70%);
-    --footer-links--hover: hsl(var(--brand-color-hs), 60%);
+      // borders
+        --input-group-border: hsl(var(--brand-color-hs), 70%);
+        --site-options-focus: hsl(var(--brand-color-hs), 60%);
 
-  // forms
-    // labels
-    --label: hsl(var(--brand-color-hs), 70%);
-    --label--active: hsl(var(--brand-color-hs), 1%);
+    // buttons
+      // backgrounds
+        --button-background: hsl(var(--brand-color-hs), 40%);
+        --button-background--solid-hover: hsl(var(--brand-color-hs), 70%);
+        --button-background--translucent-hover: hsla(var(--brand-color-hs), 90%, 90%);
+        --scroll-to-top-backround: hsl(var(--brand-color-hs), 70%);
+        --scroll-to-top-backround--hover: hsl(var(--brand-color-hs), 80%);
 
-    // inputs
-      --input-background--active: hsl(var(--brand-color-hs), 70%);
-
-    // borders
-      --input-group-border: hsl(var(--brand-color-hs), 70%);
-      --site-options-focus: hsl(var(--brand-color-hs), 60%);
-
-  // buttons
-    // backgrounds
-      --button-background: hsl(var(--brand-color-hs), 40%);
-      --button-background--solid-hover: hsl(var(--brand-color-hs), 70%);
-      --button-background--translucent-hover: hsla(var(--brand-color-hs), 90%, 90%);
-      --scroll-to-top-backround: hsl(var(--brand-color-hs), 70%);
-      --scroll-to-top-backround--hover: hsl(var(--brand-color-hs), 80%);
-
-    // text
-      --button-text: hsl(var(--brand-color-hs), 95%);
-      --scroll-to-top-text: hsl(var(--brand-color-hs), 1%);
-      --scroll-to-top-text--hover: hsl(var(--brand-color-hs), 1%);
-      --button-text--hover: hsl(var(--brand-color-hs), 10%);
-      --button-text--active: hsl(var(--neutral-hs), 0%);
-    
-    // border
-      --button-border: hsl(var(--brand-color-hs), 90%);
+      // text
+        --button-text: hsl(var(--brand-color-hs), 95%);
+        --scroll-to-top-text: hsl(var(--brand-color-hs), 1%);
+        --scroll-to-top-text--hover: hsl(var(--brand-color-hs), 1%);
+        --button-text--hover: hsl(var(--brand-color-hs), 10%);
+        --button-text--active: hsl(var(--neutral-hs), 0%);
       
-    // gradient hover effect
-      --button-gradient-hover: var(--gradient--fire);
+      // border
+        --button-border: hsl(var(--brand-color-hs), 90%);
+        
+      // gradient hover effect
+        --button-gradient-hover: var(--gradient--fire);
 
-  // cards
-    --card-background: hsl(212, 96%, 5%);
-    --card-box-shadow: hsl(var(--brand-color-hs), 50%);
+    // cards
+      --card-background: hsl(212, 96%, 5%);
+      --card-box-shadow: hsl(var(--brand-color-hs), 50%);
 
-  // icons
-    --list-icons: hsl(var(--brand-color-hs), 50%);
-    --social-media-icons: value;
+    // icons
+      --list-icons: hsl(var(--brand-color-hs), 50%);
+      --social-media-icons: value;
 }
 
-:root,
 :root[data-color-theme="light"] {
   // general typography
     --body-text: hsl(var(--brand-color-hs), 5%);
