@@ -305,15 +305,17 @@ figcaption {
     a & {
       &:hover,
       &:focus-visible {
+        text-decoration: none;
+        background: linear-gradient(130deg, mapGet($body-colors, links--gradient-hover));
+        background-clip: text;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-size: cover;
+        background-size: 100% auto;
+        
         @media (prefers-reduced-motion: no-preference) {
-          text-decoration: none;
-          transition: all 250ms ease-in-out;
-          background: linear-gradient(130deg, mapGet($body-colors, links--gradient-hover));
-          background-clip: text;
-          -webkit-background-clip: text;
-          -webkit-text-fill-color: transparent;
-          background-size: cover;
           background-size: 500% auto;
+          transition: all 250ms ease-in-out;
           animation: textShine 5s ease-in-out infinite alternate;
         }
       }
