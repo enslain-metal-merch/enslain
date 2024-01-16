@@ -89,10 +89,6 @@ a {
     hsl(var(--red-hue), 86%, 44%),
     var(--red),
     var(--torch-red);
-}
-
-:root,
-:root[data-color-theme=dark] {
   --body-text: hsl(var(--brand-color-hs), 95%);
   --headings: hsl(var(--brand-color-hs), 70%);
   --links: hsl(var(--brand-color-hs), 80%);
