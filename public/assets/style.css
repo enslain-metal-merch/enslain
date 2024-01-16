@@ -350,6 +350,9 @@ a {
 .img-container--banner {
   margin-top: 3rem;
 }
+.img-container--boss {
+  margin-bottom: 1.5rem;
+}
 
 .header__nav-toggle-bar--top.animate {
   animation: shiftDown 200ms ease-out forwards;
