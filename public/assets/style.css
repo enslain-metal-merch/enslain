@@ -397,6 +397,14 @@ a {
     padding: 4rem 0;
   }
 }
+.clip-path-layer:first-of-type {
+  margin-top: 0.5rem;
+}
+@media (min-width: 768px) {
+  .clip-path-layer:first-of-type {
+    margin-top: 2rem;
+  }
+}
 .clip-path-layer:nth-of-type(odd) {
   clip-path: polygon(0 1%, 100% 0, 100% 99%, 0% 100%);
 }
@@ -413,6 +421,9 @@ a {
     clip-path: polygon(0 0%, 100% 2%, 100% 100%, 0% 98%);
   }
 }
+.clip-path-layer:last-of-type {
+  margin-bottom: 0;
+}
 
 body {
   background-color: var(--plain-background);
@@ -424,7 +435,7 @@ body {
 }
 
 .header {
-  padding: 1.5rem 0 1rem;
+  padding: 1.5rem 0;
   position: relative;
 }
 @media (min-width: 768px) {

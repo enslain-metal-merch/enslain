@@ -10,6 +10,14 @@
     padding: 4rem 0;
   }
 
+  &:first-of-type {
+    margin-top: 0.5rem;
+
+    @include media-query(tablet) {
+      margin-top: 2rem;
+    }
+  }
+
   &:nth-of-type(odd) {
     clip-path: polygon(
       0 1%,
@@ -40,5 +48,9 @@
         100% 100%,
         0% 98%);
     }
+  }
+
+  &:last-of-type {
+    margin-bottom: 0;
   }
 }
