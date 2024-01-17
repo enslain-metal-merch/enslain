@@ -69,6 +69,11 @@ a {
     hsl(var(--brand-color-hs), 90%),
     hsl(var(--brand-color-hs), 70%),
     hsl(var(--brand-color-hs), 30%) ;
+  --gradient--blues--light:
+    hsl(var(--brand-color-hs), 90%),
+    hsl(var(--brand-color-hs), 70%),
+    hsl(var(--brand-color-hs), 80%),
+    hsl(var(--brand-color-hs), 70%) ;
   --gradient--aurora-borealis:
     var(--cyan),
     var(--teal),
@@ -91,6 +96,7 @@ a {
     var(--torch-red);
   --body-text: hsl(var(--brand-color-hs), 95%);
   --headings: hsl(var(--brand-color-hs), 70%);
+  --headings--gradient: var(--gradient--blues--light);
   --links: hsl(var(--brand-color-hs), 80%);
   --links--gradient-hover: var(--gradient--aurora-borealis);
   --event-divider: hsla(var(--brand-color-hs), 60%, 50%);
@@ -136,6 +142,7 @@ a {
 :root[data-color-theme=light] {
   --body-text: hsl(var(--brand-color-hs), 5%);
   --headings: hsl(var(--brand-color-hs), 40%);
+  --headings--gradient: var(--gradient--blues);
   --links: hsl(var(--brand-color-hs), 25%);
   --links--hover: hsl(var(--brand-color-hs), 40%);
   --links--gradient-hover: var(--gradient--blues);
@@ -868,6 +875,18 @@ h4 {
   font-family: var(--font-family--secondary);
   color: var(--headings);
 }
+@media (prefers-reduced-motion: no-preference) {
+  h1,
+  h2 {
+    background: -webkit-linear-gradient(130deg, var(--headings--gradient));
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-size: 500% auto;
+    animation: textShine 5s ease-in-out infinite alternate;
+  }
+}
+
 [data-reader-mode=chrissy] .text-container {
   margin: auto;
   max-width: 44rem;

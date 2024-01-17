@@ -100,6 +100,18 @@ address {
   }
 }
 
+h1,
+h2 {
+  @media (prefers-reduced-motion: no-preference) {
+    background: -webkit-linear-gradient(130deg, mapGet($body-colors, headings--gradient));
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-size: 500% auto;
+    animation: textShine 5s ease-in-out infinite alternate;
+  }
+}
+
 [data-reader-mode='chrissy'] {
   .text-container {
     margin: auto;
