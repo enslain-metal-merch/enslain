@@ -36,10 +36,8 @@ const colorTheme = {
         const selectedTheme = input.getAttribute('data-color-theme-value');
 
         if (selectedTheme === 'light') {
-          console.log('LET THERE BE LIGHT!');
           localStorage.setItem('color-theme', 'light')
         } else {
-          console.log('Swallow me into darkness!');
           localStorage.removeItem('color-theme');
         }
 
