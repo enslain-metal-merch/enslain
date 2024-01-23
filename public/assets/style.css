@@ -570,7 +570,7 @@ body {
   fill: var(--footer-logo);
 }
 .footer__contact {
-  max-width: 200px;
+  max-width: 250px;
   margin: 0 auto 1rem;
 }
 .footer__contact-methods {
