@@ -268,7 +268,7 @@ figcaption {
   }  
 }
 
-.past-event-list {
+.event-list {
   list-style: none;
   padding: 0;
 
@@ -368,5 +368,13 @@ figcaption {
     &:focus-visible {
       color: mapGet($button-colors, scroll-to-top-text--hover);
     }
+  }
+}
+
+.event-secondary-info {
+  font-size: mapGet($event-typography, secondary-info, size--xs);
+
+  @include media-query(tablet) {
+    font-size: mapGet($event-typography, secondary-info, size--small);
   }
 }

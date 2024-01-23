@@ -1014,11 +1014,11 @@ figcaption a {
   border-color: var(--event-divider);
 }
 
-.past-event-list {
+.event-list {
   list-style: none;
   padding: 0;
 }
-.past-event-list hr {
+.event-list hr {
   border-color: var(--event-divider);
   margin: 0.25rem 0;
 }
@@ -1089,4 +1089,13 @@ a .footer__icon:hover, a .footer__icon:focus-visible {
 }
 .button--scroll-to-top:hover, .button--scroll-to-top:focus-visible {
   color: var(--scroll-to-top-text--hover);
+}
+
+.event-secondary-info {
+  font-size: 1rem;
+}
+@media (min-width: 768px) {
+  .event-secondary-info {
+    font-size: var(--small-text);
+  }
 }

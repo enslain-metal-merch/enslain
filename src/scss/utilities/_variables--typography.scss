@@ -68,6 +68,11 @@ $event-typography: (
   event-name: (
     weight: 600,
   ),
+
+  secondary-info: (
+    size--xs: 1rem,
+    size--small: var(--small-text),
+  ),
 );
 
 $card-typography: (
