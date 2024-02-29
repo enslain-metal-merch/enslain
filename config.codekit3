@@ -724,6 +724,14 @@
       "oAP" : "\/src\/kit\/partials\/events\/_upcoming.html",
       "oF" : 0
     },
+    "\/src\/kit\/partials\/events\/<ul class=\"event-list\">" : {
+      "cB" : 0,
+      "ft" : 8192,
+      "hM" : 0,
+      "oA" : 0,
+      "oAP" : "\/src\/kit\/partials\/events\/<ul class=\"event-list\">",
+      "oF" : 0
+    },
     "\/src\/kit\/partials\/events\/index-events.kit" : {
       "cB" : 0,
       "ft" : 2048,
