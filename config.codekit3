@@ -7,7 +7,7 @@
       "uuidString" : "FBAD0382-67E1-4523-A6C8-C7275DD2C446"
     }
   ],
-  "creatorBuild" : "34564",
+  "creatorBuild" : "34576",
   "files" : {
     "\/public\/about\/index.html" : {
       "cB" : 0,
@@ -722,14 +722,6 @@
       "hM" : 0,
       "oA" : 1,
       "oAP" : "\/src\/kit\/partials\/events\/_upcoming.html",
-      "oF" : 0
-    },
-    "\/src\/kit\/partials\/events\/<ul class=\"event-list\">" : {
-      "cB" : 0,
-      "ft" : 8192,
-      "hM" : 0,
-      "oA" : 0,
-      "oAP" : "\/src\/kit\/partials\/events\/<ul class=\"event-list\">",
       "oF" : 0
     },
     "\/src\/kit\/partials\/events\/index-events.kit" : {
