@@ -708,22 +708,6 @@
       "oAP" : "\/src\/kit\/partials\/events\/_2024.html",
       "oF" : 0
     },
-    "\/src\/kit\/partials\/events\/_events-template-upcoming.kit" : {
-      "cB" : 0,
-      "ft" : 2048,
-      "hM" : 0,
-      "oA" : 1,
-      "oAP" : "\/src\/kit\/partials\/events\/_events-template-upcoming.html",
-      "oF" : 0
-    },
-    "\/src\/kit\/partials\/events\/_template--event-items.kit" : {
-      "cB" : 0,
-      "ft" : 2048,
-      "hM" : 0,
-      "oA" : 1,
-      "oAP" : "\/src\/kit\/partials\/events\/_template--event-items.html",
-      "oF" : 0
-    },
     "\/src\/kit\/partials\/events\/_upcoming.kit" : {
       "cB" : 0,
       "ft" : 2048,
@@ -755,6 +739,22 @@
       "oA" : 0,
       "oAP" : "\/public\/services\/index.html",
       "oF" : 2
+    },
+    "\/src\/kit\/templates\/_events-template-upcoming.kit" : {
+      "cB" : 0,
+      "ft" : 2048,
+      "hM" : 0,
+      "oA" : 1,
+      "oAP" : "\/src\/kit\/templates\/_events-template-upcoming.html",
+      "oF" : 0
+    },
+    "\/src\/kit\/templates\/_template--event-items.kit" : {
+      "cB" : 0,
+      "ft" : 2048,
+      "hM" : 0,
+      "oA" : 1,
+      "oAP" : "\/src\/kit\/templates\/_template--event-items.html",
+      "oF" : 0
     },
     "\/src\/kit\/volunteers.kit" : {
       "cB" : 0,
