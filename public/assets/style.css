@@ -657,7 +657,7 @@ body {
 }
 @media (min-width: 1024px) {
   .grid--two-col {
-    gap: 3rem;
+    gap: 10rem;
   }
 }
 .topflow .grid {
