@@ -700,12 +700,28 @@
       "oAP" : "\/src\/kit\/partials\/events\/_2023.html",
       "oF" : 0
     },
+    "\/src\/kit\/partials\/events\/_2024-upcoming.kit" : {
+      "cB" : 0,
+      "ft" : 2048,
+      "hM" : 0,
+      "oA" : 1,
+      "oAP" : "\/src\/kit\/partials\/events\/_2024-upcoming.html",
+      "oF" : 0
+    },
     "\/src\/kit\/partials\/events\/_2024.kit" : {
       "cB" : 0,
       "ft" : 2048,
       "hM" : 0,
       "oA" : 1,
       "oAP" : "\/src\/kit\/partials\/events\/_2024.html",
+      "oF" : 0
+    },
+    "\/src\/kit\/partials\/events\/_2025-upcoming.kit" : {
+      "cB" : 0,
+      "ft" : 2048,
+      "hM" : 0,
+      "oA" : 1,
+      "oAP" : "\/src\/kit\/partials\/events\/_2025-upcoming.html",
       "oF" : 0
     },
     "\/src\/kit\/partials\/events\/_upcoming.kit" : {
