@@ -9,6 +9,12 @@
   @include media-query(tablet) {
     padding: 4rem 0;
   }
+  
+  &.long-list {
+    @include media-query(tablet) {
+      padding-bottom: 10rem;
+    }
+  }
 
   &:first-of-type {
     margin-top: 0rem;

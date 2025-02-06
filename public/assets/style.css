@@ -404,6 +404,11 @@ a {
     padding: 4rem 0;
   }
 }
+@media (min-width: 768px) {
+  .clip-path-layer.long-list {
+    padding-bottom: 10rem;
+  }
+}
 .clip-path-layer:first-of-type {
   margin-top: 0rem;
 }
