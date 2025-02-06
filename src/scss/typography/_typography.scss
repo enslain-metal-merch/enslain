@@ -276,6 +276,14 @@ figcaption {
     border-color: mapGet($event-colors, divider);
     margin: 0.25rem 0;
   }
+
+  &--featured {
+    margin-bottom: 2.5rem;
+
+    @include media-query(tablet) {
+      margin-bottom: 3rem;
+    }
+  }
 }
 
 .site-options {

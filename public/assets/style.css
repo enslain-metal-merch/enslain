@@ -1027,6 +1027,14 @@ figcaption a {
   border-color: var(--event-divider);
   margin: 0.25rem 0;
 }
+.event-list--featured {
+  margin-bottom: 2.5rem;
+}
+@media (min-width: 768px) {
+  .event-list--featured {
+    margin-bottom: 3rem;
+  }
+}
 
 .site-options__legend {
   margin: 0.5rem 0;
