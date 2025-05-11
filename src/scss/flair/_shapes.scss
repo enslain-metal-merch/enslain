@@ -12,7 +12,7 @@
   
   &.long-list {
     @include media-query(tablet) {
-      padding-bottom: 10rem;
+      padding: 10rem 0 15rem;
     }
   }
 

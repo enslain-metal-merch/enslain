@@ -406,7 +406,7 @@ a {
 }
 @media (min-width: 768px) {
   .clip-path-layer.long-list {
-    padding-bottom: 10rem;
+    padding: 10rem 0 15rem;
   }
 }
 .clip-path-layer:first-of-type {
