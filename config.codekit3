@@ -181,6 +181,19 @@
       "q" : 100,
       "rq" : 75
     },
+    "\/public\/assets\/img\/content\/crew-imgs\/vesa.jpg" : {
+      "ft" : 16384,
+      "iS" : 140989,
+      "jF" : 0,
+      "oA" : 0,
+      "oAP" : "\/public\/assets\/img\/content\/crew-imgs\/vesa.jpg",
+      "oF" : 0,
+      "oIPL" : 0,
+      "opt" : 0,
+      "ou" : "lpckwebp-none",
+      "q" : 100,
+      "rq" : 75
+    },
     "\/public\/assets\/img\/content\/crew-imgs\/webmaster.jpg" : {
       "ft" : 16384,
       "iS" : 104502,
