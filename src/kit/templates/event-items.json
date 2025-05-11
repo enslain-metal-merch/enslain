@@ -1,0 +1,13 @@
+{
+  "Event Items": {
+    "prefix": "event-items",
+    "body": [
+      "<li class=\"event\">",
+      "  <span class=\"event__detail event-name event-name--large\">$1</span>",
+      "  <span class=\"event__detail event__detail--medium\">$2</span>",
+      "  <span class=\"event__detail event-secondary-info\">$3</span>",
+      "</li>"
+    ],
+    "description": "Event item template with Emmet multiplication support"
+  }
+} 

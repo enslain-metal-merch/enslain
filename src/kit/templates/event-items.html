@@ -1,0 +1,23 @@
+<!-- Event Items Template -->
+<!-- Usage: Type 'event-items*[number]' to generate multiple instances -->
+<!-- Example: event-items*3 will generate 3 event items -->
+
+<template id="event-items">
+  <li class="event">
+    <span class="event__detail event-name event-name--large"></span>
+    <span class="event__detail event__detail--medium"></span>
+    <span class="event__detail event-secondary-info"></span>
+  </li>
+</template>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const template = document.getElementById('event-items');
+  const multiplier = parseInt(template.getAttribute('data-multiplier') || '1');
+  
+  for (let i = 0; i < multiplier; i++) {
+    const clone = template.content.cloneNode(true);
+    document.body.appendChild(clone);
+  }
+});
+</script> 

@@ -737,6 +737,14 @@
       "oAP" : "\/src\/kit\/partials\/events\/_2025-upcoming.html",
       "oF" : 0
     },
+    "\/src\/kit\/partials\/events\/_2025.kit" : {
+      "cB" : 0,
+      "ft" : 2048,
+      "hM" : 0,
+      "oA" : 1,
+      "oAP" : "\/src\/kit\/partials\/events\/_2025.html",
+      "oF" : 0
+    },
     "\/src\/kit\/partials\/events\/_upcoming.kit" : {
       "cB" : 0,
       "ft" : 2048,
@@ -784,6 +792,22 @@
       "oA" : 1,
       "oAP" : "\/src\/kit\/templates\/_template--event-items.html",
       "oF" : 0
+    },
+    "\/src\/kit\/templates\/event-items.html" : {
+      "cB" : 0,
+      "ft" : 8192,
+      "hM" : 0,
+      "oA" : 0,
+      "oAP" : "\/src\/kit\/templates\/event-items.html",
+      "oF" : 0
+    },
+    "\/src\/kit\/templates\/event-items.json" : {
+      "ft" : 524288,
+      "oA" : 1,
+      "oAP" : "\/src\/kit\/templates\/event-items-min.json",
+      "oF" : 0,
+      "oO" : 0,
+      "oS" : 1
     },
     "\/src\/kit\/volunteers.kit" : {
       "cB" : 0,
