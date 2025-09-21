@@ -194,9 +194,22 @@
       "q" : 100,
       "rq" : 75
     },
-    "\/public\/assets\/img\/content\/crew-imgs\/webmaster.jpg" : {
+    "\/public\/assets\/img\/content\/crew-imgs\/webmaster-v1.jpg" : {
       "ft" : 16384,
       "iS" : 104502,
+      "jF" : 0,
+      "oA" : 0,
+      "oAP" : "\/public\/assets\/img\/content\/crew-imgs\/webmaster-v1.jpg",
+      "oF" : 0,
+      "oIPL" : 0,
+      "opt" : 0,
+      "ou" : "lpckwebp-none",
+      "q" : 100,
+      "rq" : 75
+    },
+    "\/public\/assets\/img\/content\/crew-imgs\/webmaster.jpeg" : {
+      "ft" : 16384,
+      "iS" : 340100,
       "jF" : 0,
       "oA" : 0,
       "oAP" : "\/public\/assets\/img\/content\/crew-imgs\/webmaster.jpg",
