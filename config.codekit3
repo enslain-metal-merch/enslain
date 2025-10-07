@@ -17,6 +17,19 @@
       "oAP" : "\/.gitignore",
       "oF" : 0
     },
+    "\/ck-icon.jpeg" : {
+      "ft" : 16384,
+      "iS" : 49653,
+      "jF" : 0,
+      "oA" : 0,
+      "oAP" : "\/ck-icon.jpg",
+      "oF" : 0,
+      "oIPL" : 0,
+      "opt" : 0,
+      "ou" : "lpckwebp-none",
+      "q" : 100,
+      "rq" : 75
+    },
     "\/public\/about\/index.html" : {
       "cB" : 0,
       "ft" : 8192,
@@ -1426,7 +1439,7 @@
     "creationDate" : 715794120.28163099,
     "displayValue" : "Enslain",
     "displayValueWasSetByUser" : 1,
-    "iconImageName" : "meme-ceiling",
+    "iconImageName" : "\/ck-icon.jpeg",
     "iconImageWasSetByUser" : 1
   },
   "projectSettings" : {
