@@ -925,8 +925,12 @@ h4 {
 }
 @media (min-width: 768px) {
   .header__primary-menu a:link {
-    font-size: 1.75rem;
     padding: 0;
+  }
+}
+@media (min-width: 844px) {
+  .header__primary-menu a:link {
+    font-size: 1.75rem;
   }
 }
 .header__primary-menu [aria-current=page] {
