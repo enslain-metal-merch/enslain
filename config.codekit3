@@ -656,8 +656,8 @@
       "ft" : 2048,
       "hM" : 0,
       "oA" : 0,
-      "oAP" : "\/public\/about\/index.html",
-      "oF" : 2
+      "oAP" : "\/src\/kit\/about.html",
+      "oF" : 0
     },
     "\/src\/kit\/contact.kit" : {
       "cB" : 0,
@@ -672,8 +672,8 @@
       "ft" : 2048,
       "hM" : 0,
       "oA" : 0,
-      "oAP" : "\/public\/events\/index.html",
-      "oF" : 2
+      "oAP" : "\/src\/kit\/events.html",
+      "oF" : 0
     },
     "\/src\/kit\/index.kit" : {
       "cB" : 0,
@@ -1439,7 +1439,7 @@
     "creationDate" : 715794120.28163099,
     "displayValue" : "Enslain",
     "displayValueWasSetByUser" : 1,
-    "iconImageName" : "\/ck-icon.jpeg",
+    "iconImageName" : "meme-ceiling",
     "iconImageWasSetByUser" : 1
   },
   "projectSettings" : {
