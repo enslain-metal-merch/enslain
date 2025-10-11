@@ -17,6 +17,19 @@
       "oAP" : "\/.gitignore",
       "oF" : 0
     },
+    "\/ck-icon.jpeg" : {
+      "ft" : 16384,
+      "iS" : 49653,
+      "jF" : 0,
+      "oA" : 0,
+      "oAP" : "\/ck-icon.jpg",
+      "oF" : 0,
+      "oIPL" : 0,
+      "opt" : 0,
+      "ou" : "lpckwebp-none",
+      "q" : 100,
+      "rq" : 75
+    },
     "\/public\/about\/index.html" : {
       "cB" : 0,
       "ft" : 8192,
@@ -194,9 +207,22 @@
       "q" : 100,
       "rq" : 75
     },
-    "\/public\/assets\/img\/content\/crew-imgs\/webmaster.jpg" : {
+    "\/public\/assets\/img\/content\/crew-imgs\/webmaster-v1.jpg" : {
       "ft" : 16384,
       "iS" : 104502,
+      "jF" : 0,
+      "oA" : 0,
+      "oAP" : "\/public\/assets\/img\/content\/crew-imgs\/webmaster-v1.jpg",
+      "oF" : 0,
+      "oIPL" : 0,
+      "opt" : 0,
+      "ou" : "lpckwebp-none",
+      "q" : 100,
+      "rq" : 75
+    },
+    "\/public\/assets\/img\/content\/crew-imgs\/webmaster.jpeg" : {
+      "ft" : 16384,
+      "iS" : 340100,
       "jF" : 0,
       "oA" : 0,
       "oAP" : "\/public\/assets\/img\/content\/crew-imgs\/webmaster.jpg",
@@ -681,6 +707,110 @@
       "oAP" : "\/src\/kit\/partials\/_primary-nav.html",
       "oF" : 0
     },
+    "\/src\/kit\/partials\/crew\/_aaro.kit" : {
+      "cB" : 0,
+      "ft" : 2048,
+      "hM" : 0,
+      "oA" : 1,
+      "oAP" : "\/src\/kit\/partials\/crew\/_aaro.html",
+      "oF" : 0
+    },
+    "\/src\/kit\/partials\/crew\/_bear.kit" : {
+      "cB" : 0,
+      "ft" : 2048,
+      "hM" : 0,
+      "oA" : 1,
+      "oAP" : "\/src\/kit\/partials\/crew\/_bear.html",
+      "oF" : 0
+    },
+    "\/src\/kit\/partials\/crew\/_crew-template.kit" : {
+      "cB" : 0,
+      "ft" : 2048,
+      "hM" : 0,
+      "oA" : 1,
+      "oAP" : "\/src\/kit\/partials\/crew\/_crew-template.html",
+      "oF" : 0
+    },
+    "\/src\/kit\/partials\/crew\/_katri.kit" : {
+      "cB" : 0,
+      "ft" : 2048,
+      "hM" : 0,
+      "oA" : 1,
+      "oAP" : "\/src\/kit\/partials\/crew\/_katri.html",
+      "oF" : 0
+    },
+    "\/src\/kit\/partials\/crew\/_mary.kit" : {
+      "cB" : 0,
+      "ft" : 2048,
+      "hM" : 0,
+      "oA" : 1,
+      "oAP" : "\/src\/kit\/partials\/crew\/_mary.html",
+      "oF" : 0
+    },
+    "\/src\/kit\/partials\/crew\/_miikka.kit" : {
+      "cB" : 0,
+      "ft" : 2048,
+      "hM" : 0,
+      "oA" : 1,
+      "oAP" : "\/src\/kit\/partials\/crew\/_miikka.html",
+      "oF" : 0
+    },
+    "\/src\/kit\/partials\/crew\/_milla.kit" : {
+      "cB" : 0,
+      "ft" : 2048,
+      "hM" : 0,
+      "oA" : 1,
+      "oAP" : "\/src\/kit\/partials\/crew\/_milla.html",
+      "oF" : 0
+    },
+    "\/src\/kit\/partials\/crew\/_sandra.kit" : {
+      "cB" : 0,
+      "ft" : 2048,
+      "hM" : 0,
+      "oA" : 1,
+      "oAP" : "\/src\/kit\/partials\/crew\/_sandra.html",
+      "oF" : 0
+    },
+    "\/src\/kit\/partials\/crew\/_serena.kit" : {
+      "cB" : 0,
+      "ft" : 2048,
+      "hM" : 0,
+      "oA" : 1,
+      "oAP" : "\/src\/kit\/partials\/crew\/_serena.html",
+      "oF" : 0
+    },
+    "\/src\/kit\/partials\/crew\/_sofia.html" : {
+      "cB" : 0,
+      "ft" : 8192,
+      "hM" : 0,
+      "oA" : 1,
+      "oAP" : "\/src\/kit\/partials\/crew\/_sofia.html",
+      "oF" : 0
+    },
+    "\/src\/kit\/partials\/crew\/_sofia.kit" : {
+      "cB" : 0,
+      "ft" : 2048,
+      "hM" : 0,
+      "oA" : 1,
+      "oAP" : "\/src\/kit\/partials\/crew\/_sofia.html",
+      "oF" : 0
+    },
+    "\/src\/kit\/partials\/crew\/_vezq.kit" : {
+      "cB" : 0,
+      "ft" : 2048,
+      "hM" : 0,
+      "oA" : 1,
+      "oAP" : "\/src\/kit\/partials\/crew\/_vezq.html",
+      "oF" : 0
+    },
+    "\/src\/kit\/partials\/crew\/_webmaster.kit" : {
+      "cB" : 0,
+      "ft" : 2048,
+      "hM" : 0,
+      "oA" : 1,
+      "oAP" : "\/src\/kit\/partials\/crew\/_webmaster.html",
+      "oF" : 0
+    },
     "\/src\/kit\/partials\/events\/_2020.kit" : {
       "cB" : 0,
       "ft" : 2048,
@@ -727,6 +857,14 @@
       "hM" : 0,
       "oA" : 1,
       "oAP" : "\/src\/kit\/partials\/events\/_2024.html",
+      "oF" : 0
+    },
+    "\/src\/kit\/partials\/events\/_2025-tour-tarja-christmas.kit" : {
+      "cB" : 0,
+      "ft" : 2048,
+      "hM" : 0,
+      "oA" : 1,
+      "oAP" : "\/src\/kit\/partials\/events\/_2025-tour-tarja-christmas.html",
       "oF" : 0
     },
     "\/src\/kit\/partials\/events\/_2025-upcoming.kit" : {
@@ -1301,7 +1439,7 @@
     "creationDate" : 715794120.28163099,
     "displayValue" : "Enslain",
     "displayValueWasSetByUser" : 1,
-    "iconImageName" : "meme-ceiling",
+    "iconImageName" : "\/ck-icon.jpeg",
     "iconImageWasSetByUser" : 1
   },
   "projectSettings" : {

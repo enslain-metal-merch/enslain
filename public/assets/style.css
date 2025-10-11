@@ -507,11 +507,15 @@ body {
   transition: opacity 250ms ease-in-out;
   background-color: var(--nav-dropdown-background);
   width: 100%;
-  position: absolute;
-  right: 0;
-  top: 100%;
+  position: fixed;
+  left: 0;
+  top: 5.5rem;
+  padding-top: 5rem;
+  /* height of your header - adjust as needed */
+  bottom: 0;
   z-index: 2;
-  height: 100vh;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
 }
 @media (min-width: 768px) {
   .header__primary-nav {
@@ -924,8 +928,12 @@ h4 {
 }
 @media (min-width: 768px) {
   .header__primary-menu a:link {
-    font-size: 1.75rem;
     padding: 0;
+  }
+}
+@media (min-width: 844px) {
+  .header__primary-menu a:link {
+    font-size: 1.75rem;
   }
 }
 .header__primary-menu [aria-current=page] {

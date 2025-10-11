@@ -18,13 +18,12 @@ button,
   @include media-query(desktop) {
     font-size: mapGet($primary, size--large);
   }
-  
+
   @supports (font-size: mapGet($primary, size--clamp)) {
     font-size: mapGet($primary, size--clamp);
   }
 
-  .text-container & {
-  }
+  .text-container & {}
 
   .footer & {
     text-align: center;
@@ -41,6 +40,7 @@ a {
   color: mapGet($body-colors, links);
 
   &:not(.button) {
+
     &:hover,
     &:focus-visible {
       text-decoration: none;
@@ -49,7 +49,7 @@ a {
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-size: 100% auto;
-      
+
       @media (prefers-reduced-motion: no-preference) {
         animation: textShine 5s ease-in-out infinite alternate;
         transition: all 250ms ease-in-out;
@@ -85,11 +85,11 @@ address {
     margin-bottom: mapGet($element, margin);
     line-height: mapGet($element, line-height);
     color: mapGet($body-colors, headings);
-    
+
     @include media-query(tablet) {
       font-size: mapGet($element, size--medium);
     }
-    
+
     @include media-query(desktop) {
       font-size: mapGet($element, size--large);
     }
@@ -150,9 +150,13 @@ h2 {
         text-decoration: none;
         font-family: mapGet($header-typography, primary-menu-items, family);
 
-        @include media-query(tablet) {
-          font-size: mapGet($header-typography, primary-menu-items, size--large);
+
+        @media (min-width: 768px) {
           padding: 0;
+        }
+
+        @media (min-width: 844px) {
+          font-size: mapGet($header-typography, primary-menu-items, size--large);
         }
       }
     }
@@ -179,7 +183,7 @@ h2 {
 
 figcaption {
   margin-top: 0.5rem;
-  
+
   a {
     font-size: 1rem;
   }
@@ -235,7 +239,7 @@ figcaption {
 
   &-name {
     font-weight: mapGet($event-typography, event-name, weight);
-    
+
     &--large {
       font-size: 1.75rem;
       line-height: 1.2;
@@ -249,7 +253,7 @@ figcaption {
     &--large {
       font-size: 1.75rem;
       line-height: 1.2;
-  
+
       a {
         font-size: inherit;
         line-height: inherit;
@@ -261,11 +265,11 @@ figcaption {
       font-size: 1.15rem;
     }
   }
-  
+
   hr {
     margin: 1rem auto 1.75rem;
     border-color: mapGet($event-colors, divider);
-  }  
+  }
 }
 
 .event-list {
@@ -300,14 +304,14 @@ figcaption {
     text-align: center;
   }
 
-  &__input:checked + .site-options__label {
+  &__input:checked+.site-options__label {
     color: mapGet($form-colors, label--active);
   }
 }
 
 .footer {
   color: mapGet($footer-colors, text);
-  
+
   a {
     &:not(.button) {
       color: inherit;
@@ -323,6 +327,7 @@ figcaption {
     font-size: 2.5rem;
 
     a & {
+
       &:hover,
       &:focus-visible {
         text-decoration: none;
@@ -332,7 +337,7 @@ figcaption {
         -webkit-text-fill-color: transparent;
         background-size: cover;
         background-size: 100% auto;
-        
+
         @media (prefers-reduced-motion: no-preference) {
           background-size: 500% auto;
           transition: all 250ms ease-in-out;
@@ -371,7 +376,7 @@ figcaption {
 
   &--scroll-to-top {
     color: mapGet($button-colors, scroll-to-top-text);
-    
+
     &:hover,
     &:focus-visible {
       color: mapGet($button-colors, scroll-to-top-text--hover);
