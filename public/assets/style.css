@@ -395,7 +395,7 @@ a {
 
 .clip-path-layer {
   position: relative;
-  padding: 5rem 0;
+  padding: 5rem 0 10rem;
   margin: 3rem 0;
   background-color: var(--section-background);
 }
@@ -403,6 +403,9 @@ a {
   .clip-path-layer {
     padding: 4rem 0;
   }
+}
+.clip-path-layer.long-list {
+  padding: 5rem 0 10rem;
 }
 @media (min-width: 768px) {
   .clip-path-layer.long-list {
