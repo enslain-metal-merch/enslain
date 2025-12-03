@@ -30,6 +30,14 @@
       "q" : 100,
       "rq" : 75
     },
+    "\/public\/_redirects" : {
+      "cB" : 0,
+      "ft" : 8192,
+      "hM" : 0,
+      "oA" : 1,
+      "oAP" : "\/public\/_redirects",
+      "oF" : 0
+    },
     "\/public\/about\/index.html" : {
       "cB" : 0,
       "ft" : 8192,
