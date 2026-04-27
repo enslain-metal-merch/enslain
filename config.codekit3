@@ -923,6 +923,14 @@
       "oAP" : "\/src\/kit\/partials\/events\/_2026-upcoming.html",
       "oF" : 0
     },
+    "\/src\/kit\/partials\/events\/_2026.kit" : {
+      "cB" : 0,
+      "ft" : 2048,
+      "hM" : 0,
+      "oA" : 1,
+      "oAP" : "\/src\/kit\/partials\/events\/_2026.html",
+      "oF" : 0
+    },
     "\/src\/kit\/partials\/events\/_featured.kit" : {
       "cB" : 0,
       "ft" : 2048,
