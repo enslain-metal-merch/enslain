@@ -18,6 +18,14 @@
     }
   }
 
+  &.xl-list {
+    padding: 10rem 0;
+
+    @include media-query(tablet) {
+      padding: 10rem 0 15rem;
+    }
+  }
+
   &:first-of-type {
     margin-top: 0rem;
 
