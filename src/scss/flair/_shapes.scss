@@ -26,6 +26,14 @@
     }
   }
 
+  &.is-compact {
+    padding: 5rem 0;
+
+    @include media-query(tablet) {
+      padding: 5rem 0 7rem;
+    }
+  }
+
   &:first-of-type {
     margin-top: 0rem;
 

@@ -420,6 +420,14 @@ a {
     padding: 10rem 0 15rem;
   }
 }
+.clip-path-layer.is-compact {
+  padding: 5rem 0;
+}
+@media (min-width: 768px) {
+  .clip-path-layer.is-compact {
+    padding: 5rem 0 7rem;
+  }
+}
 .clip-path-layer:first-of-type {
   margin-top: 0rem;
 }
