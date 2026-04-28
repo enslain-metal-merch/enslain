@@ -421,7 +421,7 @@ a {
   }
 }
 .clip-path-layer.is-compact {
-  padding: 5rem 0;
+  padding: 0rem 0 3rem;
 }
 @media (min-width: 768px) {
   .clip-path-layer.is-compact {

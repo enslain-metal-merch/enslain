@@ -27,7 +27,7 @@
   }
 
   &.is-compact {
-    padding: 5rem 0;
+    padding: 0rem 0 3rem;
 
     @include media-query(tablet) {
       padding: 5rem 0 7rem;
