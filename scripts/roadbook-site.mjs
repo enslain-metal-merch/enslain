@@ -140,14 +140,14 @@ function clientsHub(){
 
 function edition(x){
  const artists=x.bands.filter(b=>norm(b)!==norm(x.name));
- const major=artists.slice(0,5),others=artists.slice(5);
- const fallback=!artists.length?x.details:'';
+ const lineup=artists.length?artists:x.details.split(',').map(b=>b.trim()).filter(Boolean);
+ const major=lineup.slice(0,5),others=lineup.slice(5);
  const ticket=x.upcoming&&x.ticket?'<a class="events-v2__ticket" href="'+esc(x.ticket)+'" target="_blank" rel="noopener noreferrer">Tickets ↗</a>':'';
  return '<article class="roadbook-edition"><p class="roadbook-edition__date"><time datetime="'+esc(x.start)+'">'+esc(x.date)+'</time></p>'+
   '<h3>'+esc(x.name)+'</h3><p class="roadbook-edition__place">'+esc(x.venue)+' · '+esc(x.city)+'</p>'+
   (major.length?'<p class="roadbook-edition__featured">'+major.map(esc).join(' · ')+'</p>':'')+
   (others.length?'<p class="roadbook-edition__bands">'+others.map(esc).join(' · ')+'</p>':'')+
-  (fallback?'<p class="roadbook-edition__bands">'+esc(fallback)+'</p>':'')+ticket+'</article>';
+  ticket+'</article>';
 }
 function festivalHistory(gigs,name){
  const sort=xs=>[...xs].sort((a,b)=>b.start.localeCompare(a.start));
