@@ -85,7 +85,26 @@
 }
 
 
-// Homepage Instagram gallery: full-width and immediately above the events list.
+// Featured events and Instagram in equal-width columns on desktop, stacked on mobile.
+.home-updates {
+  &__grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 2.5rem;
+    align-items: start;
+
+    @include media-query(desktop) {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 3rem;
+    }
+  }
+
+  &__events,
+  .home-instagram {
+    min-width: 0;
+  }
+}
+
 .home-instagram {
   &__heading {
     font-size: clamp(2.25rem, 4.2vw, 3.75rem);
@@ -93,7 +112,7 @@
   }
 
   &__description {
-    margin-bottom: 1.5rem;
+    margin-bottom: 1.25rem;
   }
 
   &__widget {
@@ -119,9 +138,4 @@
       display: inline-flex;
     }
   }
-}
-
-// Keep the event list readable rather than leaving an empty second column.
-.home-events {
-  max-width: 52rem;
 }
