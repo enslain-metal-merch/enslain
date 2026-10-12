@@ -16,7 +16,7 @@ function render(reset=false){
  matched={upcoming:[],past:[]};
  for(const row of rows){
   const matchesTime=when==="all"||row.dataset.kind===when;
-  const matches=matchesTime&&(!q||(row.dataset.search||"").includes(q))&&(!b||(row.dataset.bands||"").split("|").some(v=>v.includes(b)))&&(!c||row.dataset.country===c);
+  const matches=matchesTime&&(!q||(row.dataset.search||"").includes(q))&&(!b||(row.dataset.bands||"").split("|").includes(b))&&(!c||row.dataset.country===c);
   row.classList.toggle("is-filtered-out",!matches);
   if(matches)matched[row.dataset.kind].push(row);
  }
@@ -33,7 +33,8 @@ function render(reset=false){
  empty.hidden=total!==0;
 }
 root.classList.add("events-v2--ready");
-[search,band].forEach(el=>el.addEventListener("input",()=>render(true)));
+search.addEventListener("input",()=>render(true));
+band.addEventListener("change",()=>render(true));
 [country,timing].forEach(el=>el.addEventListener("change",()=>{
  if(el===timing){const u=new URL(location.href);if(timing.value==="all")u.searchParams.delete("timing");else u.searchParams.set("timing",timing.value);history.replaceState(null,"",u);}
  render(true);
