@@ -1197,13 +1197,29 @@ a .footer__icon:hover, a .footer__icon:focus-visible {
   text-align: center;
 }
 
-/* Homepage Instagram gallery: source in src/scss/layouts/large/_sections.scss. */
+/* Featured events + Instagram: SCSS source in src/scss/layouts/large/_sections.scss. */
+.home-updates__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 2.5rem;
+  align-items: start;
+}
+@media (min-width: 1024px) {
+  .home-updates__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 3rem;
+  }
+}
+.home-updates__events,
+.home-updates .home-instagram {
+  min-width: 0;
+}
 .home-instagram__heading {
   font-size: clamp(2.25rem, 4.2vw, 3.75rem);
   margin-bottom: 0.5rem;
 }
 .home-instagram__description {
-  margin-bottom: 1.5rem;
+  margin-bottom: 1.25rem;
 }
 .home-instagram__widget {
   width: 100%;
@@ -1224,7 +1240,4 @@ a .footer__icon:hover, a .footer__icon:focus-visible {
 }
 .home-instagram__links .button {
   display: inline-flex;
-}
-.home-events {
-  max-width: 52rem;
 }
