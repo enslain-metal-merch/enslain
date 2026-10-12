@@ -1,0 +1,15 @@
+{
+  "name": "enslain-roadbook-publisher",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build:roadbook": "node scripts/roadbook-site.mjs",
+    "test:roadbook": "node --test scripts/roadbook-site.test.mjs"
+  },
+  "engines": {
+    "node": ">=22"
+  },
+  "dependencies": {
+    "google-auth-library": "^10.0.0"
+  }
+}
