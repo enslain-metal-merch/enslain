@@ -1143,3 +1143,135 @@ a .footer__icon:hover, a .footer__icon:focus-visible {
     font-size: var(--small-text);
   }
 }
+
+/* Compact homepage hero: keep its source in src/scss/layouts/large/_sections.scss. */
+.home-hero {
+  padding: 1.25rem 0 1rem;
+}
+@media (min-width: 768px) {
+  .home-hero {
+    padding: 2rem 0 1.25rem;
+  }
+}
+.home-hero__title {
+  font-size: clamp(2.25rem, 5.2vw, 4.25rem);
+  line-height: 1.1;
+  text-align: center;
+  margin-bottom: 1rem;
+}
+@media (min-width: 768px) {
+  .home-hero__title {
+    white-space: nowrap;
+  }
+}
+.home-hero__copy {
+  max-width: 52rem;
+  margin: 0 auto;
+  text-align: center;
+}
+.home-hero__copy p {
+  margin-bottom: 0.75rem;
+}
+.home-hero__copy p:last-child {
+  margin-bottom: 0;
+}
+.home-hero__lead {
+  font-weight: 500;
+}
+.home-hero__actions {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1.25rem;
+  margin-top: 1.5rem;
+}
+.home-hero__actions .button {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  min-width: 10rem;
+}
+.home-services {
+  padding: 1.25rem 0 1rem;
+}
+@media (min-width: 768px) {
+  .home-services {
+    padding: 2rem 0;
+  }
+}
+.home-services-note {
+  max-width: 52rem;
+  margin: 1rem auto 0;
+  text-align: center;
+}
+
+/* Featured events + Instagram: SCSS source in src/scss/layouts/large/_sections.scss. */
+.home-updates {
+  padding: 1.25rem 0 1.5rem;
+}
+@media (min-width: 768px) {
+  .home-updates {
+    padding: 2rem 0;
+  }
+}
+.home-updates__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 1.5rem;
+  align-items: start;
+}
+@media (min-width: 1024px) {
+  .home-updates__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 3rem;
+  }
+}
+.home-updates__events,
+.home-updates .home-instagram {
+  min-width: 0;
+}
+.home-updates__events > h2 {
+  font-size: clamp(2.25rem, 3.8vw, 3.25rem);
+}
+.home-updates__events .event-list--featured {
+  padding-top: 0.75rem;
+}
+@media (min-width: 1024px) {
+  .home-updates__events .event-list--featured {
+    padding-top: 1rem;
+  }
+}
+.home-instagram__widget {
+  width: 100%;
+}
+.home-instagram__widget iframe {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  border: 0;
+  overflow: hidden;
+}
+.home-instagram__links {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-items: stretch;
+  gap: 0.75rem;
+  margin-top: 1.25rem;
+}
+.home-instagram__links .button {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 0.65rem 0.35rem;
+  font-size: clamp(0.8rem, 2.8vw, 1.1rem);
+  min-width: 0;
+}
+
+/* Scope compact outer-section spacing to the homepage, on phones only. */
+@media (max-width: 767px) {
+  .main:has(.home-hero) > .clip-path-layer {
+    padding: 1.5rem 0 2.5rem;
+    margin: 1rem 0;
+  }
+}
