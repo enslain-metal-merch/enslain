@@ -117,6 +117,15 @@
   &__events > h2 {
     font-size: clamp(2.25rem, 3.8vw, 3.25rem);
   }
+
+  // Give the featured gigs a little space under the heading.
+  &__events .event-list--featured {
+    padding-top: 0.75rem;
+
+    @include media-query(desktop) {
+      padding-top: 1rem;
+    }
+  }
 }
 
 .home-instagram {
@@ -129,6 +138,12 @@
       max-width: 100%;
       border: 0;
       overflow: hidden;
+      // Pass Enslain's selected theme into LightWidget's cross-origin media queries.
+      color-scheme: dark;
+    }
+
+    :root[data-color-theme='light'] & iframe {
+      color-scheme: light;
     }
   }
 
