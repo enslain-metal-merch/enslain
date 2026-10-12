@@ -27,7 +27,7 @@
 
 // Compact homepage intro: full-width title, readable copy, and immediate actions.
 .home-hero {
-  padding: 1.5rem 0 1.25rem;
+  padding: 1.25rem 0 1rem;
 
   @include media-query(tablet) {
     padding: 2rem 0 1.25rem;
@@ -78,19 +78,30 @@
   }
 }
 
+.home-services {
+  padding: 1.25rem 0 1rem;
+  @include media-query(tablet) {
+    padding: 2rem 0;
+  }
+}
+
 .home-services-note {
   max-width: 52rem;
-  margin: 1.75rem auto 0;
+  margin: 1rem auto 0;
   text-align: center;
 }
 
 
 // Featured events and Instagram in equal-width columns on desktop, stacked on mobile.
 .home-updates {
+  padding: 1.25rem 0 1.5rem;
+  @include media-query(tablet) {
+    padding: 2rem 0;
+  }
   &__grid {
     display: grid;
     grid-template-columns: minmax(0, 1fr);
-    gap: 2.5rem;
+    gap: 1.5rem;
     align-items: start;
 
     @include media-query(desktop) {
@@ -103,18 +114,12 @@
   .home-instagram {
     min-width: 0;
   }
+  &__events > h2 {
+    font-size: clamp(2.25rem, 3.8vw, 3.25rem);
+  }
 }
 
 .home-instagram {
-  &__heading {
-    font-size: clamp(2.25rem, 4.2vw, 3.75rem);
-    margin-bottom: 0.5rem;
-  }
-
-  &__description {
-    margin-bottom: 1.25rem;
-  }
-
   &__widget {
     width: 100%;
 
@@ -128,14 +133,20 @@
   }
 
   &__links {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    gap: 1rem 1.5rem;
-    margin-top: 1.5rem;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    align-items: stretch;
+    gap: 0.75rem;
+    margin-top: 1.25rem;
 
     .button {
       display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 0.65rem 0.35rem;
+      font-size: clamp(0.8rem, 2.8vw, 1.1rem);
+      min-width: 0;
     }
   }
 }
