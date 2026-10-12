@@ -1143,3 +1143,56 @@ a .footer__icon:hover, a .footer__icon:focus-visible {
     font-size: var(--small-text);
   }
 }
+
+/* Compact homepage hero: keep its source in src/scss/layouts/large/_sections.scss. */
+.home-hero {
+  padding: 1.5rem 0 1.25rem;
+}
+@media (min-width: 768px) {
+  .home-hero {
+    padding: 2rem 0 1.25rem;
+  }
+}
+.home-hero__title {
+  font-size: clamp(2.25rem, 5.2vw, 4.25rem);
+  line-height: 1.1;
+  text-align: center;
+  margin-bottom: 1rem;
+}
+@media (min-width: 768px) {
+  .home-hero__title {
+    white-space: nowrap;
+  }
+}
+.home-hero__copy {
+  max-width: 52rem;
+  margin: 0 auto;
+  text-align: center;
+}
+.home-hero__copy p {
+  margin-bottom: 0.75rem;
+}
+.home-hero__copy p:last-child {
+  margin-bottom: 0;
+}
+.home-hero__lead {
+  font-weight: 500;
+}
+.home-hero__actions {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1.25rem;
+  margin-top: 1.5rem;
+}
+.home-hero__actions .button {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  min-width: 10rem;
+}
+.home-services-note {
+  max-width: 52rem;
+  margin: 1.75rem auto 0;
+  text-align: center;
+}
