@@ -1300,19 +1300,18 @@ a .footer__icon:hover, a .footer__icon:focus-visible {
 .events-v2__group-heading h2{font-size:clamp(1.7rem,2.5vw,2.3rem);margin:0}
 .events-v2__group-heading span{opacity:.7;font-size:.85rem}
 .events-v2__table-wrap{width:100%;overflow-x:auto}
-.events-v2__table{width:100%;border-collapse:collapse;table-layout:auto;font-size:.91rem;line-height:1.4}
-.events-v2__table th{font-weight:700;letter-spacing:.08em;text-transform:uppercase;text-align:left;font-size:.71rem;color:var(--events-accent);padding:.65rem .55rem;border-bottom:2px solid var(--events-line)}
+.events-v2__table{width:100%;border-collapse:collapse;table-layout:auto;font-size:1.05rem;line-height:1.43}
+.events-v2__table th{font-weight:700;letter-spacing:.08em;text-transform:uppercase;text-align:left;font-size:.83rem;color:var(--events-accent);padding:.65rem .55rem;border-bottom:2px solid var(--events-line)}
 .events-v2__table td{padding:.84rem .55rem;vertical-align:top;border-bottom:1px solid var(--events-line);overflow-wrap:anywhere}
 .events-v2__table tbody tr:hover{background:color-mix(in srgb,var(--events-accent) 7%,transparent)}
 .events-v2__date{white-space:nowrap;font-weight:700;color:var(--events-accent);min-width:92px}
 .events-v2__name{min-width:125px;max-width:250px}
 .events-v2__name strong{font-weight:700}
-.events-v2__tour,.events-v2__context{display:block;margin-top:.22rem;color:var(--body-text);opacity:.8;font-size:.8rem;line-height:1.35}
-.events-v2__tour{opacity:.65;font-style:italic}
+.events-v2__context{display:block;color:var(--body-text);opacity:.91;font-size:.97rem;line-height:1.4}
 .events-v2__context-cell{min-width:120px;max-width:310px}
 .events-v2__dash{opacity:.35}
 .events-v2__tickets{white-space:nowrap}
-.events-v2__ticket{display:inline-block;text-decoration:none;background:var(--button-background);border:1px solid var(--button-border);border-radius:3px;padding:.35rem .62rem;color:var(--button-text);font-size:.77rem;font-weight:700;line-height:1.35}
+.events-v2__ticket{display:inline-block;text-decoration:none;background:var(--button-background);border:1px solid var(--button-border);border-radius:3px;padding:.35rem .62rem;color:var(--button-text);font-size:.89rem;font-weight:700;line-height:1.4}
 .events-v2__ticket:hover{background:var(--button-background--solid-hover);color:var(--button-text--hover)}
 .events-v2__load-area{display:flex;flex-direction:column;align-items:center;padding:1.25rem 0;min-height:26px}
 .events-v2__load{font:inherit;cursor:pointer;font-size:.89rem;font-weight:700;padding:.65rem 1.5rem;border:1px solid var(--button-border);background:var(--button-background);color:var(--button-text);border-radius:4px}
@@ -1336,8 +1335,7 @@ a .footer__icon:hover, a .footer__icon:focus-visible {
  .events-v2__table td.events-v2__date:before{color:var(--body-text)}
  .events-v2__context-cell{max-width:none}
  .events-v2__ticket{margin:.2rem 0}
- .events-v2__dash{display:none}
- .events-v2__tour{margin-top:.2rem}
+ .events-v2__context-cell:empty{display:none}
  .events-v2__control-footer{flex-wrap:wrap}
 }
 @media(max-width:380px){.events-v2__table td{padding-left:78px}.events-v2__table td:before{width:72px}}
