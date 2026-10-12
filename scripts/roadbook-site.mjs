@@ -88,7 +88,7 @@ function wrap(shell,title,description,path,body){
  let h=shell.slice(0,start)+body+shell.slice(end+7);
  h=h.replace(/<title>[^<]*<\/title>/,'<title>'+esc(title)+' | Enslain Metal Merch</title>').replace(/<meta name="description" content="[^"]*">/,'<meta name="description" content="'+esc(description)+'">');
  h=h.replace('</head>','<link rel="canonical" href="'+SITE+path+'"><meta property="og:title" content="'+esc(title)+'"><meta property="og:description" content="'+esc(description)+'"><link rel="stylesheet" href="/assets/roadbook-pages.css"></head>');
- return h.replace('<script src="/assets/events.js" defer></script>','').replace(/(<a href="\/events\/") aria-current="page"/,'$1');
+ return h.replace('<script src="/assets/events.js" defer></script>','').replace(/(<a href="\/events\/") aria-current="page"/,'$1').replace(/(<a href="\/clients\/")>(Clients)<\/a>/,'$1 aria-current="page">$2</a>');
 }
 function content(title,intro,items,trail){
  return '<main class="main events-v2 roadbook-page"><div class="wrapper roadbook-page__body"><nav class="roadbook-breadcrumbs" aria-label="Breadcrumb"><a href="/events/">Events</a> / '+trail.map(esc).join(' / ')+'</nav><h1>'+esc(title)+'</h1>'+(intro?'<p class="roadbook-lead">'+esc(intro)+'</p>':'')+items+'<p class="roadbook-back"><a href="/events/">← All events</a></p></div></main>';
@@ -213,7 +213,7 @@ export async function generate(input,day=helsinkiDay()){
  eventsHtml=eventsHtml.replace(/<link rel="stylesheet" href="\/assets\/roadbook-pages.css">/g,'').replace('</head>','<link rel="stylesheet" href="/assets/roadbook-pages.css"></head>');
 
  await write('clients',wrap(shell,'Clients','Enslain Metal Merch artists, festival partnerships, tour history and official webshops.','/clients/',
-  content('Clients','',clientsHub(),['Clients'])));
+  content('Clients','',clientsHub(),['Clients']).replace('<a href="/events/">Events</a> / Clients','<a href="/">Home</a> / Clients')));
  await write('artists',wrap(shell,'Artists','Explore Enslain Metal Merch artist partners, event history and upcoming shows.','/artists/',
    content('Artists','',renderDirectory(partnerData.map(x=>({...x,meta:fragments(x.stats).join(' · ')}))),['Artists'])));
  await write('festivals',wrap(shell,'Festival partners','Explore festivals and events with merchandise handled by Enslain Metal Merch.','/festivals/',
@@ -227,8 +227,9 @@ export async function generate(input,day=helsinkiDay()){
   const summary=[x.stats.first?'History from '+x.stats.first:'',x.stats.past?x.stats.past+' past events':'',x.stats.next?'Next '+dateLabel(x.stats.next):''].filter(Boolean).join(' · ');
   const copy=x.blurb?'<p class="roadbook-writeup">'+esc(x.blurb)+'</p>':'';
   const layout=x.name==='Steelfest'?steelfestHistory(x.gigs):table([...x.gigs].sort((a,b)=>b.end.localeCompare(a.end)),relations);
+  const intro=x.name==='Steelfest'?'<p class="roadbook-writeup">Enslain Metal Merch is the official festival and artist merchandise sales partner of Steelfest. Here you’ll find the festival editions we’ve worked, their lineups, and tickets for upcoming events.</p>':'';
   await write('festivals/'+slug(x.name),wrap(shell,x.name+' — festival history',x.name+' festival merchandise history with Enslain Metal Merch.','/festivals/'+slug(x.name)+'/',
-   content(x.name,'',copy+layout,['Festival partners',x.name])));
+   content(x.name,'',intro+copy+layout,['Festival partners',x.name])));
  }
  await write('touring-history',wrap(shell,'Touring history','Explore tours and multi-date merchandise runs by Enslain Metal Merch.','/touring-history/',
    content('Touring history','Selected tour history.',tourIndex(touring),['Touring history'])));

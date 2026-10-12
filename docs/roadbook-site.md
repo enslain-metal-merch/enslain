@@ -27,3 +27,11 @@ Updated PR #3 preview: all 15 Artists and 9 Festival partners have verified, cli
 Optional editorial write-ups are loaded from content/website-profiles.json, omitted when blank. The older 19 tour summaries use the previously reviewed September site archive until their grouping against current Roadbook Event IDs can be validated.
 
 **Important build-source limitation:** The first version updates the compiled public/events/index.html as the base shell. Once the mechanism is approved, consolidate event source templates and generator output to prevent future CodeKit overwrites. This preview leaves the live site unchanged.
+
+
+## Clients hub, linked Events and Steelfest edition architecture (2026-10-12)
+User approved Clients as main navigation label and /clients/ hub with four entry sections, approved artists/festivals/touring links and seven webshops in the provided original source.
+Keep /events/ as chronological searchable listing. Only compact navigation to Clients/Artists/Festivals/Touring History at top, not the entire long collection of links.
+Each public event may link the actual approved primary client artist (verified from Events Client Summary and exact Event name), festival family (verified event identity), and one of the three qualifying 2026 tour pages (KK/Brymir/Pat Metheny) based on in-memory internal Tour/Series, never showing the raw internal classification.
+Steelfest edition page follows supplied original: Steelfest, SteelChaos and SteelHordes family anchor sections, one card per confirmed public edition, with dates, location, original Search Bands lineups and future-only ticket links.
+Primary nav is updated in the Kit source and all preview static pages. Older tour summaries remain plain text until individually verified. Automation stays DISABLED until private Sheets credentials and a full safe rebuild have been reviewed and approved.
