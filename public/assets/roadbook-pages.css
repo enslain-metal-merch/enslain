@@ -15,3 +15,23 @@
 .roadbook-explore a{text-decoration:underline;text-underline-offset:3px}
 @media(max-width:900px){.roadbook-directory{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:620px){.roadbook-page__body{padding:1rem 0 3rem}.roadbook-directory{grid-template-columns:1fr;gap:0}.roadbook-directory__item{padding:.8rem 0}}
+
+/* Rich archived directory information without the prototype's heavy filled cards. */
+.roadbook-directory--rich{grid-template-columns:repeat(3,minmax(0,1fr));column-gap:2rem;row-gap:.6rem}
+.roadbook-directory--rich .roadbook-directory__item{padding:1rem .15rem 1.15rem;border-bottom:1px solid var(--event-divider)}
+.roadbook-directory__heading{font-size:1.16rem;line-height:1.35}
+.roadbook-directory__meta{color:var(--body-text);opacity:.78;font-size:.95rem;line-height:1.45;margin:.45rem 0 0}
+.roadbook-directory__blurb{font-size:.96rem;line-height:1.45;margin:.65rem 0 0;opacity:.9}
+.roadbook-tour-list{margin:1rem 0 2rem;max-width:1100px}
+.roadbook-tour-entry{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:baseline;gap:.5rem 1.5rem;border-bottom:1px solid var(--event-divider);padding:.85rem .25rem}
+.roadbook-tour-entry a{color:var(--links);font-weight:700;text-decoration:underline;text-underline-offset:3px}
+.roadbook-tour-entry strong{font-weight:700}
+.roadbook-tour-entry span{opacity:.78;font-size:.9rem}
+.roadbook-portals{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1rem;margin:.25rem 0 1.2rem}
+.roadbook-portals a{display:flex;flex-direction:column;gap:.25rem;padding:.75rem 1rem;border-bottom:2px solid var(--event-divider);color:var(--links);text-decoration:none}
+.roadbook-portals a:hover,.roadbook-portals a:focus-visible{border-bottom-color:var(--links)}
+.roadbook-portals a strong{font-size:1.12rem}
+.roadbook-portals a span{font-size:.88rem;opacity:.75;color:var(--body-text)}
+.roadbook-writeup{max-width:850px;font-size:1.1rem;line-height:1.6;margin:1rem 0 2rem}
+@media(max-width:840px){.roadbook-directory--rich{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:620px){.roadbook-directory--rich,.roadbook-portals{grid-template-columns:1fr}.roadbook-portals{gap:.3rem;margin:0 0 1rem}.roadbook-tour-entry{flex-direction:column;gap:.25rem}}

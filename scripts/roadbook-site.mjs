@@ -76,32 +76,101 @@ function table(items){
  const block=(xs,isUpcoming)=>{if(!xs.length)return '';const fields=['Date','Event','Details','Venue','City','Country'];if(isUpcoming)fields.push('Tickets');return '<h2>'+(isUpcoming?'Upcoming gigs':'Past events')+'</h2><div class="events-v2__table-wrap"><table class="events-v2__table"><thead><tr>'+fields.map(x=>'<th>'+x+'</th>').join('')+'</tr></thead><tbody>'+xs.map(row).join('\n')+'</tbody></table></div>';};
  return block(upcoming,true)+block(past,false);
 }
-function directory(items){
- return '<ul class="roadbook-directory">'+items.map(x=>'<li class="roadbook-directory__item">'+(x.link?'<a class="roadbook-directory__link" href="'+esc(x.link)+'">'+esc(x.name)+'</a>':'<span class="roadbook-directory__name">'+esc(x.name)+'</span>')+'</li>').join('')+'</ul>';
+
+function slug(value){return norm(value).normalize("NFKD").replace(/[\u0300-\u036f]/g,"").replace(/[^a-z0-9]+/g,"-").replace(/^-|-$/g,"")}
+const artistNames=['Kalmah','Crimson Sun','Tyrantti','Shade Empire','Brymir','Kaunis Kuolematon','Battle Beast','KAUAN','Tarja Turunen','The Man-Eating Tree','Charon','Vorna','Pat Metheny','Mors Subita','MyGrain'];
+const festivalNames=['Ankea Festival','Dark River Festival','Hatefeast','Hellsinki Metal Cruise','Kaaos Festival','Kuolio Fest','Lisää Löylyä','Saarihelvetti','Steelfest'];
+const tourSummary=[["2000 - In Flames + Nevermore","24 gigs · 22 Nov 2000 – 20 Dec 2000"],["2005 - Vader + Decapitated + Dew-Scented","23 gigs · 7 Nov 2005 – 30 Nov 2005"],["2006 - Hypocrisy + Decapitated","28 gigs · 12 Jan 2006 – 12 Feb 2006"],["2007 - To/Die/For + Virgin Black + Urn","8 gigs · 3 Jan 2007 – 12 Jan 2007"],["2015 - Steelwing + Noctum","13 gigs · 31 Aug 2015 – 12 Sep 2015"],["2016 - Possessed + Belphegor + Absu","16 gigs · 3 Dec 2016 – 20 Dec 2016"],["2017 - Amberian Dawn + Diabulus in Musica + Crimson Sun","10 gigs · 10 Feb 2017 – 19 Feb 2017"],["2017 - The Vision Bleak + Nocte Obducta + Saille","10 gigs · 29 Sep 2017 – 8 Oct 2017"],["2017 - Kalmah + Nothgard + Heretoir + Lost in Grey","10 gigs · 1 Dec 2017 – 10 Dec 2017"],["2018 - Kalmah + Vreid + Slegest","11 gigs · 5 Dec 2018 – 15 Dec 2018"],["2019 - Kalmah + Vreid","14 gigs · 17 Apr 2019 – 1 May 2019"],["2019 - Kalmah + Abigail Williams","22 gigs · 14 Nov 2019 – 8 Dec 2019"],["2023 - Kalmah + Mors Subita + Suotana","8 gigs · 30 Mar 2023 – 15 Apr 2023"],["2023 - Marko Hietala","11 gigs · 15 Apr 2023 – 30 Apr 2023"],["2024 - Battle Beast","22 gigs · 9 May 2024 – 15 Jun 2024"],["2024 - Mors Subita + Brymir","9 gigs · 10 Oct 2024 – 30 Nov 2024"],["2025 - Tarja Turunen + Marko Hietala","22 gigs · 23 Feb 2025 – 23 Jul 2025"],["2025 - Marko Hietala","10 gigs · 30 Aug 2025 – 27 Sep 2025"],["2025 - Tarja Turunen - The Spirit of Christmas","13 gigs · 6 Dec 2025 – 22 Dec 2025"],["2026 - Pat Metheny","41 gigs · 5 Jun 2026 – 27 Jul 2026"],["2026 - Brymir","12 gigs · 18 Sep 2026 – 31 Oct 2026"],["2026 - Kaunis Kuolematon","11 gigs · 11 Sep 2026 – 7 Nov 2026"]];
+function festivalMatches(event,name){
+ const n=norm(event.name),target=norm(name);
+ if(name==='Steelfest')return /steelfest|steelchaos|steelhordes/i.test(n);
+ if(name==='Saarihelvetti')return /saarihelvetti|talvihelvetti|merihelvetti/i.test(n);
+ return n===target||n.startsWith(target+' ');
+}
+function sorted(items){return [...items].sort((a,b)=>a.localeCompare(b,'en'))}
+function dateLabel(iso){
+ if(!iso)return '';
+ const [y,m,d]=iso.split('-').map(Number);
+ return new Intl.DateTimeFormat('en-GB',{day:'numeric',month:'short',year:'numeric',timeZone:'UTC'}).format(new Date(Date.UTC(y,m-1,d)));
+}
+function historyStats(items,day){
+ const rec=[...items].sort((a,b)=>a.start.localeCompare(b.start));
+ const past=rec.filter(x=>x.end<day),upcoming=rec.filter(x=>x.end>=day);
+ const first=rec[0]?.start?.slice(0,4)||'';
+ const next=[...upcoming].sort((a,b)=>a.start.localeCompare(b.start))[0]?.start||'';
+ return {first,past:past.length,upcoming:upcoming.length,next,total:rec.length};
+}
+function fragments(meta){
+ return [meta.first?'History from '+meta.first:'',meta.past?meta.past+' past '+(meta.past===1?'event':'events'):'',meta.upcoming?meta.upcoming+' upcoming':''].filter(Boolean);
+}
+function renderDirectory(items){
+ return '<ul class="roadbook-directory roadbook-directory--rich">'+items.map(x=>
+  '<li class="roadbook-directory__item"><div class="roadbook-directory__heading">'+
+  (x.link?'<a class="roadbook-directory__link" href="'+esc(x.link)+'">'+esc(x.name)+'</a>':'<span class="roadbook-directory__name">'+esc(x.name)+'</span>')+
+  '</div>'+(x.meta?'<p class="roadbook-directory__meta">'+esc(x.meta)+'</p>':'')+
+  (x.blurb?'<p class="roadbook-directory__blurb">'+esc(x.blurb)+'</p>':'')+'</li>').join('')+'</ul>';
+}
+function tourIndex(items){
+ return '<div class="roadbook-tour-list">'+items.map(x=>
+ '<div class="roadbook-tour-entry">'+(x.link?'<a href="'+esc(x.link)+'">'+esc(x.name)+'</a>':'<strong>'+esc(x.name)+'</strong>')+
+ '<span>'+esc(x.meta)+'</span></div>').join('')+'</div>';
 }
 async function write(path,html){const dir=join('public',path);await mkdir(dir,{recursive:true});await writeFile(join(dir,'index.html'),html)}
+async function profiles(){
+ try{const raw=JSON.parse(await readFile('content/website-profiles.json','utf8'));return raw}
+ catch(e){if(e.code==='ENOENT')return {artists:{},festivals:{}};throw e}
+}
 export async function generate(input,day=helsinkiDay()){
- const data=curate(input.events,input.feed,day),shell=await readFile(join('public','events','index.html'),'utf8');
+ const data=curate(input.events,input.feed,day),shell=await readFile(join('public','events','index.html'),'utf8'),profile=await profiles();
+ const partnerData=sorted(artistNames).map(name=>{
+  const gigs=data.publicEvents.filter(x=>data.relations.get(x.id)?.clients.includes(norm(name)));
+  requireOk(gigs.length>0,'no verified public records for approved artist '+name);
+  const stats=historyStats(gigs,day);
+  return {name,gigs,stats,link:'/artists/'+slug(name)+'/',blurb:profile.artists?.[name]||''};
+ });
+ const festivalData=sorted(festivalNames).map(name=>{
+  const gigs=data.publicEvents.filter(x=>festivalMatches(x,name));
+  requireOk(gigs.length>0,'no verified public records for approved festival '+name);
+  const stats=historyStats(gigs,day);
+  return {name,gigs,stats,link:'/festivals/'+slug(name)+'/',blurb:profile.festivals?.[name]||''};
+ });
+ const tourGigs=data.publicEvents.filter(x=>data.relations.get(x.id)?.internalTour==='Kaunis Kuolematon — Autumn 2026');
+ requireOk(tourGigs.length>=8,'2026 Kaunis Kuolematon tour below qualifying threshold');
+ const liveGroups={'2026 - Kaunis Kuolematon':'Kaunis Kuolematon — Autumn 2026','2026 - Brymir':'Brymir — Autumn 2026','2026 - Pat Metheny':'Pat Metheny — European Tour'};
+ const touring=tourSummary.map(([name,oldMeta])=>{
+  const group=liveGroups[name],gigs=group?data.publicEvents.filter(x=>data.relations.get(x.id)?.internalTour===group):[];
+  const stats=gigs.length?historyStats(gigs,day):null;
+  const meta=stats?stats.total+' gigs · '+dateLabel([...gigs].sort((a,b)=>a.start.localeCompare(b.start))[0].start)+' – '+dateLabel([...gigs].sort((a,b)=>b.end.localeCompare(a.end))[0].end):oldMeta;
+  return {name,meta,link:name==='2026 - Kaunis Kuolematon'?'/touring-history/2026-kaunis-kuolematon/':''};
+ });
  let eventsHtml=renderEvents(shell,data);
- const explore='<nav class="roadbook-explore" aria-label="Browse gig history"><a href="/artists/">Artists</a><a href="/festivals/">Festival partners</a><a href="/touring-history/">Touring history</a></nav>';
- eventsHtml=eventsHtml.replace(/<nav class="roadbook-explore"[\s\S]*?<\/nav>/,'').replace('<div class="events-v2__controls" role="search"',explore+'<div class="events-v2__controls" role="search"');
- eventsHtml=eventsHtml.replace('</head>','<link rel="stylesheet" href="/assets/roadbook-pages.css"></head>');
- const artistNames=['Kalmah','Crimson Sun','Tyrantti','Shade Empire','Brymir','Kaunis Kuolematon','Battle Beast','KAUAN','Tarja Turunen','The Man-Eating Tree','Charon','Vorna','Pat Metheny','Mors Subita','MyGrain'];
- const festivalNames=['Ankea Festival','Dark River Festival','Hatefeast','Hellsinki Metal Cruise','Kaaos Festival','Kuolio Fest','Lisää Löylyä','Saarihelvetti','Steelfest'];
- await write('artists',wrap(shell,'Artists','Artists represented in Enslain Metal Merch gig history.','/artists/',content('Artists','Approved artist partners and our documented gigs.',directory(artistNames.map(name=>({name,link:name==='Kaunis Kuolematon'?'/artists/kaunis-kuolematon/':null}))),['Artists'])));
- await write('festivals',wrap(shell,'Festival partners','Festivals and historical family events handled by Enslain Metal Merch.','/festivals/',content('Festival partners','Festival merchandise partnerships and past events.',directory(festivalNames.map(name=>({name,link:name==='Steelfest'?'/festivals/steelfest/':null}))),['Festival partners'])));
- const artist=data.publicEvents.filter(x=>data.relations.get(x.id)?.clients.includes('kaunis kuolematon')).sort((a,b)=>b.end.localeCompare(a.end));
- requireOk(artist.length>0,'artist participation is unverified');
- await write('artists/kaunis-kuolematon',wrap(shell,'Kaunis Kuolematon','Enslain Metal Merch gig history with Kaunis Kuolematon.','/artists/kaunis-kuolematon/',content('Kaunis Kuolematon','Our documented merchandise work with Kaunis Kuolematon.',table(artist),['Artists','Kaunis Kuolematon'])));
- const steel=data.publicEvents.filter(x=>/steelfest|steelchaos|steelhordes/i.test(x.name)).sort((a,b)=>b.end.localeCompare(a.end));
- requireOk(steel.length>0,'festival records missing');
- await write('festivals/steelfest',wrap(shell,'Steelfest history','Steelfest, SteelChaos and SteelHordes events handled by Enslain Metal Merch.','/festivals/steelfest/',content('Steelfest','Including SteelChaos and SteelHordes festival history.',table(steel),['Festival partners','Steelfest'])));
- const tour=data.publicEvents.filter(x=>data.relations.get(x.id)?.internalTour==='Kaunis Kuolematon — Autumn 2026').sort((a,b)=>a.start.localeCompare(b.start));
- requireOk(tour.length>=8,'tour below 8 actual gigs');
- await write('touring-history/2026-kaunis-kuolematon',wrap(shell,'2026 - Kaunis Kuolematon','Verified dates from our 2026 Kaunis Kuolematon tour.','/touring-history/2026-kaunis-kuolematon/',content('2026 - Kaunis Kuolematon','Documented 2026 tour dates.',table(tour),['Touring history','2026 - Kaunis Kuolematon'])));
- await write('touring-history',wrap(shell,'Touring history','Browse Enslain Metal Merch touring history and dates.','/touring-history/',content('Touring history','A first page from our archive; older tour mappings are being verified.',directory([{name:'2026 - Kaunis Kuolematon',link:'/touring-history/2026-kaunis-kuolematon/'}]),['Touring history'])));
+ const portal='<nav class="roadbook-portals" aria-label="Explore the Enslain gig archive">'+
+ '<a href="/artists/"><strong>Artists</strong><span>15 artist partners</span></a>'+
+ '<a href="/festivals/"><strong>Festival partners</strong><span>9 festival histories</span></a>'+
+ '<a href="/touring-history/"><strong>Touring history</strong><span>22 tours</span></a></nav>';
+ eventsHtml=eventsHtml.replace(/<nav class="roadbook-explore"[\s\S]*?<\/nav>/,'').replace(/<nav class="roadbook-portals"[\s\S]*?<\/nav>/,'').replace('<div class="events-v2__controls" role="search"',portal+'<div class="events-v2__controls" role="search"');
+ eventsHtml=eventsHtml.replace(/<link rel="stylesheet" href="\/assets\/roadbook-pages.css">/g,'').replace('</head>','<link rel="stylesheet" href="/assets/roadbook-pages.css"></head>');
+ await write('artists',wrap(shell,'Artists','Explore Enslain Metal Merch artist partners, event history and upcoming shows.','/artists/',
+   content('Artists','',renderDirectory(partnerData.map(x=>({...x,meta:fragments(x.stats).join(' · ')}))),['Artists'])));
+ await write('festivals',wrap(shell,'Festival partners','Explore festivals and events with merchandise handled by Enslain Metal Merch.','/festivals/',
+   content('Festival partners','',renderDirectory(festivalData.map(x=>({...x,meta:[x.stats.first?'History from '+x.stats.first:'',x.stats.past?x.stats.past+' past '+(x.stats.past===1?'event':'events'):'',x.stats.next?'Next '+dateLabel(x.stats.next):''].filter(Boolean).join(' · ')}))),['Festival partners'])));
+ for(const x of partnerData){
+  const copy=x.blurb?'<p class="roadbook-writeup">'+esc(x.blurb)+'</p>':'';
+  await write('artists/'+slug(x.name),wrap(shell,x.name+' — gigs',x.name+' merchandise gig history with Enslain Metal Merch.','/artists/'+slug(x.name)+'/',
+   content(x.name,fragments(x.stats).join(' · '),copy+table([...x.gigs].sort((a,b)=>b.end.localeCompare(a.end))),['Artists',x.name])));
+ }
+ for(const x of festivalData){
+  const summary=[x.stats.first?'History from '+x.stats.first:'',x.stats.past?x.stats.past+' past events':'',x.stats.next?'Next '+dateLabel(x.stats.next):''].filter(Boolean).join(' · ');
+  const copy=x.blurb?'<p class="roadbook-writeup">'+esc(x.blurb)+'</p>':'';
+  await write('festivals/'+slug(x.name),wrap(shell,x.name+' — festival history',x.name+' festival merchandise history with Enslain Metal Merch.','/festivals/'+slug(x.name)+'/',
+   content(x.name,summary,copy+table([...x.gigs].sort((a,b)=>b.end.localeCompare(a.end))),['Festival partners',x.name])));
+ }
+ await write('touring-history',wrap(shell,'Touring history','Explore tours and multi-date merchandise runs by Enslain Metal Merch.','/touring-history/',
+   content('Touring history','Selected tour history.',tourIndex(touring),['Touring history'])));
+ await write('touring-history/2026-kaunis-kuolematon',wrap(shell,'2026 - Kaunis Kuolematon','Dates from the 2026 Kaunis Kuolematon merchandise tour.','/touring-history/2026-kaunis-kuolematon/',
+   content('2026 - Kaunis Kuolematon','11 documented tour dates.',table([...tourGigs].sort((a,b)=>a.start.localeCompare(b.start))),['Touring history','2026 - Kaunis Kuolematon'])));
  await writeFile(join('public','events','index.html'),eventsHtml);
- return {published:data.publicEvents.length,upcoming:data.upcoming.length,past:data.past.length,kaunis:artist.length,steelfest:steel.length,tour:tour.length};
+ return {publicCount:data.publicEvents.length,artists:partnerData.length,festivals:festivalData.length,tours:touring.length};
 }
 async function getData(){
  if(process.env.ROADBOOK_FIXTURE)return JSON.parse(await readFile(process.env.ROADBOOK_FIXTURE,'utf8'));
