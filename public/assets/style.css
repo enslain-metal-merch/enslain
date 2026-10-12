@@ -1250,10 +1250,6 @@ a .footer__icon:hover, a .footer__icon:focus-visible {
   max-width: 100%;
   border: 0;
   overflow: hidden;
-  color-scheme: dark;
-}
-:root[data-color-theme="light"] .home-instagram__widget iframe {
-  color-scheme: light;
 }
 .home-instagram__links {
   display: grid;
@@ -1270,4 +1266,12 @@ a .footer__icon:hover, a .footer__icon:focus-visible {
   padding: 0.65rem 0.35rem;
   font-size: clamp(0.8rem, 2.8vw, 1.1rem);
   min-width: 0;
+}
+
+/* Scope compact outer-section spacing to the homepage, on phones only. */
+@media (max-width: 767px) {
+  .main:has(.home-hero) > .clip-path-layer {
+    padding: 0.25rem 0;
+    margin: 0;
+  }
 }
