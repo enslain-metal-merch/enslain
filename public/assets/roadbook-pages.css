@@ -87,3 +87,20 @@
 .roadbook-edition .events-v2__ticket{margin-top:.65rem}
 @media(max-width:900px){.roadbook-client-panels{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:620px){.roadbook-client-panels,.roadbook-shop-grid{grid-template-columns:1fr}.roadbook-client-panel{padding:.85rem}.roadbook-edition{padding:1rem}}
+
+/* Clients hub: dark-navy / pale panels and restrained non-blue accents.
+   Uses Nadya's card backgrounds so light, dark and Chrissy themes remain legible. */
+.roadbook-page--clients .roadbook-client-panel:nth-child(odd){background:var(--card-background)}
+.roadbook-page--clients .roadbook-client-panel:nth-child(1){border-top:3px solid var(--cyan)}
+.roadbook-page--clients .roadbook-client-panel:nth-child(2){border-top:3px solid var(--pink)}
+.roadbook-page--clients .roadbook-client-panel:nth-child(3){border-top:3px solid var(--teal)}
+.roadbook-page--clients .roadbook-client-panel:nth-child(4){border-top:3px solid var(--cyan)}
+.roadbook-page--clients .roadbook-client-section:nth-of-type(odd){background:var(--card-background);border-left:3px solid var(--pink);border-radius:4px;padding:1.45rem 1.65rem}
+.roadbook-page--clients .roadbook-client-section:nth-of-type(3){border-left-color:var(--cyan)}
+.roadbook-page--clients .roadbook-client-section:nth-of-type(even){padding:1rem .25rem}
+.roadbook-page--clients .roadbook-shop-card:nth-child(odd){background:var(--card-background)}
+.roadbook-context-link{color:inherit;text-decoration:underline;text-decoration-color:var(--links);text-decoration-thickness:1px;text-underline-offset:3px}
+.roadbook-context-link:hover{color:var(--links)}
+.roadbook-edition__featured{font-size:1.08rem;font-weight:700;line-height:1.5;margin:.85rem 0 .4rem}
+.roadbook-edition__bands{font-size:.94rem;opacity:.85}
+@media(max-width:620px){.roadbook-page--clients .roadbook-client-section:nth-of-type(odd){padding:1rem}}

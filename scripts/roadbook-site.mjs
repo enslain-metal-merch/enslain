@@ -43,21 +43,21 @@ function publicDetails(x){
   return 'feat. <a class="roadbook-context-link" href="/artists/charon/">Charon</a>';
  return esc(x.details);
 }
-function row(x){
+function row(x,allowContextLink=false){
  const search=norm([x.date,x.name,x.venue,x.city,x.country,x.details,...x.bands].join(' '));
  const c=(label,v)=>'<td data-label="'+label+'">'+esc(v)+'</td>';
  const ticket=x.upcoming?'<td class="events-v2__tickets" data-label="Tickets">'+(x.ticket?'<a class="events-v2__ticket" href="'+esc(x.ticket)+'" target="_blank" rel="noopener noreferrer">Tickets ↗</a>':'')+'</td>':'';
  return '<tr class="events-v2__row" data-event-id="'+esc(x.id)+'" data-kind="'+(x.upcoming?'upcoming':'past')+'" data-bands="'+esc(x.bands.map(norm).join('|'))+'" data-country="'+esc(norm(x.country))+'" data-search="'+esc(search)+'">'+
  '<td class="events-v2__date" data-label="Date"><time datetime="'+esc(x.start)+'">'+esc(x.date)+'</time></td>'+
  '<td class="events-v2__name" data-label="Event"><strong>'+esc(x.name)+'</strong></td>'+
- '<td class="events-v2__context-cell" data-label="Details">'+(x.details?'<span class="events-v2__context">'+publicDetails(x)+'</span>':'')+'</td>'+
+ '<td class="events-v2__context-cell" data-label="Details">'+(x.details?'<span class="events-v2__context">'+(allowContextLink?publicDetails(x):esc(x.details))+'</span>':'')+'</td>'+
  c('Venue',x.venue)+c('City',x.city)+c('Country',x.country)+ticket+'</tr>';
 }
 export function renderEvents(html,data){
  for(const kind of ['upcoming','past']){
   const rec=data[kind],marker=new RegExp('(<section class="events-v2__group" id="'+kind+'-events"[\\s\\S]*?<tbody>)[\\s\\S]*?(</tbody>[\\s\\S]*?</section>)'),m=html.match(marker);
   requireOk(m,'missing '+kind+' section');
-  const section=m[0].replace(/<tbody>[\s\S]*?<\/tbody>/,'<tbody>'+rec.map(row).join('\n')+'</tbody>').replace(/(<div class="events-v2__group-heading">[\s\S]*?<span>)\d+ events(<\/span>)/,'$1'+rec.length+' events$2');
+  const section=m[0].replace(/<tbody>[\s\S]*?<\/tbody>/,'<tbody>'+rec.map(x=>row(x,true)).join('\n')+'</tbody>').replace(/(<div class="events-v2__group-heading">[\s\S]*?<span>)\d+ events(<\/span>)/,'$1'+rec.length+' events$2');
   html=html.replace(m[0],section);
  }
  const bands=[...new Set(data.publicEvents.flatMap(x=>x.bands))].sort((a,b)=>a.localeCompare(b,'en'));
@@ -209,7 +209,7 @@ export async function generate(input,day=helsinkiDay()){
  eventsHtml=eventsHtml.replace(/<link rel="stylesheet" href="\/assets\/roadbook-pages.css">/g,'').replace('</head>','<link rel="stylesheet" href="/assets/roadbook-pages.css"></head>');
 
  await write('clients',wrap(shell,'Clients','Enslain Metal Merch artists, festival partnerships, tour history and official webshops.','/clients/',
-  content('Clients','',clientsHub(),['Clients']).replace('<a href="/events/">Events</a> / Clients','<a href="/">Home</a> / Clients')));
+  content('Clients','',clientsHub(),['Clients']).replace('<main class="main events-v2 roadbook-page">','<main class="main events-v2 roadbook-page roadbook-page--clients">').replace('<a href="/events/">Events</a> / Clients','<a href="/">Home</a> / Clients')));
  await write('artists',wrap(shell,'Artists','Explore Enslain Metal Merch artist partners, event history and upcoming shows.','/artists/',
    content('Artists','',renderDirectory(partnerData.map(x=>({...x,meta:fragments(x.stats).join(' · ')}))),['Artists'])));
  await write('festivals',wrap(shell,'Festival partners','Explore festivals and events with merchandise handled by Enslain Metal Merch.','/festivals/',
