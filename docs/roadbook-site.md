@@ -5,16 +5,16 @@
 The website generator reads native Google Sheets Events and Website Feed using a **dedicated read-only Google service account**. The private credential is never in the GitHub repository, browser, generated pages or public feed. It is supplied at Netlify build time as a secret environment variable.
 
 ## Proposed 03:00 Europe/Helsinki schedule
-- GitHub Actions .github/workflows/roadbook-nightly.yml runs daily at 03:00 local, observing DST.
-- It calls a private Netlify build hook using a GitHub Actions secret. Without that secret it does nothing.
-- Netlify runs the website generator afresh. It does **not** create nightly GitHub commits.
-- A separate manual run is possible when something must be removed from the website before the next scheduled update.
+- Netlify Scheduled Function netlify/functions/roadbook-nightly.mjs runs at 00:00 and 01:00 UTC but checks the local clock, triggering a build **only once**, at 03:00 Europe/Helsinki including DST changes.
+- It calls a private Netlify build hook stored in Netlify's environment variable NETLIFY_ROADBOOK_BUILD_HOOK. Without that secret it does nothing.
+- Netlify runs the website generator afresh; there are **no nightly GitHub commits**, and no inactivity-based 60-day GitHub Actions schedule cutoff.
+- The function schedules itself only in production deploys, not in PR Deploy Previews. A separate Netlify 'Run now' or manual build request is possible for urgent removals.
 
 ## One-time setup, AFTER review and approval
 1. Create a dedicated Google Cloud service account; enable Google Sheets API. Share Roadbook with its email address as **Viewer only**.
 2. Add GOOGLE_SERVICE_ACCOUNT_JSON (the key JSON) and ROADBOOK_SHEET_ID to **Netlify private environment settings**. NEVER put keys in source files, Google Sheets cells, screenshots or chat.
 3. Configure Netlify build command: npm install && npm run build:roadbook. Keep publish directory as public. Netlify should run this for Deploy Previews and production when the secrets exist.
-4. Add a Netlify Build Hook on the Enslain-owned site for master. Put its URL into GitHub Actions secret NETLIFY_ROADBOOK_BUILD_HOOK. Never make the hook public.
+4. Add a Netlify Build Hook on the Enslain-owned site for master. Put its URL into Netlify private environment variable NETLIFY_ROADBOOK_BUILD_HOOK, accessible to the scheduled function. Never make the hook public.
 5. Verify fresh published events, automatic Upcoming→Past movement, privacy withdrawal, failure handling, links, and rollback; approve auto-publishing separately.
 
 ## Privacy / quality guarantees
