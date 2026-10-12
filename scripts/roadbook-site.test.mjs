@@ -23,4 +23,7 @@ test('rebuild removes previously published rows when they become private',()=>{
  assert.equal(html.includes('EV-2026-0003'),false);
  assert.equal(html.includes('SECRET_INTERNAL_TOUR'),false);
  assert.equal((html.match(/data-event-id=/g)||[]).length,1);
+ assert.ok(html.includes('<strong>Kaunis Kuolematon</strong>'));
+ assert.equal(html.includes('roadbook-event-link'),false);
+ assert.equal(html.includes('roadbook-tour-link'),false);
 });
