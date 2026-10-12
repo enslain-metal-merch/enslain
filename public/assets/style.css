@@ -1233,6 +1233,14 @@ a .footer__icon:hover, a .footer__icon:focus-visible {
 .home-updates__events > h2 {
   font-size: clamp(2.25rem, 3.8vw, 3.25rem);
 }
+.home-updates__events .event-list--featured {
+  padding-top: 0.75rem;
+}
+@media (min-width: 1024px) {
+  .home-updates__events .event-list--featured {
+    padding-top: 1rem;
+  }
+}
 .home-instagram__widget {
   width: 100%;
 }
@@ -1242,6 +1250,10 @@ a .footer__icon:hover, a .footer__icon:focus-visible {
   max-width: 100%;
   border: 0;
   overflow: hidden;
+  color-scheme: dark;
+}
+:root[data-color-theme="light"] .home-instagram__widget iframe {
+  color-scheme: light;
 }
 .home-instagram__links {
   display: grid;
