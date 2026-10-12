@@ -1,0 +1,63 @@
+
+/* Enslain Events preview — uses the existing theme variables, no prototype palette. */
+.events-v2 { --events-line: var(--event-divider); --events-ink: var(--body-text); --events-accent: var(--links); --events-soft: var(--card-background); color:var(--events-ink); }
+.events-v2 .events-v2__top-layer{padding:2.1rem 0 2.5rem;margin:1rem 0 0}
+.events-v2 .events-v2__content-layer{padding:2rem 0 5rem;margin:1rem 0 0}
+.events-v2__hero{max-width:1100px}
+.events-v2__hero h1{font-size:clamp(2.2rem,5vw,4.1rem);line-height:1.06;margin:0 0 .8rem}
+.events-v2__hero p{max-width:780px;margin:0;font-size:clamp(1rem,1.35vw,1.17rem)}
+.events-v2__eyebrow{color:var(--events-accent);font-size:.78rem!important;font-weight:700;letter-spacing:.14em;text-transform:uppercase;margin-bottom:.65rem!important}
+.events-v2__inner{max-width:1200px}
+.events-v2__controls{background:var(--events-soft);border:1px solid var(--events-line);border-radius:5px;padding:1.1rem;margin-bottom:1.5rem}
+.events-v2__filter-grid{display:grid;grid-template-columns:minmax(200px,1.5fr) minmax(130px,.7fr) minmax(160px,1fr) minmax(130px,.7fr);gap:.8rem}
+.events-v2__filter{min-width:0;display:flex;flex-direction:column;gap:.35rem;font-size:.82rem;font-weight:700;letter-spacing:.02em}
+.events-v2__filter span{font-size:.78rem;color:var(--events-accent)}
+.events-v2__filter input,.events-v2__filter select{box-sizing:border-box;width:100%;min-width:0;border:1px solid var(--events-line);background:var(--plain-background);color:var(--body-text);font:inherit;font-size:.98rem;line-height:1.35;border-radius:4px;padding:.68rem .65rem}
+.events-v2__filter input:focus-visible,.events-v2__filter select:focus-visible,.events-v2__control-footer button:focus-visible,.events-v2__ticket:focus-visible,.events-v2__load:focus-visible{outline:2px solid var(--events-accent);outline-offset:2px}
+.events-v2__control-footer{display:flex;justify-content:space-between;align-items:center;gap:1rem;margin-top:.85rem}
+.events-v2__control-footer p{margin:0;color:var(--body-text);opacity:.78;font-size:.84rem}
+.events-v2__control-footer button{border:1px solid var(--button-border);background:transparent;color:var(--events-accent);border-radius:4px;font:inherit;font-size:.8rem;font-weight:700;padding:.45rem .8rem;cursor:pointer}
+.events-v2__group{margin:0 0 2rem}
+.events-v2__group-heading{display:flex;align-items:baseline;gap:.75rem;margin:1.3rem 0 .75rem;padding-bottom:.5rem;border-bottom:1px solid var(--events-line)}
+.events-v2__group-heading h2{font-size:clamp(1.7rem,2.5vw,2.3rem);margin:0}
+.events-v2__group-heading span{opacity:.7;font-size:.85rem}
+.events-v2__table-wrap{width:100%;overflow-x:auto}
+.events-v2__table{width:100%;border-collapse:collapse;table-layout:auto;font-size:1.05rem;line-height:1.43}
+.events-v2__table th{font-weight:700;letter-spacing:.08em;text-transform:uppercase;text-align:left;font-size:.83rem;color:var(--events-accent);padding:.65rem .55rem;border-bottom:2px solid var(--events-line)}
+.events-v2__table td{padding:.84rem .55rem;vertical-align:top;border-bottom:1px solid var(--events-line);overflow-wrap:anywhere}
+.events-v2__table tbody tr:hover{background:color-mix(in srgb,var(--events-accent) 7%,transparent)}
+.events-v2__date{white-space:nowrap;font-weight:700;color:var(--events-accent);min-width:92px}
+.events-v2__name{min-width:125px;max-width:250px}
+.events-v2__name strong{font-weight:700}
+.events-v2__context{display:block;color:var(--body-text);opacity:.91;font-size:.97rem;line-height:1.4}
+.events-v2__context-cell{min-width:120px;max-width:310px}
+.events-v2__dash{opacity:.35}
+.events-v2__tickets{white-space:nowrap}
+.events-v2__ticket{display:inline-block;text-decoration:none;background:var(--button-background);border:1px solid var(--button-border);border-radius:3px;padding:.35rem .62rem;color:var(--button-text);font-size:.89rem;font-weight:700;line-height:1.4}
+.events-v2__ticket:hover{background:var(--button-background--solid-hover);color:var(--button-text--hover)}
+.events-v2__load-area{display:flex;flex-direction:column;align-items:center;padding:1.25rem 0;min-height:26px}
+.events-v2__load{font:inherit;cursor:pointer;font-size:.89rem;font-weight:700;padding:.65rem 1.5rem;border:1px solid var(--button-border);background:var(--button-background);color:var(--button-text);border-radius:4px}
+.events-v2__load[hidden],.events-v2__empty[hidden],.events-v2__group[hidden]{display:none!important}
+.events-v2__sentinel{display:block;height:1px;width:100%}
+.events-v2--ready .events-v2__row.is-paged-out{display:none}
+.events-v2__empty{text-align:center;padding:2rem 1rem;border:1px dashed var(--events-line)}
+@media(max-width:980px){.events-v2__filter-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.events-v2__filter--search{grid-column:1/-1}}
+@media(max-width:700px){
+ .events-v2 .events-v2__top-layer{padding:1.2rem 0 1.8rem;margin:0}
+ .events-v2 .events-v2__content-layer{padding:1rem 0 3.5rem;margin:0}
+ .events-v2__controls{padding:.85rem}
+ .events-v2__filter-grid{grid-template-columns:1fr;gap:.65rem}
+ .events-v2__filter--search{grid-column:auto}
+ .events-v2__table,.events-v2__table tbody,.events-v2__table tr,.events-v2__table td{display:block}
+ .events-v2__table thead{display:none}
+ .events-v2__table td{border:0;padding:.15rem 0 .15rem 88px;position:relative;min-height:1.25rem;max-width:none;min-width:0}
+ .events-v2__table td:before{content:attr(data-label);position:absolute;left:0;top:.18rem;display:block;width:79px;font-size:.69rem;font-weight:700;letter-spacing:.05em;opacity:.66;text-transform:uppercase}
+ .events-v2__table tbody tr{display:block;margin:0 0 .55rem;padding:.72rem .8rem;border:1px solid var(--events-line);background:var(--events-soft);border-radius:4px}
+ .events-v2__table td.events-v2__date{color:var(--events-accent)}
+ .events-v2__table td.events-v2__date:before{color:var(--body-text)}
+ .events-v2__context-cell{max-width:none}
+ .events-v2__ticket{margin:.2rem 0}
+ .events-v2__context-cell:empty{display:none}
+ .events-v2__control-footer{flex-wrap:wrap}
+}
+@media(max-width:380px){.events-v2__table td{padding-left:78px}.events-v2__table td:before{width:72px}}
