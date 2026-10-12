@@ -69,10 +69,10 @@ function wrap(shell,title,description,path,body){
  return h.replace('<script src="/assets/events.js" defer></script>','').replace(/(<a href="\/events\/") aria-current="page"/,'$1');
 }
 function content(title,intro,items,trail){
- return '<main class="main events-v2 roadbook-page"><div class="wrapper roadbook-page__body"><nav class="roadbook-breadcrumbs" aria-label="Breadcrumb"><a href="/events/">Events</a> / '+trail.map(esc).join(' / ')+'</nav><h1>'+esc(title)+'</h1><p class="roadbook-lead">'+esc(intro)+'</p>'+items+'<p class="roadbook-back"><a href="/events/">← All events</a></p></div></main>';
+ return '<main class="main events-v2 roadbook-page"><div class="wrapper roadbook-page__body"><nav class="roadbook-breadcrumbs" aria-label="Breadcrumb"><a href="/events/">Events</a> / '+trail.map(esc).join(' / ')+'</nav><h1>'+esc(title)+'</h1>'+(intro?'<p class="roadbook-lead">'+esc(intro)+'</p>':'')+items+'<p class="roadbook-back"><a href="/events/">← All events</a></p></div></main>';
 }
 function table(items){
- const upcoming=items.filter(x=>x.upcoming),past=items.filter(x=>!x.upcoming);
+ const upcoming=items.filter(x=>x.upcoming).sort((a,b)=>a.start.localeCompare(b.start)),past=items.filter(x=>!x.upcoming).sort((a,b)=>b.end.localeCompare(a.end));
  const block=(xs,isUpcoming)=>{if(!xs.length)return '';const fields=['Date','Event','Details','Venue','City','Country'];if(isUpcoming)fields.push('Tickets');return '<h2>'+(isUpcoming?'Upcoming gigs':'Past events')+'</h2><div class="events-v2__table-wrap"><table class="events-v2__table"><thead><tr>'+fields.map(x=>'<th>'+x+'</th>').join('')+'</tr></thead><tbody>'+xs.map(row).join('\n')+'</tbody></table></div>';};
  return block(upcoming,true)+block(past,false);
 }
@@ -168,7 +168,7 @@ export async function generate(input,day=helsinkiDay()){
  await write('touring-history',wrap(shell,'Touring history','Explore tours and multi-date merchandise runs by Enslain Metal Merch.','/touring-history/',
    content('Touring history','Selected tour history.',tourIndex(touring),['Touring history'])));
  await write('touring-history/2026-kaunis-kuolematon',wrap(shell,'2026 - Kaunis Kuolematon','Dates from the 2026 Kaunis Kuolematon merchandise tour.','/touring-history/2026-kaunis-kuolematon/',
-   content('2026 - Kaunis Kuolematon','11 documented tour dates.',table([...tourGigs].sort((a,b)=>a.start.localeCompare(b.start))),['Touring history','2026 - Kaunis Kuolematon'])));
+   content('2026 - Kaunis Kuolematon',tourGigs.length+' documented tour dates.',table([...tourGigs].sort((a,b)=>a.start.localeCompare(b.start))),['Touring history','2026 - Kaunis Kuolematon'])));
  await writeFile(join('public','events','index.html'),eventsHtml);
  return {publicCount:data.publicEvents.length,artists:partnerData.length,festivals:festivalData.length,tours:touring.length};
 }

@@ -22,6 +22,8 @@ Only events with **Status Confirmed, Public? Yes and Feed Publish Yes** may be e
 
 A private-status withdrawal is not instantaneous: the static website stops displaying the event on the *next successful* rebuild. For an urgent cancellation/privacy withdrawal, run the build immediately, rather than waiting until 03:00.
 
-Initial pilot pages: /artists/, /artists/kaunis-kuolematon/, /festivals/, /festivals/steelfest/, /touring-history/, /touring-history/2026-kaunis-kuolematon/. The index pages show approved registries but only the three pilots have dedicated detail links so far. Older tours need manual event-group verification before generation.
+Updated PR #3 preview: all 15 Artists and 9 Festival partners have verified, clickable dedicated pages generated from approved public client or festival relationships. The indexes show historical year, past-event count, and upcoming-event count or next confirmed festival date. The Events top has three restrained archive-navigation panels. The Touring History index includes all 22 approved original tour names, counts and date ranges; only the already verified 2026 Kaunis Kuolematon detail tour page is linked pending historical Event ID mapping verification.
+
+Optional editorial write-ups are loaded from content/website-profiles.json, omitted when blank. The older 19 tour summaries use the previously reviewed September site archive until their grouping against current Roadbook Event IDs can be validated.
 
 **Important build-source limitation:** The first version updates the compiled public/events/index.html as the base shell. Once the mechanism is approved, consolidate event source templates and generator output to prevent future CodeKit overwrites. This preview leaves the live site unchanged.
