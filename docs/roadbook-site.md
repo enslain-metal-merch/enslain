@@ -35,3 +35,13 @@ Keep /events/ as chronological searchable listing. Only compact navigation to Cl
 Each public event may link the actual approved primary client artist (verified from Events Client Summary and exact Event name), festival family (verified event identity), and one of the three qualifying 2026 tour pages (KK/Brymir/Pat Metheny) based on in-memory internal Tour/Series, never showing the raw internal classification.
 Steelfest edition page follows supplied original: Steelfest, SteelChaos and SteelHordes family anchor sections, one card per confirmed public edition, with dates, location, original Search Bands lineups and future-only ticket links.
 Primary nav is updated in the Kit source and all preview static pages. Older tour summaries remain plain text until individually verified. Automation stays DISABLED until private Sheets credentials and a full safe rebuild have been reviewed and approved.
+
+## Approved design direction — Oct 12 refinements (PR #3 preview)
+
+- Clients is the navigation and discovery hub. Use theme-aware contrast, dark-navy/light surfaces and restrained cyan/pink accents rather than a solid blue sheet.
+- Events remains a simple searchable list: plain, nonlinked event titles and NO automatically repeated artist-name or tour links. The only specially verified contextual link in Details is `EV-2026-0063`, `Raahe Festival`, whose published `feat. Charon` text links to the Charon profile. Ordinary links to profiles/festivals/tours belong in Clients and index pages for crawl discovery.
+- Do not insert any tour crosslinks into a tour detail page.
+- `2026 - Kaunis Kuolematon — Tour with Insomnium` contains only public approved records from the `Kaunis Kuolematon — Autumn 2026` grouping whose public details say `with Insomnium` (9 gigs on 2026-10-12). Sep 11 and Sep 12 2026 are separate KK gigs and must not be shown on this tour page. The internal Tour / Series classification is unchanged for bookkeeping.
+- Artists and festival indexes show `2017 →` etc. from the first documented public event. The arrow indicates ongoing relationships confirmed by the user; show past gig counts and upcoming/next dates where relevant.
+- **ALL 9** festival partner pages use edition-by-edition date, venue, and curated lineup content. Up to five artists from the source-ordered public Search Bands/public context appear prominently, remainder in smaller text; these are featured-first display, not independent unverifiable claims of who was contractually billed as headliner. Steelfest and Saarihelvetti keep their related family sections.
+- Automatic generation must preserve these preferences; no public preview is auto-deployed to production until explicit approval and private credentials are configured.
