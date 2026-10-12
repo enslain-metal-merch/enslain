@@ -1,0 +1,106 @@
+.roadbook-page__body{max-width:1200px;padding:2rem 0 5rem}
+.roadbook-page__body h1{font-size:clamp(2.3rem,4.8vw,3.8rem);margin:0 0 1rem}
+.roadbook-breadcrumbs{margin:0 0 1rem;color:var(--links);font-size:.88rem}
+.roadbook-breadcrumbs a,.roadbook-back a{color:var(--links);text-decoration:underline}
+.roadbook-lead{max-width:780px;margin:0 0 2rem}
+/* Quiet, unboxed alphabetical directory; only completed detail pages are links. */
+.roadbook-directory{list-style:none;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0 2rem;padding:0;margin:0 0 2.5rem}
+.roadbook-directory__item{min-width:0;padding:.9rem .1rem;border-bottom:1px solid var(--event-divider);font-size:clamp(1.05rem,1.45vw,1.25rem);line-height:1.35}
+.roadbook-directory__link{color:var(--links);text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:4px;font-weight:700}
+.roadbook-directory__link:hover,.roadbook-directory__link:focus-visible{text-decoration-thickness:2px}
+.roadbook-directory__name{color:var(--body-text);font-weight:600;opacity:.93}
+.roadbook-explore a{color:var(--links)}
+.roadbook-back{margin-top:2rem}
+.roadbook-explore{display:flex;flex-wrap:wrap;gap:1.25rem;margin:0 0 1.2rem;font-weight:700}
+.roadbook-explore a{text-decoration:underline;text-underline-offset:3px}
+@media(max-width:900px){.roadbook-directory{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:620px){.roadbook-page__body{padding:1rem 0 3rem}.roadbook-directory{grid-template-columns:1fr;gap:0}.roadbook-directory__item{padding:.8rem 0}}
+
+/* Rich archived directory information without the prototype's heavy filled cards. */
+.roadbook-directory--rich{grid-template-columns:repeat(3,minmax(0,1fr));column-gap:2rem;row-gap:.6rem}
+.roadbook-directory--rich .roadbook-directory__item{padding:1rem .15rem 1.15rem;border-bottom:1px solid var(--event-divider)}
+.roadbook-directory__heading{font-size:1.16rem;line-height:1.35}
+.roadbook-directory__meta{color:var(--body-text);opacity:.78;font-size:.95rem;line-height:1.45;margin:.45rem 0 0}
+.roadbook-directory__blurb{font-size:.96rem;line-height:1.45;margin:.65rem 0 0;opacity:.9}
+.roadbook-tour-list{margin:1rem 0 2rem;max-width:1100px}
+.roadbook-tour-entry{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:baseline;gap:.5rem 1.5rem;border-bottom:1px solid var(--event-divider);padding:.85rem .25rem}
+.roadbook-tour-entry a{color:var(--links);font-weight:700;text-decoration:underline;text-underline-offset:3px}
+.roadbook-tour-entry strong{font-weight:700}
+.roadbook-tour-entry span{opacity:.78;font-size:.9rem}
+.roadbook-portals{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1rem;margin:.25rem 0 1.2rem}
+.roadbook-portals a{display:flex;flex-direction:column;gap:.25rem;padding:.75rem 1rem;border-bottom:2px solid var(--event-divider);color:var(--links);text-decoration:none}
+.roadbook-portals a:hover,.roadbook-portals a:focus-visible{border-bottom-color:var(--links)}
+.roadbook-portals a strong{font-size:1.12rem}
+.roadbook-portals a span{font-size:.88rem;opacity:.75;color:var(--body-text)}
+.roadbook-writeup{max-width:850px;font-size:1.1rem;line-height:1.6;margin:1rem 0 2rem}
+@media(max-width:840px){.roadbook-directory--rich{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:620px){.roadbook-directory--rich,.roadbook-portals{grid-template-columns:1fr}.roadbook-portals{gap:.3rem;margin:0 0 1rem}.roadbook-tour-entry{flex-direction:column;gap:.25rem}}
+
+/* September sample site's compact direct artist/festival/tour links, in Nadya's theme. */
+.roadbook-quicklinks{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);gap:.8rem 2rem;margin:.1rem 0 1.15rem;padding:0}
+.roadbook-quicklinks__group{min-width:0}
+.roadbook-quicklinks__group h2{font-size:1.15rem;line-height:1.25;margin:.35rem 0 .55rem}
+.roadbook-quicklinks__group h2 a{color:var(--links);text-decoration:none}
+.roadbook-quicklinks__group h2 a:hover{text-decoration:underline}
+.roadbook-quicklinks__cloud{display:flex;flex-wrap:wrap;gap:.38rem .5rem;align-items:center}
+.roadbook-quicklinks__cloud>a,.roadbook-quicklinks__cloud>span{display:inline-block;border:1px solid var(--event-divider);background:transparent;border-radius:3px;padding:.22rem .55rem;line-height:1.45;font-size:.85rem}
+.roadbook-quicklinks__cloud>a{color:var(--links);text-decoration:none}
+.roadbook-quicklinks__cloud>a:hover,.roadbook-quicklinks__cloud>a:focus-visible{border-color:var(--links);text-decoration:underline}
+.roadbook-quicklinks__cloud>span{color:var(--body-text);opacity:.72}
+.roadbook-quicklinks__group--tours{grid-column:1/-1}
+.roadbook-quicklinks__expand{margin:.45rem 0 0}
+.roadbook-quicklinks__expand summary{font-size:.82rem;color:var(--links);cursor:pointer;width:max-content}
+.roadbook-quicklinks__cloud--tours{margin-top:.6rem}
+.roadbook-page .events-v2__table-wrap + h2{margin-top:3.8rem}
+.roadbook-page .events-v2__table-wrap{margin-bottom:1.15rem}
+@media(max-width:760px){.roadbook-quicklinks{grid-template-columns:1fr;gap:.9rem}.roadbook-quicklinks__group--tours{grid-column:auto}}
+
+/* Clients / event-link ecosystem; inherits Nadya's theme tokens. */
+.roadbook-page-nav{display:flex;flex-wrap:wrap;gap:.65rem 1.35rem;margin:.2rem 0 1.25rem;font-weight:700;font-size:.94rem}
+.roadbook-page-nav a{color:var(--links);text-decoration:underline;text-underline-offset:4px}
+.roadbook-event-link{color:var(--links);text-decoration:underline;text-underline-offset:3px}
+.roadbook-tour-link{display:inline-block;margin:.22rem 0 0 .4rem;color:var(--links);font-size:.8rem;white-space:nowrap;text-decoration:underline}
+.roadbook-client-panels{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1rem;margin:.65rem 0 2.5rem}
+.roadbook-client-panel{border:1px solid var(--event-divider);border-radius:4px;background:transparent;text-decoration:none;color:var(--body-text);padding:1rem;display:block}
+.roadbook-client-panel:hover,.roadbook-client-panel:focus-visible{border-color:var(--links)}
+.roadbook-client-panel h2{font-size:1.45rem;line-height:1.1;margin:0 0 .65rem;color:var(--links)}
+.roadbook-client-panel p{margin:0;line-height:1.4;font-size:.93rem;opacity:.83}
+.roadbook-client-section{margin:2.25rem 0 1.3rem}
+.roadbook-client-section h2{font-size:1.75rem;border-bottom:1px solid var(--event-divider);padding-bottom:.35rem;margin:0 0 .95rem}
+.roadbook-client-links{display:flex;flex-wrap:wrap;gap:.55rem}
+.roadbook-client-links a{display:inline-block;color:var(--links);border:1px solid var(--event-divider);border-radius:4px;padding:.5rem .72rem;text-decoration:none;line-height:1.35;font-weight:700}
+.roadbook-client-links a:hover,.roadbook-client-links a:focus-visible{border-color:var(--links);text-decoration:underline}
+.roadbook-shop-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:.85rem}
+.roadbook-shop-card{border:1px solid var(--event-divider);border-radius:4px;padding:.95rem;display:flex;flex-direction:column;gap:.75rem}
+.roadbook-shop-card h3{margin:0;font-size:1.1rem}
+.roadbook-shop-card a{color:var(--links)}
+.roadbook-family-nav{display:flex;flex-wrap:wrap;gap:.6rem;margin:.25rem 0 2rem}
+.roadbook-family-nav a{display:inline-block;color:var(--links);border:1px solid var(--event-divider);padding:.55rem .9rem;border-radius:4px;text-decoration:none;font-weight:700}
+.roadbook-family-nav a:hover,.roadbook-family-nav a:focus-visible{border-color:var(--links);text-decoration:underline}
+.roadbook-family-section{margin:2.3rem 0}
+.roadbook-family-section>h2{font-size:1.8rem;padding:0 0 .6rem;border-bottom:1px solid var(--event-divider);margin:0 0 1.1rem}
+.roadbook-edition{border:1px solid var(--event-divider);background:transparent;border-radius:4px;padding:1.2rem 1.35rem;margin:.9rem 0;line-height:1.5}
+.roadbook-edition__date{color:var(--links);font-weight:700;margin:0 0 .3rem}
+.roadbook-edition h3{font-size:1.25rem;margin:0 0 .3rem}
+.roadbook-edition__place{opacity:.75;margin:.25rem 0}
+.roadbook-edition__bands{line-height:1.65;margin:1rem 0 .3rem}
+.roadbook-edition .events-v2__ticket{margin-top:.65rem}
+@media(max-width:900px){.roadbook-client-panels{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:620px){.roadbook-client-panels,.roadbook-shop-grid{grid-template-columns:1fr}.roadbook-client-panel{padding:.85rem}.roadbook-edition{padding:1rem}}
+
+/* Clients hub: dark-navy / pale panels and restrained non-blue accents.
+   Uses Nadya's card backgrounds so light, dark and Chrissy themes remain legible. */
+.roadbook-page--clients .roadbook-client-panel:nth-child(odd){background:var(--card-background)}
+.roadbook-page--clients .roadbook-client-panel:nth-child(1){border-top:3px solid var(--cyan)}
+.roadbook-page--clients .roadbook-client-panel:nth-child(2){border-top:3px solid var(--pink)}
+.roadbook-page--clients .roadbook-client-panel:nth-child(3){border-top:3px solid var(--teal)}
+.roadbook-page--clients .roadbook-client-panel:nth-child(4){border-top:3px solid var(--cyan)}
+.roadbook-page--clients .roadbook-client-section:nth-of-type(odd){background:var(--card-background);border-left:3px solid var(--pink);border-radius:4px;padding:1.45rem 1.65rem}
+.roadbook-page--clients .roadbook-client-section:nth-of-type(3){border-left-color:var(--cyan)}
+.roadbook-page--clients .roadbook-client-section:nth-of-type(even){padding:1rem .25rem}
+.roadbook-page--clients .roadbook-shop-card:nth-child(odd){background:var(--card-background)}
+.roadbook-context-link{color:inherit;text-decoration:underline;text-decoration-color:var(--links);text-decoration-thickness:1px;text-underline-offset:3px}
+.roadbook-context-link:hover{color:var(--links)}
+.roadbook-edition__featured{font-size:1.08rem;font-weight:700;line-height:1.5;margin:.85rem 0 .4rem}
+.roadbook-edition__bands{font-size:.94rem;opacity:.85}
+@media(max-width:620px){.roadbook-page--clients .roadbook-client-section:nth-of-type(odd){padding:1rem}}
