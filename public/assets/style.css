@@ -1313,7 +1313,7 @@ a .footer__icon:hover, a .footer__icon:focus-visible {
 .events-v2__dash{opacity:.35}
 .events-v2__tickets{white-space:nowrap}
 .events-v2__ticket{display:inline-block;text-decoration:none;background:var(--button-background);border:1px solid var(--button-border);border-radius:3px;padding:.35rem .62rem;color:var(--button-text);font-size:.77rem;font-weight:700;line-height:1.35}
-.events-v2__ticket:hover{background:var(--button-background--solid-hover);color:var(--button-text)}
+.events-v2__ticket:hover{background:var(--button-background--solid-hover);color:var(--button-text--hover)}
 .events-v2__load-area{display:flex;flex-direction:column;align-items:center;padding:1.25rem 0;min-height:26px}
 .events-v2__load{font:inherit;cursor:pointer;font-size:.89rem;font-weight:700;padding:.65rem 1.5rem;border:1px solid var(--button-border);background:var(--button-background);color:var(--button-text);border-radius:4px}
 .events-v2__load[hidden],.events-v2__empty[hidden],.events-v2__group[hidden]{display:none!important}
