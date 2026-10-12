@@ -23,3 +23,63 @@
 .tour {
   margin-top: 5rem;
 }
+
+
+// Compact homepage intro: full-width title, readable copy, and immediate actions.
+.home-hero {
+  padding: 1.5rem 0 1.25rem;
+
+  @include media-query(tablet) {
+    padding: 2rem 0 1.25rem;
+  }
+
+  &__title {
+    font-size: clamp(2.25rem, 5.2vw, 4.25rem);
+    line-height: 1.1;
+    text-align: center;
+    margin-bottom: 1rem;
+
+    @include media-query(tablet) {
+      white-space: nowrap;
+    }
+  }
+
+  &__copy {
+    max-width: 52rem;
+    margin: 0 auto;
+    text-align: center;
+
+    p {
+      margin-bottom: 0.75rem;
+    }
+
+    p:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  &__lead {
+    font-weight: 500;
+  }
+
+  &__actions {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1.25rem;
+    margin-top: 1.5rem;
+
+    .button {
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      min-width: 10rem;
+    }
+  }
+}
+
+.home-services-note {
+  max-width: 52rem;
+  margin: 1.75rem auto 0;
+  text-align: center;
+}
