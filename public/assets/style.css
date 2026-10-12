@@ -1271,7 +1271,7 @@ a .footer__icon:hover, a .footer__icon:focus-visible {
 /* Scope compact outer-section spacing to the homepage, on phones only. */
 @media (max-width: 767px) {
   .main:has(.home-hero) > .clip-path-layer {
-    padding: 0.25rem 0;
-    margin: 0;
+    padding: 1.5rem 0 2.5rem;
+    margin: 1rem 0;
   }
 }
