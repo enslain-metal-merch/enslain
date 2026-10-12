@@ -144,11 +144,16 @@ export async function generate(input,day=helsinkiDay()){
   return {name,meta,link:name==='2026 - Kaunis Kuolematon'?'/touring-history/2026-kaunis-kuolematon/':''};
  });
  let eventsHtml=renderEvents(shell,data);
- const portal='<nav class="roadbook-portals" aria-label="Explore the Enslain gig archive">'+
- '<a href="/artists/"><strong>Artists</strong><span>15 artist partners</span></a>'+
- '<a href="/festivals/"><strong>Festival partners</strong><span>9 festival histories</span></a>'+
- '<a href="/touring-history/"><strong>Touring history</strong><span>22 tours</span></a></nav>';
- eventsHtml=eventsHtml.replace(/<nav class="roadbook-explore"[\s\S]*?<\/nav>/,'').replace(/<nav class="roadbook-portals"[\s\S]*?<\/nav>/,'').replace('<div class="events-v2__controls" role="search"',portal+'<div class="events-v2__controls" role="search"');
+ const groups=[
+  {title:'Artists we work with',index:'/artists/',items:sorted(artistNames).map(name=>({name,href:'/artists/'+slug(name)+'/'}))},
+  {title:'Festival partners',index:'/festivals/',items:sorted(festivalNames).map(name=>({name,href:'/festivals/'+slug(name)+'/'}))}
+ ];
+ const links=xs=>xs.map(x=>'<a href="'+esc(x.href)+'">'+esc(x.name)+'</a>').join('');
+ const blocks=groups.map(g=>'<section class="roadbook-quicklinks__group"><h2><a href="'+g.index+'">'+g.title+'</a></h2><div class="roadbook-quicklinks__cloud">'+links(g.items)+'</div></section>').join('');
+ const toursLinks=touring.map(t=>t.link?'<a href="'+esc(t.link)+'">'+esc(t.name.replace(' - ',' – '))+'</a>':'<span>'+esc(t.name)+'</span>').join('');
+ const portal='<nav class="roadbook-quicklinks" aria-label="Artists, festivals and touring history">'+blocks+
+ '<section class="roadbook-quicklinks__group roadbook-quicklinks__group--tours"><h2><a href="/touring-history/">Touring history</a></h2><div class="roadbook-quicklinks__cloud"><a href="/touring-history/2026-kaunis-kuolematon/">2026 – Kaunis Kuolematon</a><a href="/touring-history/">Browse all 22 tours →</a></div><details class="roadbook-quicklinks__expand"><summary>Show all 22 tour names</summary><div class="roadbook-quicklinks__cloud roadbook-quicklinks__cloud--tours">'+toursLinks+'</div></details></section></nav>';
+ eventsHtml=eventsHtml.replace(/<nav class="roadbook-explore"[\s\S]*?<\/nav>/,'').replace(/<nav class="roadbook-portals"[\s\S]*?<\/nav>/,'').replace(/<nav class="roadbook-quicklinks"[\s\S]*?<\/nav>/,'').replace('<div class="events-v2__controls" role="search"',portal+'<div class="events-v2__controls" role="search"');
  eventsHtml=eventsHtml.replace(/<link rel="stylesheet" href="\/assets\/roadbook-pages.css">/g,'').replace('</head>','<link rel="stylesheet" href="/assets/roadbook-pages.css"></head>');
  await write('artists',wrap(shell,'Artists','Explore Enslain Metal Merch artist partners, event history and upcoming shows.','/artists/',
    content('Artists','',renderDirectory(partnerData.map(x=>({...x,meta:fragments(x.stats).join(' · ')}))),['Artists'])));
@@ -157,18 +162,18 @@ export async function generate(input,day=helsinkiDay()){
  for(const x of partnerData){
   const copy=x.blurb?'<p class="roadbook-writeup">'+esc(x.blurb)+'</p>':'';
   await write('artists/'+slug(x.name),wrap(shell,x.name+' — gigs',x.name+' merchandise gig history with Enslain Metal Merch.','/artists/'+slug(x.name)+'/',
-   content(x.name,fragments(x.stats).join(' · '),copy+table([...x.gigs].sort((a,b)=>b.end.localeCompare(a.end))),['Artists',x.name])));
+   content(x.name,'',copy+table([...x.gigs].sort((a,b)=>b.end.localeCompare(a.end))),['Artists',x.name])));
  }
  for(const x of festivalData){
   const summary=[x.stats.first?'History from '+x.stats.first:'',x.stats.past?x.stats.past+' past events':'',x.stats.next?'Next '+dateLabel(x.stats.next):''].filter(Boolean).join(' · ');
   const copy=x.blurb?'<p class="roadbook-writeup">'+esc(x.blurb)+'</p>':'';
   await write('festivals/'+slug(x.name),wrap(shell,x.name+' — festival history',x.name+' festival merchandise history with Enslain Metal Merch.','/festivals/'+slug(x.name)+'/',
-   content(x.name,summary,copy+table([...x.gigs].sort((a,b)=>b.end.localeCompare(a.end))),['Festival partners',x.name])));
+   content(x.name,'',copy+table([...x.gigs].sort((a,b)=>b.end.localeCompare(a.end))),['Festival partners',x.name])));
  }
  await write('touring-history',wrap(shell,'Touring history','Explore tours and multi-date merchandise runs by Enslain Metal Merch.','/touring-history/',
    content('Touring history','Selected tour history.',tourIndex(touring),['Touring history'])));
  await write('touring-history/2026-kaunis-kuolematon',wrap(shell,'2026 - Kaunis Kuolematon','Dates from the 2026 Kaunis Kuolematon merchandise tour.','/touring-history/2026-kaunis-kuolematon/',
-   content('2026 - Kaunis Kuolematon',tourGigs.length+' documented tour dates.',table([...tourGigs].sort((a,b)=>a.start.localeCompare(b.start))),['Touring history','2026 - Kaunis Kuolematon'])));
+   content('2026 - Kaunis Kuolematon','',table([...tourGigs].sort((a,b)=>a.start.localeCompare(b.start))),['Touring history','2026 - Kaunis Kuolematon'])));
  await writeFile(join('public','events','index.html'),eventsHtml);
  return {publicCount:data.publicEvents.length,artists:partnerData.length,festivals:festivalData.length,tours:touring.length};
 }

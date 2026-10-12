@@ -35,3 +35,22 @@
 .roadbook-writeup{max-width:850px;font-size:1.1rem;line-height:1.6;margin:1rem 0 2rem}
 @media(max-width:840px){.roadbook-directory--rich{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:620px){.roadbook-directory--rich,.roadbook-portals{grid-template-columns:1fr}.roadbook-portals{gap:.3rem;margin:0 0 1rem}.roadbook-tour-entry{flex-direction:column;gap:.25rem}}
+
+/* September sample site's compact direct artist/festival/tour links, in Nadya's theme. */
+.roadbook-quicklinks{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);gap:.8rem 2rem;margin:.1rem 0 1.15rem;padding:0}
+.roadbook-quicklinks__group{min-width:0}
+.roadbook-quicklinks__group h2{font-size:1.15rem;line-height:1.25;margin:.35rem 0 .55rem}
+.roadbook-quicklinks__group h2 a{color:var(--links);text-decoration:none}
+.roadbook-quicklinks__group h2 a:hover{text-decoration:underline}
+.roadbook-quicklinks__cloud{display:flex;flex-wrap:wrap;gap:.38rem .5rem;align-items:center}
+.roadbook-quicklinks__cloud>a,.roadbook-quicklinks__cloud>span{display:inline-block;border:1px solid var(--event-divider);background:transparent;border-radius:3px;padding:.22rem .55rem;line-height:1.45;font-size:.85rem}
+.roadbook-quicklinks__cloud>a{color:var(--links);text-decoration:none}
+.roadbook-quicklinks__cloud>a:hover,.roadbook-quicklinks__cloud>a:focus-visible{border-color:var(--links);text-decoration:underline}
+.roadbook-quicklinks__cloud>span{color:var(--body-text);opacity:.72}
+.roadbook-quicklinks__group--tours{grid-column:1/-1}
+.roadbook-quicklinks__expand{margin:.45rem 0 0}
+.roadbook-quicklinks__expand summary{font-size:.82rem;color:var(--links);cursor:pointer;width:max-content}
+.roadbook-quicklinks__cloud--tours{margin-top:.6rem}
+.roadbook-page .events-v2__table-wrap + h2{margin-top:3.8rem}
+.roadbook-page .events-v2__table-wrap{margin-bottom:1.15rem}
+@media(max-width:760px){.roadbook-quicklinks{grid-template-columns:1fr;gap:.9rem}.roadbook-quicklinks__group--tours{grid-column:auto}}
