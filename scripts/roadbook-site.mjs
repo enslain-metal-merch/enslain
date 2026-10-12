@@ -72,7 +72,9 @@ function content(title,intro,items,trail){
  return '<main class="main events-v2 roadbook-page"><div class="wrapper roadbook-page__body"><nav class="roadbook-breadcrumbs" aria-label="Breadcrumb"><a href="/events/">Events</a> / '+trail.map(esc).join(' / ')+'</nav><h1>'+esc(title)+'</h1><p class="roadbook-lead">'+esc(intro)+'</p>'+items+'<p class="roadbook-back"><a href="/events/">← All events</a></p></div></main>';
 }
 function table(items){
- return '<div class="events-v2__table-wrap"><table class="events-v2__table"><thead><tr>'+['Date','Event','Details','Venue','City','Country','Tickets'].map(x=>'<th>'+x+'</th>').join('')+'</tr></thead><tbody>'+items.map(row).join('\n')+'</tbody></table></div>';
+ const upcoming=items.filter(x=>x.upcoming),past=items.filter(x=>!x.upcoming);
+ const block=(xs,isUpcoming)=>{if(!xs.length)return '';const fields=['Date','Event','Details','Venue','City','Country'];if(isUpcoming)fields.push('Tickets');return '<h2>'+(isUpcoming?'Upcoming gigs':'Past events')+'</h2><div class="events-v2__table-wrap"><table class="events-v2__table"><thead><tr>'+fields.map(x=>'<th>'+x+'</th>').join('')+'</tr></thead><tbody>'+xs.map(row).join('\n')+'</tbody></table></div>';};
+ return block(upcoming,true)+block(past,false);
 }
 function directory(items){
  return '<div class="roadbook-grid">'+items.map(x=>'<div class="roadbook-tile">'+(x.link?'<a href="'+esc(x.link)+'">'+esc(x.name)+'</a>':esc(x.name))+'</div>').join('')+'</div>';
@@ -83,6 +85,7 @@ export async function generate(input,day=helsinkiDay()){
  let eventsHtml=renderEvents(shell,data);
  const explore='<nav class="roadbook-explore" aria-label="Browse gig history"><a href="/artists/">Artists</a><a href="/festivals/">Festival partners</a><a href="/touring-history/">Touring history</a></nav>';
  eventsHtml=eventsHtml.replace(/<nav class="roadbook-explore"[\s\S]*?<\/nav>/,'').replace('<div class="events-v2__controls" role="search"',explore+'<div class="events-v2__controls" role="search"');
+ eventsHtml=eventsHtml.replace('</head>','<link rel="stylesheet" href="/assets/roadbook-pages.css"></head>');
  const artistNames=['Kalmah','Crimson Sun','Tyrantti','Shade Empire','Brymir','Kaunis Kuolematon','Battle Beast','KAUAN','Tarja Turunen','The Man-Eating Tree','Charon','Vorna','Pat Metheny','Mors Subita','MyGrain'];
  const festivalNames=['Ankea Festival','Dark River Festival','Hatefeast','Hellsinki Metal Cruise','Kaaos Festival','Kuolio Fest','Lisää Löylyä','Saarihelvetti','Steelfest'];
  await write('artists',wrap(shell,'Artists','Artists represented in Enslain Metal Merch gig history.','/artists/',content('Artists','Approved artist partners and our documented gigs.',directory(artistNames.map(name=>({name,link:name==='Kaunis Kuolematon'?'/artists/kaunis-kuolematon/':null}))),['Artists'])));
