@@ -77,7 +77,7 @@ function table(items){
  return block(upcoming,true)+block(past,false);
 }
 function directory(items){
- return '<div class="roadbook-grid">'+items.map(x=>'<div class="roadbook-tile">'+(x.link?'<a href="'+esc(x.link)+'">'+esc(x.name)+'</a>':esc(x.name))+'</div>').join('')+'</div>';
+ return '<ul class="roadbook-directory">'+items.map(x=>'<li class="roadbook-directory__item">'+(x.link?'<a class="roadbook-directory__link" href="'+esc(x.link)+'">'+esc(x.name)+'</a>':'<span class="roadbook-directory__name">'+esc(x.name)+'</span>')+'</li>').join('')+'</ul>';
 }
 async function write(path,html){const dir=join('public',path);await mkdir(dir,{recursive:true});await writeFile(join(dir,'index.html'),html)}
 export async function generate(input,day=helsinkiDay()){
