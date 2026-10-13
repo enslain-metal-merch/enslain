@@ -1,25 +1,32 @@
-# Enslain website analytics (preview scaffold)
+# Enslain website analytics — activation checklist
 
-This branch prepares **Google Analytics 4** and **Cloudflare Web Analytics** with no changes to website appearance. Both measurement identifiers are intentionally blank until the accounts are created. The shared `/assets/script-min.js` runs on existing normal, artist, festival and tour pages. Redirect-only `/events/past-events/` is excluded.
+## Current branch status (2026-10-13)
+- GA4 Measurement ID: `G-MF9VNNQ7ZW` — configured in source and published bundle.
+- Cloudflare Web Analytics token: `0df2800b2b92473499a18e2542797e66` — configured in source and published bundle.
+- Google Search Console verification: **pending**.
+- Production: **not yet enabled**. This is draft PR #8, not merged into `master`.
+- Netlify deploy preview: https://deploy-preview-8--enslain.netlify.app/ (analytics deliberately disabled on Netlify hostnames).
 
-## Chrissy's setup steps
-1. **Google Analytics 4:** go to https://analytics.google.com/, create property **Enslain Metal Merch** (Finland; Euro) and web stream for **https://www.enslain.net/**. Copy the **G-…** Measurement ID.
-2. **Cloudflare Web Analytics:** go to https://dash.cloudflare.com/ → Web Analytics → Add site. Enter **enslain.net** (no Cloudflare DNS/proxy move). Copy the site's **32-character token** from Manage site / JS snippet.
-3. **Google Search Console:** go to https://search.google.com/search-console/ and add a **URL-prefix** property **https://www.enslain.net/**. Choose **HTML tag** verification; copy the `google-site-verification` token. This avoids touching existing DNS.
-4. Send all three values to Chadley, who will configure the GitHub preview, insert the Search Console verification meta in the homepage and matching Kit header template, verify, then request approval before merging to master.
+## Next: Google Search Console
+1. Open https://search.google.com/search-console/
+2. Add **URL-prefix** property `https://www.enslain.net/` (NOT Domain property, which would require DNS verification).
+3. Select **HTML tag** verification and copy the complete meta tag `<meta name="google-site-verification" content="...">`.
+4. Provide the tag to Chadley to insert into `public/index.html` and the shared Kit header source `src/kit/partials/_header.kit` on this branch.
+5. Merge only after user review, then return to Search Console and press **Verify** against live www.enslain.net.
 
-## Implementation
-- Active source: `src/js/analytics.js`; registered in `src/js/script.js` for the existing CodeKit build.
-- Live-served compiled bundle: `public/assets/script-min.js`, with the same bootstrap added as an independent, self-contained script. Keep both copies synchronized.
-- Google tag loads **only** when the G- ID is set; Cloudflare beacon loads **only** when the token is set. No false tracking until configured.
-- Runs only on `enslain.net` / `www.enslain.net`, not on `deploy-preview-*.netlify.app`. No code changes to the SumUp shop.
-- GA4 custom click events: `contact_click` on email links, `webshop_click` on outbound shop links. GA4's Enhanced Measurement can separately report other outbound clicks.
-- Search Console does not require a visitor-facing site script.
-- This scaffold adds **no popup or banner**. Standard GA4 without prior consent is not compliant with relevant Finnish/EEA consent requirements and can conflict with Google's EU User Consent Policy; the site owner has explicitly chosen a no-banner visitor experience.
+## Technical behavior
+- `src/js/analytics.js` is the editable source registered in `src/js/script.js`.
+- `public/assets/script-min.js` is the compiled file actually served by Netlify; update BOTH with changes.
+- Browser loads GA4 and Cloudflare only for `enslain.net` / `www.enslain.net`, not deploy previews or shop subdomains.
+- GA4 sends normal automatic page views plus explicit email `contact_click` and shop `webshop_click` click events. These are click intent, not confirmed inquiries or purchases.
+- Cloudflare Web Analytics collects its standard page-view/site metrics.
+- Google Search Console verification adds no visitor-facing script.
+- Existing social integrations and the visual appearance remain unchanged.
+- No popup or banner is added. Standard GA4 without consent is not compliant with relevant Finnish/EEA consent requirements and may conflict with Google's EU User Consent Policy, as explained to the user.
 
-## Test when identifiers are inserted
-- Check emitted code on normal and Roadbook-generated pages.
-- In GA4 Realtime, visit https://www.enslain.net/ and visit internal pages; verify a `page_view` event and click events.
-- Check Cloudflare Web Analytics visits and page URL reporting (allow a short delay).
-- Complete Search Console HTML-tag verification and submit `sitemap.xml` after one actually exists.
-- Confirm the existing Facebook/Instagram widgets, footer credit, Enslain color themes and event filtering remain unchanged.
+## Post-publish checks
+- Verify deployed code contains both tokens and the Search Console meta tag on the *actual* live domain.
+- Visit `https://www.enslain.net/`, follow several page links, and check GA4 Realtime / Cloudflare analytics after their reporting delays.
+- Test email and outbound webshop link GA4 events; avoid interpreting clicks as completed transactions.
+- Confirm `/events/`, `/clients/`, sample artist/festival detail pages, and all Enslain appearance themes behave as before.
+- Verify Search Console property only after meta tag is deployed to production; submit sitemap once the site actually has one.
