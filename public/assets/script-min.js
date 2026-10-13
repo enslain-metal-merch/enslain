@@ -2,7 +2,7 @@
 (function () {
   "use strict";
   var ga4MeasurementId = "G-MF9VNNQ7ZW";
-  var cloudflareWebAnalyticsToken = "";
+  var cloudflareWebAnalyticsToken = "0df2800b2b92473499a18e2542797e66";
 
   // Exclude Netlify deploy previews and other subdomains from production metrics.
   if (!/^(www\.)?enslain\.net$/i.test(window.location.hostname)) return;
