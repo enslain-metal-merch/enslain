@@ -1,7 +1,7 @@
-/* Enslain website analytics. Production-only; IDs intentionally blank until configured. */
+/* Enslain website analytics. Production-only; add provider IDs as they become available. */
 (function () {
   "use strict";
-  var ga4MeasurementId = "";
+  var ga4MeasurementId = "G-MF9VNNQ7ZW";
   var cloudflareWebAnalyticsToken = "";
 
   // Exclude Netlify deploy previews and other subdomains from production metrics.
