@@ -1,0 +1,19 @@
+name: Verify Roadbook generator
+on:
+  pull_request:
+    paths:
+      - 'scripts/**'
+      - 'package.json'
+      - '.github/workflows/roadbook-check.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  generator-tests:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: node --test scripts/roadbook-site.test.mjs

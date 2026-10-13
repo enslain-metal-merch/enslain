@@ -1,0 +1,47 @@
+# Roadbook website publishing — next version
+
+**This is a test branch. Automated production publishing is NOT enabled.**
+
+The website generator reads native Google Sheets Events and Website Feed using a **dedicated read-only Google service account**. The private credential is never in the GitHub repository, browser, generated pages or public feed. It is supplied at Netlify build time as a secret environment variable.
+
+## Proposed 03:00 Europe/Helsinki schedule
+- Netlify Scheduled Function netlify/functions/roadbook-nightly.mjs runs at 00:00 and 01:00 UTC but checks the local clock, triggering a build **only once**, at 03:00 Europe/Helsinki including DST changes.
+- It calls a private Netlify build hook stored in Netlify's environment variable NETLIFY_ROADBOOK_BUILD_HOOK. Without that secret it does nothing.
+- Netlify runs the website generator afresh; there are **no nightly GitHub commits**, and no inactivity-based 60-day GitHub Actions schedule cutoff.
+- The function schedules itself only in production deploys, not in PR Deploy Previews. A separate Netlify 'Run now' or manual build request is possible for urgent removals.
+
+## One-time setup, AFTER review and approval
+1. Create a dedicated Google Cloud service account; enable Google Sheets API. Share Roadbook with its email address as **Viewer only**.
+2. Add GOOGLE_SERVICE_ACCOUNT_JSON (the key JSON) and ROADBOOK_SHEET_ID to **Netlify private environment settings**. NEVER put keys in source files, Google Sheets cells, screenshots or chat.
+3. Configure Netlify build command: npm install && npm run build:roadbook. Keep publish directory as public. Netlify should run this for Deploy Previews and production when the secrets exist.
+4. Add a Netlify Build Hook on the Enslain-owned site for master. Put its URL into Netlify private environment variable NETLIFY_ROADBOOK_BUILD_HOOK, accessible to the scheduled function. Never make the hook public.
+5. Verify fresh published events, automatic Upcoming→Past movement, privacy withdrawal, failure handling, links, and rollback; approve auto-publishing separately.
+
+## Privacy / quality guarantees
+Only events with **Status Confirmed, Public? Yes and Feed Publish Yes** may be emitted. The generator joins stable Event IDs, checks public-field agreement, rejects duplicates and broken dates, and emits only approved display fields. Tour / Series and Client Summary remain in build memory for relationship matching and are not written to public output. It never exports staff assignments, money, internal notes, private statuses or private records. Errors fail the build so Netlify keeps the last successful deploy.
+
+A private-status withdrawal is not instantaneous: the static website stops displaying the event on the *next successful* rebuild. For an urgent cancellation/privacy withdrawal, run the build immediately, rather than waiting until 03:00.
+
+Updated PR #3 preview: all 15 Artists and 9 Festival partners have verified, clickable dedicated pages generated from approved public client or festival relationships. The indexes show historical year, past-event count, and upcoming-event count or next confirmed festival date. The Events top has three restrained archive-navigation panels. The Touring History index includes all 22 approved original tour names, counts and date ranges; only the already verified 2026 Kaunis Kuolematon detail tour page is linked pending historical Event ID mapping verification.
+
+Optional editorial write-ups are loaded from content/website-profiles.json, omitted when blank. The older 19 tour summaries use the previously reviewed September site archive until their grouping against current Roadbook Event IDs can be validated.
+
+**Important build-source limitation:** The first version updates the compiled public/events/index.html as the base shell. Once the mechanism is approved, consolidate event source templates and generator output to prevent future CodeKit overwrites. This preview leaves the live site unchanged.
+
+
+## Clients hub, linked Events and Steelfest edition architecture (2026-10-12)
+User approved Clients as main navigation label and /clients/ hub with four entry sections, approved artists/festivals/touring links and seven webshops in the provided original source.
+Keep /events/ as chronological searchable listing. Only compact navigation to Clients/Artists/Festivals/Touring History at top, not the entire long collection of links.
+Each public event may link the actual approved primary client artist (verified from Events Client Summary and exact Event name), festival family (verified event identity), and one of the three qualifying 2026 tour pages (KK/Brymir/Pat Metheny) based on in-memory internal Tour/Series, never showing the raw internal classification.
+Steelfest edition page follows supplied original: Steelfest, SteelChaos and SteelHordes family anchor sections, one card per confirmed public edition, with dates, location, original Search Bands lineups and future-only ticket links.
+Primary nav is updated in the Kit source and all preview static pages. Older tour summaries remain plain text until individually verified. Automation stays DISABLED until private Sheets credentials and a full safe rebuild have been reviewed and approved.
+
+## Approved design direction — Oct 12 refinements (PR #3 preview)
+
+- Clients is the navigation and discovery hub. Use theme-aware contrast, dark-navy/light surfaces and restrained cyan/pink accents rather than a solid blue sheet.
+- Events remains a simple searchable list: plain, nonlinked event titles and NO automatically repeated artist-name or tour links. The only specially verified contextual link in Details is `EV-2026-0063`, `Raahe Festival`, whose published `feat. Charon` text links to the Charon profile. Ordinary links to profiles/festivals/tours belong in Clients and index pages for crawl discovery.
+- Do not insert any tour crosslinks into a tour detail page.
+- `2026 - Kaunis Kuolematon — Tour with Insomnium` contains only public approved records from the `Kaunis Kuolematon — Autumn 2026` grouping whose public details say `with Insomnium` (9 gigs on 2026-10-12). Sep 11 and Sep 12 2026 are separate KK gigs and must not be shown on this tour page. The internal Tour / Series classification is unchanged for bookkeeping.
+- Artists and festival indexes show `2017 →` etc. from the first documented public event. The arrow indicates ongoing relationships confirmed by the user; show past gig counts and upcoming/next dates where relevant.
+- **ALL 9** festival partner pages use edition-by-edition date, venue, and curated lineup content. Up to five artists from the source-ordered public Search Bands/public context appear prominently, remainder in smaller text; these are featured-first display, not independent unverifiable claims of who was contractually billed as headliner. Steelfest and Saarihelvetti keep their related family sections.
+- Automatic generation must preserve these preferences; no public preview is auto-deployed to production until explicit approval and private credentials are configured.
