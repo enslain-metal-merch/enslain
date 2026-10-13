@@ -249,7 +249,7 @@ export async function generate(input,day=helsinkiDay()){
   ...festivalData.map(x=>'/festivals/'+slug(x.name)+'/'),
   '/touring-history/2026-brymir/','/touring-history/2026-kaunis-kuolematon/','/touring-history/2026-pat-metheny/'];
  const uniquePaths=[...new Set(sitemapPaths)];
- await writeFile(join('public','sitemap.xml'),'<?xml version="1.0" encoding="UTF-8"?>\\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\\n'+uniquePaths.map(p=>'  <url><loc>'+SITE+p+'</loc></url>').join('\\n')+'\\n</urlset>\\n');
+ await writeFile(join('public','sitemap.xml'),'<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'+uniquePaths.map(p=>'  <url><loc>'+SITE+p+'</loc></url>').join('\n')+'\n</urlset>\n');
 
  return {publicCount:data.publicEvents.length,artists:partnerData.length,festivals:festivalData.length,tours:touring.length};
 }
