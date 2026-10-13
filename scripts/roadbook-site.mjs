@@ -68,8 +68,8 @@ function wrap(shell,title,description,path,body){
  requireOk(start>=0&&end>start,'site shell unavailable');
  let h=shell.slice(0,start)+body+shell.slice(end+7);
  h=h.replace(/<title>[^<]*<\/title>/,'<title>'+esc(title)+' | Enslain Metal Merch</title>').replace(/<meta name="description" content="[^"]*">/,'<meta name="description" content="'+esc(description)+'">');
- h=h.replace(/<link rel="canonical"[^>]*>/g,'').replace(/<meta property="og:title"[^>]*>/g,'').replace(/<meta property="og:description"[^>]*>/g,'');
- h=h.replace('</head>','<link rel="canonical" href="'+SITE+path+'"><meta property="og:title" content="'+esc(title)+'"><meta property="og:description" content="'+esc(description)+'"><link rel="stylesheet" href="/assets/roadbook-pages.css"></head>');
+ h=h.replace(/<link rel="canonical"[^>]*>/g,'').replace(/<meta property="og:title"[^>]*>/g,'').replace(/<meta property="og:description"[^>]*>/g,'').replace(/<meta property="og:url"[^>]*>/g,'');
+ h=h.replace('</head>','<link rel="canonical" href="'+SITE+path+'"><meta property="og:url" content="'+SITE+path+'"><meta property="og:title" content="'+esc(title)+'"><meta property="og:description" content="'+esc(description)+'"><link rel="stylesheet" href="/assets/roadbook-pages.css"></head>');
  return h.replace('<script src="/assets/events.js" defer></script>','').replace(/(<a href="\/events\/") aria-current="page"/,'$1').replace(/(<a href="\/clients\/")>(Clients)<\/a>/,'$1 aria-current="page">$2</a>');
 }
 function content(title,intro,items,trail){
@@ -204,7 +204,8 @@ export async function generate(input,day=helsinkiDay()){
   .replace(/<link rel="canonical"[^>]*>/g,'')
   .replace(/<meta property="og:title"[^>]*>/g,'')
   .replace(/<meta property="og:description"[^>]*>/g,'')
-  .replace('</head>','<link rel="canonical" href="'+SITE+'/events/"><meta property="og:title" content="Metal Gigs &amp; Festivals in Finland"><meta property="og:description" content="'+esc(eventsSeoDescription)+'"></head>');
+  .replace(/<meta property="og:url"[^>]*>/g,'')
+  .replace('</head>','<link rel="canonical" href="'+SITE+'/events/"><meta property="og:url" content="'+SITE+'/events/"><meta property="og:title" content="Metal Gigs &amp; Festivals in Finland"><meta property="og:description" content="'+esc(eventsSeoDescription)+'"></head>');
 
 
  const nav='<nav class="roadbook-page-nav" aria-label="Browse artists, festivals and tours"><a href="/artists/">Artists</a><a href="/festivals/">Festivals</a><a href="/touring-history/">Touring history</a></nav>';
