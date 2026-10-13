@@ -198,19 +198,19 @@ export async function generate(input,day=helsinkiDay()){
  });
  let eventsHtml=renderEvents(shell,data);
 
- const nav='<nav class="roadbook-page-nav" aria-label="Browse Clients and Events"><a href="/clients/">Clients</a><a href="/artists/">Artists</a><a href="/festivals/">Festivals</a><a href="/touring-history/">Touring history</a></nav>';
+ const nav='<nav class="roadbook-page-nav" aria-label="Browse artists, festivals and tours"><a href="/artists/">Artists</a><a href="/festivals/">Festivals</a><a href="/touring-history/">Touring history</a></nav>';
  eventsHtml=eventsHtml.replace(/<nav class="roadbook-explore"[\s\S]*?<\/nav>/,'').replace(/<nav class="roadbook-portals"[\s\S]*?<\/nav>/,'').replace(/<nav class="roadbook-quicklinks"[\s\S]*?<\/nav>/,'').replace(/<nav class="roadbook-page-nav"[\s\S]*?<\/nav>/,'').replace('<div class="events-v2__controls" role="search"',nav+'<div class="events-v2__controls" role="search"');
  eventsHtml=eventsHtml.replace(/<link rel="stylesheet" href="\/assets\/roadbook-pages.css">/g,'').replace('</head>','<link rel="stylesheet" href="/assets/roadbook-pages.css"></head>');
 
- await write('clients',wrap(shell,'Clients','Enslain Metal Merch artists, festival partnerships, tour history and official webshops.','/clients/',
+ await write('clients',wrap(shell,'Clients','Explore artists, Finnish metal festival partners, touring history and official webshops connected to Enslain Metal Merch.','/clients/',
   content('Clients','',clientsHub(),['Clients']).replace('<main class="main events-v2 roadbook-page">','<main class="main events-v2 roadbook-page roadbook-page--clients">').replace('<a href="/events/">Events</a> / Clients','<a href="/">Home</a> / Clients')));
- await write('artists',wrap(shell,'Artists','Explore Enslain Metal Merch artist partners, event history and upcoming shows.','/artists/',
+ await write('artists',wrap(shell,'Artists','Browse artists Enslain works with, including upcoming concert dates, past gigs and links to individual artist gig histories.','/artists/',
    content('Artists','',renderDirectory(partnerData.map(x=>({...x,meta:fragments(x.stats).join(' · ')}))),['Artists'])));
- await write('festivals',wrap(shell,'Festival partners','Explore festivals and events with merchandise handled by Enslain Metal Merch.','/festivals/',
+ await write('festivals',wrap(shell,'Festival partners','Explore Finnish metal festival partners, upcoming festival dates, lineups and past editions from Enslain\'s event history.','/festivals/',
    content('Festival partners','',renderDirectory(festivalData.map(x=>({...x,meta:[x.stats.first?x.stats.first+' →':'',x.stats.past?x.stats.past+' past '+(x.stats.past===1?'event':'events'):'',x.stats.next?'Next '+dateLabel(x.stats.next):''].filter(Boolean).join(' · ')}))),['Festival partners'])));
  for(const x of partnerData){
   const copy=x.blurb?'<p class="roadbook-writeup">'+esc(x.blurb)+'</p>':'';
-  await write('artists/'+slug(x.name),wrap(shell,x.name+' — gigs',x.name+' merchandise gig history with Enslain Metal Merch.','/artists/'+slug(x.name)+'/',
+  await write('artists/'+slug(x.name),wrap(shell,x.name+' — gigs','Find '+x.name+' upcoming concert dates, past gigs, venues and live show history from Enslain Metal Merch.','/artists/'+slug(x.name)+'/',
    content(x.name,'',copy+table([...x.gigs].sort((a,b)=>b.end.localeCompare(a.end))),['Artists',x.name])));
  }
  for(const x of festivalData){
@@ -218,10 +218,10 @@ export async function generate(input,day=helsinkiDay()){
   const copy=x.blurb?'<p class="roadbook-writeup">'+esc(x.blurb)+'</p>':'';
   const layout=festivalHistory(x.gigs,x.name);
   const intro=x.name==='Steelfest'?'<p class="roadbook-writeup">Enslain Metal Merch is the official festival and artist merchandise sales partner of Steelfest. Here you’ll find the festival editions we’ve worked, their lineups, and tickets for upcoming events.</p>':'';
-  await write('festivals/'+slug(x.name),wrap(shell,x.name+' — festival history',x.name+' festival merchandise history with Enslain Metal Merch.','/festivals/'+slug(x.name)+'/',
+  await write('festivals/'+slug(x.name),wrap(shell,x.name+' — festival history','Explore '+x.name+' festival dates, edition lineups, venues and previous festival years in Enslain Metal Merch\'s concert archive.','/festivals/'+slug(x.name)+'/',
    content(x.name,'',intro+copy+layout,['Festival partners',x.name])));
  }
- await write('touring-history',wrap(shell,'Touring history','Explore tours and multi-date merchandise runs by Enslain Metal Merch.','/touring-history/',
+ await write('touring-history',wrap(shell,'Touring history','Explore concert tours and touring history with dates, venues and artist performances documented by Enslain Metal Merch.','/touring-history/',
    content('Touring history','Selected tour history.',tourIndex(touring),['Touring history'])));
  await write('touring-history/2026-kaunis-kuolematon',wrap(shell,'Kaunis Kuolematon — Tour with Insomnium','Dates from the 2026 Kaunis Kuolematon tour with Insomnium.','/touring-history/2026-kaunis-kuolematon/',
    content('2026 - Kaunis Kuolematon — Tour with Insomnium','',table([...tourGigs].sort((a,b)=>a.start.localeCompare(b.start))),['Touring history','2026 - Kaunis Kuolematon — Tour with Insomnium'])));
