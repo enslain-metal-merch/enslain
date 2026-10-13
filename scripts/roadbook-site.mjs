@@ -68,6 +68,7 @@ function wrap(shell,title,description,path,body){
  requireOk(start>=0&&end>start,'site shell unavailable');
  let h=shell.slice(0,start)+body+shell.slice(end+7);
  h=h.replace(/<title>[^<]*<\/title>/,'<title>'+esc(title)+' | Enslain Metal Merch</title>').replace(/<meta name="description" content="[^"]*">/,'<meta name="description" content="'+esc(description)+'">');
+ h=h.replace(/<link rel="canonical"[^>]*>/g,'').replace(/<meta property="og:title"[^>]*>/g,'').replace(/<meta property="og:description"[^>]*>/g,'');
  h=h.replace('</head>','<link rel="canonical" href="'+SITE+path+'"><meta property="og:title" content="'+esc(title)+'"><meta property="og:description" content="'+esc(description)+'"><link rel="stylesheet" href="/assets/roadbook-pages.css"></head>');
  return h.replace('<script src="/assets/events.js" defer></script>','').replace(/(<a href="\/events\/") aria-current="page"/,'$1').replace(/(<a href="\/clients\/")>(Clients)<\/a>/,'$1 aria-current="page">$2</a>');
 }
@@ -197,6 +198,14 @@ export async function generate(input,day=helsinkiDay()){
   return {name,meta,link:({ '2026 - Kaunis Kuolematon — Tour with Insomnium':'/touring-history/2026-kaunis-kuolematon/','2026 - Brymir':'/touring-history/2026-brymir/','2026 - Pat Metheny':'/touring-history/2026-pat-metheny/' })[name]||''};
  });
  let eventsHtml=renderEvents(shell,data);
+ const eventsSeoDescription="Explore upcoming metal gigs and festivals in Finland, plus concert dates, venues, tickets and Enslain's searchable history of live shows.";
+ eventsHtml=eventsHtml.replace(/<title>[^<]*<\/title>/,'<title>Metal Gigs &amp; Festivals in Finland | Enslain Metal Merch</title>')
+  .replace(/<meta name="description" content="[^"]*">/,'<meta name="description" content="'+esc(eventsSeoDescription)+'">')
+  .replace(/<link rel="canonical"[^>]*>/g,'')
+  .replace(/<meta property="og:title"[^>]*>/g,'')
+  .replace(/<meta property="og:description"[^>]*>/g,'')
+  .replace('</head>','<link rel="canonical" href="'+SITE+'/events/"><meta property="og:title" content="Metal Gigs &amp; Festivals in Finland"><meta property="og:description" content="'+esc(eventsSeoDescription)+'"></head>');
+
 
  const nav='<nav class="roadbook-page-nav" aria-label="Browse artists, festivals and tours"><a href="/artists/">Artists</a><a href="/festivals/">Festivals</a><a href="/touring-history/">Touring history</a></nav>';
  eventsHtml=eventsHtml.replace(/<nav class="roadbook-explore"[\s\S]*?<\/nav>/,'').replace(/<nav class="roadbook-portals"[\s\S]*?<\/nav>/,'').replace(/<nav class="roadbook-quicklinks"[\s\S]*?<\/nav>/,'').replace(/<nav class="roadbook-page-nav"[\s\S]*?<\/nav>/,'').replace('<div class="events-v2__controls" role="search"',nav+'<div class="events-v2__controls" role="search"');
@@ -235,6 +244,13 @@ export async function generate(input,day=helsinkiDay()){
  }
 
  await writeFile(join('public','events','index.html'),eventsHtml);
+ const sitemapPaths=['/','/services/','/volunteers/','/events/','/clients/','/about/','/contact/','/artists/','/festivals/','/touring-history/',
+  ...partnerData.map(x=>'/artists/'+slug(x.name)+'/'),
+  ...festivalData.map(x=>'/festivals/'+slug(x.name)+'/'),
+  '/touring-history/2026-brymir/','/touring-history/2026-kaunis-kuolematon/','/touring-history/2026-pat-metheny/'];
+ const uniquePaths=[...new Set(sitemapPaths)];
+ await writeFile(join('public','sitemap.xml'),'<?xml version="1.0" encoding="UTF-8"?>\\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\\n'+uniquePaths.map(p=>'  <url><loc>'+SITE+p+'</loc></url>').join('\\n')+'\\n</urlset>\\n');
+
  return {publicCount:data.publicEvents.length,artists:partnerData.length,festivals:festivalData.length,tours:touring.length};
 }
 async function getData(){
