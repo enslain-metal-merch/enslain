@@ -3,16 +3,16 @@
 ## Current branch status (2026-10-13)
 - GA4 Measurement ID: `G-MF9VNNQ7ZW` — configured in source and published bundle.
 - Cloudflare Web Analytics token: `0df2800b2b92473499a18e2542797e66` — configured in source and published bundle.
-- Google Search Console verification: **pending**.
+- Google Search Console URL-prefix HTML tag: **installed on draft homepage and Kit header**; verification against the live site remains pending until after merge.
 - Production: **not yet enabled**. This is draft PR #8, not merged into `master`.
 - Netlify deploy preview: https://deploy-preview-8--enslain.netlify.app/ (analytics deliberately disabled on Netlify hostnames).
 
-## Next: Google Search Console
-1. Open https://search.google.com/search-console/
-2. Add **URL-prefix** property `https://www.enslain.net/` (NOT Domain property, which would require DNS verification).
-3. Select **HTML tag** verification and copy the complete meta tag `<meta name="google-site-verification" content="...">`.
-4. Provide the tag to Chadley to insert into `public/index.html` and the shared Kit header source `src/kit/partials/_header.kit` on this branch.
-5. Merge only after user review, then return to Search Console and press **Verify** against live www.enslain.net.
+## Next: production publishing and verification
+1. The Search Console URL-prefix property is `https://www.enslain.net/`.
+2. User-provided meta tag `<meta name="google-site-verification" content="Ttg3xWGGyOqXHXuKKQjLoGMGPKagxUa42eyki864H4A" />` is staged in `public/index.html` and `src/kit/partials/_header.kit`.
+3. Review draft PR #8 and its preview; obtain the user's explicit permission to merge to `master`.
+4. After production Netlify deploy, confirm the tag is present at the live URL and press **Verify** in Search Console.
+5. Check reporting in GA4 Realtime and Cloudflare Web Analytics; no preview-host traffic is sent.
 
 ## Technical behavior
 - `src/js/analytics.js` is the editable source registered in `src/js/script.js`.
