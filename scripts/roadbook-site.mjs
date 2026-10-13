@@ -220,7 +220,7 @@ export async function generate(input,day=helsinkiDay()){
    content('Festival partners','',renderDirectory(festivalData.map(x=>({...x,meta:[x.stats.first?x.stats.first+' →':'',x.stats.past?x.stats.past+' past '+(x.stats.past===1?'event':'events'):'',x.stats.next?'Next '+dateLabel(x.stats.next):''].filter(Boolean).join(' · ')}))),['Festival partners'])));
  for(const x of partnerData){
   const copy=x.blurb?'<p class="roadbook-writeup">'+esc(x.blurb)+'</p>':'';
-  await write('artists/'+slug(x.name),wrap(shell,x.name+' — gigs','Find '+x.name+' upcoming concert dates, past gigs, venues and live show history from Enslain Metal Merch.','/artists/'+slug(x.name)+'/',
+  await write('artists/'+slug(x.name),wrap(shell,x.name,'Find '+x.name+' upcoming concert dates, past gigs, venues and live show history from Enslain Metal Merch.','/artists/'+slug(x.name)+'/',
    content(x.name,'',copy+table([...x.gigs].sort((a,b)=>b.end.localeCompare(a.end))),['Artists',x.name])));
  }
  for(const x of festivalData){
@@ -228,7 +228,7 @@ export async function generate(input,day=helsinkiDay()){
   const copy=x.blurb?'<p class="roadbook-writeup">'+esc(x.blurb)+'</p>':'';
   const layout=festivalHistory(x.gigs,x.name);
   const intro=x.name==='Steelfest'?'<p class="roadbook-writeup">Enslain Metal Merch is the official festival and artist merchandise sales partner of Steelfest. Here you’ll find the festival editions we’ve worked, their lineups, and tickets for upcoming events.</p>':'';
-  await write('festivals/'+slug(x.name),wrap(shell,x.name+' — festival history','Explore '+x.name+' festival dates, edition lineups, venues and previous festival years in Enslain Metal Merch\'s concert archive.','/festivals/'+slug(x.name)+'/',
+  await write('festivals/'+slug(x.name),wrap(shell,x.name==='Steelfest'?'Steelfest, SteelChaos & SteelHordes':x.name,'Explore '+x.name+' festival dates, edition lineups, venues and previous festival years in Enslain Metal Merch\'s concert archive.','/festivals/'+slug(x.name)+'/',
    content(x.name,'',intro+copy+layout,['Festival partners',x.name])));
  }
  await write('touring-history',wrap(shell,'Touring history','Explore concert tours and touring history with dates, venues and artist performances documented by Enslain Metal Merch.','/touring-history/',
