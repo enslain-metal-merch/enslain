@@ -2,8 +2,7 @@
 
 This isolated feature (not merged to master) applies to:
 - main Events index;
-- Brymir artist page;
-- Kaunis Kuolematon artist page;
+- all 15 individual artist detail pages (including Brymir and Kaunis Kuolematon);
 - all three existing tour detail pages (2026 Brymir, Kaunis Kuolematon + Insomnium, Pat Metheny).
 
 At 05:00 **Europe/Helsinki** on the day **after an event's end date**, a
@@ -23,10 +22,14 @@ links at the 05:00 cutoff without reordering or classifying the tour dates.
 The touring-history index stays unchanged. The weekly static generator must
 preserve this single-table format and add future tours in the same way.
 
+The shared script is included on all 15 artist pages. Pages with a Past-only
+archive safely do nothing until a Tuesday build adds an Upcoming table;
+pages with both sections roll across the 05:00 threshold.
+
 On the main Events page, the existing filtering/pagination logic is notified
 of the changed data-kind and fully reindexes its lists. Upcoming becomes the
-default filter (Past and All remain user-selectable). Brymir's existing count
-paragraph updates; artist pages hide an empty Upcoming table and show a
+default filter (Past and All remain user-selectable). artist pages' existing count
+paragraphs update; artist pages hide an empty Upcoming table and show a
 plain-language no-upcoming message.
 
 Important boundaries and follow-up work:
@@ -38,8 +41,8 @@ Important boundaries and follow-up work:
    generating **all** multiday rows, include this shared script for all
    applicable artist, tour and festival pages, preserve the source files,
    and keep search/SEO HTML synchronized.
-3. Festival editions, other artist pages, directories and
-   the weekly sync are intentionally outside stage 1. Tour detail pages are in stage 1.
+3. Festival editions, artist directory and other overview directories, and
+   the weekly sync are outside stage 1. Tour detail pages are in stage 1.
 4. Urgent cancellations need a fresh static deploy that removes the event from
    all public HTML and metadata; the date rollover does not remove cancellations.
 5. Existing markup marks date spans with explicit data-end-date to avoid

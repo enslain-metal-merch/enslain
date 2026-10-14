@@ -145,3 +145,45 @@ test("multi-day tour dates preserve last-day metadata for future ticket expirati
   const html = fs.readFileSync(path.join(root, "public/touring-history/2026-pat-metheny/index.html"), "utf8");
   assert.match(html, /datetime="2026-07-11" data-end-date="2026-07-12">11–12 Jul 2026<\/time>/);
 });
+
+
+test("every individual artist page has the shared 05:00 clock and correct multi-day metadata", () => {
+  const slugs = [
+    "battle-beast","brymir","charon","crimson-sun","kalmah",
+    "kauan","kaunis-kuolematon","mors-subita","mygrain","pat-metheny",
+    "shade-empire","tarja-turunen","the-man-eating-tree","tyrantti","vorna"
+  ];
+  for (const slug of slugs) {
+    const html = fs.readFileSync(path.join(root, "public/artists", slug, "index.html"), "utf8");
+    assert.match(html, /<script src="\/assets\/event-rollover\.js" defer><\/script>/, slug);
+    const dom = new JSDOM(html, { url: "https://www.enslain.net/artists/" + slug + "/" });
+    const doc = dom.window.document;
+    const section = doc.querySelector("main.roadbook-page");
+    assert.ok(section, slug);
+    const rows = [...section.querySelectorAll("tbody tr.events-v2__row")];
+    assert.ok(rows.length >= 2, slug);
+    for (const row of rows) {
+      const time = row.querySelector("time[datetime]");
+      assert.ok(time, slug);
+      const label = time.textContent.trim();
+      if (/^\d+–\d+ [A-Za-z]{3} \d{4}$/.test(label)) {
+        assert.match(time.getAttribute("data-end-date") || "", /^\d{4}-\d{2}-\d{2}$/, slug + " : " + label);
+        assert.ok(time.getAttribute("data-end-date") >= time.getAttribute("datetime"), slug + " : " + label);
+      }
+    }
+    const beforeCounts = rows.length;
+    const headings = [...section.querySelectorAll("h2")].map(x => x.textContent.trim());
+    assert.ok(headings.includes("Past events"), slug);
+    // All individual artist pages are safe to run at an arbitrary future date.
+    rollover.run(doc, new Date("2027-01-01T03:00:00Z"));
+    assert.equal(section.querySelectorAll("tbody tr.events-v2__row").length, beforeCounts, slug);
+    if (headings.includes("Upcoming gigs")) {
+      const wraps = section.querySelectorAll(".events-v2__table-wrap");
+      assert.equal(wraps[0].querySelectorAll("tbody tr").length, 0, slug);
+      assert.equal(wraps[1].querySelectorAll("tbody tr").length, beforeCounts, slug);
+      assert.equal(wraps[0].hidden, true, slug);
+      assert.equal(section.querySelectorAll(".events-v2__ticket").length, 0, slug);
+    }
+    dom.window.close();
+  }
+});
