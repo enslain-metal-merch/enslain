@@ -107,7 +107,7 @@ export async function generate(input,{day=helsinkiDay(),prior,read}={}){
   xs.sort(asc);ok(xs.length>=8,'less than 8 tour events '+t.name);return [t.slug,xs];
  }));
  const changed=new Map(),path=x=>'public/'+x+'/index.html';
- async function propose(name,fn){const original=await read(name);ok(original.includes('Website built by Nadya'),'missing approved page shell '+name);const rendered=fn(original);ok(rendered.includes('Website built by Nadya'),'footer removed '+name);if(rendered!==original)changed.set(name,rendered);}
+ async function propose(name,fn){const original=await read(name);ok(original.includes('Website built by <a href='),'missing approved page shell '+name);const rendered=fn(original);ok(rendered.includes('Website built by <a href='),'footer removed '+name);if(rendered!==original)changed.set(name,rendered);}
  await propose(path('events'),h=>renderEvents(h,pub,day));
  for(const [name,slug] of artists)await propose(path('artists/'+slug),h=>renderArtist(h,arts.get(name),day));
  await propose(path('artists'),h=>{for(const [name,slug] of artists)h=updateDirectory(h,slug,'artists',artMeta(arts.get(name),day));return h});

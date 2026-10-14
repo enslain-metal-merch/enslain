@@ -37,7 +37,7 @@ test('full preview covers 878 gigs, artists, tours, and preserves original page 
  assert.equal([...out.changed.keys()].some(x=>x.includes('/festivals/')),false);
  const events=out.changed.get('public/events/index.html');assert.ok(events);
  assert.equal((events.match(/class="events-v2__row" data-event-id=/g)||[]).length,878);
- assert.match(events,/Website built by Nadya/);
+ assert.match(events,/Website built by <a href=/);
  assert.match(events,/src="\/assets\/event-rollover\.js"/);
  assert.equal(events.includes('EV-2026-0146'),false);
  const brymir=out.changed.get('public/touring-history/2026-brymir/index.html');assert.ok(brymir);
