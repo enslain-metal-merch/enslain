@@ -1,0 +1,19 @@
+name: Validate safe Roadbook public feed
+on:
+  pull_request:
+    paths:
+      - 'scripts/roadbook-public-feed.mjs'
+      - 'scripts/roadbook-public-feed.test.mjs'
+      - '.github/workflows/roadbook-public-feed-check.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  feed-tests:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: node --test scripts/roadbook-public-feed.test.mjs
