@@ -9,7 +9,8 @@ on:
   workflow_dispatch:
   # ACTIVATE ONLY AFTER KEYLESS WIF + LIVE PREVIEW + OWNER APPROVAL:
   # schedule:
-  #   - cron: "12 6 * * 2" # UTC Tuesday, Helsinki 08:12/09:12
+  #   - cron: "33 11 * * 2"
+  #     timezone: "Europe/Helsinki" # AFTER verified Tuesday morning book maintenance
 permissions:
   contents: read
 jobs:
