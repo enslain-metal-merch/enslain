@@ -47,3 +47,28 @@ Important boundaries and follow-up work:
    single-day time datetime when no data-end-date is supplied.
 6. This changes only a preview branch. No master edits, webhook, secrets or
    Netlify production deployments are triggered by this change.
+
+## Festival pages: Tuesdays only (agreed future-sync rule)
+
+Dedicated festival detail pages and their festival index require **no client-side
+05:00 Upcoming/Past rollover, timers, or daily deployments**. Their content
+is rebuilt in the normal Tuesday Roadbook sync **only when a relevant public
+change has occurred**:
+
+- a festival edition has ended since its previous published snapshot, so its
+  current/historical classification needs refreshing (typically annually);
+- an eligible public Roadbook field changed (for example, lineup addition,
+  artist withdrawal, full festival cancellation, dates, venue or edition
+  details).
+
+If no relevant public field or completed-edition transition changed, **do
+not modify the festival HTML or deploy solely for it**. Compare normalized
+public outputs, not sheet revision timestamps, so seller/private/admin edits
+never cause a public change. If an event is withdrawn, the static output must
+omit it from every affected page and SEO asset; urgent withdrawals are handled
+by a manually initiated publish rather than waiting until Tuesday.
+
+This is separate from main Events and artist listings: festival event rows
+there still move Upcoming → Past at 05:00 Helsinki time on the day after the
+last festival day, without a Netlify production deploy. Festival-page copy,
+lineup, and SEO are refreshed by the weekly static generator.
