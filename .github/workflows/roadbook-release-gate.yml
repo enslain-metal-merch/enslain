@@ -1,0 +1,19 @@
+name: Roadbook release baseline safety
+on:
+  pull_request:
+    paths:
+      - "scripts/check-roadbook-publish.mjs"
+      - "docs/roadbook-tuesday-launch.md"
+      - ".github/workflows/roadbook-release-gate.yml"
+  workflow_dispatch:
+jobs:
+  static-gate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - run: node --check scripts/check-roadbook-publish.mjs
+      - run: node scripts/check-roadbook-publish.mjs public
