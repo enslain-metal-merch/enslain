@@ -1,8 +1,8 @@
 # Enslain Roadbook → Website: Tuesday automation launch plan
 
-**Status (Oct 14): prepared on draft branch, NOT enabled or released.**
-Monday October 19: inspect dry-run, set up read-only access, release approved
-workflow to master and arm Tuesday. Tuesday October 20: monitor first run.
+**Status (Oct 15): keyless federation implementation on draft branch; NOT enabled or released.**
+Activation can happen before Monday after all gates pass. First scheduled run
+is the next Tuesday after approval. No automatic publishing until then.
 
 ## Approved behavior
 
@@ -30,18 +30,36 @@ workflow to master and arm Tuesday. Tuesday October 20: monitor first run.
 - On invalid data, missing credential or bad source HTML, stop and publish
   NOTHING. Urgent withdrawals require a manually initiated fresh static deploy.
 
-## Monday October 19: Activation gates (no shortcuts)
+## Activation gates (no shortcuts)
 
 1. Confirm Netlify Free usage/budget and that **only master** deploys
    production. Verify public deploy from the prior release is live.
-2. Google Cloud: create a **dedicated service account**, with Sheets API
-   enabled and no Editor/Owner roles for Roadbook. Share the existing
-   private Roadbook **Viewer** access with the service-account email.
-   Keep the JSON key private; don't paste it into GitHub files, this chat,
-   Roadbook, PR comments, or build logs. Set GitHub repo Actions secret
-   GOOGLE_SERVICE_ACCOUNT_JSON to its full JSON, with literal newlines
-   preserved. Set the repo Actions variable ROADBOOK_SHEET_ID to the
-   spreadsheet ID. Revoke an exposed key immediately.
+2. Google Cloud: the existing `roadbook-reader@enslain-roadbook-sync.iam.gserviceaccount.com`
+   has Roadbook **Viewer** access and Google Sheets API enabled. Organization
+   policy prohibits key creation; KEEP THAT POLICY ENABLED. Use **keyless
+   Workload Identity Federation** for GitHub Actions; no long-lived JSON key
+   or GitHub credential secret is needed:
+   - Create a workload identity pool and OIDC provider for GitHub with issuer
+     `https://token.actions.githubusercontent.com`. Attribute mapping must
+     include `google.subject=assertion.sub` and
+     `attribute.repository=assertion.repository`. Use a provider attribute
+     condition restricting to `assertion.repository=='enslain-metal-merch/enslain'`
+     (and `assertion.repository_id=='1414718352'` if available).
+   - Bind the exact repository principal set to **Workload Identity User**
+     on the reader service account (not project-wide Editor/Owner).
+     Enable the IAM Service Account Credentials API if prompted.
+   - GitHub Actions repository **variables** (not secrets):
+     `ROADBOOK_GCP_WIF_PROVIDER` = full provider resource path beginning
+     `projects/63861016766/locations/global/workloadIdentityPools/...`;
+     `ROADBOOK_SHEET_ID` = existing Roadbook spreadsheet ID. Never put private
+     Sheet contents, OAuth access tokens or key files in repository code.
+   - GitHub workflow requests `id-token: write` only in the manual-preview
+     and publishing jobs; `google-github-actions/auth@v3` mints a short-lived
+     token with **sheets.readonly** scope. Importer requests only Events A:I,
+     M:N, Q:R, T, plus Website Feed A:M; service account Viewer access to
+     the file still technically permits more than those requested columns.
+     Ensure the federation provider and IAM policy are tested with a
+     manual dry-run; do not claim success solely from synthetic tests.
 3. Run the **manual dry-run** in GitHub Actions and read the summary; audit
    whether the generated changes really match today's Roadbook, especially
    canceled/private gigs and the Kempele tour entry. Review generated
@@ -58,8 +76,10 @@ workflow to master and arm Tuesday. Tuesday October 20: monitor first run.
 
 ## Tuesday October 20: First scheduled-run review
 
-- Schedule: proposed 06:12 UTC each Tuesday (08:12 in Helsinki winter,
-  09:12 in Helsinki summer); runs may be delayed by GitHub Actions.
+- Schedule: proposed Tuesday **11:33 Europe/Helsinki**, after verified
+  morning Roadbook maintenance and 09:00 briefing; GitHub may delay execution.
+  Require a genuinely healthy same-day maintenance checkpoint before publish.
+  This health gate is still to implement and verify before activation.
 - Confirm GitHub Action success, gated event count, changes by file,
   generated commit to master iff public HTML changed, and matching
   Netlify production deploy once. Confirm no unnecessary second deploy.
