@@ -1,7 +1,7 @@
 /* Enslain Events: progressively reveal PRE-APPROVED public HTML rows. All filtering uses the complete set. */
 (()=>{"use strict";
 const root=document.querySelector(".events-v2");if(!root)return;
-const rows=Array.from(root.querySelectorAll("tr[data-event-id]"));
+let rows=[];
 const search=root.querySelector("#events-search"),timing=root.querySelector("#events-timing"),band=root.querySelector("#events-band"),country=root.querySelector("#events-country"),clear=root.querySelector("#events-clear"),summary=root.querySelector("#events-summary"),empty=root.querySelector("#events-empty");
 const limit={upcoming:45,past:55},step=55;
 const byKind={upcoming:[],past:[]};
@@ -9,6 +9,7 @@ const normalize=s=>(s||"").toLocaleLowerCase().trim();
 const urlTiming=new URLSearchParams(location.search).get("timing");
 if(urlTiming==="past"||urlTiming==="upcoming")timing.value=urlTiming;
 function reindexRows(){
+ rows=Array.from(root.querySelectorAll("tr[data-event-id]"));
  byKind.upcoming.length=0;byKind.past.length=0;
  rows.forEach(r=>{const k=r.dataset.kind;if(byKind[k])byKind[k].push(r)});
 }

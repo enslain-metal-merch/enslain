@@ -47,6 +47,14 @@ test("main Events: existing 878 public rows move without losing filter behavior"
   assert.match(doc.querySelector("#events-summary").textContent, /events found/);
   assert.equal(up.querySelectorAll("tr[data-event-id]").length + past.querySelectorAll("tr[data-event-id]").length, 878);
   assert.equal(doc.querySelector("#events-timing").value, "upcoming");
+  // A page kept open for weeks must preserve chronological paging too.
+  doc.querySelector("#events-timing").value = "past";
+  doc.querySelector("#events-timing").dispatchEvent(new dom.window.Event("change"));
+  rollover.run(doc, new Date("2026-11-09T03:00:00Z"));
+  const firstPast = [...past.querySelectorAll("tr")].slice(0, 55);
+  assert.ok(firstPast.every(row => !row.classList.contains("is-paged-out")));
+  assert.ok(firstPast.every(row => !row.classList.contains("is-filtered-out")));
+  assert.ok([...past.querySelectorAll("tr")].slice(55).every(row => row.classList.contains("is-paged-out")));
   dom.window.close();
 });
 test("Brymir and Kaunis Kuolematon artist pages migrate real rows and tickets", () => {
