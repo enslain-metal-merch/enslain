@@ -3,6 +3,8 @@ on:
   pull_request:
     paths:
       - "scripts/check-roadbook-publish.mjs"
+      - "scripts/roadbook-public-feed.mjs"
+      - "scripts/roadbook-public-feed.test.mjs"
       - "docs/roadbook-tuesday-launch.md"
       - ".github/workflows/roadbook-release-gate.yml"
   workflow_dispatch:
@@ -17,3 +19,4 @@ jobs:
           node-version: "22"
       - run: node --check scripts/check-roadbook-publish.mjs
       - run: node scripts/check-roadbook-publish.mjs public
+      - run: node --test scripts/roadbook-public-feed.test.mjs
