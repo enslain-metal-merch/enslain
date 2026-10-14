@@ -85,12 +85,16 @@ export function renderTour(html,events,day){
  ok((html.match(/class="events-v2__row" data-event-id=/g)||[]).length===events.length,'tour row count');
  return html;
 }
-function festivalChanged(prior,current){
+function festivalChanged(prior,current,day){
  if(!prior)return festivals.map(x=>x[0]);
+ ok(/^\d{4}-\d{2}-\d{2}$/.test(prior.lastSnapshotDay||''),'missing baseline day for edition transitions');
  const a=new Map(prior.events.map(x=>[x.id,x])),b=new Map(current.events.map(x=>[x.id,x])),found=new Set();
  for(const id of new Set([...a.keys(),...b.keys()])){
   const x=a.get(id),y=b.get(id);if(JSON.stringify(x)===JSON.stringify(y))continue;
   for(const [name] of festivals)if((x&&festivalMatch(x,name))||(y&&festivalMatch(y,name)))found.add(name);
+ }
+ for(const [name] of festivals){
+  if(current.events.some(x=>festivalMatch(x,name)&&x.end>=prior.lastSnapshotDay&&x.end<day))found.add(name);
  }
  return [...found];
 }
@@ -103,7 +107,7 @@ export async function generate(input,{day=helsinkiDay(),prior,read}={}){
  for(const [name,xs] of [...arts,...fests])ok(xs.length>0,'missing approved content for '+name);
  const ts=new Map(tours.map(t=>{
   const xs=pub.filter(x=>rel.get(x.id)?.tour===t.series&&(!t.insomnium||/\bwith\s+Insomnium\b/i.test(x.details)));
-  if(t.extra){const e=pub.find(x=>x.id===t.extra);ok(e,'Kempele exception missing');if(!xs.some(x=>x.id===e.id))xs.push(e);}
+  if(t.extra){const e=pub.find(x=>x.id===t.extra);if(e&&!xs.some(x=>x.id===e.id))xs.push(e);}
   xs.sort(asc);ok(xs.length>=8,'less than 8 tour events '+t.name);return [t.slug,xs];
  }));
  const changed=new Map(),path=x=>'public/'+x+'/index.html';
@@ -113,7 +117,7 @@ export async function generate(input,{day=helsinkiDay(),prior,read}={}){
  await propose(path('artists'),h=>{for(const [name,slug] of artists)h=updateDirectory(h,slug,'artists',artMeta(arts.get(name),day));return h});
  for(const t of tours)await propose(path('touring-history/'+t.slug),h=>renderTour(h,ts.get(t.slug),day));
  await propose(path('touring-history'),h=>{for(const t of tours){const xs=ts.get(t.slug);const summary=xs.length+' gigs · '+label(xs[0].start)+' – '+label([...xs].sort((a,b)=>b.end.localeCompare(a.end))[0].end);const marker='<a href="/touring-history/'+t.slug+'/">'+t.name+'</a><span>';ok(h.includes(marker),'tour index '+t.slug);const start=h.indexOf(marker)+marker.length,end=h.indexOf('</span>',start);h=h.slice(0,start)+esc(summary)+h.slice(end);}return h});
- const changedFestivals=festivalChanged(prior,next);
+ const changedFestivals=festivalChanged(prior,next,day);
  for(const [name,slug] of festivals)if(changedFestivals.includes(name))await propose(path('festivals/'+slug),h=>renderFestival(h,name,fests.get(name),day));
  if(changedFestivals.length)await propose(path('festivals'),h=>{for(const [name,slug] of festivals){const s=counts(fests.get(name),day);const m=[s.first?s.first+' →':'',s.past?s.past+' past '+(s.past===1?'event':'events'):'',s.next?'Next '+label(s.next):''].filter(Boolean).join(' · ');h=updateDirectory(h,slug,'festivals',m)}return h});
  return {changed,next,totals:{publicEvents:pub.length,artistPages:artists.length,festivalPagesUpdated:changedFestivals,tourPages:tours.length}};
@@ -122,6 +126,8 @@ export async function command({inputFile,day=helsinkiDay(),write=false}={}){
  const input=JSON.parse(await readFile(inputFile,'utf8'));
  const prior=JSON.parse(await readFile('automation/last-published-public.json','utf8'));
  const output=await generate(input,{day,prior,read:p=>readFile(p,'utf8')});
+ const publicChanged=JSON.stringify(output.next.events)!==JSON.stringify(prior.events);
+ output.next.lastSnapshotDay=(output.changed.size||publicChanged)?day:prior.lastSnapshotDay;
  const current=JSON.stringify(output.next,null,2)+'\n',old=JSON.stringify(prior,null,2)+'\n';
  if(current!==old)output.changed.set('automation/last-published-public.json',current);
  if(write)for(const [filename,content] of output.changed)await writeFile(filename,content,'utf8');

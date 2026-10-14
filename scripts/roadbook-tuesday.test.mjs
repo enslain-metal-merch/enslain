@@ -24,7 +24,7 @@ function synthetic(){
 }
 const approved=synthetic(),read=filename=>readFile(filename,'utf8'),day='2026-10-14';
 test('approved public feed is stable and deleted/private gigs absent',()=>{
- assert.deepEqual(buildPublicFeed(approved,day),snapshot);
+ assert.deepEqual(buildPublicFeed(approved,day),{schemaVersion:snapshot.schemaVersion,events:snapshot.events});
  assert.equal(snapshot.events.length,878);
  assert.equal(JSON.stringify(snapshot).includes('EV-2026-0146'),false);
 });
@@ -68,4 +68,25 @@ test('festival lineup changes only update affected festival family page',async()
 test('stale public location mismatch blocks all publishing',async()=>{
  const input=synthetic();input.feed[1][5]='Incorrect City';
  await assert.rejects(()=>generate(input,{day,prior:snapshot,read}),/Published data mismatch/);
+});
+
+
+test('Withdrawn Kempele event is omitted from tour and does not halt safe publication',async()=>{
+ const input=synthetic();
+ const i=input.events.findIndex(x=>x[0]==='EV-2026-0138');
+ assert.ok(i>0);
+ input.events[i][1]='Cancelled';input.events[i][10]='No';
+ const out=await generate(input,{day,prior:snapshot,read});
+ const tour=out.changed.get('public/touring-history/2026-brymir/index.html');
+ assert.ok(tour);
+ assert.equal(tour.includes('data-event-id="EV-2026-0138"'),false);
+ assert.equal((tour.match(/class="events-v2__row" data-event-id=/g)||[]).length,12);
+});
+test('Festival ending triggers a dedicated page update even without a ticket URL',async()=>{
+ const input=synthetic();
+ // Kuolio Fest 2026 concluded September 19; prior snapshot before it ended
+ // is simulated to isolate annual edition rollover.
+ const before={...snapshot,lastSnapshotDay:'2026-09-18'};
+ const out=await generate(input,{day,prior:before,read});
+ assert.ok(out.totals.festivalPagesUpdated.includes('Kuolio Fest'));
 });
