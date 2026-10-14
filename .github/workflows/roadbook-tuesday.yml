@@ -22,7 +22,7 @@ jobs:
         with:
           node-version: "22"
       - name: Test full public snapshot and page regeneration
-        run: node --test scripts/roadbook-tuesday.test.mjs
+        run: node --test scripts/roadbook-fetch-ranges.test.mjs scripts/roadbook-tuesday.test.mjs
   preview:
     if: github.event_name == 'workflow_dispatch'
     needs: tests
