@@ -7,7 +7,7 @@ on:
       - "scripts/roadbook-tuesday.test.mjs"
       - ".github/workflows/roadbook-tuesday.yml"
   workflow_dispatch:
-  # ACTIVATE MONDAY AFTER CREDENTIALS + PREVIEW APPROVAL:
+  # ACTIVATE ONLY AFTER KEYLESS WIF + LIVE PREVIEW + OWNER APPROVAL:
   # schedule:
   #   - cron: "12 6 * * 2" # UTC Tuesday, Helsinki 08:12/09:12
 permissions:
@@ -28,14 +28,26 @@ jobs:
     needs: tests
     runs-on: ubuntu-latest
     timeout-minutes: 15
+    permissions:
+      contents: read
+      id-token: write
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with:
           node-version: "22"
+      - name: Authenticate as Roadbook reader (keyless GitHub OIDC)
+        id: google_auth
+        uses: google-github-actions/auth@v3
+        with:
+          project_id: enslain-roadbook-sync
+          workload_identity_provider: ${{ vars.ROADBOOK_GCP_WIF_PROVIDER }}
+          service_account: roadbook-reader@enslain-roadbook-sync.iam.gserviceaccount.com
+          token_format: access_token
+          access_token_scopes: https://www.googleapis.com/auth/spreadsheets.readonly
       - name: Import private Roadbook read-only
         env:
-          GOOGLE_SERVICE_ACCOUNT_JSON: ${{ secrets.GOOGLE_SERVICE_ACCOUNT_JSON }}
+          GOOGLE_OAUTH_ACCESS_TOKEN: ${{ steps.google_auth.outputs.access_token }}
           ROADBOOK_SHEET_ID: ${{ vars.ROADBOOK_SHEET_ID }}
           ROADBOOK_INPUT_FILE: /tmp/enslain-private-roadbook.json
         run: node scripts/roadbook-fetch.mjs
@@ -61,6 +73,7 @@ jobs:
     timeout-minutes: 15
     permissions:
       contents: write
+      id-token: write
     concurrency:
       group: roadbook-production-sync
       cancel-in-progress: false
@@ -71,9 +84,18 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: "22"
+      - name: Authenticate as Roadbook reader (keyless GitHub OIDC)
+        id: google_auth
+        uses: google-github-actions/auth@v3
+        with:
+          project_id: enslain-roadbook-sync
+          workload_identity_provider: ${{ vars.ROADBOOK_GCP_WIF_PROVIDER }}
+          service_account: roadbook-reader@enslain-roadbook-sync.iam.gserviceaccount.com
+          token_format: access_token
+          access_token_scopes: https://www.googleapis.com/auth/spreadsheets.readonly
       - name: Import approved source read-only
         env:
-          GOOGLE_SERVICE_ACCOUNT_JSON: ${{ secrets.GOOGLE_SERVICE_ACCOUNT_JSON }}
+          GOOGLE_OAUTH_ACCESS_TOKEN: ${{ steps.google_auth.outputs.access_token }}
           ROADBOOK_SHEET_ID: ${{ vars.ROADBOOK_SHEET_ID }}
           ROADBOOK_INPUT_FILE: /tmp/enslain-private-roadbook.json
         run: node scripts/roadbook-fetch.mjs
