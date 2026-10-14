@@ -105,3 +105,43 @@ test("rollover scripts are included in all three target pages, but not on unrela
   assert.equal(fs.readFileSync(path.join(root, "src/js/events.js"), "utf8"),
                fs.readFileSync(path.join(root, "public/assets/events.js"), "utf8"));
 });
+
+
+test("all three individual tours use one date-ordered table without sections", () => {
+  const tours = [
+    ["2026-brymir", 12, 5],
+    ["2026-kaunis-kuolematon", 9, 9],
+    ["2026-pat-metheny", 41, 0]
+  ];
+  for (const [slug, count, liveTickets] of tours) {
+    const html = fs.readFileSync(path.join(root, "public/touring-history", slug, "index.html"), "utf8");
+    const dom = new JSDOM(html, { url: "https://www.enslain.net/touring-history/" + slug + "/" });
+    const doc = dom.window.document;
+    const section = doc.querySelector("main[data-tour-dates]");
+    assert.ok(section, slug);
+    const headings = [...section.querySelectorAll("h2")].map(x => x.textContent.trim());
+    assert.deepEqual(headings, ["Tour dates"], slug);
+    assert.equal(section.querySelectorAll("tbody").length, 1, slug);
+    const rows = [...section.querySelectorAll("tbody tr")];
+    assert.equal(rows.length, count, slug);
+    const starts = rows.map(r => r.querySelector("time[datetime]").getAttribute("datetime"));
+    assert.deepEqual(starts, [...starts].sort(), slug);
+    assert.equal(section.querySelectorAll(".events-v2__ticket").length, liveTickets, slug);
+    assert.match(html, /<script src="\/assets\/event-rollover\.js" defer><\/script>/);
+    const before = new Date("2026-10-17T01:59:59Z");
+    rollover.run(doc, before);
+    assert.equal(section.querySelectorAll(".events-v2__ticket").length, liveTickets, slug);
+    const after = new Date("2026-10-17T02:00:00Z");
+    rollover.run(doc, after);
+    const expectedAfter = slug === "2026-brymir" ? liveTickets - 1
+      : slug === "2026-kaunis-kuolematon" ? liveTickets - 1 : 0;
+    assert.equal(section.querySelectorAll(".events-v2__ticket").length, expectedAfter, slug);
+    assert.equal(section.querySelectorAll("tbody tr").length, count);
+    assert.deepEqual([...section.querySelectorAll("h2")].map(x => x.textContent.trim()), ["Tour dates"]);
+    dom.window.close();
+  }
+});
+test("multi-day tour dates preserve last-day metadata for future ticket expiration", () => {
+  const html = fs.readFileSync(path.join(root, "public/touring-history/2026-pat-metheny/index.html"), "utf8");
+  assert.match(html, /datetime="2026-07-11" data-end-date="2026-07-12">11–12 Jul 2026<\/time>/);
+});

@@ -119,9 +119,22 @@
     return true;
   }
 
+  // Tour detail pages intentionally have one chronological list, not
+  // Upcoming/Past groups. Their only daily adjustment is expiring ticket links.
+  function tourPage(doc, now) {
+    const root = doc.querySelector("main[data-tour-dates]");
+    if (!root) return false;
+    for (const row of root.querySelectorAll("tbody tr")) {
+      const end = endDate(row);
+      if (!end || !isPast(end, now)) continue;
+      const tickets = row.querySelector("td.events-v2__tickets");
+      if (tickets) tickets.replaceChildren();
+    }
+    return true;
+  }
   function run(doc, now) {
     if (!doc) return false;
-    return indexPage(doc, now) || artistPage(doc, now);
+    return indexPage(doc, now) || tourPage(doc, now) || artistPage(doc, now);
   }
   function start(win) {
     const doc = win.document;
@@ -145,5 +158,5 @@
     win.addEventListener("pageshow", refresh);
     doc.addEventListener("visibilitychange", () => { if (!doc.hidden) refresh(); });
   }
-  return { effectiveDay, isPast, startDate, endDate, moveRows, indexPage, artistPage, run, start };
+  return { effectiveDay, isPast, startDate, endDate, moveRows, indexPage, artistPage, tourPage, run, start };
 });
