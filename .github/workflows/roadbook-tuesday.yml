@@ -28,7 +28,7 @@ jobs:
           node scripts/check-roadbook-publish.mjs public
   connection_smoke:
     # Internal draft-branch PR only; never publish or upload private input.
-    if: github.event_name == 'pull_request' && github.event.pull_request.head.repo.full_name == 'enslain-metal-merch/enslain' && github.event.pull_request.head.ref == 'roadbook-tuesday-prep-20261014'
+    if: github.event_name == 'pull_request' && github.event.pull_request.number == 12 && github.event.pull_request.head.repo.full_name == 'enslain-metal-merch/enslain' && github.event.pull_request.head.ref == 'roadbook-tuesday-prep-20261014'
     needs: tests
     runs-on: ubuntu-latest
     timeout-minutes: 10
@@ -68,8 +68,16 @@ jobs:
         if: always()
         run: rm -f /tmp/enslain-private-roadbook.json
   preview:
-    if: github.event_name == 'workflow_dispatch'
-    needs: tests
+    # Read-only full website diff, on our trusted draft PR or manual dispatch.
+    # Never writes to master; PR head is explicitly restricted.
+    if: >-
+      always() && needs.tests.result == 'success' &&
+      (github.event_name == 'workflow_dispatch' ||
+       (github.event_name == 'pull_request' && needs.connection_smoke.result == 'success' &&
+        github.event.pull_request.number == 12 &&
+        github.event.pull_request.head.repo.full_name == 'enslain-metal-merch/enslain' &&
+        github.event.pull_request.head.ref == 'roadbook-tuesday-prep-20261014'))
+    needs: [tests, connection_smoke]
     runs-on: ubuntu-latest
     timeout-minutes: 15
     permissions:
@@ -100,9 +108,14 @@ jobs:
           ROADBOOK_INPUT_FILE: /tmp/enslain-private-roadbook.json
         run: |
           node scripts/roadbook-tuesday.mjs --write
-          node scripts/check-roadbook-publish.mjs public
+          ROADBOOK_REQUIRE_KEMPELE=1 node scripts/check-roadbook-publish.mjs public
           git diff --stat -- public/ automation/last-published-public.json
           git diff -- public/ > /tmp/roadbook-public-preview.patch
+          git diff -- public/ automation/last-published-public.json > /tmp/roadbook-first-run.patch
+          node scripts/roadbook-tuesday.mjs --write
+          git diff -- public/ automation/last-published-public.json > /tmp/roadbook-second-run.patch
+          cmp /tmp/roadbook-first-run.patch /tmp/roadbook-second-run.patch
+          echo "PASS: repeated generation is a no-op; no production deployment."
       - uses: actions/upload-artifact@v4
         with:
           name: roadbook-public-preview
