@@ -1,0 +1,97 @@
+name: Roadbook Tuesday safe publisher
+on:
+  pull_request:
+    paths:
+      - "automation/last-published-public.json"
+      - "scripts/roadbook-*.mjs"
+      - "scripts/roadbook-tuesday.test.mjs"
+      - ".github/workflows/roadbook-tuesday.yml"
+  workflow_dispatch:
+  # ACTIVATE MONDAY AFTER CREDENTIALS + PREVIEW APPROVAL:
+  # schedule:
+  #   - cron: "12 6 * * 2" # UTC Tuesday, Helsinki 08:12/09:12
+permissions:
+  contents: read
+jobs:
+  tests:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - name: Test full public snapshot and page regeneration
+        run: node --test scripts/roadbook-tuesday.test.mjs
+  preview:
+    if: github.event_name == 'workflow_dispatch'
+    needs: tests
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - name: Import private Roadbook read-only
+        env:
+          GOOGLE_SERVICE_ACCOUNT_JSON: ${{ secrets.GOOGLE_SERVICE_ACCOUNT_JSON }}
+          ROADBOOK_SHEET_ID: ${{ vars.ROADBOOK_SHEET_ID }}
+          ROADBOOK_INPUT_FILE: /tmp/enslain-private-roadbook.json
+        run: node scripts/roadbook-fetch.mjs
+      - name: Generate preview diff, never publish
+        env:
+          ROADBOOK_INPUT_FILE: /tmp/enslain-private-roadbook.json
+        run: |
+          node scripts/roadbook-tuesday.mjs --write
+          git diff --stat -- public/ automation/last-published-public.json
+          git diff -- public/ > /tmp/roadbook-public-preview.patch
+      - uses: actions/upload-artifact@v4
+        with:
+          name: roadbook-public-preview
+          path: /tmp/roadbook-public-preview.patch
+          retention-days: 3
+      - name: Erase ephemeral private input
+        if: always()
+        run: rm -f /tmp/enslain-private-roadbook.json
+  scheduled_publish:
+    if: github.event_name == 'schedule'
+    needs: tests
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    permissions:
+      contents: write
+    concurrency:
+      group: roadbook-production-sync
+      cancel-in-progress: false
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - name: Import approved source read-only
+        env:
+          GOOGLE_SERVICE_ACCOUNT_JSON: ${{ secrets.GOOGLE_SERVICE_ACCOUNT_JSON }}
+          ROADBOOK_SHEET_ID: ${{ vars.ROADBOOK_SHEET_ID }}
+          ROADBOOK_INPUT_FILE: /tmp/enslain-private-roadbook.json
+        run: node scripts/roadbook-fetch.mjs
+      - name: Validate and regenerate
+        env:
+          ROADBOOK_INPUT_FILE: /tmp/enslain-private-roadbook.json
+        run: node scripts/roadbook-tuesday.mjs --write
+      - name: Erase ephemeral private input
+        if: always()
+        run: rm -f /tmp/enslain-private-roadbook.json
+      - name: Commit once if public website changed
+        run: |
+          git config user.name "Enslain Roadbook Bot"
+          git config user.email "roadbook-bot@users.noreply.github.com"
+          git add -- public/events public/artists public/festivals public/touring-history automation/last-published-public.json
+          if git diff --cached --quiet; then
+            echo "No public changes, no production deployment."
+          else
+            git commit -m "Roadbook: validated Tuesday website sync"
+            git push origin HEAD:master
+          fi
