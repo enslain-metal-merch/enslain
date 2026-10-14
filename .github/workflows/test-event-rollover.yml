@@ -1,0 +1,27 @@
+name: Test Helsinki events rollover
+on:
+  pull_request:
+    paths:
+      - "src/js/event-rollover.js"
+      - "src/js/events.js"
+      - "public/assets/event-rollover.js"
+      - "public/assets/events.js"
+      - "public/events/index.html"
+      - "public/artists/brymir/index.html"
+      - "public/artists/kaunis-kuolematon/index.html"
+      - "scripts/event-rollover.test.cjs"
+      - ".github/workflows/test-event-rollover.yml"
+  workflow_dispatch:
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - name: Install isolated DOM test dependency
+        run: npm install --no-save --no-package-lock jsdom@26
+      - name: Run date and page integration tests
+        run: node --test scripts/event-rollover.test.cjs

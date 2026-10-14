@@ -8,7 +8,11 @@ const byKind={upcoming:[],past:[]};
 const normalize=s=>(s||"").toLocaleLowerCase().trim();
 const urlTiming=new URLSearchParams(location.search).get("timing");
 if(urlTiming==="past"||urlTiming==="upcoming")timing.value=urlTiming;
-rows.forEach(r=>{let k=r.dataset.kind;if(byKind[k])byKind[k].push(r)});
+function reindexRows(){
+ byKind.upcoming.length=0;byKind.past.length=0;
+ rows.forEach(r=>{const k=r.dataset.kind;if(byKind[k])byKind[k].push(r)});
+}
+reindexRows();
 let matched={upcoming:[],past:[]};
 function render(reset=false){
  if(reset){limit.upcoming=45;limit.past=55;}
@@ -39,11 +43,12 @@ band.addEventListener("change",()=>render(true));
  if(el===timing){const u=new URL(location.href);if(timing.value==="all")u.searchParams.delete("timing");else u.searchParams.set("timing",timing.value);history.replaceState(null,"",u);}
  render(true);
 }));
-clear.addEventListener("click",()=>{search.value="";band.value="";country.value="";timing.value="all";const u=new URL(location.href);u.searchParams.delete("timing");history.replaceState(null,"",u);render(true)});
+clear.addEventListener("click",()=>{search.value="";band.value="";country.value="";timing.value="upcoming";const u=new URL(location.href);u.searchParams.delete("timing");history.replaceState(null,"",u);render(true)});
 root.querySelectorAll("[data-load]").forEach(button=>button.addEventListener("click",()=>{limit[button.dataset.load]+=step;render()}));
 if("IntersectionObserver" in window){
  const observer=new IntersectionObserver(entries=>{for(const ent of entries){if(!ent.isIntersecting)continue;const kind=ent.target.dataset.sentinel;if(matched[kind]?.length>limit[kind]){limit[kind]+=step;render();}}},{rootMargin:"300px"});
  root.querySelectorAll("[data-sentinel]").forEach(el=>observer.observe(el));
 }
+root.addEventListener("enslain:event-rollover",()=>{reindexRows();render(true)});
 render();
 })();
