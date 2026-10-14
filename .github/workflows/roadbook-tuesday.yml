@@ -23,7 +23,50 @@ jobs:
         with:
           node-version: "22"
       - name: Test full public snapshot and page regeneration
-        run: node --test scripts/roadbook-fetch-ranges.test.mjs scripts/roadbook-tuesday.test.mjs
+        run: |
+          node --test scripts/roadbook-fetch-ranges.test.mjs scripts/roadbook-tuesday.test.mjs scripts/roadbook-public-feed.test.mjs
+          node scripts/check-roadbook-publish.mjs public
+  connection_smoke:
+    # Internal draft-branch PR only; never publish or upload private input.
+    if: github.event_name == 'pull_request' && github.event.pull_request.head.repo.full_name == 'enslain-metal-merch/enslain' && github.event.pull_request.head.ref == 'roadbook-tuesday-prep-20261014'
+    needs: tests
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      contents: read
+      id-token: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - name: Authenticate GitHub to Google without a private key
+        id: google_auth
+        uses: google-github-actions/auth@v3
+        with:
+          project_id: enslain-roadbook-sync
+          workload_identity_provider: ${{ vars.ROADBOOK_GCP_WIF_PROVIDER }}
+          service_account: roadbook-reader@enslain-roadbook-sync.iam.gserviceaccount.com
+          token_format: access_token
+          access_token_scopes: https://www.googleapis.com/auth/spreadsheets.readonly
+      - name: Check live Roadbook public eligibility without publishing
+        env:
+          GOOGLE_OAUTH_ACCESS_TOKEN: ${{ steps.google_auth.outputs.access_token }}
+          ROADBOOK_SHEET_ID: ${{ vars.ROADBOOK_SHEET_ID }}
+          ROADBOOK_INPUT_FILE: /tmp/enslain-private-roadbook.json
+        run: |
+          node scripts/roadbook-fetch.mjs
+          node --input-type=module -e '
+            import {readFileSync} from "node:fs";
+            import {buildPublicFeed} from "./scripts/roadbook-public-feed.mjs";
+            const input=JSON.parse(readFileSync(process.env.ROADBOOK_INPUT_FILE,"utf8"));
+            const output=buildPublicFeed(input);
+            if(output.events.length<600)throw Error("Unexpectedly few public events");
+            console.log("Read-only, public-only validation passed:",output.events.length,"eligible events. No publication.");
+          '
+      - name: Delete private data from temporary disk
+        if: always()
+        run: rm -f /tmp/enslain-private-roadbook.json
   preview:
     if: github.event_name == 'workflow_dispatch'
     needs: tests
@@ -57,6 +100,7 @@ jobs:
           ROADBOOK_INPUT_FILE: /tmp/enslain-private-roadbook.json
         run: |
           node scripts/roadbook-tuesday.mjs --write
+          node scripts/check-roadbook-publish.mjs public
           git diff --stat -- public/ automation/last-published-public.json
           git diff -- public/ > /tmp/roadbook-public-preview.patch
       - uses: actions/upload-artifact@v4
