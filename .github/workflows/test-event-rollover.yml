@@ -9,6 +9,10 @@ on:
       - "public/events/index.html"
       - "public/artists/brymir/index.html"
       - "public/artists/kaunis-kuolematon/index.html"
+      - "public/touring-history/2026-brymir/index.html"
+      - "public/touring-history/2026-kaunis-kuolematon/index.html"
+      - "public/touring-history/2026-pat-metheny/index.html"
+      - "docs/event-rollover-stage1.md"
       - "scripts/event-rollover.test.cjs"
       - ".github/workflows/test-event-rollover.yml"
   workflow_dispatch:
