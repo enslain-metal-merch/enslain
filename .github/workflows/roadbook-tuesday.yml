@@ -8,9 +8,13 @@ on:
       - ".github/workflows/roadbook-tuesday.yml"
   workflow_dispatch:
   # ACTIVATE ONLY AFTER KEYLESS WIF + LIVE PREVIEW + OWNER APPROVAL:
-  # schedule:
-  #   - cron: "33 11 * * 2"
-  #     timezone: "Europe/Helsinki" # AFTER verified Tuesday morning book maintenance
+  # schedule: # Enable ONLY in owner-approved production release.
+  #   - cron: "33 11 * * 2" # Tuesday primary, after morning maintenance
+  #     timezone: "Europe/Helsinki"
+  #   - cron: "33 16 * * 2" # Tuesday same-day recovery/no-op check
+  #     timezone: "Europe/Helsinki"
+  #   - cron: "33 11 * * 3" # Wednesday catch-up if Tuesday remained blocked
+  #     timezone: "Europe/Helsinki"
 permissions:
   contents: read
 jobs:
