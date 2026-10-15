@@ -11,10 +11,6 @@ on:
   # schedule: # Enable ONLY in owner-approved production release.
   #   - cron: "33 11 * * 2" # Tuesday primary, after morning maintenance
   #     timezone: "Europe/Helsinki"
-  #   - cron: "33 16 * * 2" # Tuesday same-day recovery/no-op check
-  #     timezone: "Europe/Helsinki"
-  #   - cron: "33 11 * * 3" # Wednesday catch-up if Tuesday remained blocked
-  #     timezone: "Europe/Helsinki"
 permissions:
   contents: read
 jobs:
@@ -161,7 +157,7 @@ jobs:
           service_account: roadbook-reader@enslain-roadbook-sync.iam.gserviceaccount.com
           token_format: access_token
           access_token_scopes: https://www.googleapis.com/auth/spreadsheets.readonly
-      - name: Require same-day healthy Roadbook maintenance before scheduled release
+      - name: Require verified Tuesday or Monday maintenance before single scheduled release
         env:
           GOOGLE_OAUTH_ACCESS_TOKEN: ${{ steps.google_auth.outputs.access_token }}
           ROADBOOK_SHEET_ID: ${{ vars.ROADBOOK_SHEET_ID }}
