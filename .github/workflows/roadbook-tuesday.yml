@@ -7,10 +7,11 @@ on:
       - "scripts/roadbook-tuesday.test.mjs"
       - ".github/workflows/roadbook-tuesday.yml"
   workflow_dispatch:
-  # ACTIVATE ONLY AFTER KEYLESS WIF + LIVE PREVIEW + OWNER APPROVAL:
-  # schedule: # Enable ONLY in owner-approved production release.
-  #   - cron: "33 11 * * 2" # Tuesday primary, after morning maintenance
-  #     timezone: "Europe/Helsinki"
+  # Runs only after this workflow is merged to the default branch (master).
+  # One scheduled weekly publication; no automatic second deploy.
+  schedule:
+    - cron: "33 11 * * 2"
+      timezone: "Europe/Helsinki"
 permissions:
   contents: read
 jobs:
