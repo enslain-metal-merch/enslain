@@ -50,6 +50,11 @@ jobs:
           service_account: roadbook-reader@enslain-roadbook-sync.iam.gserviceaccount.com
           token_format: access_token
           access_token_scopes: https://www.googleapis.com/auth/spreadsheets.readonly
+      - name: Test real same-day Roadbook maintenance marker
+        env:
+          GOOGLE_OAUTH_ACCESS_TOKEN: ${{ steps.google_auth.outputs.access_token }}
+          ROADBOOK_SHEET_ID: ${{ vars.ROADBOOK_SHEET_ID }}
+        run: node scripts/roadbook-maintenance-gate.mjs
       - name: Check live Roadbook public eligibility without publishing
         env:
           GOOGLE_OAUTH_ACCESS_TOKEN: ${{ steps.google_auth.outputs.access_token }}
