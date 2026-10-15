@@ -50,16 +50,10 @@ jobs:
           service_account: roadbook-reader@enslain-roadbook-sync.iam.gserviceaccount.com
           token_format: access_token
           access_token_scopes: https://www.googleapis.com/auth/spreadsheets.readonly
-      - name: Test real same-day Roadbook maintenance marker
+      - name: Check isolated public feed eligibility without publishing
         env:
           GOOGLE_OAUTH_ACCESS_TOKEN: ${{ steps.google_auth.outputs.access_token }}
-          ROADBOOK_SHEET_ID: ${{ vars.ROADBOOK_SHEET_ID }}
-        run: node scripts/roadbook-maintenance-gate.mjs
-      - name: Check live Roadbook public eligibility without publishing
-        env:
-          GOOGLE_OAUTH_ACCESS_TOKEN: ${{ steps.google_auth.outputs.access_token }}
-          ROADBOOK_SHEET_ID: ${{ vars.ROADBOOK_SHEET_ID }}
-          ROADBOOK_INPUT_FILE: /tmp/enslain-private-roadbook.json
+          ROADBOOK_INPUT_FILE: /tmp/enslain-public-website-feed.json
         run: |
           node scripts/roadbook-fetch.mjs
           node --input-type=module -e '
@@ -70,9 +64,9 @@ jobs:
             if(output.events.length<600)throw Error("Unexpectedly few public events");
             console.log("Read-only, public-only validation passed:",output.events.length,"eligible events. No publication.");
           '
-      - name: Delete private data from temporary disk
+      - name: Delete ephemeral public input from temporary disk
         if: always()
-        run: rm -f /tmp/enslain-private-roadbook.json
+        run: rm -f /tmp/enslain-public-website-feed.json
   preview:
     # Read-only full website diff, on our trusted draft PR or manual dispatch.
     # Never writes to master; PR head is explicitly restricted.
@@ -103,15 +97,14 @@ jobs:
           service_account: roadbook-reader@enslain-roadbook-sync.iam.gserviceaccount.com
           token_format: access_token
           access_token_scopes: https://www.googleapis.com/auth/spreadsheets.readonly
-      - name: Import private Roadbook read-only
+      - name: Import approved public website feed read-only
         env:
           GOOGLE_OAUTH_ACCESS_TOKEN: ${{ steps.google_auth.outputs.access_token }}
-          ROADBOOK_SHEET_ID: ${{ vars.ROADBOOK_SHEET_ID }}
-          ROADBOOK_INPUT_FILE: /tmp/enslain-private-roadbook.json
+          ROADBOOK_INPUT_FILE: /tmp/enslain-public-website-feed.json
         run: node scripts/roadbook-fetch.mjs
       - name: Generate preview diff, never publish
         env:
-          ROADBOOK_INPUT_FILE: /tmp/enslain-private-roadbook.json
+          ROADBOOK_INPUT_FILE: /tmp/enslain-public-website-feed.json
         run: |
           node scripts/roadbook-tuesday.mjs --write
           ROADBOOK_REQUIRE_KEMPELE=1 node scripts/check-roadbook-publish.mjs public
@@ -148,9 +141,9 @@ jobs:
             public/assets/img/theme/header-logo-background--dark.jpg
           retention-days: 1
           if-no-files-found: warn
-      - name: Erase ephemeral private input
+      - name: Erase ephemeral feed input
         if: always()
-        run: rm -f /tmp/enslain-private-roadbook.json
+        run: rm -f /tmp/enslain-public-website-feed.json
   scheduled_publish:
     if: github.event_name == 'schedule'
     needs: tests
@@ -178,24 +171,38 @@ jobs:
           service_account: roadbook-reader@enslain-roadbook-sync.iam.gserviceaccount.com
           token_format: access_token
           access_token_scopes: https://www.googleapis.com/auth/spreadsheets.readonly
-      - name: Require verified Tuesday or Monday maintenance before single scheduled release
-        env:
-          GOOGLE_OAUTH_ACCESS_TOKEN: ${{ steps.google_auth.outputs.access_token }}
-          ROADBOOK_SHEET_ID: ${{ vars.ROADBOOK_SHEET_ID }}
-        run: node scripts/roadbook-maintenance-gate.mjs
       - name: Import approved source read-only
         env:
           GOOGLE_OAUTH_ACCESS_TOKEN: ${{ steps.google_auth.outputs.access_token }}
-          ROADBOOK_SHEET_ID: ${{ vars.ROADBOOK_SHEET_ID }}
-          ROADBOOK_INPUT_FILE: /tmp/enslain-private-roadbook.json
+          ROADBOOK_INPUT_FILE: /tmp/enslain-public-website-feed.json
         run: node scripts/roadbook-fetch.mjs
       - name: Validate and regenerate
         env:
-          ROADBOOK_INPUT_FILE: /tmp/enslain-private-roadbook.json
+          ROADBOOK_INPUT_FILE: /tmp/enslain-public-website-feed.json
         run: node scripts/roadbook-tuesday.mjs --write
-      - name: Erase ephemeral private input
+      - name: Verify late edits have settled before the single Tuesday commit
+        env:
+          GOOGLE_OAUTH_ACCESS_TOKEN: ${{ steps.google_auth.outputs.access_token }}
+          ROADBOOK_INPUT_FILE: /tmp/enslain-public-website-feed.json
+        run: |
+          cp /tmp/enslain-public-website-feed.json /tmp/enslain-feed-first.json
+          sleep 15
+          node scripts/roadbook-fetch.mjs
+          if ! cmp -s /tmp/enslain-feed-first.json /tmp/enslain-public-website-feed.json; then
+            echo "Public feed changed during publishing: defer within this SAME run."
+            cp /tmp/enslain-public-website-feed.json /tmp/enslain-feed-second.json
+            sleep 60
+            node scripts/roadbook-fetch.mjs
+            if ! cmp -s /tmp/enslain-feed-second.json /tmp/enslain-public-website-feed.json; then
+              echo "Public feed still changing: abort this week rather than publish unstable input."
+              exit 1
+            fi
+            node scripts/roadbook-tuesday.mjs --write
+          fi
+          node scripts/check-roadbook-publish.mjs public
+      - name: Erase ephemeral feed input
         if: always()
-        run: rm -f /tmp/enslain-private-roadbook.json
+        run: rm -f /tmp/enslain-public-website-feed.json /tmp/enslain-feed-first.json /tmp/enslain-feed-second.json
       - name: Commit once if public website changed
         run: |
           git config user.name "Enslain Roadbook Bot"
