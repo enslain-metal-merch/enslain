@@ -2,7 +2,7 @@
 
 ## Current status
 - Draft PR #12, branch `roadbook-tuesday-prep-20261014`, unmerged.
-- **Not deployed.** The Tuesday cron is commented out until owner approval.
+- **Not deployed.** The Tuesday cron is configured only in draft PR #12, and activates only when this PR is merged to master with owner approval.
 - Latest isolated-feed GitHub live tests/preview: https://github.com/enslain-metal-merch/enslain/actions/runs/38802520845 — passed.
 - No Netlify preview or master commit was created by this validation.
 
@@ -15,12 +15,12 @@
 
 ## Security boundary
 - Do not share the private Roadbook with the GitHub service account once final validation is complete.
-- **PENDING MANUAL STEP:** the owner must remove `roadbook-reader@enslain-roadbook-sync.iam.gserviceaccount.com` from Roadbook's Share dialog. Google Drive connector has share but no permission-revocation action. Do not claim access revoked before confirming.
+- **COMPLETED AND VERIFIED:** the owner removed the service account from private Roadbook; Google Drive permissions were inspected afterwards. Its Viewer access to the separate public feed was also verified. The post-removal GitHub live connection test passed.
 - Limit destination **Editor** rights to the Roadbook owner/trusted maintainers. Editors of an `IMPORTRANGE` receiving spreadsheet can potentially request extra ranges from its authorized source. The GitHub bot is Viewer only.
 - This is a practical improvement, not an airtight isolation boundary.
 
 ## Timing and resilience
-- Requested Tuesday trigger: **11:33 Europe/Helsinki**, using timezone-aware GitHub Actions cron once owner approves.
+- Configured Tuesday trigger in draft: **11:33 Europe/Helsinki**, using timezone-aware GitHub Actions cron. Not active until master merge.
 - Current local test showed two source-to-closed-destination changes propagating within 7–12 seconds (not a guaranteed bound).
 - A single Tuesday job fetches, generates, **re-fetches 15 seconds later** before committing. If the feed changed, it waits a further 60 seconds and fetches again. If still changing, it fails closed without a deployment. No second scheduled job, no multiple pushes.
 - If the mirrored feed is slow to refresh beyond this window, some late Roadbook edits could still miss that week's push. For a weekly, non-critical site that is an accepted tradeoff; do not claim this is an exact source-edit timestamp guard.
@@ -35,6 +35,7 @@
 - Production not updated. Further manual release step still requires owner approval to merge and enable cron.
 
 ## Remaining steps
-1. Remove bot's old permission to **private** Roadbook. Then run isolated live read again (ensure IMPORTRANGE stays authorized).
-2. Owner approves the single release; enable Tuesday cron, merge draft PR #12 once. Check master deploy and first scheduler run.
-3. Verify normal Roadbook edits continue to propagate; fix source-side Website Feed omissions with normal Roadbook QA.
+1. Private Roadbook permission revoked and post-cutover live check passed; no owner action needed for Google sharing.
+2. **Owner release decision:** approve one merge of draft PR #12 to master. Keep `[skip netlify]` in the actual merge commit message to avoid a site deployment merely for installing automation; the first content-changing Tuesday commit will deploy normally. No extra Netlify preview.
+3. Verify next Tuesday's first scheduled publication and Netlify outcome. Weekly schedule is a best-effort GitHub Actions trigger; an exact 11:33 start is not guaranteed.
+4. Verify normal Roadbook edits continue to propagate; fix source-side Website Feed omissions through normal Roadbook QA. Netlify credit balance has not been independently inspected.
