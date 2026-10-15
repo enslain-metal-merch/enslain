@@ -24,7 +24,7 @@ jobs:
           node-version: "22"
       - name: Test full public snapshot and page regeneration
         run: |
-          node --test scripts/roadbook-fetch-ranges.test.mjs scripts/roadbook-tuesday.test.mjs scripts/roadbook-public-feed.test.mjs
+          node --test scripts/roadbook-fetch-ranges.test.mjs scripts/roadbook-tuesday.test.mjs scripts/roadbook-public-feed.test.mjs scripts/roadbook-maintenance-gate.test.mjs
           node --check scripts/roadbook-maintenance-gate.mjs
           node scripts/check-roadbook-publish.mjs public
   connection_smoke:
