@@ -1,0 +1,217 @@
+name: Roadbook Tuesday safe publisher
+on:
+  pull_request:
+    paths:
+      - "automation/last-published-public.json"
+      - "scripts/roadbook-*.mjs"
+      - "scripts/roadbook-tuesday.test.mjs"
+      - ".github/workflows/roadbook-tuesday.yml"
+  workflow_dispatch:
+  # Runs only after this workflow is merged to the default branch (master).
+  # One scheduled weekly publication; no automatic second deploy.
+  schedule:
+    - cron: "33 11 * * 2"
+      timezone: "Europe/Helsinki"
+permissions:
+  contents: read
+jobs:
+  tests:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - name: Test full public snapshot and page regeneration
+        run: |
+          node --test scripts/roadbook-fetch-ranges.test.mjs scripts/roadbook-tuesday.test.mjs scripts/roadbook-public-feed.test.mjs scripts/roadbook-maintenance-gate.test.mjs
+          node --check scripts/roadbook-maintenance-gate.mjs
+          node scripts/check-roadbook-publish.mjs public
+  connection_smoke:
+    # Internal draft-branch PR only; never publish or upload private input.
+    if: github.event_name == 'pull_request' && github.event.pull_request.number == 12 && github.event.pull_request.head.repo.full_name == 'enslain-metal-merch/enslain' && github.event.pull_request.head.ref == 'roadbook-tuesday-prep-20261014'
+    needs: tests
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      contents: read
+      id-token: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - name: Authenticate GitHub to Google without a private key
+        id: google_auth
+        uses: google-github-actions/auth@v3
+        with:
+          project_id: enslain-roadbook-sync
+          workload_identity_provider: ${{ vars.ROADBOOK_GCP_WIF_PROVIDER }}
+          service_account: roadbook-reader@enslain-roadbook-sync.iam.gserviceaccount.com
+          token_format: access_token
+          access_token_scopes: https://www.googleapis.com/auth/spreadsheets.readonly
+      - name: Check isolated public feed eligibility without publishing
+        env:
+          GOOGLE_OAUTH_ACCESS_TOKEN: ${{ steps.google_auth.outputs.access_token }}
+          ROADBOOK_INPUT_FILE: /tmp/enslain-public-website-feed.json
+        run: |
+          node scripts/roadbook-fetch.mjs
+          node --input-type=module -e '
+            import {readFileSync} from "node:fs";
+            import {buildPublicFeed} from "./scripts/roadbook-public-feed.mjs";
+            const input=JSON.parse(readFileSync(process.env.ROADBOOK_INPUT_FILE,"utf8"));
+            const output=buildPublicFeed(input);
+            if(output.events.length<600)throw Error("Unexpectedly few public events");
+            console.log("Read-only, public-only validation passed:",output.events.length,"eligible events. No publication.");
+          '
+      - name: Delete ephemeral public input from temporary disk
+        if: always()
+        run: rm -f /tmp/enslain-public-website-feed.json
+  preview:
+    # Read-only full website diff, on our trusted draft PR or manual dispatch.
+    # Never writes to master; PR head is explicitly restricted.
+    if: >-
+      always() && needs.tests.result == 'success' &&
+      (github.event_name == 'workflow_dispatch' ||
+       (github.event_name == 'pull_request' && needs.connection_smoke.result == 'success' &&
+        github.event.pull_request.number == 12 &&
+        github.event.pull_request.head.repo.full_name == 'enslain-metal-merch/enslain' &&
+        github.event.pull_request.head.ref == 'roadbook-tuesday-prep-20261014'))
+    needs: [tests, connection_smoke]
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    permissions:
+      contents: read
+      id-token: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - name: Authenticate as Roadbook reader (keyless GitHub OIDC)
+        id: google_auth
+        uses: google-github-actions/auth@v3
+        with:
+          project_id: enslain-roadbook-sync
+          workload_identity_provider: ${{ vars.ROADBOOK_GCP_WIF_PROVIDER }}
+          service_account: roadbook-reader@enslain-roadbook-sync.iam.gserviceaccount.com
+          token_format: access_token
+          access_token_scopes: https://www.googleapis.com/auth/spreadsheets.readonly
+      - name: Import approved public website feed read-only
+        env:
+          GOOGLE_OAUTH_ACCESS_TOKEN: ${{ steps.google_auth.outputs.access_token }}
+          ROADBOOK_INPUT_FILE: /tmp/enslain-public-website-feed.json
+        run: node scripts/roadbook-fetch.mjs
+      - name: Generate preview diff, never publish
+        env:
+          ROADBOOK_INPUT_FILE: /tmp/enslain-public-website-feed.json
+        run: |
+          node scripts/roadbook-tuesday.mjs --write
+          ROADBOOK_REQUIRE_KEMPELE=1 node scripts/check-roadbook-publish.mjs public
+          git diff --stat -- public/ automation/last-published-public.json
+          git diff -- public/ > /tmp/roadbook-public-preview.patch
+          git diff -- public/ automation/last-published-public.json > /tmp/roadbook-first-run.patch
+          node scripts/roadbook-tuesday.mjs --write
+          git diff -- public/ automation/last-published-public.json > /tmp/roadbook-second-run.patch
+          cmp /tmp/roadbook-first-run.patch /tmp/roadbook-second-run.patch
+          echo "PASS: repeated generation is a no-op; no production deployment."
+      - uses: actions/upload-artifact@v4
+        with:
+          name: roadbook-public-preview
+          path: /tmp/roadbook-public-preview.patch
+          retention-days: 3
+      # Bounded browser QA package: generated public HTML and public site assets only.
+      # No Netlify preview/deploy is required to inspect it locally.
+      - uses: actions/upload-artifact@v4
+        with:
+          name: roadbook-static-browser-qa
+          path: |
+            public/events/index.html
+            public/artists/index.html
+            public/artists/battle-beast/index.html
+            public/artists/kaunis-kuolematon/index.html
+            public/festivals/index.html
+            public/festivals/steelfest/index.html
+            public/touring-history/index.html
+            public/touring-history/2026-brymir/index.html
+            public/assets/style.css
+            public/assets/roadbook-pages.css
+            public/assets/script-min.js
+            public/assets/event-rollover.js
+            public/assets/img/theme/header-logo-background--dark.jpg
+          retention-days: 1
+          if-no-files-found: warn
+      - name: Erase ephemeral feed input
+        if: always()
+        run: rm -f /tmp/enslain-public-website-feed.json
+  scheduled_publish:
+    if: github.event_name == 'schedule'
+    needs: tests
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    permissions:
+      contents: write
+      id-token: write
+    concurrency:
+      group: roadbook-production-sync
+      cancel-in-progress: false
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - name: Authenticate as Roadbook reader (keyless GitHub OIDC)
+        id: google_auth
+        uses: google-github-actions/auth@v3
+        with:
+          project_id: enslain-roadbook-sync
+          workload_identity_provider: ${{ vars.ROADBOOK_GCP_WIF_PROVIDER }}
+          service_account: roadbook-reader@enslain-roadbook-sync.iam.gserviceaccount.com
+          token_format: access_token
+          access_token_scopes: https://www.googleapis.com/auth/spreadsheets.readonly
+      - name: Import approved source read-only
+        env:
+          GOOGLE_OAUTH_ACCESS_TOKEN: ${{ steps.google_auth.outputs.access_token }}
+          ROADBOOK_INPUT_FILE: /tmp/enslain-public-website-feed.json
+        run: node scripts/roadbook-fetch.mjs
+      - name: Validate and regenerate
+        env:
+          ROADBOOK_INPUT_FILE: /tmp/enslain-public-website-feed.json
+        run: node scripts/roadbook-tuesday.mjs --write
+      - name: Verify late edits have settled before the single Tuesday commit
+        env:
+          GOOGLE_OAUTH_ACCESS_TOKEN: ${{ steps.google_auth.outputs.access_token }}
+          ROADBOOK_INPUT_FILE: /tmp/enslain-public-website-feed.json
+        run: |
+          cp /tmp/enslain-public-website-feed.json /tmp/enslain-feed-first.json
+          sleep 15
+          node scripts/roadbook-fetch.mjs
+          if ! cmp -s /tmp/enslain-feed-first.json /tmp/enslain-public-website-feed.json; then
+            echo "Public feed changed during publishing: defer within this SAME run."
+            cp /tmp/enslain-public-website-feed.json /tmp/enslain-feed-second.json
+            sleep 60
+            node scripts/roadbook-fetch.mjs
+            if ! cmp -s /tmp/enslain-feed-second.json /tmp/enslain-public-website-feed.json; then
+              echo "Public feed still changing: abort this week rather than publish unstable input."
+              exit 1
+            fi
+            node scripts/roadbook-tuesday.mjs --write
+          fi
+          node scripts/check-roadbook-publish.mjs public
+      - name: Erase ephemeral feed input
+        if: always()
+        run: rm -f /tmp/enslain-public-website-feed.json /tmp/enslain-feed-first.json /tmp/enslain-feed-second.json
+      - name: Commit once if public website changed
+        run: |
+          git config user.name "Enslain Roadbook Bot"
+          git config user.email "roadbook-bot@users.noreply.github.com"
+          git add -- public/events public/artists public/festivals public/touring-history automation/last-published-public.json
+          if git diff --cached --quiet; then
+            echo "No public changes, no production deployment."
+          else
+            git commit -m "Roadbook: validated Tuesday website sync"
+            git push origin HEAD:master
+          fi
