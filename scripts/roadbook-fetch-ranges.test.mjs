@@ -2,7 +2,7 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import {ROADBOOK_RANGES,assembleRoadbookInput,PUBLIC_HEADERS} from './roadbook-fetch-ranges.mjs';
 const sample=()=>[{values:[
- PUBLIC_HEADERS,
+ [...PUBLIC_HEADERS],
  ['EV-2026-0001','2026-01-01','2026-01-01','1 Jan 2026','Brymir','Venue A','Helsinki','Finland','Brymir — Autumn 2026','with Band B','Brymir|Band B','Yes','https://example.com','Brymir']
 ]}];
 test('only the isolated public spreadsheet tab is read',()=>{
