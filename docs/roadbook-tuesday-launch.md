@@ -105,3 +105,11 @@ is the next Tuesday after approval. No automatic publishing until then.
   synchronizes the raw HTML again.
 - GitHub Actions scheduled jobs on public repos may automatically disable
   after long inactivity; watch this and keep manual run available.
+
+## Missed Tuesday publication: bounded automatic recovery
+
+- The approved production release will enable THREE Europe/Helsinki local cron windows: **Tuesday 11:33**, **Tuesday 16:33** (retry), and **Wednesday 11:33** (last fallback). Until explicit owner release approval these cron entries stay commented out.
+- Each run independently validates a **fresh same-day FULL OK Roadbook Agent State maintenance checkpoint** AND reads current private Roadbook + Website Feed from Sheets. A stale, partial, missing, or contradictory checkpoint, API error, or bad public data must STOP without committing or publishing anything. Never bypass eligibility or use stale cached public data to force an update.
+- If the first pass succeeded and public content has not changed, the later checks produce NO CHANGED FILES, no commit, and **zero extra Netlify deployments**. Concurrency forbids overlapping publishing jobs. Tuesday afternoon can capture freshly approved later corrections; Wednesday is a one-shot recovery opportunity, not an ongoing daily publisher.
+- The existing daily 09:00 briefing must review actual GitHub Actions results (not assume a scheduled attempt ran), and on Wednesday morning report a failed or missed Tuesday run and the pending 11:33 Wednesday fallback. On Thursday morning report any unresolved Wednesday fallback failure as **publication blocked**, with the last successful public site still live. User-led manual release remains available after fixing the root cause using the same validation and QA. **Do not create standalone reminder automations or Todoist duplicates.**
+- Prevent accidental second production deploy on identical source by checking changed generated public files. A failed run does not alter `master`. Do not merge/activate until HTML diff, browser, and Netlify credit checks pass and Chrissy explicitly chooses the deployment window.
