@@ -129,7 +129,7 @@ test("all three individual tours use one chronological table; links expire safel
     assert.ok(rows.length >= minimumCount, slug + " tour unexpectedly shrank");
     const starts = rows.map(r => r.querySelector("time[datetime]").getAttribute("datetime"));
     assert.deepEqual(starts, [...starts].sort(), slug);
-    assert.match(html, /<script src="\\/assets\\/event-rollover\\.js" defer><\\/script>/);
+    assert.ok(html.includes('<script src="/assets/event-rollover.js" defer></script>'), slug);
     rollover.run(doc, new Date("2026-10-17T01:59:59Z"));
     const beforeTickets = section.querySelectorAll(".events-v2__ticket").length;
     rollover.run(doc, new Date("2026-10-17T02:00:00Z"));
