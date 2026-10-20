@@ -35,7 +35,7 @@ test("main Events: all approved public rows move without losing filter behavior"
   const up = doc.querySelector('[data-group="upcoming"] tbody');
   const past = doc.querySelector('[data-group="past"] tbody');
   assert.equal(up.querySelectorAll("tr[data-event-id]").length + past.querySelectorAll("tr[data-event-id]").length, expectedCount);
-  const show = [...up.querySelectorAll("tr")].find(row => row.querySelector('time[datetime="2026-10-16"]'));
+  const show = [...up.querySelectorAll("tr"), ...past.querySelectorAll("tr")].find(row => row.querySelector('time[datetime="2026-10-16"]'));
   assert.ok(show);
   assert.equal(rollover.run(doc, new Date("2026-10-17T01:59:59Z")), true);
   assert.equal(show.parentNode, up);
@@ -69,7 +69,7 @@ test("Brymir and Kaunis Kuolematon artist pages migrate real rows and tickets", 
     assert.equal(containers.length, 2);
     const [up, past] = containers;
     const initial = up.querySelectorAll("tr").length + past.querySelectorAll("tr").length;
-    const show = [...up.querySelectorAll("tr")].find(row => row.querySelector('time[datetime="2026-10-16"]'));
+    const show = [...up.querySelectorAll("tr"), ...past.querySelectorAll("tr")].find(row => row.querySelector('time[datetime="2026-10-16"]'));
     assert.ok(show, artist);
     rollover.run(doc, new Date("2026-10-17T01:59:59Z"));
     assert.equal(show.parentNode, up);
