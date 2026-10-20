@@ -35,7 +35,7 @@ test("main Events: all approved public rows move without losing filter behavior"
   const up = doc.querySelector('[data-group="upcoming"] tbody');
   const past = doc.querySelector('[data-group="past"] tbody');
   assert.equal(up.querySelectorAll("tr[data-event-id]").length + past.querySelectorAll("tr[data-event-id]").length, expectedCount);
-  const show = [...up.querySelectorAll("tr")].find(row => row.querySelector('time[datetime="2026-10-16"]'));
+  const show = [...up.querySelectorAll("tr"), ...past.querySelectorAll("tr")].find(row => row.querySelector('time[datetime="2026-10-16"]'));
   assert.ok(show);
   assert.equal(rollover.run(doc, new Date("2026-10-17T01:59:59Z")), true);
   assert.equal(show.parentNode, up);
@@ -69,7 +69,7 @@ test("Brymir and Kaunis Kuolematon artist pages migrate real rows and tickets", 
     assert.equal(containers.length, 2);
     const [up, past] = containers;
     const initial = up.querySelectorAll("tr").length + past.querySelectorAll("tr").length;
-    const show = [...up.querySelectorAll("tr")].find(row => row.querySelector('time[datetime="2026-10-16"]'));
+    const show = [...up.querySelectorAll("tr"), ...past.querySelectorAll("tr")].find(row => row.querySelector('time[datetime="2026-10-16"]'));
     assert.ok(show, artist);
     rollover.run(doc, new Date("2026-10-17T01:59:59Z"));
     assert.equal(show.parentNode, up);
@@ -173,8 +173,9 @@ test("every individual artist page has the shared 05:00 clock and correct multi-
     const beforeCounts = rows.length;
     const headings = [...section.querySelectorAll("h2")].map(x => x.textContent.trim());
     assert.ok(headings.includes("Past events"), slug);
-    // All individual artist pages are safe to run at an arbitrary future date.
-    rollover.run(doc, new Date("2027-01-01T03:00:00Z"));
+    // Future announcements such as the 2027 ZRock gig may still be Upcoming in 2027.
+    // Use a far-future cutoff to test all recorded gigs eventually become Past.
+    rollover.run(doc, new Date("2099-01-01T03:00:00Z"));
     assert.equal(section.querySelectorAll("tbody tr.events-v2__row").length, beforeCounts, slug);
     if (headings.includes("Upcoming gigs")) {
       const wraps = section.querySelectorAll(".events-v2__table-wrap");
