@@ -7,10 +7,18 @@ on:
       - "scripts/roadbook-tuesday.test.mjs"
       - ".github/workflows/roadbook-tuesday.yml"
   workflow_dispatch:
-  # Runs only after this workflow is merged to the default branch (master).
-  # One scheduled weekly publication; no automatic second deploy.
+    inputs:
+      publish:
+        description: "Publish validated Roadbook changes to master (unchecked = preview only)"
+        type: boolean
+        required: false
+        default: false
+  # Two scheduler opportunities; the second is an idempotent safety net.
+  # Only changed public content is committed, so at most one Netlify deploy.
   schedule:
     - cron: "33 11 * * 2"
+      timezone: "Europe/Helsinki"
+    - cron: "47 13 * * 2"
       timezone: "Europe/Helsinki"
 permissions:
   contents: read
@@ -73,7 +81,7 @@ jobs:
     # Never writes to master; PR head is explicitly restricted.
     if: >-
       always() && needs.tests.result == 'success' &&
-      (github.event_name == 'workflow_dispatch' ||
+      ((github.event_name == 'workflow_dispatch' && inputs.publish != true) ||
        (github.event_name == 'pull_request' && needs.connection_smoke.result == 'success' &&
         github.event.pull_request.number == 12 &&
         github.event.pull_request.head.repo.full_name == 'enslain-metal-merch/enslain' &&
@@ -146,7 +154,12 @@ jobs:
         if: always()
         run: rm -f /tmp/enslain-public-website-feed.json
   scheduled_publish:
-    if: github.event_name == 'schedule'
+    # Manual publication is deliberately opt-in and only from production master.
+    # Cron retry is safe: no public diff means no commit, so no Netlify deploy.
+    if: >-
+      github.ref == 'refs/heads/master' &&
+      (github.event_name == 'schedule' ||
+       (github.event_name == 'workflow_dispatch' && inputs.publish == true))
     needs: tests
     runs-on: ubuntu-latest
     timeout-minutes: 15
@@ -159,6 +172,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
+          ref: master
           persist-credentials: true
       - uses: actions/setup-node@v4
         with:
