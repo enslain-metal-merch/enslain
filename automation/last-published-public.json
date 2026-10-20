@@ -14056,24 +14056,8 @@
       "ticket": ""
     },
     {
-      "id": "EV-2026-0111",
-      "start": "2026-09-18",
-      "end": "2026-09-18",
-      "date": "18 Sep 2026",
-      "name": "Brymir",
-      "venue": "Skenesali",
-      "city": "Vantaa",
-      "country": "Finland",
-      "details": "“What We Leave Behind” Tour · with Omnivortex",
-      "bands": [
-        "Brymir",
-        "Omnivortex"
-      ],
-      "ticket": ""
-    },
-    {
       "id": "EV-2026-0112",
-      "start": "2026-09-18",
+      "start": "2026-09-17",
       "end": "2026-09-19",
       "date": "17–19 Sep 2026",
       "name": "Kuolio Fest",
@@ -14095,6 +14079,22 @@
         "Scythrow",
         "Whisper",
         "Disgrave"
+      ],
+      "ticket": ""
+    },
+    {
+      "id": "EV-2026-0111",
+      "start": "2026-09-18",
+      "end": "2026-09-18",
+      "date": "18 Sep 2026",
+      "name": "Brymir",
+      "venue": "Skenesali",
+      "city": "Vantaa",
+      "country": "Finland",
+      "details": "“What We Leave Behind” Tour · with Omnivortex",
+      "bands": [
+        "Brymir",
+        "Omnivortex"
       ],
       "ticket": ""
     },
@@ -14280,7 +14280,7 @@
         "Brymir",
         "Omnivortex"
       ],
-      "ticket": "https://www.seat4.me/tapahtuma/house-of-rock-bar/brymir-omnivortex-2026"
+      "ticket": ""
     },
     {
       "id": "EV-2026-0123",
@@ -14296,7 +14296,7 @@
         "Kaunis Kuolematon",
         "Insomnium"
       ],
-      "ticket": "https://www.lippu.fi/event/insomnium-helsingin-kulttuuritalo-21476998/"
+      "ticket": ""
     },
     {
       "id": "EV-2026-0124",
@@ -14312,7 +14312,7 @@
         "Brymir",
         "Horizon Ignited"
       ],
-      "ticket": "https://www.tiketti.fi/brymir-horizon-ignited-circus-live-kuopio-biljetter/118843"
+      "ticket": ""
     },
     {
       "id": "EV-2026-0125",
@@ -14328,7 +14328,7 @@
         "Kaunis Kuolematon",
         "Insomnium"
       ],
-      "ticket": "https://www.tiketti.fi/insomnium-moysan-musaklubi-lahti-biljetter/116882"
+      "ticket": ""
     },
     {
       "id": "EV-2026-0126",
@@ -14689,6 +14689,24 @@
       "ticket": "https://www.tiketti.fi/torture-killer-psychoparalysis-metempsychos-lt-whisper-tickets/121139"
     },
     {
+      "id": "EV-2027-0037",
+      "start": "2027-04-09",
+      "end": "2027-04-10",
+      "date": "9–10 Apr 2027",
+      "name": "ZRock Festival",
+      "venue": "Zemppi Areena",
+      "city": "Kempele",
+      "country": "Finland",
+      "details": "feat Kalmah, with Amorphis, Dark Tranquillity, Deathchain",
+      "bands": [
+        "Kalmah",
+        "Amorphis",
+        "Dark Tranquillity",
+        "Deathchain"
+      ],
+      "ticket": "https://zrock.fi/tickets/"
+    },
+    {
       "id": "EV-2027-0014",
       "start": "2027-05-13",
       "end": "2027-05-15",
@@ -14697,8 +14715,10 @@
       "venue": "Villatehdas",
       "city": "Hyvinkää",
       "country": "Finland",
-      "details": "Abruptum, Dødheimsgard, Archgoat, Mystifier, Horna, Osculum Infame, Acherontas, Seth, Winterfylleth, Grave Miasma, Infernal War, Sargeist, Nordjevel, Adorior, Ride for Revenge, Saor, Mortifera, Nyogthaeblisz, Korgonthurus, Curse Upon Prayer, Urn, White Rune, Bythos, Moosegut, Maquahuitl, Cadaveric Incubator, Hierophany, Malakhim, Autumns Strife, Black Beast, Grieve, Nexul, Beleths Trumpet, Kratti, Abyssion, Rietas, Hellgate Necrosodomy",
-      "bands": [],
+      "details": "Abruptum, Dødheimsgard, Archgoat, Mystifier, Horna, Osculum Infame, Acherontas, Seth, Winterfylleth, Grave Miasma, Infernal War, Sargeist, Nordjevel, Adorior, Ride for Revenge, Saor, Mortifera, Nyogthaeblisz, Korgonthurus, Curse Upon Prayer, Urn, White Rune, Bythos, Moosegut, Maquahuitl, Cadaveric Incubator, Hierophany, Malakhim, Autumns Strife, Black Beast, Grieve, Nexul, Beleths Trumpet, Kratti, Abyssion, Rietas, Hellgate Necrosodomy, Kroda, True Iron Will, Azazel",
+      "bands": [
+        "Abruptum, Dødheimsgard, Archgoat, Mystifier, Horna, Osculum Infame, Acherontas, Seth, Winterfylleth, Grave Miasma, Infernal War, Sargeist, Nordjevel, Adorior, Ride for Revenge, Saor, Mortifera, Nyogthaeblisz, Korgonthurus, Curse Upon Prayer, Urn, White Rune, Bythos, Moosegut, Maquahuitl, Cadaveric Incubator, Hierophany, Malakhim, Autumns Strife, Black Beast, Grieve, Nexul, Beleths Trumpet, Kratti, Abyssion, Rietas, Hellgate Necrosodomy, Kroda, True Iron Will, Azazel"
+      ],
       "ticket": "https://steelfest.fi/products/steelfest-2027-3-day-ticket"
     },
     {
@@ -14710,8 +14730,23 @@
       "venue": "Hiedanranta",
       "city": "Tampere",
       "country": "Finland",
-      "details": "Igorrr, Alcest, Kalandra, Der Weg Einer Freiheit, Long Distance Calling, Vulkan, Karmanjakah",
-      "bands": [],
+      "details": "Igorrr, Alcest, Kalandra, Der Weg Einer Freiheit, Long Distance Calling, Vulkan, Karmanjakah, Pain of Salvation, Plini, Einar Solberg, Sara, Heretoir, Slow Crush, Noiduin",
+      "bands": [
+        "Igorrr",
+        "Alcest",
+        "Kalandra",
+        "Der Weg Einer Freiheit",
+        "Long Distance Calling",
+        "Vulkan",
+        "Karmanjakah",
+        "Pain of Salvation",
+        "Plini",
+        "Einar Solberg",
+        "Sara",
+        "Heretoir",
+        "Slow Crush",
+        "Noiduin"
+      ],
       "ticket": "https://www.tiketti.fi/ankea-festival-hiedanrannan-tehdasaukio-tampere-lippuja/118784"
     },
     {
@@ -14724,9 +14759,19 @@
       "city": "Vaasa",
       "country": "Finland",
       "details": "Tarja Turunen, Marko Hietala, Blaze Bayley, Old Man’s Child, Scar Symmetry, The Unguided, Fimbul Winter, Black Spikes, Zero Nine",
-      "bands": [],
+      "bands": [
+        "Tarja Turunen",
+        "Marko Hietala",
+        "Blaze Bayley",
+        "Old Man’s Child",
+        "Scar Symmetry",
+        "The Unguided",
+        "Fimbul Winter",
+        "Black Spikes",
+        "Zero Nine"
+      ],
       "ticket": "https://www.netticket.fi/kaaos-festival-2027"
     }
   ],
-  "lastSnapshotDay": "2026-10-14"
+  "lastSnapshotDay": "2026-10-20"
 }
