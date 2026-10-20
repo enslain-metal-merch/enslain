@@ -44,7 +44,7 @@ band.addEventListener("change",()=>render(true));
  if(el===timing){const u=new URL(location.href);if(timing.value==="all")u.searchParams.delete("timing");else u.searchParams.set("timing",timing.value);history.replaceState(null,"",u);}
  render(true);
 }));
-clear.addEventListener("click",()=>{search.value="";band.value="";country.value="";timing.value="upcoming";const u=new URL(location.href);u.searchParams.delete("timing");history.replaceState(null,"",u);render(true)});
+clear.addEventListener("click",()=>{search.value="";band.value="";country.value="";timing.value="all";const u=new URL(location.href);u.searchParams.delete("timing");history.replaceState(null,"",u);render(true)});
 root.querySelectorAll("[data-load]").forEach(button=>button.addEventListener("click",()=>{limit[button.dataset.load]+=step;render()}));
 if("IntersectionObserver" in window){
  const observer=new IntersectionObserver(entries=>{for(const ent of entries){if(!ent.isIntersecting)continue;const kind=ent.target.dataset.sentinel;if(matched[kind]?.length>limit[kind]){limit[kind]+=step;render();}}},{rootMargin:"300px"});

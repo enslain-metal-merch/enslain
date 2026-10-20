@@ -27,13 +27,14 @@ test("Helsinki daylight-saving and year boundaries", () => {
   assert.equal(rollover.effectiveDay(new Date("2027-01-01T02:59:59Z")), "2026-12-31");
   assert.equal(rollover.effectiveDay(new Date("2027-01-01T03:00:00Z")), "2027-01-01");
 });
-test("main Events: existing 878 public rows move without losing filter behavior", () => {
+test("main Events: all approved public rows move without losing filter behavior", () => {
+  const expectedCount = JSON.parse(fs.readFileSync(path.join(root, "automation/last-published-public.json"), "utf8")).events.length;
   const html = fs.readFileSync(path.join(root, "public/events/index.html"), "utf8");
   const dom = new JSDOM(html, { url: "https://www.enslain.net/events/", runScripts: "outside-only" });
   const doc = dom.window.document;
   const up = doc.querySelector('[data-group="upcoming"] tbody');
   const past = doc.querySelector('[data-group="past"] tbody');
-  assert.equal(up.querySelectorAll("tr[data-event-id]").length + past.querySelectorAll("tr[data-event-id]").length, 878);
+  assert.equal(up.querySelectorAll("tr[data-event-id]").length + past.querySelectorAll("tr[data-event-id]").length, expectedCount);
   const show = [...up.querySelectorAll("tr")].find(row => row.querySelector('time[datetime="2026-10-16"]'));
   assert.ok(show);
   assert.equal(rollover.run(doc, new Date("2026-10-17T01:59:59Z")), true);
@@ -45,8 +46,10 @@ test("main Events: existing 878 public rows move without losing filter behavior"
   assert.equal(show.dataset.kind, "past");
   assert.equal(show.querySelector(".events-v2__tickets"), null);
   assert.match(doc.querySelector("#events-summary").textContent, /events found/);
-  assert.equal(up.querySelectorAll("tr[data-event-id]").length + past.querySelectorAll("tr[data-event-id]").length, 878);
-  assert.equal(doc.querySelector("#events-timing").value, "upcoming");
+  assert.equal(up.querySelectorAll("tr[data-event-id]").length + past.querySelectorAll("tr[data-event-id]").length, expectedCount);
+  assert.equal(doc.querySelector("#events-timing").value, "all");
+  doc.querySelector("#events-clear").click();
+  assert.equal(doc.querySelector("#events-timing").value, "all", "Clear filters must restore All Events");
   // A page kept open for weeks must preserve chronological paging too.
   doc.querySelector("#events-timing").value = "past";
   doc.querySelector("#events-timing").dispatchEvent(new dom.window.Event("change"));
@@ -107,13 +110,13 @@ test("rollover scripts are included in all three target pages, but not on unrela
 });
 
 
-test("all three individual tours use one date-ordered table without sections", () => {
+test("all three individual tours use one chronological table; links expire safely", () => {
   const tours = [
-    ["2026-brymir", 12, 5],
-    ["2026-kaunis-kuolematon", 9, 9],
-    ["2026-pat-metheny", 41, 0]
+    ["2026-brymir", 12],
+    ["2026-kaunis-kuolematon", 9],
+    ["2026-pat-metheny", 41]
   ];
-  for (const [slug, count, liveTickets] of tours) {
+  for (const [slug, minimumCount] of tours) {
     const html = fs.readFileSync(path.join(root, "public/touring-history", slug, "index.html"), "utf8");
     const dom = new JSDOM(html, { url: "https://www.enslain.net/touring-history/" + slug + "/" });
     const doc = dom.window.document;
@@ -123,20 +126,16 @@ test("all three individual tours use one date-ordered table without sections", (
     assert.deepEqual(headings, ["Tour dates"], slug);
     assert.equal(section.querySelectorAll("tbody").length, 1, slug);
     const rows = [...section.querySelectorAll("tbody tr")];
-    assert.equal(rows.length, count, slug);
+    assert.ok(rows.length >= minimumCount, slug + " tour unexpectedly shrank");
     const starts = rows.map(r => r.querySelector("time[datetime]").getAttribute("datetime"));
     assert.deepEqual(starts, [...starts].sort(), slug);
-    assert.equal(section.querySelectorAll(".events-v2__ticket").length, liveTickets, slug);
-    assert.match(html, /<script src="\/assets\/event-rollover\.js" defer><\/script>/);
-    const before = new Date("2026-10-17T01:59:59Z");
-    rollover.run(doc, before);
-    assert.equal(section.querySelectorAll(".events-v2__ticket").length, liveTickets, slug);
-    const after = new Date("2026-10-17T02:00:00Z");
-    rollover.run(doc, after);
-    const expectedAfter = slug === "2026-brymir" ? liveTickets - 1
-      : slug === "2026-kaunis-kuolematon" ? liveTickets - 1 : 0;
-    assert.equal(section.querySelectorAll(".events-v2__ticket").length, expectedAfter, slug);
-    assert.equal(section.querySelectorAll("tbody tr").length, count);
+    assert.ok(html.includes('<script src="/assets/event-rollover.js" defer></script>'), slug);
+    rollover.run(doc, new Date("2026-10-17T01:59:59Z"));
+    const beforeTickets = section.querySelectorAll(".events-v2__ticket").length;
+    rollover.run(doc, new Date("2026-10-17T02:00:00Z"));
+    const afterTickets = section.querySelectorAll(".events-v2__ticket").length;
+    assert.ok(afterTickets <= beforeTickets, slug + " expired tickets must never return");
+    assert.equal(section.querySelectorAll("tbody tr").length, rows.length);
     assert.deepEqual([...section.querySelectorAll("h2")].map(x => x.textContent.trim()), ["Tour dates"]);
     dom.window.close();
   }

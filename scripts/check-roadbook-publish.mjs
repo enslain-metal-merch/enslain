@@ -11,7 +11,8 @@ check(ids.length>=800,'public event count collapse: '+ids.length);
 check(ids.length===new Set(ids).size,'duplicate public Event IDs');
 check(!events.includes('EV-2026-0146'),'deleted Battle Beast gig leaked');
 check(events.includes('id="events-band"')&&events.includes('id="events-timing"')&&events.includes('id="events-country"'),'Events filters missing');
-check(events.includes('option value="upcoming" selected'),'Upcoming no longer default');
+check(events.includes('option value="all" selected')&&!events.includes('option value="upcoming" selected'),'All Events is not default');
+check(read('assets/events.js').includes('timing.value="all"'),'Clear filters does not restore All Events');
 for(const p of ['events/index.html',...artists.map(n=>'artists/'+n+'/index.html')]){
  const html=read(p);check(html.includes('/assets/event-rollover.js'),p+': Helsinki rollover missing');
  check(!html.includes('EV-2026-0146'),p+': deleted gig leaked');

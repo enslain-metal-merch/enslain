@@ -6,6 +6,13 @@ on:
       - "scripts/roadbook-*.mjs"
       - "scripts/roadbook-tuesday.test.mjs"
       - ".github/workflows/roadbook-tuesday.yml"
+  # Only a deliberate signal-file push to master can request an automatic publication.
+  # This is sent by ChatGPT via its authorized GitHub connection, not GitHub cron.
+  push:
+    branches:
+      - master
+    paths:
+      - "automation/roadbook-publish-signal.json"
   workflow_dispatch:
     inputs:
       publish:
@@ -13,11 +20,9 @@ on:
         type: boolean
         required: false
         default: false
-  # Two scheduler opportunities; the second is an idempotent safety net.
-  # Only changed public content is committed, so at most one Netlify deploy.
+  # Backup only: ChatGPT's independent weekly automation initiates 11:33.
+  # A GitHub-only attempt at 13:47 is retained as a fallback.
   schedule:
-    - cron: "33 11 * * 2"
-      timezone: "Europe/Helsinki"
     - cron: "47 13 * * 2"
       timezone: "Europe/Helsinki"
 permissions:
@@ -155,10 +160,12 @@ jobs:
         run: rm -f /tmp/enslain-public-website-feed.json
   scheduled_publish:
     # Manual publication is deliberately opt-in and only from production master.
-    # Cron retry is safe: no public diff means no commit, so no Netlify deploy.
+    # Signal-file push, checked manual action and cron backup are safe:
+    # no public diff means no commit, so no Netlify deploy.
     if: >-
       github.ref == 'refs/heads/master' &&
       (github.event_name == 'schedule' ||
+       (github.event_name == 'push' && contains(github.event.head_commit.message, '[roadbook-publish]')) ||
        (github.event_name == 'workflow_dispatch' && inputs.publish == true))
     needs: tests
     runs-on: ubuntu-latest
