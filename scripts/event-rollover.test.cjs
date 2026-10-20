@@ -173,8 +173,9 @@ test("every individual artist page has the shared 05:00 clock and correct multi-
     const beforeCounts = rows.length;
     const headings = [...section.querySelectorAll("h2")].map(x => x.textContent.trim());
     assert.ok(headings.includes("Past events"), slug);
-    // All individual artist pages are safe to run at an arbitrary future date.
-    rollover.run(doc, new Date("2027-01-01T03:00:00Z"));
+    // Future announcements such as the 2027 ZRock gig may still be Upcoming in 2027.
+    // Use a far-future cutoff to test all recorded gigs eventually become Past.
+    rollover.run(doc, new Date("2099-01-01T03:00:00Z"));
     assert.equal(section.querySelectorAll("tbody tr.events-v2__row").length, beforeCounts, slug);
     if (headings.includes("Upcoming gigs")) {
       const wraps = section.querySelectorAll(".events-v2__table-wrap");
