@@ -35,12 +35,14 @@ test('full preview covers the current approved event snapshot, artists, tours an
  assert.equal(out.totals.tourPages,3);
  assert.deepEqual(out.totals.festivalPagesUpdated,[]);
  assert.equal([...out.changed.keys()].some(x=>x.includes('/festivals/')),false);
- const events=out.changed.get('public/events/index.html');assert.ok(events);
+ const events=out.changed.get('public/events/index.html')??await read('public/events/index.html');
+ assert.ok(events);
  assert.equal((events.match(/class="events-v2__row" data-event-id=/g)||[]).length,snapshot.events.length);
  assert.match(events,/Website built by <a href=/);
  assert.match(events,/src="\/assets\/event-rollover\.js"/);
  assert.equal(events.includes('EV-2026-0146'),false);
- const brymir=out.changed.get('public/touring-history/2026-brymir/index.html');assert.ok(brymir);
+ const brymir=out.changed.get('public/touring-history/2026-brymir/index.html')??await read('public/touring-history/2026-brymir/index.html');
+ assert.ok(brymir);
  assert.match(brymir,/data-event-id="EV-2026-0138"/);
  assert.match(brymir,/Kempele/);
  assert.equal((brymir.match(/class="events-v2__row" data-event-id=/g)||[]).length,13);
@@ -60,7 +62,7 @@ test('festival lineup changes only update affected festival family page',async()
  const input=synthetic();
  const f=input.feed.find(x=>x[4]==='Steelfest'&&x[1].startsWith('2027-'));assert.ok(f);
  const e=input.events.find(x=>x[0]===f[0]);assert.ok(e);
- f[9]+=' New Confirmed Band';e[9]+=' New Confirmed Band';
+ f[9]+=', New Confirmed Band';f[10]+='|New Confirmed Band';e[9]+=', New Confirmed Band';
  const out=await generate(input,{day,prior:snapshot,read});
  assert.ok(out.changed.has('public/festivals/steelfest/index.html'));
  assert.equal(out.changed.has('public/festivals/ankea-festival/index.html'),false);
