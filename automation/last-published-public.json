@@ -14344,7 +14344,7 @@
         "Kaunis Kuolematon",
         "Insomnium"
       ],
-      "ticket": "https://www.tiketti.fi/insomnium-rytmikorjaamo-seinajoki-biljetter/116866"
+      "ticket": ""
     },
     {
       "id": "EV-2026-0127",
@@ -14360,7 +14360,7 @@
         "Brymir",
         "Omnivortex"
       ],
-      "ticket": "https://www.netticket.fi/brymir-omnivortex"
+      "ticket": ""
     },
     {
       "id": "EV-2026-0128",
@@ -14375,7 +14375,7 @@
       "bands": [
         "Crimson Sun"
       ],
-      "ticket": "https://www.seat4.me/tapahtumat/haitaritehdas"
+      "ticket": ""
     },
     {
       "id": "EV-2026-0129",
@@ -14391,7 +14391,7 @@
         "Kaunis Kuolematon",
         "Insomnium"
       ],
-      "ticket": "https://www.tiketti.fi/insomnium-tavara-asema-tampere-lippuja/116867"
+      "ticket": ""
     },
     {
       "id": "EV-2026-0130",
@@ -14773,5 +14773,5 @@
       "ticket": "https://www.netticket.fi/kaaos-festival-2027"
     }
   ],
-  "lastSnapshotDay": "2026-10-20"
+  "lastSnapshotDay": "2026-10-27"
 }
