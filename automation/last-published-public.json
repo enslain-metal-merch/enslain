@@ -14635,6 +14635,25 @@
       "ticket": "https://www.tiketti.fi/metalli-mosso-2026-lahden-urheilu-ja-messukeskus-lahti-lippuja/115788"
     },
     {
+      "id": "EV-2026-0143",
+      "start": "2026-11-07",
+      "end": "2026-11-07",
+      "date": "7 Nov 2026",
+      "name": "Kallofest",
+      "venue": "Tapahtumatehdas",
+      "city": "Hyvinkää",
+      "country": "Finland",
+      "details": "Nest, Kallomäki, Saattue, Azaghal, Vildling",
+      "bands": [
+        "Nest",
+        "Kallomäki",
+        "Saattue",
+        "Azaghal",
+        "Vildling"
+      ],
+      "ticket": "https://www.tiketti.fi/kallofest-tapahtumatehdas-hyvinkaa-lippuja/121156"
+    },
+    {
       "id": "EV-2026-0145",
       "start": "2026-11-14",
       "end": "2026-11-14",
