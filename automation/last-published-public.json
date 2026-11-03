@@ -14407,7 +14407,7 @@
         "Kaunis Kuolematon",
         "Insomnium"
       ],
-      "ticket": "https://tarkastamo-oulu.fi/tapahtumat/"
+      "ticket": ""
     },
     {
       "id": "EV-2026-0131",
@@ -14423,7 +14423,7 @@
         "Kaunis Kuolematon",
         "Insomnium"
       ],
-      "ticket": "https://www.ticketmaster.fi/event/1174520207"
+      "ticket": ""
     },
     {
       "id": "EV-2026-0132",
@@ -14439,7 +14439,7 @@
         "Brymir",
         "Omnivortex"
       ],
-      "ticket": "https://www.tiketti.fi/brymir-omnivortex-suisto-hameenlinna-biljetter/118845"
+      "ticket": ""
     },
     {
       "id": "EV-2026-0133",
@@ -14452,9 +14452,10 @@
       "country": "Finland",
       "details": "with Crimson Sun",
       "bands": [
-        "Battle Beast"
+        "Battle Beast",
+        "Crimson Sun"
       ],
-      "ticket": "https://www.tiketti.fi/battle-beast-sawohouse-kuopio-lippuja/119781"
+      "ticket": ""
     },
     {
       "id": "EV-2026-0134",
@@ -14469,7 +14470,7 @@
       "bands": [
         "Battle Beast"
       ],
-      "ticket": "https://www.lippu.fi/en/event/battle-beast-holiday-club-saimaa-areena-21895870/"
+      "ticket": ""
     },
     {
       "id": "EV-2026-0135",
@@ -14485,7 +14486,7 @@
         "Kaunis Kuolematon",
         "Insomnium"
       ],
-      "ticket": "https://www.lippu.fi/event/insomnium-lutakko-21474946/"
+      "ticket": ""
     },
     {
       "id": "EV-2026-0136",
@@ -14501,7 +14502,22 @@
         "Brymir",
         "Omnivortex"
       ],
-      "ticket": "https://www.lippu.fi/event/brymir-what-we-leave-behind-tour-2026-kulttuuritehdas-korjaamo-21774344/"
+      "ticket": ""
+    },
+    {
+      "id": "EV-2026-0163",
+      "start": "2026-11-02",
+      "end": "2026-11-02",
+      "date": "2 Nov 2026",
+      "name": "EsDeeKid",
+      "venue": "Kulttuuritalo",
+      "city": "Helsinki",
+      "country": "Finland",
+      "details": "Council House Rat Tour",
+      "bands": [
+        "EsDeeKid"
+      ],
+      "ticket": ""
     },
     {
       "id": "EV-2026-0137",
@@ -14715,9 +14731,53 @@
       "venue": "Villatehdas",
       "city": "Hyvinkää",
       "country": "Finland",
-      "details": "Abruptum, Dødheimsgard, Archgoat, Mystifier, Horna, Osculum Infame, Acherontas, Seth, Winterfylleth, Grave Miasma, Infernal War, Sargeist, Nordjevel, Adorior, Ride for Revenge, Saor, Mortifera, Nyogthaeblisz, Korgonthurus, Curse Upon Prayer, Urn, White Rune, Bythos, Moosegut, Maquahuitl, Cadaveric Incubator, Hierophany, Malakhim, Autumns Strife, Black Beast, Grieve, Nexul, Beleths Trumpet, Kratti, Abyssion, Rietas, Hellgate Necrosodomy, Kroda, True Iron Will, Azazel",
+      "details": "Abruptum, Dødheimsgard, Archgoat, Mystifier, Horna, Osculum Infame, Acherontas, Seth, Winterfylleth, Grave Miasma, Infernal War, Sargeist, Nordjevel, Adorior, Ride for Revenge, Saor, Mortifera, Nyogthaeblisz, Korgonthurus, Curse Upon Prayer, Urn, White Rune, Bythos, Moosegut, Maquahuitl, Cadaveric Incubator, Hierophany, Malakhim, Autumns Strife, Black Beast, Grieve, Nexul, Beleths Trumpet, Kratti, Abyssion, Rietas, Hellgate Necrosodomy, Kroda, True Iron Will, Azazel, Pensées Nocturnes, Barathrum, Hail Conjurer, The Chamberlain, Hell Militia",
       "bands": [
-        "Abruptum, Dødheimsgard, Archgoat, Mystifier, Horna, Osculum Infame, Acherontas, Seth, Winterfylleth, Grave Miasma, Infernal War, Sargeist, Nordjevel, Adorior, Ride for Revenge, Saor, Mortifera, Nyogthaeblisz, Korgonthurus, Curse Upon Prayer, Urn, White Rune, Bythos, Moosegut, Maquahuitl, Cadaveric Incubator, Hierophany, Malakhim, Autumns Strife, Black Beast, Grieve, Nexul, Beleths Trumpet, Kratti, Abyssion, Rietas, Hellgate Necrosodomy, Kroda, True Iron Will, Azazel"
+        "Abruptum",
+        "Dødheimsgard",
+        "Archgoat",
+        "Mystifier",
+        "Horna",
+        "Osculum Infame",
+        "Acherontas",
+        "Seth",
+        "Winterfylleth",
+        "Grave Miasma",
+        "Infernal War",
+        "Sargeist",
+        "Nordjevel",
+        "Adorior",
+        "Ride for Revenge",
+        "Saor",
+        "Mortifera",
+        "Nyogthaeblisz",
+        "Korgonthurus",
+        "Curse Upon Prayer",
+        "Urn",
+        "White Rune",
+        "Bythos",
+        "Moosegut",
+        "Maquahuitl",
+        "Cadaveric Incubator",
+        "Hierophany",
+        "Malakhim",
+        "Autumns Strife",
+        "Black Beast",
+        "Grieve",
+        "Nexul",
+        "Beleths Trumpet",
+        "Kratti",
+        "Abyssion",
+        "Rietas",
+        "Hellgate Necrosodomy",
+        "Kroda",
+        "True Iron Will",
+        "Azazel",
+        "Pensées Nocturnes",
+        "Barathrum",
+        "Hail Conjurer",
+        "The Chamberlain",
+        "Hell Militia"
       ],
       "ticket": "https://steelfest.fi/products/steelfest-2027-3-day-ticket"
     },
@@ -14750,6 +14810,19 @@
       "ticket": "https://www.tiketti.fi/ankea-festival-hiedanrannan-tehdasaukio-tampere-lippuja/118784"
     },
     {
+      "id": "EV-2027-0018",
+      "start": "2027-07-16",
+      "end": "2027-07-17",
+      "date": "16–17 Jul 2027",
+      "name": "Dark River Festival",
+      "venue": "Kyminlinnan linnoitus",
+      "city": "Kotka",
+      "country": "Finland",
+      "details": "",
+      "bands": [],
+      "ticket": ""
+    },
+    {
       "id": "EV-2027-0016",
       "start": "2027-07-30",
       "end": "2027-07-31",
@@ -14758,7 +14831,7 @@
       "venue": "Vaskiluoto",
       "city": "Vaasa",
       "country": "Finland",
-      "details": "Tarja Turunen, Marko Hietala, Blaze Bayley, Old Man’s Child, Scar Symmetry, The Unguided, Fimbul Winter, Black Spikes, Zero Nine",
+      "details": "Tarja Turunen, Marko Hietala, Blaze Bayley, Old Man’s Child, Scar Symmetry, The Unguided, Fimbul Winter, Black Spikes, Zero Nine, Soilwork, Smash Into Pieces, Lillmåns, Numento",
       "bands": [
         "Tarja Turunen",
         "Marko Hietala",
@@ -14768,10 +14841,14 @@
         "The Unguided",
         "Fimbul Winter",
         "Black Spikes",
-        "Zero Nine"
+        "Zero Nine",
+        "Soilwork",
+        "Smash Into Pieces",
+        "Lillmåns",
+        "Numento"
       ],
       "ticket": "https://www.netticket.fi/kaaos-festival-2027"
     }
   ],
-  "lastSnapshotDay": "2026-10-27"
+  "lastSnapshotDay": "2026-11-03"
 }
