@@ -81,6 +81,7 @@ const ui=[
 [">Tickets ↗</a>",">Liput ↗</a>"],
 ["← Explore all Events","← Kaikki keikat"],
 ["← Festival partners","← Festivaalit"],
+["<a href=\"/\">Home</a>","<a href=\"/\">Etusivu</a>"],
 ["<a href=\"/events/\">Events</a>","<a href=\"/events/\">Keikat</a>"],
 ["<a href=\"/clients/\">Clients</a>","<a href=\"/clients/\">Yhteistyöt</a>"],
 ["<a href=\"/festivals/\">Festival partners</a>","<a href=\"/festivals/\">Festivaalit</a>"],
@@ -164,8 +165,16 @@ export function localize(source,route){
  s=s.slice(0,a)+nav+'\n      '+language+s.slice(b+6);
  for(const [x,y] of ui)uiSwap(x,y);
  for(const [x,y] of pageCopy[route]||[])if(!s.includes(x))throw new Error("Translation source not found in "+route+": "+x.slice(0,70));else uiSwap(x,y);
- if(["clients","artists","festivals","touring-history"].includes(top)){
-  s=s.replace(/(\d+) past events?/g,"$1 mennyttä keikkaa").replace(/(\d+) upcoming\b/g,"$1 tulevaa").replace(/(\d+) gigs\b/g,"$1 keikkaa").replace(/Next (?=\d)/g,"Seuraava ");
+ if(top==="artists"){
+  s=s.replace(/(\d+) past events?\b/g,(_m,n)=>n+" "+(n==="1"?"mennyt keikka":"mennyttä keikkaa"));
+  s=s.replace(/(\d+) upcoming\b/g,(_m,n)=>n+" "+(n==="1"?"tuleva keikka":"tulevaa keikkaa"));
+ }
+ if(top==="festivals"){
+  s=s.replace(/(\d+) past events?\b/g,(_m,n)=>n+" "+(n==="1"?"aiempi tapahtuma":"aiempaa tapahtumaa"));
+  s=s.replace(/Next (?=\d)/g,"Seuraava ");
+ }
+ if(top==="touring-history"){
+  s=s.replace(/(\d+) gigs\b/g,(_m,n)=>n+" "+(n==="1"?"keikka":"keikkaa"));
  }
  if(route==="about"){
   // Chrissy's and crew members' original biographies intentionally remain in English.
