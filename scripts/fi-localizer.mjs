@@ -8,7 +8,8 @@ export const routes=[
 ...["2026-brymir","2026-kaunis-kuolematon","2026-pat-metheny"].map(s=>"touring-history/"+s)
 ];
 export function localLinks(s){
- return s.replace(/href="\/(?!\/)([^"#?]*)([^"]*)"/g,(full,path,tail)=>{
+ return s.replace(/<nav class="locale-switch"[\s\S]*?<\/nav>|href="\/(?!\/)([^"#?]*)([^"]*)"/g,(full,path,tail)=>{
+   if(full.startsWith('<nav class="locale-switch"'))return full;
    if(path.startsWith("assets/")||path.startsWith("fi/")||path.startsWith(".well-known/"))return full;
    const key=path.replace(/\/index\.html$/,"/").replace(/\/$/,"");
    return key===""||routes.includes(key)?'href="/fi/'+(key?key+"/":"")+tail+'"':full;

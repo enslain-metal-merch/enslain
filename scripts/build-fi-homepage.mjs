@@ -53,7 +53,8 @@ function generateFI(source){
   replace('<a href="/" class="footer__logo" aria-label="Etusivulle">','<a href="/fi/" class="footer__logo" aria-label="Etusivulle">');
   source=source.replaceAll('src="assets/','src="/assets/');
   source=source.replaceAll('href="assets/','href="/assets/');
-  source=source.replace(/href="\/(?!\/)([^"#?]*)([^"]*)"/g,(full,path,tail)=>{
+  source=source.replace(/<nav class="locale-switch"[\s\S]*?<\/nav>|href="\/(?!\/)([^"#?]*)([^"]*)"/g,(full,path,tail)=>{
+    if(full.startsWith('<nav class="locale-switch"'))return full;
     const key=path.replace(/\/index\.html$/,"/").replace(/\/$/,"");
     const valid=["services","volunteers","events","clients","about","contact","artists","festivals","touring-history","artists/battle-beast","artists/brymir","artists/charon","artists/crimson-sun","artists/kalmah","artists/kauan","artists/kaunis-kuolematon","artists/mors-subita","artists/mygrain","artists/pat-metheny","artists/shade-empire","artists/tarja-turunen","artists/the-man-eating-tree","artists/tyrantti","artists/vorna","festivals/ankea-festival","festivals/dark-river-festival","festivals/hatefeast","festivals/hellsinki-metal-cruise","festivals/kaaos-festival","festivals/kuolio-fest","festivals/lisaa-loylya","festivals/saarihelvetti","festivals/steelfest","touring-history/2026-brymir","touring-history/2026-kaunis-kuolematon","touring-history/2026-pat-metheny"];
     return key===""||valid.includes(key)?'href="/fi/'+(key?key+"/":"")+tail+'"':full;
