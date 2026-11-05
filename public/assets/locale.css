@@ -1,0 +1,19 @@
+/* Enslain bilingual home: theme-respecting, visible on desktop and mobile. */
+.header__content { position: relative; }
+.locale-switch {
+  position: absolute; top: 2.55rem; right: 0; z-index: 4;
+  display: flex; align-items: center; gap: .45rem;
+  padding: .2rem .35rem; font-size: .85rem;
+  font-family: var(--font-family--secondary), sans-serif;
+  background: var(--nav-dropdown-background); white-space: nowrap;
+}
+.locale-switch__label { color: var(--body-text); font-weight: 600; }
+.locale-switch a { color: var(--body-text); text-decoration: none; }
+.locale-switch a:hover, .locale-switch a:focus-visible { text-decoration: underline; text-underline-offset: .18em; }
+.locale-switch a[aria-current="page"] { font-weight: 700; color: var(--aria-current-page); text-decoration: underline; text-underline-offset: .18em; }
+@media (max-width: 767px) {
+  .header__content:has(.locale-switch) .header__logo { max-width: calc(100% - 9rem); }
+}
+@media (min-width: 768px) {
+  .locale-switch { top: -1.7rem; right: 0; background: transparent; }
+}

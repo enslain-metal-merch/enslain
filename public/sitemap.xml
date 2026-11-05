@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url><loc>https://www.enslain.net/</loc></url>
+  <url><loc>https://www.enslain.net/fi/</loc></url>
   <url><loc>https://www.enslain.net/services/</loc></url>
   <url><loc>https://www.enslain.net/volunteers/</loc></url>
   <url><loc>https://www.enslain.net/events/</loc></url>
@@ -37,4 +38,11 @@
   <url><loc>https://www.enslain.net/touring-history/2026-brymir/</loc></url>
   <url><loc>https://www.enslain.net/touring-history/2026-kaunis-kuolematon/</loc></url>
   <url><loc>https://www.enslain.net/touring-history/2026-pat-metheny/</loc></url>
+  <url><loc>https://www.enslain.net/fi/services/</loc></url>
+  <url><loc>https://www.enslain.net/fi/volunteers/</loc></url>
+  <url><loc>https://www.enslain.net/fi/contact/</loc></url>
+  <url><loc>https://www.enslain.net/fi/clients/</loc></url>
+  <url><loc>https://www.enslain.net/fi/artists/</loc></url>
+  <url><loc>https://www.enslain.net/fi/festivals/</loc></url>
+  <url><loc>https://www.enslain.net/fi/touring-history/</loc></url>
 </urlset>
