@@ -17,7 +17,7 @@ export function localLinks(s){
 }
 const titles={
 services:["Oheistuotemyynti keikoille ja festivaaleille","Tarvitsetko myyjän keikalle tai koko myyntitiimin festivaalille? Enslain hoitaa merchandise-myynnin, varaston, maksut ja tilitykset Suomessa ja ulkomailla."],
-volunteers:["Talkoolaiseksi keikoille ja festivaaleille","Lähde mukaan Enslainin porukkaan keikoille ja festivaaleille. Katso talkoolaismahdollisuudet ja ota yhteyttä."],
+volunteers:["Talkoolaiseksi keikoille ja festivaaleille","Kiinnostavatko festivaalitalkoot tai keikkojen merchandise-myynti? Enslain etsii myyjiä Helsingissä, Oulussa, Seinäjoella ja muualla Suomessa."],
 events:["Keikat ja keikkahistoria","Enslainin tulevat keikat ja tapahtumahistoria Suomessa ja ulkomailla. Selaa keikkoja, bändejä ja tapahtumia."],
 clients:["Artistit ja festivaaliyhteistyöt","Tutustu Enslainin yhteistyöartisteihin ja festivaaleihin, keikkahistoriaan, kiertueisiin ja verkkokauppoihin."],
 about:["Enslainin tarina ja porukka","Tutustu Enslain Metal Merchin tarinaan ja tiimiin. Henkilökohtaiset esittelyt säilyvät englanniksi."],
@@ -112,22 +112,7 @@ const ui=[
 ];
 const pageCopy={
 services:[],
-volunteers:[
-["At Enslain, our crew is our life blood.","Enslainin tärkein voimavara on meidän porukkamme."],
-["We’re always looking to build our team with like-minded folks who are passionate about being part of the live music scene! We’re a fun-loving crew who don’t take ourselves too seriously, except when it comes to getting the job done.","Etsimme jatkuvasti mukaan samanhenkisiä ihmisiä, jotka rakastavat livemusiikkia. Meillä pidetään hauskaa eikä turhaan jäykistellä – mutta hommat hoidetaan kunnolla."],
-["All our crew members get to decide which gigs they’re interested in participating in: do you only want to work at gigs in your city? Do you love volunteering at festivals and want to be on the crew that has the most fun? Does touring the world sound like an adventure you need in your life? Let’s make it happen!","Jokainen saa itse päättää, mille keikoille haluaa lähteä. Kiinnostavatko vain oman kaupungin keikat? Haluatko talkoilla festareilla hyvässä seurassa? Tai lähtisitkö mieluiten mukaan kiertueelle maailmalle? Meiltä löytyy monenlaisia mahdollisuuksia."],
-["Get free entry to gigs/fests","Vapaa pääsy keikoille ja festareille"],
-["Hang with cool people (at least we think we’re pretty cool)","Hyvää seuraa (ainakin omasta mielestämme)"],
-["Get breaks to watch bands","Mahdollisuus katsoa bändejä tauoilla"],
-["Laugh at drunks and naked people","Mahdollisuus ihmetellä humalaisia ja vähäpukeisia festarikävijöitä"],
-["Meet bands","Tapaat bändejä"],
-["Free meals, and sometimes also beers","Ruokaa ja joskus myös olutta"],
-["Get occasional free swag","Välillä ilmaisia fanituotteita"],
-["Here are some places and events we’re especially looking to recruit fresh blood:","Kaipaamme tällä hetkellä erityisesti uusia tekijöitä seuraavilta alueilta:"],
-["More sellers from Oulu, Helsinki and Seinäjoki","Lisää myyjiä Oulusta, Helsingistä ja Seinäjoelta"],
-["Everything and anything else!","Ja kaikenlaista muutakin!"],
-["Hells yeah it does. Send us a message and let us know how you’d like to be involved!","Mahtavaa! Laita meille viestiä ja kerro, millaisiin hommiin haluaisit mukaan."]
-]};
+volunteers:[]};
 export function localize(source,route){
  let s=source;
  const uiSwap=(a,b)=>{if(s.includes(a))s=s.replaceAll(a,b)};

@@ -15,8 +15,8 @@ for(const route of routes){
  const updatedEnglish=addReciprocalAlternates(originalEnglish,route);
  if(updatedEnglish!==originalEnglish)writeFileSync(input,updatedEnglish);
  let page=localize(updatedEnglish,route);
- if(route==="services"){
-   const authored=readFileSync(resolve(root,"src","fi","services-main.html"),"utf8").trim();
+ if(route==="services"||route==="volunteers"){
+   const authored=readFileSync(resolve(root,"src","fi",route+"-main.html"),"utf8").trim();
    if(!/<main class="main">[\s\S]*<\/main>/.test(authored))throw new Error("Finnish Services source is not a full main section");
    const before=page;
    page=page.replace(/<main class="main">[\s\S]*?<\/main>/,authored);
