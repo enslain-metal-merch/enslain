@@ -33,10 +33,6 @@ function generateFI(source){
     ["Need an experienced and affordable crew to manage your event’s merchandise sales? We love festivals!","Tarvitsetko keikalle tai festivaalille kokeneen ja luotettavan porukan hoitamaan oheistuotemyyntiä? Meiltä löytyy tekijät niin pienille keikoille kuin suurille festivaaleillekin."],
     ["Have you always wanted to be part of a crew dedicated to music, or do you love the idea of working at events?","Haluatko kurkistaa musiikkitapahtumien kulissien taakse ja päästä mukaan pyörittämään keikkojen ja festivaalien merkkumyyntiä?"],
     ["Metal is our natural habitat, but we also venture into other genres whenever our merch expertise is summoned.","Parhaiten meille maistuu metallimusiikki, mutta muutkaan musiikkityylit eivät ole vieraita. Olemme tehneet sujuvaa yhteistyötä myös rock-, jazz-, pop- ja rap-artistien kanssa."],
-    ["Merch Management &amp; Logistics","Myynnin koordinointi ja logistiikka"],
-    ["Merch Management &amp; Staffing","Myynnin koordinointi ja myyntihenkilöstö"],
-    ["Merch Management","Oheistuotemyynnin koordinointi"],
-    ["Merch Sales &amp; Staffing","Merchandise-myynti ja myyntihenkilöstö"],
     ["Choose a color theme","Valitse väriteema"],["Toggle Chrissy Mode","Chrissy Mode"],
     ["Follow or contact us!","Seuraa meitä tai ota yhteyttä!"],
     ["Latest Instagram posts from Enslain Metal Merch","Enslain Metal Merchin uusimmat Instagram-julkaisut"],
@@ -57,6 +53,11 @@ function generateFI(source){
   replace('<a href="/" class="footer__logo" aria-label="Etusivulle">','<a href="/fi/" class="footer__logo" aria-label="Etusivulle">');
   source=source.replaceAll('src="assets/','src="/assets/');
   source=source.replaceAll('href="assets/','href="/assets/');
+  source=source.replace(/href="\/(?!\/)([^"#?]*)([^"]*)"/g,(full,path,tail)=>{
+    const key=path.replace(/\/index\.html$/,"/").replace(/\/$/,"");
+    const valid=["services","volunteers","events","clients","about","contact","artists","festivals","touring-history","artists/battle-beast","artists/brymir","artists/charon","artists/crimson-sun","artists/kalmah","artists/kauan","artists/kaunis-kuolematon","artists/mors-subita","artists/mygrain","artists/pat-metheny","artists/shade-empire","artists/tarja-turunen","artists/the-man-eating-tree","artists/tyrantti","artists/vorna","festivals/ankea-festival","festivals/dark-river-festival","festivals/hatefeast","festivals/hellsinki-metal-cruise","festivals/kaaos-festival","festivals/kuolio-fest","festivals/lisaa-loylya","festivals/saarihelvetti","festivals/steelfest","touring-history/2026-brymir","touring-history/2026-kaunis-kuolematon","touring-history/2026-pat-metheny"];
+    return key===""||valid.includes(key)?'href="/fi/'+(key?key+"/":"")+tail+'"':full;
+  });
   return source;
 }
 const source=readFileSync(resolve(root,'public/index.html'),'utf8');
