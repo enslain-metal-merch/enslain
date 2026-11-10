@@ -12038,6 +12038,21 @@
       "ticket": ""
     },
     {
+      "id": "EV-2025-0166",
+      "start": "2025-11-22",
+      "end": "2025-11-22",
+      "date": "22 Nov 2025",
+      "name": "Kaunis Kuolematon — Mielenvalta album pre-listening party",
+      "venue": "Bodom Bar",
+      "city": "Espoo",
+      "country": "Finland",
+      "details": "Mielenvalta album pre-listening event",
+      "bands": [
+        "Kaunis Kuolematon"
+      ],
+      "ticket": ""
+    },
+    {
       "id": "EV-2025-0151",
       "start": "2025-12-01",
       "end": "2025-12-01",
@@ -13562,6 +13577,21 @@
       "ticket": ""
     },
     {
+      "id": "EV-2026-0078",
+      "start": "2026-07-09",
+      "end": "2026-07-09",
+      "date": "9 Jul 2026",
+      "name": "Dark Tranquillity",
+      "venue": "CoolHead Live",
+      "city": "Helsinki",
+      "country": "Finland",
+      "details": "",
+      "bands": [
+        "Dark Tranquillity"
+      ],
+      "ticket": ""
+    },
+    {
       "id": "EV-2026-0079",
       "start": "2026-07-09",
       "end": "2026-07-09",
@@ -13633,6 +13663,24 @@
       "details": "European Tour",
       "bands": [
         "Pat Metheny"
+      ],
+      "ticket": ""
+    },
+    {
+      "id": "EV-2026-0083",
+      "start": "2026-07-16",
+      "end": "2026-07-18",
+      "date": "16–18 Jul 2026",
+      "name": "John Smith Festival",
+      "venue": "Peurunka",
+      "city": "Laukaa",
+      "country": "Finland",
+      "details": "feat. Charon, Kaunis Kuolematon, The Gathering, Decap",
+      "bands": [
+        "Charon",
+        "Kaunis Kuolematon",
+        "The Gathering",
+        "Decap"
       ],
       "ticket": ""
     },
@@ -14547,7 +14595,7 @@
         "Paara",
         "Ashen Tomb"
       ],
-      "ticket": "https://allthingslive.fi/event/hellsinki-metal-cruise-2026"
+      "ticket": ""
     },
     {
       "id": "EV-2026-0138",
@@ -14564,7 +14612,7 @@
         "Brymir",
         "The 69 Eyes"
       ],
-      "ticket": "https://zrock.fi/tickets/"
+      "ticket": ""
     },
     {
       "id": "EV-2026-0139",
@@ -14580,7 +14628,7 @@
         "Kaunis Kuolematon",
         "Insomnium"
       ],
-      "ticket": "https://www.tiketti.fi/insomnium-kaunis-kuolematon-circus-live-kuopio-biljetter/116893"
+      "ticket": ""
     },
     {
       "id": "EV-2026-0140",
@@ -14596,7 +14644,7 @@
         "After Infinity",
         "Gladenfold"
       ],
-      "ticket": "https://www.tiketti.fi/after-infinity-gladenfold-lepakkomies-helsinki-lippuja/119408"
+      "ticket": ""
     },
     {
       "id": "EV-2026-0141",
@@ -14612,7 +14660,7 @@
         "Kaunis Kuolematon",
         "Insomnium"
       ],
-      "ticket": "https://www.lippu.fi/event/insomnium-kaunis-kuolematon-last-call-disaster-k18-satama-areena-21492397/"
+      "ticket": ""
     },
     {
       "id": "EV-2026-0142",
@@ -14623,7 +14671,7 @@
       "venue": "Lahden Urheilu- ja messukeskus",
       "city": "Lahti",
       "country": "Finland",
-      "details": "with Amaranthe, Stam1na, Turmion Kätilöt, Self Deception, Ankor",
+      "details": "feat. Battle Beast, with Amaranthe, Stam1na, Turmion Kätilöt, Self Deception, Ankor",
       "bands": [
         "Battle Beast",
         "Amaranthe",
@@ -14632,7 +14680,7 @@
         "Self Deception",
         "Ankor"
       ],
-      "ticket": "https://www.tiketti.fi/metalli-mosso-2026-lahden-urheilu-ja-messukeskus-lahti-lippuja/115788"
+      "ticket": ""
     },
     {
       "id": "EV-2026-0143",
@@ -14651,7 +14699,7 @@
         "Azaghal",
         "Vildling"
       ],
-      "ticket": "https://www.tiketti.fi/kallofest-tapahtumatehdas-hyvinkaa-lippuja/121156"
+      "ticket": ""
     },
     {
       "id": "EV-2026-0145",
@@ -14724,6 +14772,30 @@
       "ticket": "https://www.tiketti.fi/torture-killer-psychoparalysis-metempsychos-lt-whisper-tickets/121139"
     },
     {
+      "id": "EV-2027-0002",
+      "start": "2027-01-29",
+      "end": "2027-01-30",
+      "date": "29–30 Jan 2027",
+      "name": "Hiihtohelvetti",
+      "venue": "Piste & IHKU",
+      "city": "Ruka",
+      "country": "Finland",
+      "details": "feat. Kaunis Kuolematon + Brymir, with Turmion Kätilöt, Bloodred Hourglass, Havukruunu, Ruoska, Noora Louhimo Duo, Netta Skog, Stereo Terror, DJ King S8N",
+      "bands": [
+        "Kaunis Kuolematon",
+        "Brymir",
+        "Turmion Kätilöt",
+        "Bloodred Hourglass",
+        "Havukruunu",
+        "Ruoska",
+        "Noora Louhimo Duo",
+        "Netta Skog",
+        "Stereo Terror",
+        "DJ King S8N"
+      ],
+      "ticket": ""
+    },
+    {
       "id": "EV-2027-0037",
       "start": "2027-04-09",
       "end": "2027-04-10",
@@ -14732,7 +14804,7 @@
       "venue": "Zemppi Areena",
       "city": "Kempele",
       "country": "Finland",
-      "details": "feat Kalmah, with Amorphis, Dark Tranquillity, Deathchain",
+      "details": "10th anniversary edition; feat. Kalmah; with Amorphis, Dark Tranquillity, Deathchain. More artists to be announced.",
       "bands": [
         "Kalmah",
         "Amorphis",
@@ -14750,8 +14822,9 @@
       "venue": "Villatehdas",
       "city": "Hyvinkää",
       "country": "Finland",
-      "details": "Abruptum, Dødheimsgard, Archgoat, Mystifier, Horna, Osculum Infame, Acherontas, Seth, Winterfylleth, Grave Miasma, Infernal War, Sargeist, Nordjevel, Adorior, Ride for Revenge, Saor, Mortifera, Nyogthaeblisz, Korgonthurus, Curse Upon Prayer, Urn, White Rune, Bythos, Moosegut, Maquahuitl, Cadaveric Incubator, Hierophany, Malakhim, Autumns Strife, Black Beast, Grieve, Nexul, Beleths Trumpet, Kratti, Abyssion, Rietas, Hellgate Necrosodomy, Kroda, True Iron Will, Azazel, Pensées Nocturnes, Barathrum, Hail Conjurer, The Chamberlain, Hell Militia",
+      "details": "Black Magick SS, Abruptum, Dødheimsgard, Archgoat, Mystifier, Horna, Osculum Infame, Acherontas, Seth, Winterfylleth, Grave Miasma, Infernal War, Sargeist, Nordjevel, Adorior, Ride for Revenge, Saor, Mortifera, Nyogthaeblisz, Korgonthurus, Curse Upon Prayer, Urn, White Rune, Bythos, Moosegut, Maquahuitl, Cadaveric Incubator, Hierophany, Malakhim, Autumns Strife, Black Beast, Grieve, Nexul, Beleths Trumpet, Kratti, Abyssion, Rietas, Hellgate Necrosodomy, Kroda, True Iron Will, Azazel, Pensées Nocturnes, Barathrum, Hail Conjurer, The Chamberlain, Hell Militia",
       "bands": [
+        "Black Magick SS",
         "Abruptum",
         "Dødheimsgard",
         "Archgoat",
@@ -14809,7 +14882,7 @@
       "venue": "Hiedanranta",
       "city": "Tampere",
       "country": "Finland",
-      "details": "Igorrr, Alcest, Kalandra, Der Weg Einer Freiheit, Long Distance Calling, Vulkan, Karmanjakah, Pain of Salvation, Plini, Einar Solberg, Sara, Heretoir, Slow Crush, Noiduin",
+      "details": "Igorrr, Alcest, Kalandra, Der Weg Einer Freiheit, Long Distance Calling, Vulkan, Karmanjakah, Pain of Salvation, Plini, Einar Solberg, Sara, Heretoir, Slow Crush, Noiduin, Cult of Luna",
       "bands": [
         "Igorrr",
         "Alcest",
@@ -14824,7 +14897,8 @@
         "Sara",
         "Heretoir",
         "Slow Crush",
-        "Noiduin"
+        "Noiduin",
+        "Cult of Luna"
       ],
       "ticket": "https://www.tiketti.fi/ankea-festival-hiedanrannan-tehdasaukio-tampere-lippuja/118784"
     },
@@ -14869,5 +14943,5 @@
       "ticket": "https://www.netticket.fi/kaaos-festival-2027"
     }
   ],
-  "lastSnapshotDay": "2026-11-03"
+  "lastSnapshotDay": "2026-11-10"
 }
