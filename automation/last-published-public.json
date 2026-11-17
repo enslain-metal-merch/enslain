@@ -14715,7 +14715,7 @@
         "Battle Beast",
         "Crimson Sun"
       ],
-      "ticket": "https://www.tiketti.fi/battle-beast-tavastia-klubi-helsinki-tickets/119778"
+      "ticket": ""
     },
     {
       "id": "EV-2026-0147",
@@ -14793,7 +14793,7 @@
         "Stereo Terror",
         "DJ King S8N"
       ],
-      "ticket": ""
+      "ticket": "https://www.ticketmaster.fi/artist/rukan-hiihtohelvetti-lippuja/1471334"
     },
     {
       "id": "EV-2027-0037",
@@ -14913,7 +14913,7 @@
       "country": "Finland",
       "details": "",
       "bands": [],
-      "ticket": ""
+      "ticket": "https://www.tiketti.fi/dark-river-festival-2027-kyminlinna-kotka-lippuja/122063"
     },
     {
       "id": "EV-2027-0016",
@@ -14943,5 +14943,5 @@
       "ticket": "https://www.netticket.fi/kaaos-festival-2027"
     }
   ],
-  "lastSnapshotDay": "2026-11-10"
+  "lastSnapshotDay": "2026-11-17"
 }
