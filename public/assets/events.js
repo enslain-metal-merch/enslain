@@ -1,6 +1,6 @@
 /* Enslain Events: progressively reveal PRE-APPROVED public HTML rows. All filtering uses the complete set. */
 (()=>{"use strict";
-const root=document.querySelector(".events-v2");if(!root)return;
+const root=document.querySelector(".events-v2");if(!root)return;const fi=document.documentElement.lang==="fi";
 let rows=[];
 const search=root.querySelector("#events-search"),timing=root.querySelector("#events-timing"),band=root.querySelector("#events-band"),country=root.querySelector("#events-country"),clear=root.querySelector("#events-clear"),summary=root.querySelector("#events-summary"),empty=root.querySelector("#events-empty");
 const limit={upcoming:45,past:55},step=55;
@@ -31,10 +31,10 @@ function render(reset=false){
   for(const row of byKind[kind])row.classList.toggle("is-paged-out",!set.has(row));
   // Filtered rows are always paged out, even when they were in a previously visible batch.
   button.hidden=matched[kind].length<=limit[kind];
-  group.querySelector(".events-v2__group-heading span").textContent=matched[kind].length+" events";
+  group.querySelector(".events-v2__group-heading span").textContent=matched[kind].length+" "+(fi?"tapahtumaa":"events");
  }
  const total=matched.upcoming.length+matched.past.length;
- summary.textContent=total+" "+(total===1?"event":"events")+" found";
+ summary.textContent=fi?total+" "+(total===1?"tapahtuma":"tapahtumaa")+" löytyi":total+" "+(total===1?"event":"events")+" found";
  empty.hidden=total!==0;
 }
 root.classList.add("events-v2--ready");

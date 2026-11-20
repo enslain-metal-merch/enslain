@@ -1,0 +1,173 @@
+// Finnish preview localizer: transforms ONLY approved public English pages, never private Roadbook cells.
+// Source of truth remains public/<route>/index.html. User reviews all Finnish copy before production.
+export const roots=["services","volunteers","events","clients","about","contact","artists","festivals","touring-history"];
+export const routes=[
+...roots,
+...["battle-beast","brymir","charon","crimson-sun","kalmah","kauan","kaunis-kuolematon","mors-subita","mygrain","pat-metheny","shade-empire","tarja-turunen","the-man-eating-tree","tyrantti","vorna"].map(s=>"artists/"+s),
+...["ankea-festival","dark-river-festival","hatefeast","hellsinki-metal-cruise","kaaos-festival","kuolio-fest","lisaa-loylya","saarihelvetti","steelfest"].map(s=>"festivals/"+s),
+...["2026-brymir","2026-kaunis-kuolematon","2026-pat-metheny"].map(s=>"touring-history/"+s)
+];
+export function localLinks(s){
+ return s.replace(/<nav class="locale-switch"[\s\S]*?<\/nav>|href="\/(?!\/)([^"#?]*)([^"]*)"/g,(full,path,tail)=>{
+   if(full.startsWith('<nav class="locale-switch"'))return full;
+   if(path.startsWith("assets/")||path.startsWith("fi/")||path.startsWith(".well-known/"))return full;
+   const key=path.replace(/\/index\.html$/,"/").replace(/\/$/,"");
+   return key===""||routes.includes(key)?'href="/fi/'+(key?key+"/":"")+tail+'"':full;
+ });
+}
+const titles={
+services:["Oheistuotemyynti keikoille ja festivaaleille","Tarvitsetko myyjän keikalle tai koko myyntitiimin festivaalille? Enslain hoitaa merchandise-myynnin, varaston, maksut ja tilitykset Suomessa ja ulkomailla."],
+volunteers:["Talkoolaiseksi keikoille ja festivaaleille","Kiinnostavatko festivaalitalkoot tai keikkojen merchandise-myynti? Enslain etsii myyjiä Helsingissä, Oulussa, Seinäjoella ja muualla Suomessa."],
+events:["Keikat ja keikkahistoria","Enslainin tulevat keikat ja tapahtumahistoria Suomessa ja ulkomailla. Selaa keikkoja, bändejä ja tapahtumia."],
+clients:["Artistit ja festivaaliyhteistyöt","Tutustu Enslainin yhteistyöartisteihin ja festivaaleihin, keikkahistoriaan, kiertueisiin ja verkkokauppoihin."],
+about:["Enslainin tarina ja porukka","Tutustu Enslain Metal Merchin tarinaan ja tiimiin. Henkilökohtaiset esittelyt säilyvät englanniksi."],
+contact:["Ota yhteyttä – merchandise-myynti","Kysy oheistuotemyynnistä keikoille, festivaaleille ja kiertueille. Enslainin yhteystiedot ja laskutustiedot."],
+artists:["Yhteistyöartistit ja keikkahistoria","Tutustu Enslainin yhteistyöartisteihin, keikkahistoriaan ja tuleviin tapahtumiin."],
+festivals:["Festivaaliyhteistyöt ja tapahtumahistoria","Tutustu festivaaleihin, joiden kanssa Enslain työskentelee, ja niiden tapahtumiin ja esiintyjiin."],
+"touring-history":["Kiertuehistoria","Enslain Metal Merchin kiertuehistoria: artisteja, keikkoja ja kiertueita Suomessa ja ulkomailla."]
+};
+const ui=[
+["<h1>What we do</h1>","<h1>Mitä teemme</h1>"],
+["<h1>Come sling merch with us!</h1>","<h1>Tule mukaan merkkumyyntiin!</h1>"],
+["<h1>Get in touch!</h1>","<h1>Ota yhteyttä!</h1>"],
+["<h1>Our story, our crew</h1>","<h1>Meidän tarinamme ja porukkamme</h1>"],
+["<h1>Clients</h1>","<h1>Yhteistyöt</h1>"],
+["<h1>Artists</h1>","<h1>Artistit</h1>"],
+["<h1>Festival partners</h1>","<h1>Festivaalit</h1>"],
+["<h1>Touring history</h1>","<h1>Kiertuehistoria</h1>"],
+["<h1>Gigs, tours &amp; events</h1>","<h1>Keikat, kiertueet ja tapahtumat</h1>"],
+["<h2>For bands</h2>","<h2>Bändeille</h2>"],
+["<h2>For promoters</h2>","<h2>Tapahtumajärjestäjille</h2>"],
+["<h2>Crew perks</h2>","<h2>Mitä talkoolaiset saavat?</h2>"],
+["<h2>Now recruiting</h2>","<h2>Haemme uusia tekijöitä</h2>"],
+["<h2>Sound good?</h2>","<h2>Kiinnostuitko?</h2>"],
+["<h2>Meet the Enslain crew</h2>","<h2>Tutustu Enslainin porukkaan</h2>"],
+["<h2>The Enslain Legion</h2>","<h2>Enslainin legioona</h2>"],
+["<h2>Invoicing info</h2>","<h2>Laskutustiedot</h2>"],
+["<h2>Upcoming gigs</h2>","<h2>Tulevat keikat</h2>"],
+["<h2>Past events</h2>","<h2>Menneet tapahtumat</h2>"],
+["<h2>Tour dates</h2>","<h2>Kiertueen keikat</h2>"],
+["<h2>Events</h2>","<h2>Keikat</h2>"],
+["<h2>Artists</h2>","<h2>Artistit</h2>"],
+["<h2>Festivals</h2>","<h2>Festivaalit</h2>"],
+["<h2>Touring history</h2>","<h2>Kiertuehistoria</h2>"],
+["<h2>Artists we work with</h2>","<h2>Yhteistyöartistit</h2>"],
+["<h2>Festival partners</h2>","<h2>Festivaaliyhteistyöt</h2>"],
+["<h2>Official webshops</h2>","<h2>Viralliset verkkokaupat</h2>"],
+["<span>Search</span>","<span>Haku</span>"],
+["<span>Timing</span>","<span>Ajankohta</span>"],
+["<span>Band</span>","<span>Bändi</span>"],
+["<span>Country</span>","<span>Maa</span>"],
+[">All events</option>",">Kaikki tapahtumat</option>"],
+[">Upcoming</option>",">Tulevat</option>"],
+[">Past</option>",">Menneet</option>"],
+[">All bands</option>",">Kaikki bändit</option>"],
+[">All countries</option>",">Kaikki maat</option>"],
+["placeholder=\"Bands, event, venue, city...\"","placeholder=\"Bändi, tapahtuma, paikka, kaupunki...\""],
+["aria-label=\"Filter events\"","aria-label=\"Suodata tapahtumia\""],
+["<th scope=\"col\">Date</th>","<th scope=\"col\">Päivä</th>"],
+["<th scope=\"col\">Event</th>","<th scope=\"col\">Tapahtuma</th>"],
+["<th scope=\"col\">Details</th>","<th scope=\"col\">Lisätiedot</th>"],
+["<th scope=\"col\">Venue</th>","<th scope=\"col\">Paikka</th>"],
+["<th scope=\"col\">City</th>","<th scope=\"col\">Kaupunki</th>"],
+["<th scope=\"col\">Country</th>","<th scope=\"col\">Maa</th>"],
+["<th scope=\"col\">Tickets</th>","<th scope=\"col\">Liput</th>"],
+["data-label=\"Date\"","data-label=\"Päivä\""],
+["data-label=\"Event\"","data-label=\"Tapahtuma\""],
+["data-label=\"Details\"","data-label=\"Lisätiedot\""],
+["data-label=\"Venue\"","data-label=\"Paikka\""],
+["data-label=\"City\"","data-label=\"Kaupunki\""],
+["data-label=\"Country\"","data-label=\"Maa\""],
+["data-label=\"Tickets\"","data-label=\"Liput\""],
+[">Tickets ↗</a>",">Liput ↗</a>"],
+["← Explore all Events","← Kaikki keikat"],
+["← Festival partners","← Festivaalit"],
+["<a href=\"/\">Home</a>","<a href=\"/\">Etusivu</a>"],
+["<a href=\"/events/\">Events</a>","<a href=\"/events/\">Keikat</a>"],
+["<a href=\"/clients/\">Clients</a>","<a href=\"/clients/\">Yhteistyöt</a>"],
+["<a href=\"/festivals/\">Festival partners</a>","<a href=\"/festivals/\">Festivaalit</a>"],
+[" / Artists"," / Artistit"],
+[" / Touring history"," / Kiertuehistoria"],
+[" / Clients"," / Yhteistyöt"],
+[" / Festival partners"," / Festivaalit"],
+["<p>Upcoming gigs and our full concert archive.</p>","<p>Tulevat keikat ja koko keikkahistoriamme.</p>"],
+["<p>Artists and projects we work with, plus their gig histories.</p>","<p>Yhteistyöartistit ja heidän keikkahistoriansa.</p>"],
+["<p>Festival partnerships and their history.</p>","<p>Festivaalit, joiden kanssa olemme tehneet yhteistyötä, sekä niiden historia.</p>"],
+["<p>Selected tours and multi-date runs.</p>","<p>Valittuja kiertueita ja useamman keikan kokonaisuuksia.</p>"],
+["<p class=\"roadbook-lead\">Selected tour history.</p>","<p class=\"roadbook-lead\">Poimintoja kiertuehistoriastamme.</p>"],
+["Browse all 22 selected tours","Tutustu 22 valittuun kiertueeseen"],
+["Shop merch →","Osta merchandisea →"],
+["Location: ","Paikkakunta: "],
+["<p>Get to know more about us!</p>","<p>Tutustu Enslainin tarinaan ja porukkaan!</p>"],
+["Photo taken by ","Kuva: "],
+["(Phone/WhatsApp)","(Puhelin/WhatsApp)"],
+["Via Messenger Cat","Messenger-kissan kautta"],
+["y-tunnus: ","Y-tunnus: "],
+["VAT #: ","ALV-tunniste: "],
+["<a href=\"/contact/\" class=\"button\">Contact us</a>","<a href=\"/contact/\" class=\"button\">Ota yhteyttä</a>"],
+["<a href=\"/contact/\" class=\"button\">Join us!</a>","<a href=\"/contact/\" class=\"button\">Tule mukaan!</a>"],
+[">Read more</a>",">Lue lisää</a>"],
+["Here's what we have coming up, plus an abundant (dare I say prolific!) history of where we've been.","Katso tulevat keikkamme ja selaa pitkää (kehtaamme sanoa: suorastaan mittavaa!) keikkahistoriaamme."],
+["Enslain Metal Merch is the official festival and artist merchandise sales partner of Steelfest. Here you’ll find the festival editions we’ve worked, their lineups, and tickets for upcoming events.","Enslain Metal Merch on Steelfestin virallinen festivaali- ja artistimerchandisen myyntikumppani. Täältä löydät tapahtumavuodet, esiintyjät ja tulevien tapahtumien liput."]
+];
+const pageCopy={
+services:[],
+volunteers:[]};
+export function localize(source,route){
+ let s=source;
+ const uiSwap=(a,b)=>{if(s.includes(a))s=s.replaceAll(a,b)};
+ const display=s.match(/<h1[^>]*>([^<]+)<\/h1>/)?.[1]?.replaceAll("&amp;","&")||route.split("/").pop();
+ const top=route.split("/")[0];
+ const seo=titles[route]||[display+" – "+(top==="artists"?"keikat":top==="festivals"?"festivaalihistoria":"kiertueen keikat"),"Tutustu Enslainin "+(top==="artists"?"artistiyhteistyöhön ja keikkahistoriaan":top==="festivals"?"festivaaliyhteistyöhön ja tapahtumiin":"kiertuehistoriaan")+": "+display+"."];
+ const escHtml=x=>x.replaceAll("&","&amp;").replaceAll('"',"&quot;");
+ s=uiSwapRet(s,'<html lang="en-US">','<html lang="fi">');
+ s=s.replace(/<title>[\s\S]*?<\/title>/,'<title>'+escHtml(seo[0])+' | Enslain Metal Merch</title>')
+ .replace(/<meta name="description" content="[^"]*">/,'<meta name="description" content="'+escHtml(seo[1])+'">')
+ .replace(/<meta property="og:title" content="[^"]*">/,'<meta property="og:title" content="'+escHtml(seo[0])+' | Enslain Metal Merch">')
+ .replace(/<meta property="og:description" content="[^"]*">/,'<meta property="og:description" content="'+escHtml(seo[1])+'">');
+ const en="https://www.enslain.net/"+route+"/",fi="https://www.enslain.net/fi/"+route+"/";
+ s=s.replace(/<link rel="canonical" href="[^"]*">/,'<link rel="canonical" href="'+fi+'">')
+ .replace(/<meta property="og:url" content="[^"]*">/,'<meta property="og:url" content="'+fi+'">');
+ uiSwap('<link rel="stylesheet" href="/assets/style.css">','<link rel="stylesheet" href="/assets/style.css">\n  <link rel="stylesheet" href="/assets/locale.css">');
+ if(!s.includes('hreflang="fi"'))s=s.replace(/<link rel="canonical"[^>]*>/,v=>v+'\n  <link rel="alternate" hreflang="en" href="'+en+'">\n  <link rel="alternate" hreflang="fi" href="'+fi+'">');
+ // Avoid search-engine duplicate pages for unchanged English biographies and Roadbook listings.
+ if(route==="events"||route==="about"||(["artists","festivals","touring-history"].includes(top)&&route.includes("/")))s=s.replace("</head>",'  <meta name="robots" content="noindex,follow">\n</head>');
+ const a=s.indexOf('<nav class="header__primary-nav'),b=s.indexOf("</nav>",a);
+ if(a<0||b<0)throw new Error("Missing shared navigation in "+route);
+ let nav=s.slice(a,b+6);
+ for(const [enLabel,fiLabel] of [["Home","Etusivu"],["Services","Palvelut"],["Volunteers","Talkoolaiset"],["Events","Keikat"],["Clients","Yhteistyöt"],["Webshop","Verkkokauppa"],["About","Meistä"],["Contact","Yhteystiedot"]])nav=nav.replaceAll(">"+enLabel+"</a>",">"+fiLabel+"</a>");
+ nav=localLinks(nav);
+ const language='<nav class="locale-switch" aria-label="Language"><span class="locale-switch__label">Language</span><a href="/'+route+'/" lang="en">EN</a><span aria-hidden="true">·</span><a href="/fi/'+route+'/" lang="fi" aria-current="page">FI</a></nav>';
+ s=s.slice(0,a)+nav+'\n      '+language+s.slice(b+6);
+ for(const [x,y] of ui)uiSwap(x,y);
+ for(const [x,y] of pageCopy[route]||[])if(!s.includes(x))throw new Error("Translation source not found in "+route+": "+x.slice(0,70));else uiSwap(x,y);
+ if(top==="artists"){
+  s=s.replace(/(\d+) past events?\b/g,(_m,n)=>n+" "+(n==="1"?"mennyt keikka":"mennyttä keikkaa"));
+  s=s.replace(/(\d+) upcoming\b/g,(_m,n)=>n+" "+(n==="1"?"tuleva keikka":"tulevaa keikkaa"));
+ }
+ if(top==="festivals"){
+  s=s.replace(/(\d+) past events?\b/g,(_m,n)=>n+" "+(n==="1"?"aiempi tapahtuma":"aiempaa tapahtumaa"));
+  s=s.replace(/Next (?=\d)/g,"Seuraava ");
+ }
+ if(top==="touring-history"){
+  s=s.replace(/(\d+) gigs\b/g,(_m,n)=>n+" "+(n==="1"?"keikka":"keikkaa"));
+ }
+ if(route==="about"){
+  // Chrissy's and crew members' original biographies intentionally remain in English.
+  s=s.replace(/(<h3>Chrissy Hujanen \(Lady Enslain\)<\/h3>[\s\S]*?<div class="text-container")>/,'$1 lang="en">');
+  s=s.replace(/<li class="card card--crew">/g,'<li class="card card--crew" lang="en">');
+ }
+ if(route==="contact")uiSwap('href="mailto:merch@enslain.net "','href="mailto:merch@enslain.net"');
+ if(route==="events"){
+  for(const [x,y] of [["Clear filters","Tyhjennä suodattimet"],["Load more","Näytä lisää"],["Upcoming events","Tulevat tapahtumat"],["Past events","Menneet tapahtumat"],["No events found","Tapahtumia ei löytynyt"]])
+    s=s.replaceAll(">"+x+"</button>",">"+y+"</button>").replaceAll(">"+x+"</h2>",">"+y+"</h2>").replaceAll(">"+x+"</span>",">"+y+"</span>");
+ }
+ for(const [x,y] of [["Choose a color theme","Valitse väriteema"],["Toggle Chrissy Mode","Chrissy Mode"],["Follow or contact us!","Seuraa meitä tai ota yhteyttä!"]])uiSwap(">"+x+"<",">"+y+"<");
+ for(const [x,y] of [["Dark","Tumma teema"],["Light","Vaalea teema"],["Off","Pois"],["On","Päällä"]])uiSwap(">"+x+"</label>",">"+y+"</label>");
+ uiSwap('aria-label="scroll to top"','aria-label="Siirry sivun alkuun"');
+ uiSwap('aria-label="Link to home page"','aria-label="Etusivulle"');
+ uiSwap('aria-label="Open site navigation"','aria-label="Avaa valikko"');
+ s=localLinks(s);
+ return s;
+}
+function uiSwapRet(s,a,b){return s.replaceAll(a,b)}
