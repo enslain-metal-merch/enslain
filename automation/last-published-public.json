@@ -14796,6 +14796,23 @@
       "ticket": "https://www.ticketmaster.fi/artist/rukan-hiihtohelvetti-lippuja/1471334"
     },
     {
+      "id": "EV-2027-0045",
+      "start": "2027-02-13",
+      "end": "2027-02-13",
+      "date": "13 Feb 2027",
+      "name": "Kadotus Metal Meeting",
+      "venue": "Lutakko",
+      "city": "Jyväskylä",
+      "country": "Finland",
+      "details": "feat. Kalmah; with Paara, Voidfallen",
+      "bands": [
+        "Kalmah",
+        "Paara",
+        "Voidfallen"
+      ],
+      "ticket": "https://www.jelmu.net/event/kadotus-metal-meeting-2027-2pv"
+    },
+    {
       "id": "EV-2027-0037",
       "start": "2027-04-09",
       "end": "2027-04-10",
@@ -14943,5 +14960,5 @@
       "ticket": "https://www.netticket.fi/kaaos-festival-2027"
     }
   ],
-  "lastSnapshotDay": "2026-11-17"
+  "lastSnapshotDay": "2026-11-24"
 }
